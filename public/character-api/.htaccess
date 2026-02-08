@@ -1,0 +1,14 @@
+RewriteEngine On
+RewriteRule ^ - [E=WS_CHARACTER_API:1]
+RewriteCond %{ENV:WS_CHARACTER_API} =1
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [L]
+
+<IfModule mod_headers.c>
+  Header unset Access-Control-Allow-Origin
+  Header unset Access-Control-Allow-Methods
+  Header unset Access-Control-Allow-Headers
+  Header set Access-Control-Allow-Origin "*"
+  Header set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
+  Header set Access-Control-Allow-Headers "Content-Type, Authorization"
+</IfModule>
