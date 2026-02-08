@@ -96,7 +96,7 @@ Admin endpoints:
   - Deletes all characters. Returns `{ ok: true, deleted }`.
 
 Storage:
-- SQLite at `public/character-api/characters.sqlite` by default.
+- SQLite default: `/hdd/sites/stuartpringle/whisperspace-character-builder/db/characters.sqlite`
 - Override with `WS_CHARACTER_DB_PATH`.
 - Sample env: `public/character-api/.env.example` (do not deploy as `.env`).
 

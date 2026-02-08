@@ -128,7 +128,7 @@ $tail = $idx === false ? [] : array_slice($segments, $idx + 1);
 function db_path(): string {
   $env = getenv("WS_CHARACTER_DB_PATH");
   if (is_string($env) && $env !== "") return $env;
-  return __DIR__ . "/characters.sqlite";
+  return "/hdd/sites/stuartpringle/whisperspace-character-builder/db/characters.sqlite";
 }
 
 function open_db(): PDO {
