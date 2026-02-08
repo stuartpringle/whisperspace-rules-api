@@ -65,13 +65,14 @@ Endpoints:
 - `/rules-api/calc/point-budget`
 - `/rules-api/calc/validate-sheet`
 
-## Character API (Draft)
+## Character API (SQLite-backed)
 
 Base URL:
 - `https://whisperspace.com/character-api`
 
-Auth (planned):
-- Optional now, later required. Suggested header: `Authorization: Bearer <token>`.
+Auth (shared key):
+- Set `WS_CHARACTER_API_KEY` in `/hdd/sites/stuartpringle/whisperspace/.env`.
+- Clients send `Authorization: Bearer <key>` or `?api_key=...`.
 
 Endpoints:
 - `GET /character-api/health`
@@ -79,14 +80,19 @@ Endpoints:
 - `GET /character-api/characters`
   - Returns array of `{ id, name, updatedAt }`.
 - `POST /character-api/characters`
-  - Body: full character sheet.
-  - Returns saved sheet.
+  - Body: full character sheet. Generates `id` if missing.
 - `GET /character-api/characters/:id`
   - Returns full sheet.
 - `PUT /character-api/characters/:id`
-  - Body: full sheet. Returns saved sheet.
+  - Body: full sheet. Uses `If-Unmodified-Since` to detect conflicts.
+  - On conflict: `409` with `{ error: "conflict", current: <sheet> }`.
 - `DELETE /character-api/characters/:id`
   - Returns `{ ok: true }`.
+
+Storage:
+- SQLite at `public/character-api/characters.sqlite` by default.
+- Override with `WS_CHARACTER_DB_PATH`.
+- Sample env: `public/character-api/.env.example` (do not deploy as `.env`).
 
 Character sheet (v1) shape:
 ```json
@@ -116,5 +122,3 @@ Character sheet (v1) shape:
   "version": 1
 }
 ```
-
-Status: draft (no storage implemented yet).

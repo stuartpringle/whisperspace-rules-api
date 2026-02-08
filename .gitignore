@@ -1,3 +1,5 @@
 node_modules
 .DS_Store
 dist
+public/character-api/characters.sqlite
+public/character-api/.env
