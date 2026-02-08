@@ -177,6 +177,34 @@ if ($tail[0] === "health") {
   respond(200, ["ok" => true]);
 }
 
+if ($tail[0] === "admin") {
+  if (!isset($tail[1]) || $tail[1] !== "characters") {
+    respond(404, ["error" => "not_found"]);
+  }
+
+  $pdo = open_db();
+
+  if ($_SERVER["REQUEST_METHOD"] === "GET") {
+    $stmt = $pdo->query("SELECT id, name, created_at, updated_at FROM characters ORDER BY updated_at DESC");
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    respond(200, ["count" => count($rows), "items" => $rows ?: []]);
+  }
+
+  if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
+    $confirm = $_GET["confirm"] ?? "";
+    if ($confirm !== "1" && $confirm !== "true") {
+      respond(400, ["error" => "confirm_required", "message" => "Add ?confirm=1 to delete all characters."]);
+    }
+    $stmt = $pdo->query("SELECT COUNT(*) AS count FROM characters");
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $count = (int)($row["count"] ?? 0);
+    $pdo->exec("DELETE FROM characters");
+    respond(200, ["ok" => true, "deleted" => $count]);
+  }
+
+  respond(405, ["error" => "method_not_allowed"]);
+}
+
 if ($tail[0] !== "characters") {
   respond(404, ["error" => "not_found"]);
 }

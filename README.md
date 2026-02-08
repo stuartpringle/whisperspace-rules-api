@@ -89,6 +89,12 @@ Endpoints:
 - `DELETE /character-api/characters/:id`
   - Returns `{ ok: true }`.
 
+Admin endpoints:
+- `GET /character-api/admin/characters`
+  - Returns `{ count, items: [{ id, name, created_at, updated_at }] }`.
+- `DELETE /character-api/admin/characters?confirm=1`
+  - Deletes all characters. Returns `{ ok: true, deleted }`.
+
 Storage:
 - SQLite at `public/character-api/characters.sqlite` by default.
 - Override with `WS_CHARACTER_DB_PATH`.
