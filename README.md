@@ -74,6 +74,9 @@ Auth (shared key):
 - Set `WS_CHARACTER_API_KEY` in `/hdd/sites/stuartpringle/whisperspace/.env`.
 - Clients send `Authorization: Bearer <key>` or `?api_key=...`.
 
+Canonical schema:
+- `CharacterRecordV1` / `CharacterRecordV1Schema` in `@whisperspace/sdk` (source of truth).
+
 Endpoints:
 - `GET /character-api/health`
   - Returns `{ "ok": true }`.
