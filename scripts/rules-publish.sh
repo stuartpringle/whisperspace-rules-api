@@ -24,3 +24,6 @@ cp public/rules-api/calc/index.php /hdd/sites/stuartpringle/whisperspace/public/
 cp public/rules-api/calc/.htaccess /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/.htaccess
 mkdir -p /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/schemas
 cp public/rules-api/calc/schemas/*.json /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/schemas/
+
+echo "[rules:publish] Building Vite dist..."
+npm run build
