@@ -7,7 +7,6 @@ import path from "node:path";
 import process from "node:process";
 import crypto from "node:crypto";
 import YAML from "yaml";
-import { create as tarCreate } from "tar";
 
 const ROOT = process.cwd();
 const SRC = path.join(ROOT, "src", "data");
@@ -95,6 +94,8 @@ async function main() {
 
 async function archiveProject({ enabled }) {
   if (!enabled) return;
+
+  const { create: tarCreate } = await import("tar");
 
   // --- Archive step (final) ---
   const targets = [
