@@ -115,21 +115,22 @@ Character sheet (v1) shape:
 {
   "id": "uuid",
   "name": "",
-  "concept": "",
   "background": "",
-  "level": 1,
+  "motivation": "",
   "attributes": {
     "phys": 0,
     "ref": 0,
     "soc": 0,
     "ment": 0
   },
-  "skills": [
-    { "key": "", "label": "", "rank": 0, "focus": "" }
-  ],
-  "gear": [
-    { "id": "", "name": "", "type": "item", "tags": [], "notes": "" }
-  ],
+  "skills": {
+    "athletics": 0
+  },
+  "stress": { "current": 0, "cuf": 0, "cufLoss": 0 },
+  "wounds": { "light": 0, "moderate": 0, "heavy": 0 },
+  "weapons": [],
+  "armour": null,
+  "inventory": [],
   "notes": "",
   "createdAt": "",
   "updatedAt": "",
