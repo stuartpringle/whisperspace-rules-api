@@ -31,7 +31,7 @@ Parser README: `/hdd/sites/stuartpringle/whisperspace-rules-parser/README.md`
 ## HTTP Rules API
 
 Published at:
-- `https://whisperspace.com/rules-api/latest/`
+- `https://rules-api.whisperspace.com/latest/`
 
 Key files:
 - `rules.json` (full rules tree)
@@ -42,33 +42,33 @@ Key files:
 ### Core Module (HTTP)
 
 ```js
-import { buildAttackOutcome, deriveAttributesFromSkills } from "https://whisperspace.com/rules-api/latest/core/index.js";
+import { buildAttackOutcome, deriveAttributesFromSkills } from "https://rules-api.whisperspace.com/latest/core/index.js";
 ```
 
 ### Calc Endpoints (PHP)
 
 All endpoints are `POST` and accept JSON bodies. No auth required.
 Rate limit: 120 requests per minute per IP (best-effort).
-Schemas: `https://whisperspace.com/rules-api/calc/schemas/index.json`
+Schemas: `https://rules-api.whisperspace.com/calc/schemas/index.json`
 
 Endpoints:
-- `/rules-api/calc/attack`
-- `/rules-api/calc/crit-extra`
-- `/rules-api/calc/damage`
-- `/rules-api/calc/derive-attributes`
-- `/rules-api/calc/derive-cuf`
-- `/rules-api/calc/skill-notation`
-- `/rules-api/calc/skill-mod`
-- `/rules-api/calc/status-deltas`
-- `/rules-api/calc/status-apply`
-- `/rules-api/calc/ammo-max`
-- `/rules-api/calc/point-budget`
-- `/rules-api/calc/validate-sheet`
+- `/calc/attack`
+- `/calc/crit-extra`
+- `/calc/damage`
+- `/calc/derive-attributes`
+- `/calc/derive-cuf`
+- `/calc/skill-notation`
+- `/calc/skill-mod`
+- `/calc/status-deltas`
+- `/calc/status-apply`
+- `/calc/ammo-max`
+- `/calc/point-budget`
+- `/calc/validate-sheet`
 
 ## Character API (SQLite-backed)
 
 Base URL:
-- `https://whisperspace.com/character-api`
+- `https://rules-api.whisperspace.com/character-api`
 
 Auth (shared key):
 - Set `WS_CHARACTER_API_KEY` in `/hdd/sites/stuartpringle/whisperspace/.env`.
