@@ -152,6 +152,71 @@ function parse_body(): array {
   return is_array($body) ? $body : [];
 }
 
+function validate_record(array $body): array {
+  $errors = [];
+  $required = ["id", "name", "concept", "background", "level", "attributes", "skills", "gear", "notes", "createdAt", "updatedAt", "version"];
+  foreach ($required as $key) {
+    if (!array_key_exists($key, $body)) $errors[] = "$key is required";
+  }
+
+  if (isset($body["id"]) && !is_string($body["id"])) $errors[] = "id must be a string";
+  if (isset($body["name"]) && !is_string($body["name"])) $errors[] = "name must be a string";
+  if (isset($body["concept"]) && !is_string($body["concept"])) $errors[] = "concept must be a string";
+  if (isset($body["background"]) && !is_string($body["background"])) $errors[] = "background must be a string";
+  if (isset($body["level"]) && !is_numeric($body["level"])) $errors[] = "level must be a number";
+  if (isset($body["notes"]) && !is_string($body["notes"])) $errors[] = "notes must be a string";
+  if (isset($body["createdAt"]) && !is_string($body["createdAt"])) $errors[] = "createdAt must be a string";
+  if (isset($body["updatedAt"]) && !is_string($body["updatedAt"])) $errors[] = "updatedAt must be a string";
+  if (isset($body["version"]) && (int)$body["version"] !== 1) $errors[] = "version must be 1";
+
+  if (isset($body["attributes"]) && is_array($body["attributes"])) {
+    $attrs = ["phys", "dex", "int", "will", "cha", "emp"];
+    foreach ($attrs as $attr) {
+      if (!array_key_exists($attr, $body["attributes"]) || !is_numeric($body["attributes"][$attr])) {
+        $errors[] = "attributes.$attr must be a number";
+      }
+    }
+  } else {
+    $errors[] = "attributes must be an object";
+  }
+
+  if (isset($body["skills"]) && is_array($body["skills"])) {
+    foreach ($body["skills"] as $i => $skill) {
+      if (!is_array($skill)) {
+        $errors[] = "skills[$i] must be an object";
+        continue;
+      }
+      if (!isset($skill["key"]) || !is_string($skill["key"])) $errors[] = "skills[$i].key must be a string";
+      if (!isset($skill["label"]) || !is_string($skill["label"])) $errors[] = "skills[$i].label must be a string";
+      if (!isset($skill["rank"]) || !is_numeric($skill["rank"])) $errors[] = "skills[$i].rank must be a number";
+      if (isset($skill["focus"]) && !is_string($skill["focus"])) $errors[] = "skills[$i].focus must be a string";
+    }
+  } else {
+    $errors[] = "skills must be an array";
+  }
+
+  $gearTypes = ["weapon", "armour", "item", "cyberware", "narcotic", "hacker_gear"];
+  if (isset($body["gear"]) && is_array($body["gear"])) {
+    foreach ($body["gear"] as $i => $gear) {
+      if (!is_array($gear)) {
+        $errors[] = "gear[$i] must be an object";
+        continue;
+      }
+      if (!isset($gear["id"]) || !is_string($gear["id"])) $errors[] = "gear[$i].id must be a string";
+      if (!isset($gear["name"]) || !is_string($gear["name"])) $errors[] = "gear[$i].name must be a string";
+      if (!isset($gear["type"]) || !is_string($gear["type"]) || !in_array($gear["type"], $gearTypes, true)) {
+        $errors[] = "gear[$i].type must be valid";
+      }
+      if (isset($gear["tags"]) && !is_array($gear["tags"])) $errors[] = "gear[$i].tags must be an array";
+      if (isset($gear["notes"]) && !is_string($gear["notes"])) $errors[] = "gear[$i].notes must be a string";
+    }
+  } else {
+    $errors[] = "gear must be an array";
+  }
+
+  return $errors;
+}
+
 function get_if_unmodified_since(): ?string {
   $headers = function_exists("getallheaders") ? getallheaders() : [];
   $val = $headers["If-Unmodified-Since"] ?? $headers["if-unmodified-since"] ?? null;
@@ -227,6 +292,15 @@ if (count($tail) === 1) {
     $body["createdAt"] = $body["createdAt"] ?? $now;
     $body["updatedAt"] = $body["updatedAt"] ?? $now;
 
+    $body["id"] = $id;
+    $body["createdAt"] = $body["createdAt"] ?? $now;
+    $body["updatedAt"] = $body["updatedAt"] ?? $now;
+
+    $errors = validate_record($body);
+    if (count($errors) > 0) {
+      respond(400, ["error" => "validation_failed", "details" => $errors]);
+    }
+
     $stmt = $pdo->prepare("SELECT id FROM characters WHERE id = :id");
     $stmt->execute([":id" => $id]);
     if ($stmt->fetch()) {
@@ -266,11 +340,11 @@ if ($_SERVER["REQUEST_METHOD"] === "DELETE") {
   respond(200, ["ok" => true]);
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "PUT") {
-  $body = parse_body();
-  if (($body["id"] ?? $id) !== $id) {
-    respond(400, ["error" => "id_mismatch"]);
-  }
+  if ($_SERVER["REQUEST_METHOD"] === "PUT") {
+    $body = parse_body();
+    if (($body["id"] ?? $id) !== $id) {
+      respond(400, ["error" => "id_mismatch"]);
+    }
 
   $stmt = $pdo->prepare("SELECT data, updated_at FROM characters WHERE id = :id");
   $stmt->execute([":id" => $id]);
@@ -294,6 +368,12 @@ if ($_SERVER["REQUEST_METHOD"] === "PUT") {
     $body["createdAt"] = $body["createdAt"] ?? $now;
   }
   $body["updatedAt"] = $now;
+  $body["id"] = $id;
+
+  $errors = validate_record($body);
+  if (count($errors) > 0) {
+    respond(400, ["error" => "validation_failed", "details" => $errors]);
+  }
   $name = $body["name"] ?? "";
 
   if ($row) {
