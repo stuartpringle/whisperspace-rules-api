@@ -120,11 +120,9 @@ Character sheet (v1) shape:
   "level": 1,
   "attributes": {
     "phys": 0,
-    "dex": 0,
-    "int": 0,
-    "will": 0,
-    "cha": 0,
-    "emp": 0
+    "ref": 0,
+    "soc": 0,
+    "ment": 0
   },
   "skills": [
     { "key": "", "label": "", "rank": 0, "focus": "" }
