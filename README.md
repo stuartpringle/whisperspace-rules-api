@@ -76,6 +76,7 @@ Auth (shared key):
 
 Canonical schema:
 - `CharacterRecordV1` / `CharacterRecordV1Schema` in `@whisperspace/sdk` (source of truth).
+- JSON schema file: `/hdd/sites/stuartpringle/whisperspace-sdk/schema/character-record.v1.json`
 - Schema endpoint: `https://rules-api.whisperspace.com/character-api/schema.json`
 
 Endpoints:
@@ -105,6 +106,9 @@ Storage:
 - SQLite default: `/hdd/sites/stuartpringle/whisperspace-character-builder/db/characters.sqlite`
 - Override with `WS_CHARACTER_DB_PATH`.
 - Sample env: `public/character-api/.env.example` (do not deploy as `.env`).
+
+Schema override:
+- `WS_CHARACTER_SCHEMA_PATH` (override schema file path).
 
 Character sheet (v1) shape:
 ```json
