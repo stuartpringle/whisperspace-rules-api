@@ -76,10 +76,13 @@ Auth (shared key):
 
 Canonical schema:
 - `CharacterRecordV1` / `CharacterRecordV1Schema` in `@whisperspace/sdk` (source of truth).
+- Schema endpoint: `https://rules-api.whisperspace.com/character-api/schema.json`
 
 Endpoints:
 - `GET /character-api/health`
   - Returns `{ "ok": true }`.
+- `GET /character-api/schema.json`
+  - Returns JSON schema for `CharacterRecordV1`.
 - `GET /character-api/characters`
   - Returns array of `{ id, name, updatedAt }`.
 - `POST /character-api/characters`

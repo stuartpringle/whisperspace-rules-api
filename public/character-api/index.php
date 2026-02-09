@@ -155,8 +155,13 @@ function parse_body(): array {
 function validate_record(array $body): array {
   $errors = [];
   $required = ["id", "name", "concept", "background", "level", "attributes", "skills", "gear", "notes", "createdAt", "updatedAt", "version"];
+  $allowedTop = $required;
+  $allowedTop[] = "tags";
   foreach ($required as $key) {
     if (!array_key_exists($key, $body)) $errors[] = "$key is required";
+  }
+  foreach ($body as $key => $_) {
+    if (!in_array($key, $allowedTop, true)) $errors[] = "unknown property: $key";
   }
 
   if (isset($body["id"]) && !is_string($body["id"])) $errors[] = "id must be a string";
@@ -176,6 +181,9 @@ function validate_record(array $body): array {
         $errors[] = "attributes.$attr must be a number";
       }
     }
+    foreach ($body["attributes"] as $key => $_) {
+      if (!in_array($key, $attrs, true)) $errors[] = "unknown attributes key: $key";
+    }
   } else {
     $errors[] = "attributes must be an object";
   }
@@ -185,6 +193,11 @@ function validate_record(array $body): array {
       if (!is_array($skill)) {
         $errors[] = "skills[$i] must be an object";
         continue;
+      }
+      foreach ($skill as $key => $_) {
+        if (!in_array($key, ["key", "label", "rank", "focus"], true)) {
+          $errors[] = "skills[$i] unknown property: $key";
+        }
       }
       if (!isset($skill["key"]) || !is_string($skill["key"])) $errors[] = "skills[$i].key must be a string";
       if (!isset($skill["label"]) || !is_string($skill["label"])) $errors[] = "skills[$i].label must be a string";
@@ -201,6 +214,11 @@ function validate_record(array $body): array {
       if (!is_array($gear)) {
         $errors[] = "gear[$i] must be an object";
         continue;
+      }
+      foreach ($gear as $key => $_) {
+        if (!in_array($key, ["id", "name", "type", "tags", "notes"], true)) {
+          $errors[] = "gear[$i] unknown property: $key";
+        }
       }
       if (!isset($gear["id"]) || !is_string($gear["id"])) $errors[] = "gear[$i].id must be a string";
       if (!isset($gear["name"]) || !is_string($gear["name"])) $errors[] = "gear[$i].name must be a string";
@@ -229,6 +247,7 @@ if (count($tail) === 0) {
     "status" => "ok",
     "endpoints" => [
       "GET /character-api/health",
+      "GET /character-api/schema.json",
       "GET /character-api/characters",
       "POST /character-api/characters",
       "GET /character-api/characters/:id",
@@ -240,6 +259,85 @@ if (count($tail) === 0) {
 
 if ($tail[0] === "health") {
   respond(200, ["ok" => true]);
+}
+
+if ($tail[0] === "schema.json") {
+  respond(200, [
+    "\$schema" => "https://json-schema.org/draft/2020-12/schema",
+    "title" => "Whisperspace Character Record V1",
+    "type" => "object",
+    "required" => [
+      "id",
+      "name",
+      "concept",
+      "background",
+      "level",
+      "attributes",
+      "skills",
+      "gear",
+      "notes",
+      "createdAt",
+      "updatedAt",
+      "version",
+    ],
+    "properties" => [
+      "id" => ["type" => "string"],
+      "name" => ["type" => "string"],
+      "concept" => ["type" => "string"],
+      "background" => ["type" => "string"],
+      "level" => ["type" => "number"],
+      "attributes" => [
+        "type" => "object",
+        "required" => ["phys", "dex", "int", "will", "cha", "emp"],
+        "properties" => [
+          "phys" => ["type" => "number"],
+          "dex" => ["type" => "number"],
+          "int" => ["type" => "number"],
+          "will" => ["type" => "number"],
+          "cha" => ["type" => "number"],
+          "emp" => ["type" => "number"],
+        ],
+        "additionalProperties" => false,
+      ],
+      "skills" => [
+        "type" => "array",
+        "items" => [
+          "type" => "object",
+          "required" => ["key", "label", "rank"],
+          "properties" => [
+            "key" => ["type" => "string"],
+            "label" => ["type" => "string"],
+            "rank" => ["type" => "number"],
+            "focus" => ["type" => "string"],
+          ],
+          "additionalProperties" => false,
+        ],
+      ],
+      "gear" => [
+        "type" => "array",
+        "items" => [
+          "type" => "object",
+          "required" => ["id", "name", "type"],
+          "properties" => [
+            "id" => ["type" => "string"],
+            "name" => ["type" => "string"],
+            "type" => [
+              "type" => "string",
+              "enum" => ["weapon", "armour", "item", "cyberware", "narcotic", "hacker_gear"],
+            ],
+            "tags" => ["type" => "array", "items" => ["type" => "string"]],
+            "notes" => ["type" => "string"],
+          ],
+          "additionalProperties" => false,
+        ],
+      ],
+      "notes" => ["type" => "string"],
+      "createdAt" => ["type" => "string"],
+      "updatedAt" => ["type" => "string"],
+      "version" => ["type" => "number", "enum" => [1]],
+    ],
+    "additionalProperties" => false,
+  ]);
 }
 
 if ($tail[0] === "admin") {
