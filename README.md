@@ -137,3 +137,7 @@ Character sheet (v1) shape:
   "version": 1
 }
 ```
+
+Notes:
+- Skill IDs are defined by `https://rules-api.whisperspace.com/latest/skills.json`.
+- Inventory item types: `item`, `cyberware`, `narcotics`, `hacker_gear`.
