@@ -39,7 +39,17 @@ function splitKeywords(text) {
 }
 
 function tableToTextRows(table) {
-  return (table?.rows ?? []).map((row) => row.map((cell) => String(cell?.text ?? "").trim()));
+  return (table?.rows ?? []).map((row) => row.map((cell) => cellText(cell)));
+}
+
+function cellText(cell) {
+  const text = String(cell?.text ?? "").trim();
+  if (text) return text;
+  const spans = cell?.spans ?? [];
+  if (Array.isArray(spans) && spans.length) {
+    return spans.map((s) => String(s?.text ?? "").trim()).join("").trim();
+  }
+  return "";
 }
 
 function collectTables(node, out = []) {

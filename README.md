@@ -17,7 +17,7 @@ Parser README: `/hdd/sites/stuartpringle/whisperspace-rules-parser/README.md`
 
 1. Run the parser:
    ```bash
-   PYTHONPATH=src python3 -m whisperspace_rules_parser.cli --out out
+   PYTHONPATH=src python3 -m whisperspace_rules_parser.cli --out out --validate --diff
    ```
 2. Sync rules into this repo:
    ```bash
@@ -35,6 +35,7 @@ Published at:
 
 Key files:
 - `rules.json` (full rules tree)
+- `assets/images/*` (images referenced in rules content)
 - `skills.json`, `weapons.json`, `armour.json`, `items.json`, `cyberware.json`, `narcotics.json`, `hacking_gear.json`
 - `weapon_keywords.json`, `skill_tooltips.json`
 - `meta.json` (semver + hashes)

@@ -149,6 +149,16 @@ function collectTables(node, out = []) {
   return out;
 }
 
+function cellText(cell) {
+  const text = String(cell?.text ?? "").trim();
+  if (text) return text;
+  const spans = cell?.spans ?? [];
+  if (Array.isArray(spans) && spans.length) {
+    return spans.map((s) => String(s?.text ?? "").trim()).join("").trim();
+  }
+  return "";
+}
+
 function cleanDescription(text) {
   return String(text ?? "")
     .replace(/([a-z])([A-Z][a-z])/g, "$1. $2")
@@ -162,7 +172,7 @@ function extractSkillTooltips(ruleDoc) {
   const skills = {};
 
   for (const table of tables) {
-    const rows = (table?.rows ?? []).map((row) => row.map((cell) => String(cell?.text ?? "").trim()));
+    const rows = (table?.rows ?? []).map((row) => row.map((cell) => cellText(cell)));
     if (!rows.length) continue;
     let headerRowIndex = 0;
     let dataStartIndex = 1;
@@ -231,6 +241,19 @@ function writeRulesApiBundle() {
     try {
       fs.rmSync(path.join(dir, "armor.json"));
     } catch {}
+  }
+
+  // Copy assets (images) if present.
+  const assetsSrc = path.join(SRC, "rules", "assets");
+  if (fs.existsSync(assetsSrc)) {
+    for (const dir of [RULES_API_DIR, RULES_API_PUBLISH_DIR]) {
+      const assetsDest = path.join(dir, "assets");
+      try {
+        fs.rmSync(assetsDest, { recursive: true, force: true });
+      } catch {}
+      fs.mkdirSync(assetsDest, { recursive: true });
+      fs.cpSync(assetsSrc, assetsDest, { recursive: true });
+    }
   }
 
   const meta = {

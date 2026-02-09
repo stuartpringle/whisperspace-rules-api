@@ -15,6 +15,12 @@ cp "$SRC_DIR"/*.yaml "$DEST_DIR"/
 
 echo "[import-rules] Copied YAML files from $SRC_DIR to $DEST_DIR"
 
+if [[ -d "$SRC_DIR/assets" ]]; then
+  echo "[import-rules] Syncing assets..."
+  rm -rf "$DEST_DIR/assets"
+  cp -R "$SRC_DIR/assets" "$DEST_DIR/assets"
+fi
+
 echo "[import-rules] Parsing gear tables..."
 node scripts/parse-gear.mjs
 
