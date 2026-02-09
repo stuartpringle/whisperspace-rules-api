@@ -6,7 +6,8 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "noEmit": false
+    "noEmit": false,
+    "types": []
   },
   "include": ["src"]
 }
