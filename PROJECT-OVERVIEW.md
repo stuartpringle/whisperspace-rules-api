@@ -110,7 +110,9 @@ Use this section to keep a single-source, cross-repo status summary.
 - Current status: Production React/Vite builder is live at `https://builder.whisperspace.com` with rules-driven character creation, local drafts, and authenticated cloud save.
 - Recent milestones:
 - Added account UX polish in the Save dialog (clear login/signup/reset messaging and readable auth errors).
-- Clarified save permissions in UI copy: `private` (owner/admin) vs `public` (anyone with link).
+- Clarified save permissions in UI copy: `private` (just you) vs `public` (anyone).
+- Save dialog now closes on outside click and can auto-complete save after auth when unauthenticated users click Save.
+- Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
 - Next steps:
