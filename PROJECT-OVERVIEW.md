@@ -111,8 +111,12 @@ Use this section to keep a single-source, cross-repo status summary.
 - Recent milestones:
 - Added account UX polish in the Save dialog (clear login/signup/reset messaging and readable auth errors).
 - Clarified save permissions in UI copy: `private` (just you) vs `public` (anyone).
-- Save dialog now closes on outside click and can auto-complete save after auth when unauthenticated users click Save.
+- Save flow now uses staged modals (save menu -> auth when needed -> save options by target).
+- Save options are conditional by target (only show `New copy` when an existing local/cloud record exists).
+- Reset action now confirms and restores latest saved local/cloud copy when available.
 - Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
+- Skills UX refresh: grouped/collapsible trees, search-by-name, no slug labels, compact +/- rank controls, and tooltip hints.
+- Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
 - Next steps:
