@@ -123,6 +123,8 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
 - Fixed header account dropdown clipping.
+- Added sort-direction indicators to Character List headers.
+- Added keyboard-accessible account dropdown behavior (ARIA menu semantics + arrow/escape controls).
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
