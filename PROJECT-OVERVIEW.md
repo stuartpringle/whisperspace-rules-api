@@ -130,6 +130,8 @@ Use this section to keep a single-source, cross-repo status summary.
 - Fixed header account dropdown clipping.
 - Added sort-direction indicators to Character List headers.
 - Added keyboard-accessible account dropdown behavior (ARIA menu semantics + arrow/escape controls).
+- Synced favicon assets from `whisperspace.com` into the character builder.
+- Improved account dropdown hit-area sizing to resolve finicky hover/click behavior.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
