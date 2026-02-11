@@ -92,9 +92,14 @@ Canonical contracts and where they live:
 Use this section to keep a single-source, cross-repo status summary.
 
 ### whisperspace
-- Current status:
+- Current status: Production Statamic site is live at `https://whisperspace.com`, with newsletter functionality and reCAPTCHA-protected forms.
 - Recent milestones:
+- Upgraded to `anakadote/statamic-recaptcha:^3.0`.
+- Added backward-compatible reCAPTCHA version mapping in `config/recaptcha.php` so legacy `RECAPTCHA_VERSION=3/2` env values continue to work with the addon’s new `enterprise|v3|v2` config expectations.
+- Captured runtime integration notes in this repo’s `README.md` for future addon upgrades (cache clear + vendor publish steps).
 - Next steps:
+- Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
+- Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
 
 ### whisperspace-rules-api
 - Current status:
