@@ -133,6 +133,9 @@ Use this section to keep a single-source, cross-repo status summary.
 - Synced favicon assets from `whisperspace.com` into the character builder.
 - Improved account menu hit-area sizing to resolve finicky hover/click behavior.
 - Prototyped `augmented-ui` styling on builder shells (cards, tabs, modal cards, gear cards, primary CTAs).
+- Increased augmented-ui prototype intensity for clearer visual comparison.
+- Fixed OAuth/session cache behavior so stale cached null sessions do not mask fresh authenticated state after redirect.
+- Added auth guard redirect from protected pages (`/characters`, `/settings`) to builder when logged out.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
