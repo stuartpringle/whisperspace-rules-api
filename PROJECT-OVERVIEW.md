@@ -122,16 +122,16 @@ Use this section to keep a single-source, cross-repo status summary.
 - Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
 - Skills UX refresh: grouped/collapsible trees, search-by-name, no slug labels, compact +/- rank controls, and tooltip hints.
 - Added inline SVG skill-group icons for attribute/focus trees.
-- Added authenticated account dropdown with Character List / Settings / Log out actions.
+- Added authenticated account menu under username with Character Builder / Character List / Settings / Log out actions.
 - Implemented Character List page (search/sort/capacity slots/name-link/copy-link/edit, right-aligned numeric columns) with unsaved-change guard when switching edits.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
-- Fixed header account dropdown clipping.
+- Header/footer now use shared template rendering across builder/view/characters/settings pages.
+- Back-to-builder button now appears under page title on non-builder pages.
 - Added sort-direction indicators to Character List headers.
-- Added keyboard-accessible account dropdown behavior (ARIA menu semantics + arrow/escape controls).
 - Synced favicon assets from `whisperspace.com` into the character builder.
-- Improved account dropdown hit-area sizing to resolve finicky hover/click behavior.
+- Improved account menu hit-area sizing to resolve finicky hover/click behavior.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
