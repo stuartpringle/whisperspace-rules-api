@@ -132,6 +132,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added sort-direction indicators to Character List headers.
 - Synced favicon assets from `whisperspace.com` into the character builder.
 - Improved account menu hit-area sizing to resolve finicky hover/click behavior.
+- Prototyped `augmented-ui` styling on builder shells (cards, tabs, modal cards, gear cards, primary CTAs).
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
