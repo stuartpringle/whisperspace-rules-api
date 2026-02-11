@@ -116,6 +116,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - Reset action now confirms and restores latest saved local/cloud copy when available.
 - Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
 - Skills UX refresh: grouped/collapsible trees, search-by-name, no slug labels, compact +/- rank controls, and tooltip hints.
+- Added inline SVG skill-group icons for attribute/focus trees.
+- Added authenticated account dropdown with Character List / Settings / Log out actions.
+- Implemented Character List page (search/sort/capacity slots/view/copy-link/edit) with unsaved-change guard when switching edits.
+- Enforced character-limit checks before creating new cloud/local copies.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
