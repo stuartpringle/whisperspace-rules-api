@@ -190,9 +190,11 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
+- Gameplay-effect tags are now aggregated into a top-level `gameplayEffects` array for calc endpoints; gear payloads are omitted to avoid double-counting.
 - Next steps:
 - Expand character view page with fuller derived stats and gear totals.
 - Add manual rules-cache refresh control.
+- Resolve live gameplay-effects mismatch: verify deployed bundle hash, capture calc request payloads in DevTools, and add temporary in-app debug output if needed.
 - Ensure gear mapped from rules catalogs preserves `gameplayEffects` (or at least passes effect text) so calc endpoints can apply gameplay deltas consistently.
 
 ### whisperspace-developer
