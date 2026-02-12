@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generatedAt": "2026-02-12T05:27:26.385Z",
+  "generatedAt": "2026-02-12T06:46:16.434Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
@@ -39,8 +39,8 @@
       "bytes": 603603
     },
     "skill_tooltips.json": {
-      "sha256": "fa198cb51c79f30cb2f275de6d724f04d618716462164d4ccd4a942357fcab89",
-      "bytes": 2524
+      "sha256": "b3258dc5703043e34d49fee51ada6302700c9aaa77b49c1484be65b54dc27014",
+      "bytes": 16847
     },
     "core/combat.js": {
       "sha256": "4b8d4c01b283fc119fd1b71a32f7f5ab06f948a541af1f44074a00a0e81c1dd7",
@@ -71,8 +71,8 @@
       "bytes": 681
     },
     "core/statusEffects.js": {
-      "sha256": "d2d473f454dd318124872e44e0b3fe32d10a3d974622601969b5bae39c5679c2",
-      "bytes": 1961
+      "sha256": "8bec8a42865fe0fede10dac50708c0ef61e3020f447c8a0653bd19b839ffd801",
+      "bytes": 2080
     },
     "core/weapons.js": {
       "sha256": "4cb647d45b44de5418357f2bac25f700122bfc5fe4595609fbdcdda09dc52000",

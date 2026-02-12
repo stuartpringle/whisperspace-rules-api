@@ -45,6 +45,21 @@ Key files:
 - `weapon_keywords.json`, `skill_tooltips.json`
 - `meta.json` (semver + hashes)
 
+### Skill Tooltips
+
+Endpoint:
+- `GET https://rules-api.whisperspace.com/rules-api/latest/skill_tooltips.json`
+
+Payload shape:
+- `attributes` / `attributesById`: keyed by attribute ids (`phys`, `ref`, `soc`, `ment`)
+- `attributesByShort`: keyed by short labels (`PHYS`, `REF`, `SOC`, `MENT`)
+- `skills` / `skillsById`: keyed by skill ids from `skills.json` (example: `stealth`, `weapons_light`)
+- `skillsByLabel`: keyed by display labels (backward compatibility)
+
+Integration note:
+- New consumers should use `skills` and `attributes` (ID-based maps).
+- `skillsByLabel` and `attributesByShort` are kept for compatibility with older clients.
+
 ### Core Module (HTTP)
 
 ```js
@@ -78,6 +93,7 @@ Gameplay effects contract (new):
 - Effects are additive across all provided non-empty sources:
   - top-level `gameplayEffects: string[]`
   - equipment payloads containing `gameplayEffects`/`gameplayEffect` under `weapons`, `armour`, `items`, `feats`, `inventory`, or `sheet`.
+  - snake_case variants are also accepted: `gameplay_effects`, `gameplay_effect`.
 - Programmatic extraction:
   - During gear parsing (`scripts/parse-gear.mjs`), if the source table has no gameplay-effects column, a best-effort parser infers effects from plain-English text (for example, `+5 Inventory Slots when worn` -> `carrying_capacity+5`).
   - During calc requests, if a feat/item/armour/weapon object has no explicit `gameplayEffects`, the calc API also performs best-effort extraction from `effect`/`special`/`description`/`text` fields.
@@ -94,6 +110,7 @@ Common gameplay effect keys:
 - Attributes: `phys`, `ref`, `soc`, `ment`
 - Derived: `cool_under_fire`, `speed`, `carrying_capacity`
 - Skills/stats: use the skill id (example: `stealth`)
+- Aliases accepted: `cuf` -> `cool_under_fire`, `carryingCapacity`/`inventorySlots` -> `carrying_capacity`
 
 Examples:
 

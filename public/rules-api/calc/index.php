@@ -374,9 +374,10 @@ function parse_status_effects(string $raw): array {
   $parts = array_filter(array_map("trim", explode(",", $raw)));
   foreach ($parts as $part) {
     if (!preg_match("/^([a-zA-Z0-9_\\-]+)\\s*[:]??\\s*([+\\-])\\s*(\\d+)$/", $part, $m)) continue;
-    $key = strtolower(preg_replace("/\\s+/", "_", $m[1]));
+    $key = canonical_effect_key((string)$m[1]);
     $sign = $m[2] === "-" ? -1 : 1;
     $amt = (int)$m[3];
+    if ($key === "") continue;
     $deltas[$key] = ($deltas[$key] ?? 0) + $sign * $amt;
   }
   return $deltas;
@@ -389,14 +390,23 @@ function append_effect_string(array &$out, $value): void {
   $out[] = $trim;
 }
 
-function normalize_effect_key(string $raw): string {
+function canonical_effect_key(string $raw): string {
   $key = strtolower(trim($raw));
-  $key = preg_replace("/[^a-z0-9_\\s]/", "", $key);
-  $key = preg_replace("/\\s+/", " ", $key);
-  if ($key === "cuf" || $key === "cool under fire") return "cool_under_fire";
-  if ($key === "inventory slots" || $key === "inventory slot" || $key === "carrying capacity") return "carrying_capacity";
-  if (in_array($key, ["phys", "ref", "soc", "ment"], true)) return $key;
-  return str_replace(" ", "_", $key);
+  $key = str_replace(["-", " "], "_", $key);
+  $key = preg_replace("/[^a-z0-9_]/", "", $key);
+  $key = preg_replace("/_+/", "_", $key);
+  $key = trim($key, "_");
+  if ($key === "") return "";
+
+  $compact = str_replace("_", "", $key);
+  if (in_array($compact, ["cuf", "coolunderfire"], true)) return "cool_under_fire";
+  if (in_array($compact, ["carryingcapacity", "inventoryslot", "inventoryslots"], true)) return "carrying_capacity";
+  if (in_array($compact, ["phys", "ref", "soc", "ment"], true)) return $compact;
+  return $key;
+}
+
+function normalize_effect_key(string $raw): string {
+  return canonical_effect_key($raw);
 }
 
 function infer_gameplay_effects_from_text(string $raw): array {
@@ -461,6 +471,8 @@ function collect_gameplay_effects_from_entity($value, array &$out): void {
   $explicit = [];
   append_effect_string($explicit, $value["gameplayEffects"] ?? null);
   append_effect_string($explicit, $value["gameplayEffect"] ?? null);
+  append_effect_string($explicit, $value["gameplay_effects"] ?? null);
+  append_effect_string($explicit, $value["gameplay_effect"] ?? null);
   foreach ($explicit as $e) {
     $out[] = $e;
   }
@@ -480,6 +492,8 @@ function collect_gameplay_effects(array $body): array {
   $effects = [];
   collect_gameplay_effects_from_entity($body["gameplayEffects"] ?? null, $effects);
   collect_gameplay_effects_from_entity($body["gameplayEffect"] ?? null, $effects);
+  collect_gameplay_effects_from_entity($body["gameplay_effects"] ?? null, $effects);
+  collect_gameplay_effects_from_entity($body["gameplay_effect"] ?? null, $effects);
 
   foreach (["weapons", "armour", "armor", "items", "feats", "inventory", "equipped"] as $sourceKey) {
     collect_gameplay_effects_from_entity($body[$sourceKey] ?? null, $effects);
@@ -488,6 +502,7 @@ function collect_gameplay_effects(array $body): array {
   $sheet = is_array($body["sheet"] ?? null) ? $body["sheet"] : null;
   if ($sheet) {
     collect_gameplay_effects_from_entity($sheet["gameplayEffects"] ?? null, $effects);
+    collect_gameplay_effects_from_entity($sheet["gameplay_effects"] ?? null, $effects);
     foreach (["weapons", "armour", "armor", "items", "feats", "inventory", "equipped"] as $sourceKey) {
       collect_gameplay_effects_from_entity($sheet[$sourceKey] ?? null, $effects);
     }

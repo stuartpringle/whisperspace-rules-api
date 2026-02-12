@@ -77,8 +77,13 @@ async function main() {
     if (fs.existsSync(attrSkillsPath)) {
       const raw = fs.readFileSync(attrSkillsPath, "utf8");
       const parsed = YAML.parse(raw);
-      const { attributes, skills } = extractSkillTooltips(parsed);
-      fs.writeFileSync(TOOLTIP_OUT, JSON.stringify({ attributes, skills }, null, 2) + "\n", "utf8");
+      const rawTooltips = extractSkillTooltips(parsed);
+      let skillsData = null;
+      try {
+        skillsData = JSON.parse(fs.readFileSync(path.join(OUT, "skills.json"), "utf8"));
+      } catch {}
+      const tooltipPayload = buildTooltipPayload(rawTooltips, skillsData);
+      fs.writeFileSync(TOOLTIP_OUT, JSON.stringify(tooltipPayload, null, 2) + "\n", "utf8");
       console.log(`[generate-data] Wrote ${path.relative(ROOT, TOOLTIP_OUT)}`);
     } else {
       console.warn(`[generate-data] Missing ${path.relative(ROOT, attrSkillsPath)} (skipping tooltips)`);
@@ -167,6 +172,56 @@ function cleanDescription(text) {
     .trim();
 }
 
+function normalizeTooltipKey(text) {
+  return String(text ?? "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "_")
+    .replace(/^_+|_+$/g, "");
+}
+
+function buildTooltipPayload(rawTooltips, skillsData) {
+  const attributesByShort = rawTooltips.attributes ?? {};
+  const skillsByLabel = rawTooltips.skills ?? {};
+
+  const attributesById = {};
+  for (const [k, v] of Object.entries(attributesByShort)) {
+    const key = String(k).toLowerCase();
+    if (["phys", "ref", "soc", "ment"].includes(key)) attributesById[key] = v;
+  }
+
+  const labelToId = new Map();
+  const inherent = Array.isArray(skillsData?.inherent) ? skillsData.inherent : [];
+  const learnedByFocus = skillsData?.learned && typeof skillsData.learned === "object" ? skillsData.learned : {};
+
+  for (const skill of inherent) {
+    const norm = normalizeTooltipKey(skill?.label);
+    if (norm && typeof skill?.id === "string") labelToId.set(norm, skill.id);
+  }
+  for (const list of Object.values(learnedByFocus)) {
+    if (!Array.isArray(list)) continue;
+    for (const skill of list) {
+      const norm = normalizeTooltipKey(skill?.label);
+      if (norm && typeof skill?.id === "string") labelToId.set(norm, skill.id);
+    }
+  }
+
+  const skillsById = {};
+  for (const [label, description] of Object.entries(skillsByLabel)) {
+    const id = labelToId.get(normalizeTooltipKey(label));
+    if (id && !skillsById[id]) skillsById[id] = description;
+  }
+
+  return {
+    version: 2,
+    attributes: attributesById,
+    attributesById,
+    attributesByShort,
+    skills: skillsById,
+    skillsById,
+    skillsByLabel,
+  };
+}
+
 function extractSkillTooltips(ruleDoc) {
   const tables = collectTables(ruleDoc, []);
   const attributes = {};
@@ -180,6 +235,15 @@ function extractSkillTooltips(ruleDoc) {
     if (rows[0].length === 1 && rows.length > 1) {
       headerRowIndex = 1;
       dataStartIndex = 2;
+    } else if (rows.length > 1) {
+      const row0 = rows[0].map((h) => String(h).toLowerCase());
+      const row1 = rows[1].map((h) => String(h).toLowerCase());
+      const row0LooksHeader = row0.some((h) => h.includes("description") || h.includes("skill") || h.includes("attribute"));
+      const row1LooksHeader = row1.some((h) => h.includes("description") || h.includes("skill") || h.includes("attribute"));
+      if (!row0LooksHeader && row1LooksHeader) {
+        headerRowIndex = 1;
+        dataStartIndex = 2;
+      }
     }
     const header = rows[headerRowIndex].map((h) => h.toLowerCase());
 
