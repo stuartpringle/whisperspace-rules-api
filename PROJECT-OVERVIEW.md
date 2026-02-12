@@ -149,11 +149,17 @@ Use this section to keep a single-source, cross-repo status summary.
 - Moved Previous/Next controls into the builder content card.
 - Added drag-and-drop reordering for inventory and weapon cards.
 - Increased vertical padding on gear cards for readability.
+- Refactored gear step order and grouping: Weapons, Armour, then Items.
+- Added collapsed-by-default item/weapon rows with click-to-expand card details.
+- Added explicit drag handles to item/weapon rows to make reorder interactions discoverable.
+- Added compact item quantity controls and weapon ammo controls (minus/reload) in collapsed rows.
+- Added gameplay-effects editor/tag UX for items, weapons, and armour (typed target + signed amount, removable chips).
+- Updated catalog search so matching owned gear appears alongside rule-catalog results.
+- Unified cut-corner panel spacing to shared 25px top/bottom padding treatment and strengthened destructive-button hover contrast.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
 - Next steps:
-- Add authenticated "My Characters" listing/management.
 - Expand character view page with fuller derived stats and gear totals.
 - Add manual rules-cache refresh control.
 
