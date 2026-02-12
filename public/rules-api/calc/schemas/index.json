@@ -6,6 +6,8 @@
     "/damage": "damage.json",
     "/derive-attributes": "derive-attributes.json",
     "/derive-cuf": "derive-cuf.json",
+    "/derive-speed": "derive-speed.json",
+    "/derive-capacity": "derive-capacity.json",
     "/skill-notation": "skill-notation.json",
     "/skill-mod": "skill-mod.json",
     "/status-deltas": "status-deltas.json",

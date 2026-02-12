@@ -19,11 +19,21 @@ bash scripts/import-rules.sh "${PARSER_OUT}"
 echo "[rules:publish] Skipping SDK version sync (external repo)."
 
 echo "[rules:publish] Publishing calc endpoints..."
-mkdir -p /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc
-cp public/rules-api/calc/index.php /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/index.php
-cp public/rules-api/calc/.htaccess /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/.htaccess
-mkdir -p /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/schemas
-cp public/rules-api/calc/schemas/*.json /hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/schemas/
+CALC_SRC="public/rules-api/calc"
+CALC_DEST="/hdd/sites/stuartpringle/whisperspace-rules-api/public/rules-api/calc"
+if [[ "$(realpath -m "$CALC_SRC")" == "$(realpath -m "$CALC_DEST")" ]]; then
+  echo "[rules:publish] Calc endpoints already in publish dir; skipping copy."
+else
+  mkdir -p "$CALC_DEST"
+  cp "$CALC_SRC/index.php" "$CALC_DEST/index.php"
+  cp "$CALC_SRC/.htaccess" "$CALC_DEST/.htaccess"
+  mkdir -p "$CALC_DEST/schemas"
+  cp "$CALC_SRC/schemas/"*.json "$CALC_DEST/schemas/"
+fi
 
-echo "[rules:publish] Building Vite dist..."
-npm run build
+if [ -f "index.html" ]; then
+  echo "[rules:publish] Building Vite dist..."
+  npm run build
+else
+  echo "[rules:publish] Skipping Vite dist build (index.html not found)."
+fi

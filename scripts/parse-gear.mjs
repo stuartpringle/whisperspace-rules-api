@@ -80,6 +80,21 @@ function getCell(row, map, key) {
   return row[idx] ?? "";
 }
 
+function getGameplayEffects(row, map, itemName = "") {
+  const raw =
+    getCell(row, map, "gameplay effects") ||
+    getCell(row, map, "gameplay effect") ||
+    getCell(row, map, "gameplay");
+  const text = String(raw ?? "").trim();
+  if (text && text !== "-") return text;
+
+  // Backfill known legacy effects when source tables do not yet expose a column.
+  if (String(itemName).trim().toLowerCase() === "compact backpack") {
+    return "carrying_capacity+5";
+  }
+  return "";
+}
+
 function parseWeapons(tableRows) {
   const header = tableRows[1] ?? [];
   const map = buildIndexMap(header);
@@ -106,6 +121,7 @@ function parseWeapons(tableRows) {
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
     const special = getCell(row, map, "special");
     const cost = parseNumber(getCell(row, map, "cost"));
+    const gameplayEffects = getGameplayEffects(row, map, name);
 
     const item = {
       id,
@@ -121,6 +137,7 @@ function parseWeapons(tableRows) {
     if (req && req !== "-") item.req = req;
     const keywords = splitKeywords(special);
     if (keywords.length) item.keywords = keywords;
+    if (gameplayEffects) item.gameplayEffects = gameplayEffects;
     out.push(item);
   }
   return out;
@@ -140,6 +157,7 @@ function parseArmor(tableRows) {
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
     const special = getCell(row, map, "special");
     const cost = parseNumber(getCell(row, map, "cost"));
+    const gameplayEffects = getGameplayEffects(row, map, name);
 
     const item = {
       id,
@@ -151,6 +169,7 @@ function parseArmor(tableRows) {
     };
     if (req && req !== "-") item.req = req;
     if (special && special !== "-") item.special = special;
+    if (gameplayEffects) item.gameplayEffects = gameplayEffects;
     out.push(item);
   }
   return out;
@@ -167,7 +186,10 @@ function parseItems(tableRows) {
     const uses = getCell(row, map, "uses");
     const bulk = parseNumber(getCell(row, map, "bulk"));
     const cost = parseNumber(getCell(row, map, "cost"));
-    out.push({ name, effect, uses, bulk, cost });
+    const gameplayEffects = getGameplayEffects(row, map, name);
+    const item = { name, effect, uses, bulk, cost };
+    if (gameplayEffects) item.gameplayEffects = gameplayEffects;
+    out.push(item);
   }
   return out;
 }

@@ -3,6 +3,7 @@ export const FeatSchema = z.object({
     name: z.string().default(""),
     description: z.string().default(""),
     statusEffects: z.string().default(""),
+    gameplayEffects: z.string().default(""),
 });
 export const ArmourSchema = z.object({
     name: z.string().default(""),
@@ -19,6 +20,7 @@ export const ArmourSchema = z.object({
     req: z.string().optional(),
     cost: z.number().int().nonnegative().optional(),
     special: z.string().optional(),
+    gameplayEffects: z.string().optional(),
 });
 export const WeaponSchema = z.object({
     id: z.string().optional(),
@@ -33,4 +35,5 @@ export const WeaponSchema = z.object({
     bulk: z.number().int().nonnegative().optional(),
     req: z.string().optional(),
     cost: z.number().int().nonnegative().optional(),
+    gameplayEffects: z.string().optional(),
 });

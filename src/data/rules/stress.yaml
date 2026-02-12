@@ -89,6 +89,7 @@ sections:
       spans:
       - style: italic
         text: Indomitable
+        href: null
     - text: 'Failure: she suffers the stress as normal and enters into PTSD range.'
       spans:
       - style: link_underline
@@ -142,8 +143,10 @@ sections:
       spans: []
   - type: table
     rows:
-    - - text: PTSD Reaction Table
+    - - &id001
+        text: PTSD Reaction Table
         spans: []
+      - *id001
     - - text: 1d4 roll
         spans: []
       - text: Result
@@ -180,8 +183,11 @@ sections:
     spans: []
   - type: table
     rows:
-    - - text: Stress Breakdown Effects
+    - - &id002
+        text: Stress Breakdown Effects
         spans: []
+      - *id002
+      - *id002
     - - text: Roll (1d4)
         spans: []
       - text: Effect
@@ -202,6 +208,7 @@ sections:
         spans:
         - style: italic
           text: 'unconscious '
+          href: null
     - - text: '3'
         spans: []
       - text: Panic
@@ -210,6 +217,7 @@ sections:
         spans:
         - style: italic
           text: 'Flee '
+          href: null
     - - text: '4'
         spans: []
       - text: Mental Scar

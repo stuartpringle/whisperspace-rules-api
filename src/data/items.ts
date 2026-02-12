@@ -7,6 +7,7 @@ export type ItemTemplate = {
   bulk?: number;
   cost?: number;
   statusEffects?: string;
+  gameplayEffects?: string;
 };
 
 export const ITEM_TEMPLATES = (itemsJson as any).items as ItemTemplate[];

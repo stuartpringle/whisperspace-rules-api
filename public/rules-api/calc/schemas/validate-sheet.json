@@ -8,7 +8,17 @@
     "inherentSkills": {"type": "array", "items": {"type": "object", "required": ["id"], "properties": {"id": {"type": "string"}}}},
     "maxRankInherent": {"type": "integer"},
     "maxRankOnFocus": {"type": "integer"},
-    "maxRankOffFocus": {"type": "integer"}
+    "maxRankOffFocus": {"type": "integer"},
+    "gameplayEffects": {"type": "array", "items": {"type": "string"}},
+    "weapons": {"type": "array", "items": {"type": "object"}},
+    "armour": {
+      "oneOf": [
+        {"type": "object"},
+        {"type": "array", "items": {"type": "object"}}
+      ]
+    },
+    "items": {"type": "array", "items": {"type": "object"}},
+    "feats": {"type": "array", "items": {"type": "object"}}
   },
   "additionalProperties": false
 }

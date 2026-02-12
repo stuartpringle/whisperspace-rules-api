@@ -11,6 +11,7 @@ export type ArmorTemplate = {
   cost?: number;
   keywords?: string[];
   keywordParams?: Record<string, string | number | boolean>;
+  gameplayEffects?: string;
 };
 
 type ArmorFile = { armor: ArmorTemplate[] };

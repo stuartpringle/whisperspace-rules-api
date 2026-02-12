@@ -27,7 +27,7 @@ sections:
       basic way:'
     spans: []
   - type: image
-    src: images/image1.png
+    src: assets/images/image1.png
     alt: ''
   sections: []
 - title: Wound Severity Effects
@@ -48,6 +48,7 @@ sections:
     spans:
     - style: italic
       text: unconscious
+      href: null
     - style: link_underline
       text: Dying
       href: '#h.kih2cwvp5weu'

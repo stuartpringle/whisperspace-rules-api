@@ -4,6 +4,7 @@ export const FeatSchema = z.object({
   name: z.string().default(""),
   description: z.string().default(""),
   statusEffects: z.string().default(""),
+  gameplayEffects: z.string().default(""),
 });
 export type Feat = z.infer<typeof FeatSchema>;
 
@@ -22,6 +23,7 @@ export const ArmourSchema = z.object({
   req: z.string().optional(),
   cost: z.number().int().nonnegative().optional(),
   special: z.string().optional(),
+  gameplayEffects: z.string().optional(),
 });
 export type Armour = z.infer<typeof ArmourSchema>;
 
@@ -38,5 +40,6 @@ export const WeaponSchema = z.object({
   bulk: z.number().int().nonnegative().optional(),
   req: z.string().optional(),
   cost: z.number().int().nonnegative().optional(),
+  gameplayEffects: z.string().optional(),
 });
 export type Weapon = z.infer<typeof WeaponSchema>;

@@ -137,8 +137,18 @@ sections:
   content:
   - type: table
     rows:
-    - - text: Weapons
+    - - &id001
+        text: Weapons
         spans: []
+      - *id001
+      - *id001
+      - *id001
+      - *id001
+      - *id001
+      - *id001
+      - *id001
+      - *id001
+      - *id001
     - - text: Name
         spans: []
       - text: Type
@@ -466,8 +476,10 @@ sections:
     content:
     - type: table
       rows:
-      - - text: Weapon keywords
+      - - &id002
+          text: Weapon keywords
           spans: []
+        - *id002
       - - text: Concealable
           spans: []
         - text: May be hidden easily. +1 bonus die to subterfuge if trying to conceal
@@ -544,8 +556,15 @@ sections:
       content:
       - type: table
         rows:
-        - - text: Armour
+        - - &id003
+            text: Armour
             spans: []
+          - *id003
+          - *id003
+          - *id003
+          - *id003
+          - *id003
+          - *id003
         - - text: Name
             spans: []
           - text: Prot
@@ -682,8 +701,13 @@ sections:
     content:
     - type: table
       rows:
-      - - text: Items
+      - - &id004
+          text: Items
           spans: []
+        - *id004
+        - *id004
+        - *id004
+        - *id004
       - - text: Item Name
           spans: []
         - text: Effect
@@ -696,7 +720,7 @@ sections:
           spans: []
       - - text: Flashbang Grenade
           spans: []
-        - text: Applies Stun 1 to everyone within Very Near range, Thrown
+        - text: Applies Stun 1 to everyone within Very Near range, Thrownzz
           spans: []
         - text: 1 use
           spans: []
@@ -864,8 +888,15 @@ sections:
     content:
     - type: table
       rows:
-      - - text: Cyberware
+      - - &id005
+          text: Cyberware
           spans: []
+        - *id005
+        - *id005
+        - *id005
+        - *id005
+        - *id005
+        - *id005
       - - text: Name
           spans: []
         - text: Tier
@@ -1157,17 +1188,21 @@ sections:
           spans: []
         - text: '3'
           spans: []
-        - text: 'When you would take a Medium or Heavy wound, roll Cybernetics (DC8).-
-            Extreme success: ignore the wound.
-
-            - Success: ignore the wound; this cyberware effect cannot be used for
-            1 day.
-
-            - Failure: suffer the wound as normal; this cyberware effect cannot be
-            used for 1 day.
-
-            This effect may only trigger once per instance of damage.'
+        - text: When you would take a Medium or Heavy wound, roll Cybernetics (DC8).This
+            effect may only trigger once per instance of damage.
           spans: []
+          blocks:
+          - type: list
+            ordered: false
+            items:
+            - text: 'Extreme success: ignore the wound.'
+              spans: []
+            - text: 'Success: ignore the wound; this cyberware effect cannot be used
+                for 1 day.'
+              spans: []
+            - text: 'Failure: suffer the wound as normal; this cyberware effect cannot
+                be used for 1 day.'
+              spans: []
         - text: '4'
           spans: []
         - text: '-'
@@ -1333,8 +1368,14 @@ sections:
           spans: []
       - type: table
         rows:
-        - - text: Narcotics
+        - - &id006
+            text: Narcotics
             spans: []
+          - *id006
+          - *id006
+          - *id006
+          - *id006
+          - *id006
         - - text: Name
             spans: []
           - text: Effect
@@ -1423,8 +1464,10 @@ sections:
         spans: []
       - type: table
         rows:
-        - - text: Addiction Effects
+        - - &id007
+            text: Addiction Effects
             spans: []
+          - *id007
         - - text: Stage
             spans: []
           - text: Effect
@@ -1543,8 +1586,13 @@ sections:
   content:
   - type: table
     rows:
-    - - text: Rigs
+    - - &id008
+        text: Rigs
         spans: []
+      - *id008
+      - *id008
+      - *id008
+      - *id008
     - - text: Name
         spans: []
       - text: System Tier Access
@@ -1596,8 +1644,12 @@ sections:
       spans: []
     - type: table
       rows:
-      - - text: Software
+      - - &id009
+          text: Software
           spans: []
+        - *id009
+        - *id009
+        - *id009
       - - text: Software
           spans: []
         - text: Tier

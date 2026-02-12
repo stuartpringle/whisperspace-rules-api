@@ -208,7 +208,7 @@ sections:
     spans:
     - style: link_underline
       text: Whisperspace Prebuilt Ships
-      href: https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1770586801185801&usg=AOvVaw2rS_dJ4A55GJXWqxpPHpdf
+      href: https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1770789989444099&usg=AOvVaw2C8MyfDgIqRGRrl7Dnh8MN
   sections: []
 - title: Building Your Own Ships
   slug: building-your-own-ships
@@ -243,8 +243,15 @@ sections:
         spans: []
     - type: table
       rows:
-      - - text: Ship Sizes
+      - - &id001
+          text: Ship Sizes
           spans: []
+        - *id001
+        - *id001
+        - *id001
+        - *id001
+        - *id001
+        - *id001
       - - text: Size
           spans: []
         - text: Example
@@ -480,26 +487,32 @@ sections:
         spans:
         - style: italic
           text: 'Propulsion:'
+          href: null
       - text: 'Weapons:'
         spans:
         - style: italic
           text: 'Weapons:'
+          href: null
       - text: 'Defense:'
         spans:
         - style: italic
           text: 'Defense:'
+          href: null
       - text: 'Utility:'
         spans:
         - style: italic
           text: 'Utility:'
+          href: null
       - text: 'Command / Navigation:'
         spans:
         - style: italic
           text: 'Command / Navigation:'
+          href: null
       - text: 'Cargo:'
         spans:
         - style: italic
           text: 'Cargo:'
+          href: null
     sections: []
   - title: 5. Add Character (optional)
     slug: 5-add-character-optional
@@ -528,8 +541,14 @@ sections:
   content:
   - type: table
     rows:
-    - - text: Propulsion Modules
+    - - &id002
+        text: Propulsion Modules
         spans: []
+      - *id002
+      - *id002
+      - *id002
+      - *id002
+      - *id002
     - - text: Name
         spans: []
       - text: Slots
@@ -619,8 +638,13 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Power Modules
+    - - &id003
+        text: Power Modules
         spans: []
+      - *id003
+      - *id003
+      - *id003
+      - *id003
     - - text: Name
         spans: []
       - text: Slots
@@ -673,8 +697,16 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Weapon Modules
+    - - &id004
+        text: Weapon Modules
         spans: []
+      - *id004
+      - *id004
+      - *id004
+      - *id004
+      - *id004
+      - *id004
+      - *id004
     - - text: Name
         spans: []
       - text: Slots
@@ -869,8 +901,10 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Weapon Keywords
+    - - &id005
+        text: Weapon Keywords
         spans: []
+      - *id005
     - - text: Name
         spans: []
       - text: Effect
@@ -922,8 +956,13 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Defense Modules
+    - - &id006
+        text: Defense Modules
         spans: []
+      - *id006
+      - *id006
+      - *id006
+      - *id006
     - - text: Name
         spans: []
       - text: Slots
@@ -976,8 +1015,13 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Electronics Modules
+    - - &id007
+        text: Electronics Modules
         spans: []
+      - *id007
+      - *id007
+      - *id007
+      - *id007
     - - text: Name
         spans: []
       - text: Slots
@@ -1031,8 +1075,13 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Cargo & Utility Modules
+    - - &id008
+        text: Cargo & Utility Modules
         spans: []
+      - *id008
+      - *id008
+      - *id008
+      - *id008
     - - text: Name
         spans: []
       - text: Slots
@@ -1116,8 +1165,13 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Command & Navigation Modules
+    - - &id009
+        text: Command & Navigation Modules
         spans: []
+      - *id009
+      - *id009
+      - *id009
+      - *id009
     - - text: Name
         spans: []
       - text: Slots

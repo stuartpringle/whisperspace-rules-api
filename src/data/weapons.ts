@@ -13,6 +13,7 @@ export type WeaponTemplate = {
   cost?: number;
   keywords?: string[];
   keywordParams?: Record<string, string | number | boolean>;
+  gameplayEffects?: string;
 };
 
 type WeaponsFile = { weapons: WeaponTemplate[] };

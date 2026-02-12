@@ -11,15 +11,18 @@
         "spans": [
           {
             "style": "italic",
-            "text": "Alien, "
+            "text": "Alien, ",
+            "href": null
           },
           {
             "style": "italic",
-            "text": "Stargate: Atlantis"
+            "text": "Stargate: Atlantis",
+            "href": null
           },
           {
             "style": "italic",
-            "text": "The Expanse"
+            "text": "The Expanse",
+            "href": null
           }
         ]
       },
@@ -47,6 +50,14 @@
             {
               "text": "Description",
               "spans": []
+            },
+            {
+              "text": "Description",
+              "spans": []
+            },
+            {
+              "text": "Description",
+              "spans": []
             }
           ],
           [
@@ -60,6 +71,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "You have been well trained in the subtle arts of camouflage and stealth. While moving through dark or obscured areas, gain +1 bonus die to stealth checks. Darkness and shadows around you count as partial cover for you.",
+              "spans": []
+            },
+            {
+              "text": "You have been well trained in the subtle arts of camouflage and stealth. While moving through dark or obscured areas, gain +1 bonus die to stealth checks. Darkness and shadows around you count as partial cover for you.",
               "spans": []
             },
             {
@@ -83,6 +102,14 @@
             {
               "text": "When you incapacitate or kill a target, you may immediately force another target (who can both see and be seen by you) to make a Willpower roll (DC5 + your REF or Bearing). On a failure, the target suffers +1 stress and the Frightened condition. On an extreme failure, the target suffers +3 stress and the Fleeing condition.",
               "spans": []
+            },
+            {
+              "text": "When you incapacitate or kill a target, you may immediately force another target (who can both see and be seen by you) to make a Willpower roll (DC5 + your REF or Bearing). On a failure, the target suffers +1 stress and the Frightened condition. On an extreme failure, the target suffers +3 stress and the Fleeing condition.",
+              "spans": []
+            },
+            {
+              "text": "When you incapacitate or kill a target, you may immediately force another target (who can both see and be seen by you) to make a Willpower roll (DC5 + your REF or Bearing). On a failure, the target suffers +1 stress and the Frightened condition. On an extreme failure, the target suffers +3 stress and the Fleeing condition.",
+              "spans": []
             }
           ],
           [
@@ -96,6 +123,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Your first successful melee attack against a Surprised enemy is made with +1 bonus die. If you hit with an extreme success, your attack gains Piercing 2 (stacks with other sources of Piercing)",
+              "spans": []
+            },
+            {
+              "text": "Your first successful melee attack against a Surprised enemy is made with +1 bonus die. If you hit with an extreme success, your attack gains Piercing 2 (stacks with other sources of Piercing)",
               "spans": []
             },
             {
@@ -119,6 +154,14 @@
             {
               "text": "When you successfully make an attack roll with your main hand weapon, you may immediately make an attack roll with a Light weapon held in your off hand as a free action. This attack counts as part of your main hand weapon attack for the purposes of counting number of attacks per turn, however it suffers all penalty dice from the main hand weapon attack roll (if there were any), and additionally suffers +1 penalty die.",
               "spans": []
+            },
+            {
+              "text": "When you successfully make an attack roll with your main hand weapon, you may immediately make an attack roll with a Light weapon held in your off hand as a free action. This attack counts as part of your main hand weapon attack for the purposes of counting number of attacks per turn, however it suffers all penalty dice from the main hand weapon attack roll (if there were any), and additionally suffers +1 penalty die.",
+              "spans": []
+            },
+            {
+              "text": "When you successfully make an attack roll with your main hand weapon, you may immediately make an attack roll with a Light weapon held in your off hand as a free action. This attack counts as part of your main hand weapon attack for the purposes of counting number of attacks per turn, however it suffers all penalty dice from the main hand weapon attack roll (if there were any), and additionally suffers +1 penalty die.",
+              "spans": []
             }
           ],
           [
@@ -132,6 +175,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "When you or an ally within Very Near distance from you is attacked, you may spend a reaction to attack back, assuming you are within range and can see the attacker.",
+              "spans": []
+            },
+            {
+              "text": "When you or an ally within Very Near distance from you is attacked, you may spend a reaction to attack back, assuming you are within range and can see the attacker.",
               "spans": []
             },
             {
@@ -155,6 +206,14 @@
             {
               "text": "Whenever you make a successful roll in combat, you may choose to gain +1 bonus die on your next roll and suffer +1 stress. This effect stacks: if you succeed your next roll, you may choose to gain +2 bonus dice and suffer +1 stress. This stacking effect resets at the start of your next turn or when you fail a roll (stress gained does not reset).",
               "spans": []
+            },
+            {
+              "text": "Whenever you make a successful roll in combat, you may choose to gain +1 bonus die on your next roll and suffer +1 stress. This effect stacks: if you succeed your next roll, you may choose to gain +2 bonus dice and suffer +1 stress. This stacking effect resets at the start of your next turn or when you fail a roll (stress gained does not reset).",
+              "spans": []
+            },
+            {
+              "text": "Whenever you make a successful roll in combat, you may choose to gain +1 bonus die on your next roll and suffer +1 stress. This effect stacks: if you succeed your next roll, you may choose to gain +2 bonus dice and suffer +1 stress. This stacking effect resets at the start of your next turn or when you fail a roll (stress gained does not reset).",
+              "spans": []
             }
           ],
           [
@@ -168,6 +227,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "You appear calm, but there is a sense of readiness about you, as though you are waiting for something. You may spend 1 action to gain +1 bonus die to Bearing rolls. Every round of combat, instead of gaining 1 reaction, you gain reactions equal to your REF (minimum 1)",
+              "spans": []
+            },
+            {
+              "text": "You appear calm, but there is a sense of readiness about you, as though you are waiting for something. You may spend 1 action to gain +1 bonus die to Bearing rolls. Every round of combat, instead of gaining 1 reaction, you gain reactions equal to your REF (minimum 1)",
               "spans": []
             },
             {
@@ -191,6 +258,14 @@
             {
               "text": "After you successfully Dodge or Parry a melee attack, you may immediately attack back as a reaction. If this attack is successful, it is considered an extreme success.",
               "spans": []
+            },
+            {
+              "text": "After you successfully Dodge or Parry a melee attack, you may immediately attack back as a reaction. If this attack is successful, it is considered an extreme success.",
+              "spans": []
+            },
+            {
+              "text": "After you successfully Dodge or Parry a melee attack, you may immediately attack back as a reaction. If this attack is successful, it is considered an extreme success.",
+              "spans": []
             }
           ],
           [
@@ -204,6 +279,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Your body is used to constant, fluid motion. You may spend 1 action to gain +1 bonus die to Balance checks. After you kill or incapacitate an enemy using a Melee (weapons) or Melee (unarmed) attack, you gain +1 action you may use immediately.",
+              "spans": []
+            },
+            {
+              "text": "Your body is used to constant, fluid motion. You may spend 1 action to gain +1 bonus die to Balance checks. After you kill or incapacitate an enemy using a Melee (weapons) or Melee (unarmed) attack, you gain +1 action you may use immediately.",
               "spans": []
             },
             {
@@ -227,6 +310,14 @@
             {
               "text": "When you hit an enemy with a melee attack, you may: suffer +1 stress & upgrade the attack to an extreme success",
               "spans": []
+            },
+            {
+              "text": "When you hit an enemy with a melee attack, you may: suffer +1 stress & upgrade the attack to an extreme success",
+              "spans": []
+            },
+            {
+              "text": "When you hit an enemy with a melee attack, you may: suffer +1 stress & upgrade the attack to an extreme success",
+              "spans": []
             }
           ],
           [
@@ -245,6 +336,14 @@
             {
               "text": "Spend 2 reactions to gain one of the following benefits: Until the end of your next turn, reduce each instance of incoming damage by 1 wound. Until the end of your next turn, reduce each instance of incoming stress by 1.",
               "spans": []
+            },
+            {
+              "text": "Spend 2 reactions to gain one of the following benefits: Until the end of your next turn, reduce each instance of incoming damage by 1 wound. Until the end of your next turn, reduce each instance of incoming stress by 1.",
+              "spans": []
+            },
+            {
+              "text": "Spend 2 reactions to gain one of the following benefits: Until the end of your next turn, reduce each instance of incoming damage by 1 wound. Until the end of your next turn, reduce each instance of incoming stress by 1.",
+              "spans": []
             }
           ],
           [
@@ -258,6 +357,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "If you and at least one ally are in Melee range of each other, you both gain +1 bonus die to your Dodge and Parry reactions.",
+              "spans": []
+            },
+            {
+              "text": "If you and at least one ally are in Melee range of each other, you both gain +1 bonus die to your Dodge and Parry reactions.",
               "spans": []
             },
             {
@@ -292,6 +399,36 @@
                   "href": "#h.h1vxsml5cxvo"
                 }
               ]
+            },
+            {
+              "text": "Increase Cool Under Fire by +1. Additionally, once per turn you may ignore penalty dice from Suppressing Fire.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Cool Under Fire",
+                  "href": "#h.ik4eu1atnfyb"
+                },
+                {
+                  "style": "link_underline",
+                  "text": "Suppressing Fire",
+                  "href": "#h.h1vxsml5cxvo"
+                }
+              ]
+            },
+            {
+              "text": "Increase Cool Under Fire by +1. Additionally, once per turn you may ignore penalty dice from Suppressing Fire.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Cool Under Fire",
+                  "href": "#h.ik4eu1atnfyb"
+                },
+                {
+                  "style": "link_underline",
+                  "text": "Suppressing Fire",
+                  "href": "#h.h1vxsml5cxvo"
+                }
+              ]
             }
           ],
           [
@@ -305,6 +442,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Enemies within melee range of you must make a Cool Under Fire check (DC5 + your Bearing) at the start of their turns. On a success, they ignore your Daunting Presence for the remainder of combat. On a failure, they suffer +1 penalty die to all attacks until their next turn.",
+              "spans": []
+            },
+            {
+              "text": "Enemies within melee range of you must make a Cool Under Fire check (DC5 + your Bearing) at the start of their turns. On a success, they ignore your Daunting Presence for the remainder of combat. On a failure, they suffer +1 penalty die to all attacks until their next turn.",
               "spans": []
             },
             {
@@ -326,12 +471,80 @@
               "spans": []
             },
             {
-              "text": "When moving toward an enemy (Very Near range or closer), you may use an action to make a Bearing (DC8 + target’s Willpower) check with +1 bonus die.- Success: the target suffers +2 stress. \n- Extreme success: the target also gains the Fleeing condition.",
-              "spans": [
+              "text": "When moving toward an enemy (Very Near range or closer), you may use an action to make a Bearing (DC8 + target’s Willpower) check with +1 bonus die.",
+              "spans": [],
+              "blocks": [
                 {
-                  "style": "link_underline",
-                  "text": "Fleeing",
-                  "href": "#h.ju3pufy1twg8"
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "text": "Success: the target suffers +2 stress.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Extreme success: the target also gains the Fleeing condition.",
+                      "spans": [
+                        {
+                          "style": "link_underline",
+                          "text": "Fleeing",
+                          "href": "#h.ju3pufy1twg8"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "When moving toward an enemy (Very Near range or closer), you may use an action to make a Bearing (DC8 + target’s Willpower) check with +1 bonus die.",
+              "spans": [],
+              "blocks": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "text": "Success: the target suffers +2 stress.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Extreme success: the target also gains the Fleeing condition.",
+                      "spans": [
+                        {
+                          "style": "link_underline",
+                          "text": "Fleeing",
+                          "href": "#h.ju3pufy1twg8"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "text": "When moving toward an enemy (Very Near range or closer), you may use an action to make a Bearing (DC8 + target’s Willpower) check with +1 bonus die.",
+              "spans": [],
+              "blocks": [
+                {
+                  "type": "list",
+                  "ordered": false,
+                  "items": [
+                    {
+                      "text": "Success: the target suffers +2 stress.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Extreme success: the target also gains the Fleeing condition.",
+                      "spans": [
+                        {
+                          "style": "link_underline",
+                          "text": "Fleeing",
+                          "href": "#h.ju3pufy1twg8"
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             }
@@ -348,6 +561,26 @@
             {
               "text": "",
               "spans": []
+            },
+            {
+              "text": "Attempts to intimidate or scare you are made with +1 penalty die; additionally, you are immune to being Demoralized.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Demoralized",
+                  "href": "#h.p7xo9pm49k9v"
+                }
+              ]
+            },
+            {
+              "text": "Attempts to intimidate or scare you are made with +1 penalty die; additionally, you are immune to being Demoralized.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Demoralized",
+                  "href": "#h.p7xo9pm49k9v"
+                }
+              ]
             },
             {
               "text": "Attempts to intimidate or scare you are made with +1 penalty die; additionally, you are immune to being Demoralized.",
@@ -376,6 +609,14 @@
             {
               "text": "This one is descript",
               "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
             }
           ],
           [
@@ -389,6 +630,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Cybernetic enhancements are more than a physical reality to you; they are something you have spent hours feeling, thinking about, and accepting as part of who you are. Gain +1 bonus die to Cybernetics checks. If you are wearing at least 1 piece of cyberware, your attacks with Melee (weapon) weapons gain +1 bonus die.",
+              "spans": []
+            },
+            {
+              "text": "Cybernetic enhancements are more than a physical reality to you; they are something you have spent hours feeling, thinking about, and accepting as part of who you are. Gain +1 bonus die to Cybernetics checks. If you are wearing at least 1 piece of cyberware, your attacks with Melee (weapon) weapons gain +1 bonus die.",
               "spans": []
             },
             {
@@ -412,6 +661,14 @@
             {
               "text": "While wearing at least 1 piece of visible cyberware, gain +1 bonus die to Bearing checks made to intimidate.",
               "spans": []
+            },
+            {
+              "text": "While wearing at least 1 piece of visible cyberware, gain +1 bonus die to Bearing checks made to intimidate.",
+              "spans": []
+            },
+            {
+              "text": "While wearing at least 1 piece of visible cyberware, gain +1 bonus die to Bearing checks made to intimidate.",
+              "spans": []
             }
           ],
           [
@@ -425,6 +682,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "You may interface with nanites within your body the same way you would cyberware; you are immune to Nanomancy effects requiring contact.",
+              "spans": []
+            },
+            {
+              "text": "You may interface with nanites within your body the same way you would cyberware; you are immune to Nanomancy effects requiring contact.",
               "spans": []
             },
             {
@@ -444,6 +709,26 @@
             {
               "text": "",
               "spans": []
+            },
+            {
+              "text": "Gain access to all Reader Empathic Abilities",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Empathic Abilities",
+                  "href": "#h.6y40cli9uz99"
+                }
+              ]
+            },
+            {
+              "text": "Gain access to all Reader Empathic Abilities",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Empathic Abilities",
+                  "href": "#h.6y40cli9uz99"
+                }
+              ]
             },
             {
               "text": "Gain access to all Reader Empathic Abilities",
@@ -478,6 +763,26 @@
                   "href": "#h.6y40cli9uz99"
                 }
               ]
+            },
+            {
+              "text": "Gain access to all Pusher Empathic Abilities",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Empathic Abilities",
+                  "href": "#h.6y40cli9uz99"
+                }
+              ]
+            },
+            {
+              "text": "Gain access to all Pusher Empathic Abilities",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Empathic Abilities",
+                  "href": "#h.6y40cli9uz99"
+                }
+              ]
             }
           ],
           [
@@ -492,6 +797,26 @@
             {
               "text": "",
               "spans": []
+            },
+            {
+              "text": "Gain access to all Vessel Empathic Abilities",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Empathic Abilities",
+                  "href": "#h.6y40cli9uz99"
+                }
+              ]
+            },
+            {
+              "text": "Gain access to all Vessel Empathic Abilities",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Empathic Abilities",
+                  "href": "#h.6y40cli9uz99"
+                }
+              ]
             },
             {
               "text": "Gain access to all Vessel Empathic Abilities",
@@ -520,6 +845,14 @@
             {
               "text": "Gain +1 bonus die on Initiative (REF) rolls. If you use Quick Draw before combat is declared, you get one turn to act before Initiative is rolled. You may draw a Light weapon as a free action.",
               "spans": []
+            },
+            {
+              "text": "Gain +1 bonus die on Initiative (REF) rolls. If you use Quick Draw before combat is declared, you get one turn to act before Initiative is rolled. You may draw a Light weapon as a free action.",
+              "spans": []
+            },
+            {
+              "text": "Gain +1 bonus die on Initiative (REF) rolls. If you use Quick Draw before combat is declared, you get one turn to act before Initiative is rolled. You may draw a Light weapon as a free action.",
+              "spans": []
             }
           ],
           [
@@ -533,6 +866,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "You may reroll a missed attack roll once per turn. This reroll includes all bonus and penalty dice from the original roll.",
+              "spans": []
+            },
+            {
+              "text": "You may reroll a missed attack roll once per turn. This reroll includes all bonus and penalty dice from the original roll.",
               "spans": []
             },
             {
@@ -556,6 +897,14 @@
             {
               "text": "Whenever you roll an attack, roll 1d6 at the same time. If the number rolled on the d6 matches the number rolled on your base die or on any bonus dice (ignore penalty dice), you gain +1 bonus die on your next roll.",
               "spans": []
+            },
+            {
+              "text": "Whenever you roll an attack, roll 1d6 at the same time. If the number rolled on the d6 matches the number rolled on your base die or on any bonus dice (ignore penalty dice), you gain +1 bonus die on your next roll.",
+              "spans": []
+            },
+            {
+              "text": "Whenever you roll an attack, roll 1d6 at the same time. If the number rolled on the d6 matches the number rolled on your base die or on any bonus dice (ignore penalty dice), you gain +1 bonus die on your next roll.",
+              "spans": []
             }
           ],
           [
@@ -569,6 +918,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Choose an ally within Very Near range. Use 1 action to roll a Tactics (DC6) check. On success, your target may immediately move up to half their movement speed. On an extreme success, your target also gains +1 bonus die to all rolls until the end of their next turn.",
+              "spans": []
+            },
+            {
+              "text": "Choose an ally within Very Near range. Use 1 action to roll a Tactics (DC6) check. On success, your target may immediately move up to half their movement speed. On an extreme success, your target also gains +1 bonus die to all rolls until the end of their next turn.",
               "spans": []
             },
             {
@@ -592,6 +949,14 @@
             {
               "text": "When initiating a coordinated attack (setting an ambush, waiting for a moment to strike), each character who’s part of the coordinated attack gains +2 bonus dice to spend before the end of the first round of combat.",
               "spans": []
+            },
+            {
+              "text": "When initiating a coordinated attack (setting an ambush, waiting for a moment to strike), each character who’s part of the coordinated attack gains +2 bonus dice to spend before the end of the first round of combat.",
+              "spans": []
+            },
+            {
+              "text": "When initiating a coordinated attack (setting an ambush, waiting for a moment to strike), each character who’s part of the coordinated attack gains +2 bonus dice to spend before the end of the first round of combat.",
+              "spans": []
             }
           ],
           [
@@ -605,6 +970,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "When an ally within Very Near range suffers stress, you may use 1 reaction to roll a Bearing (DC5 + stress amount) check. On success, your ally ignores 1 incoming stress. On extreme success, your ally instead ignores half the incoming stress (rounded up). On failure, you suffer +1 stress.",
+              "spans": []
+            },
+            {
+              "text": "When an ally within Very Near range suffers stress, you may use 1 reaction to roll a Bearing (DC5 + stress amount) check. On success, your ally ignores 1 incoming stress. On extreme success, your ally instead ignores half the incoming stress (rounded up). On failure, you suffer +1 stress.",
               "spans": []
             },
             {
@@ -634,6 +1007,26 @@
                   "href": "#h.abk2uesvorh9"
                 }
               ]
+            },
+            {
+              "text": "Use 1 action to attempt a repair check (ignoring normal time constraints); imposes +1 penalty die on the check and uses double materials.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "repair check",
+                  "href": "#h.abk2uesvorh9"
+                }
+              ]
+            },
+            {
+              "text": "Use 1 action to attempt a repair check (ignoring normal time constraints); imposes +1 penalty die on the check and uses double materials.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "repair check",
+                  "href": "#h.abk2uesvorh9"
+                }
+              ]
             }
           ],
           [
@@ -652,6 +1045,14 @@
             {
               "text": "Create an item from the Items gear list with a cost no more than 500 credits. Requires an Engineering (DC8) check and takes 1 hour.",
               "spans": []
+            },
+            {
+              "text": "Create an item from the Items gear list with a cost no more than 500 credits. Requires an Engineering (DC8) check and takes 1 hour.",
+              "spans": []
+            },
+            {
+              "text": "Create an item from the Items gear list with a cost no more than 500 credits. Requires an Engineering (DC8) check and takes 1 hour.",
+              "spans": []
             }
           ],
           [
@@ -661,6 +1062,14 @@
             },
             {
               "text": "Fixer",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
               "spans": []
             },
             {
@@ -688,6 +1097,14 @@
             {
               "text": "Spend 1 reaction to reroll a failed First Aid check (once per round).",
               "spans": []
+            },
+            {
+              "text": "Spend 1 reaction to reroll a failed First Aid check (once per round).",
+              "spans": []
+            },
+            {
+              "text": "Spend 1 reaction to reroll a failed First Aid check (once per round).",
+              "spans": []
             }
           ],
           [
@@ -701,6 +1118,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "You may attempt to use First Aid checks to remove Heavy wounds. Doing so takes 1 hour and requires a difficult First Aid (DC12) check.",
+              "spans": []
+            },
+            {
+              "text": "You may attempt to use First Aid checks to remove Heavy wounds. Doing so takes 1 hour and requires a difficult First Aid (DC12) check.",
               "spans": []
             },
             {
@@ -724,6 +1149,14 @@
             {
               "text": "When you succeed on a First Aid check, remove up to 1 stress from the target. If you rolled an extreme success on the check, remove up to 2 stress instead.",
               "spans": []
+            },
+            {
+              "text": "When you succeed on a First Aid check, remove up to 1 stress from the target. If you rolled an extreme success on the check, remove up to 2 stress instead.",
+              "spans": []
+            },
+            {
+              "text": "When you succeed on a First Aid check, remove up to 1 stress from the target. If you rolled an extreme success on the check, remove up to 2 stress instead.",
+              "spans": []
             }
           ],
           [
@@ -737,6 +1170,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Once per turn when you move, you may make a weapon attack as a free action. This attack counts toward multiple attacks per turn as normal.",
+              "spans": []
+            },
+            {
+              "text": "Once per turn when you move, you may make a weapon attack as a free action. This attack counts toward multiple attacks per turn as normal.",
               "spans": []
             },
             {
@@ -760,6 +1201,14 @@
             {
               "text": "Once per round, gain +2 movement bonuses when moving toward or aid injured allies. Ignore all stress that would be gained during this movement.",
               "spans": []
+            },
+            {
+              "text": "Once per round, gain +2 movement bonuses when moving toward or aid injured allies. Ignore all stress that would be gained during this movement.",
+              "spans": []
+            },
+            {
+              "text": "Once per round, gain +2 movement bonuses when moving toward or aid injured allies. Ignore all stress that would be gained during this movement.",
+              "spans": []
             }
           ],
           [
@@ -773,6 +1222,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Use 1 reaction to make an Evade (DC7 + attacker’s weapon skill) check in order to avoid a gunshot.",
+              "spans": []
+            },
+            {
+              "text": "Use 1 reaction to make an Evade (DC7 + attacker’s weapon skill) check in order to avoid a gunshot.",
               "spans": []
             },
             {
@@ -796,6 +1253,14 @@
             {
               "text": "You know people, and those people know people. You can call in a favour or offer one in exchange for information, material aid, or anything else you may be in need of. The bigger the ask, the bigger the price, and the more dangerous the people you need to talk to in order to make it happen. Gain +1 bonus die to persuade and negotiate checks with unlawful individuals.",
               "spans": []
+            },
+            {
+              "text": "You know people, and those people know people. You can call in a favour or offer one in exchange for information, material aid, or anything else you may be in need of. The bigger the ask, the bigger the price, and the more dangerous the people you need to talk to in order to make it happen. Gain +1 bonus die to persuade and negotiate checks with unlawful individuals.",
+              "spans": []
+            },
+            {
+              "text": "You know people, and those people know people. You can call in a favour or offer one in exchange for information, material aid, or anything else you may be in need of. The bigger the ask, the bigger the price, and the more dangerous the people you need to talk to in order to make it happen. Gain +1 bonus die to persuade and negotiate checks with unlawful individuals.",
+              "spans": []
             }
           ],
           [
@@ -814,9 +1279,25 @@
             {
               "text": "When buying/selling, gain +1 bonus die to Negotiation checks.",
               "spans": []
+            },
+            {
+              "text": "When buying/selling, gain +1 bonus die to Negotiation checks.",
+              "spans": []
+            },
+            {
+              "text": "When buying/selling, gain +1 bonus die to Negotiation checks.",
+              "spans": []
             }
           ],
           [
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
             {
               "text": "",
               "spans": []
@@ -856,6 +1337,26 @@
                   "href": "#h.pmttk177ept2"
                 }
               ]
+            },
+            {
+              "text": "Your body and mind have become attuned to the presence of nanites. In locations with high nanite density (2+), you may reroll up to three failed checks per day.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "nanite density",
+                  "href": "#h.pmttk177ept2"
+                }
+              ]
+            },
+            {
+              "text": "Your body and mind have become attuned to the presence of nanites. In locations with high nanite density (2+), you may reroll up to three failed checks per day.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "nanite density",
+                  "href": "#h.pmttk177ept2"
+                }
+              ]
             }
           ],
           [
@@ -870,6 +1371,26 @@
             {
               "text": "MENT 2",
               "spans": []
+            },
+            {
+              "text": "Choose a Nanomancy Field; pick one Nanomantic Effect from your field and one from another field. You may use those effects. You may select this feat more than once.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Nanomancy Field",
+                  "href": "#h.vqto8knm87g4"
+                }
+              ]
+            },
+            {
+              "text": "Choose a Nanomancy Field; pick one Nanomantic Effect from your field and one from another field. You may use those effects. You may select this feat more than once.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Nanomancy Field",
+                  "href": "#h.vqto8knm87g4"
+                }
+              ]
             },
             {
               "text": "Choose a Nanomancy Field; pick one Nanomantic Effect from your field and one from another field. You may use those effects. You may select this feat more than once.",
@@ -904,6 +1425,26 @@
                   "href": "#h.pmttk177ept2"
                 }
               ]
+            },
+            {
+              "text": "You may spend an hour in a location with Nanite density 2 or more. For the next day, the area around you (medium range and closer) cannot have a nanite density lower than 1.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Nanite density",
+                  "href": "#h.pmttk177ept2"
+                }
+              ]
+            },
+            {
+              "text": "You may spend an hour in a location with Nanite density 2 or more. For the next day, the area around you (medium range and closer) cannot have a nanite density lower than 1.",
+              "spans": [
+                {
+                  "style": "link_underline",
+                  "text": "Nanite density",
+                  "href": "#h.pmttk177ept2"
+                }
+              ]
             }
           ],
           [
@@ -922,19 +1463,9 @@
             {
               "text": "This one is descript",
               "spans": []
-            }
-          ],
-          [
-            {
-              "text": "",
-              "spans": []
             },
             {
-              "text": "",
-              "spans": []
-            },
-            {
-              "text": "",
+              "text": "This one is descript",
               "spans": []
             },
             {
@@ -953,6 +1484,40 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
               "spans": []
             },
             {
@@ -976,6 +1541,14 @@
             {
               "text": "You are able to find ways to use scrap and other detritus that nobody else would even consider. When Salvaging, increase the level of success by 1. Additionally, when using salvaged materials for Repairing or Crafting, ignore the penalty die you would normally incur.",
               "spans": []
+            },
+            {
+              "text": "You are able to find ways to use scrap and other detritus that nobody else would even consider. When Salvaging, increase the level of success by 1. Additionally, when using salvaged materials for Repairing or Crafting, ignore the penalty die you would normally incur.",
+              "spans": []
+            },
+            {
+              "text": "You are able to find ways to use scrap and other detritus that nobody else would even consider. When Salvaging, increase the level of success by 1. Additionally, when using salvaged materials for Repairing or Crafting, ignore the penalty die you would normally incur.",
+              "spans": []
             }
           ],
           [
@@ -989,6 +1562,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "Designate a creature you are aware of as your Target. You may have up to two Targets at one time. Gain +1 bonus die on all Recall, Observe, and Research checks related to your currently designated Target(s). In combat with your Target, you may choose to: Narrow Focus: for the duration of combat (or until your Target is killed, incapacitated, or surrenders), you:",
+              "spans": []
+            },
+            {
+              "text": "Designate a creature you are aware of as your Target. You may have up to two Targets at one time. Gain +1 bonus die on all Recall, Observe, and Research checks related to your currently designated Target(s). In combat with your Target, you may choose to: Narrow Focus: for the duration of combat (or until your Target is killed, incapacitated, or surrenders), you:",
               "spans": []
             },
             {
@@ -1012,6 +1593,14 @@
             {
               "text": "You have a knack for finding the sheltered areas of a world; natural caves to wait out a sandstorm or even the last oxygen-filled compartment of a shuttle. You may roll Instinct (DC up to the GM) to try to find such a shelter.",
               "spans": []
+            },
+            {
+              "text": "You have a knack for finding the sheltered areas of a world; natural caves to wait out a sandstorm or even the last oxygen-filled compartment of a shuttle. You may roll Instinct (DC up to the GM) to try to find such a shelter.",
+              "spans": []
+            },
+            {
+              "text": "You have a knack for finding the sheltered areas of a world; natural caves to wait out a sandstorm or even the last oxygen-filled compartment of a shuttle. You may roll Instinct (DC up to the GM) to try to find such a shelter.",
+              "spans": []
             }
           ],
           [
@@ -1025,6 +1614,14 @@
             },
             {
               "text": "",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
+              "spans": []
+            },
+            {
+              "text": "This one is descript",
               "spans": []
             },
             {
@@ -1048,9 +1645,25 @@
             {
               "text": "",
               "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
             }
           ],
           [
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
             {
               "text": "",
               "spans": []
@@ -1084,16 +1697,6 @@
             {
               "text": "",
               "spans": []
-            }
-          ],
-          [
-            {
-              "text": "",
-              "spans": []
-            },
-            {
-              "text": "",
-              "spans": []
             },
             {
               "text": "",
@@ -1120,9 +1723,51 @@
             {
               "text": "",
               "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
             }
           ],
           [
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "",
+              "spans": []
+            },
+            {
+              "text": "",
+              "spans": []
+            },
             {
               "text": "",
               "spans": []
@@ -1219,8 +1864,28 @@
                   "spans": []
                 },
                 {
-                  "text": "Physical prowess, stamina, strength, and overall fitness- Each point in Physique increases your carrying capacity\n- Every point in Physique increases your movement speed by 5ft\n- Soldiers and brawlers typically have high PHYS",
-                  "spans": []
+                  "text": "Physical prowess, stamina, strength, and overall fitness",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Each point in Physique increases your carrying capacity",
+                          "spans": []
+                        },
+                        {
+                          "text": "Every point in Physique increases your movement speed by 5ft",
+                          "spans": []
+                        },
+                        {
+                          "text": "Soldiers and brawlers typically have high PHYS",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -1233,8 +1898,24 @@
                   "spans": []
                 },
                 {
-                  "text": "Quickness of mind and body sometimes bordering on instinct- Reflex is rolled to determine initiative order in combat\n- Pilots, Martial Artists, and Spiderman are all known for high REF",
-                  "spans": []
+                  "text": "Quickness of mind and body sometimes bordering on instinct",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Reflex is rolled to determine initiative order in combat",
+                          "spans": []
+                        },
+                        {
+                          "text": "Pilots, Martial Artists, and Spiderman are all known for high REF",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -1247,8 +1928,20 @@
                   "spans": []
                 },
                 {
-                  "text": "Empathy, charm, quickness of wit, gravitas, personal magnetism, and picking up on social cues- Diplomats and empaths typically have high SOC",
-                  "spans": []
+                  "text": "Empathy, charm, quickness of wit, gravitas, personal magnetism, and picking up on social cues",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Diplomats and empaths typically have high SOC",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -1261,8 +1954,20 @@
                   "spans": []
                 },
                 {
-                  "text": "Acuity, keenness of mind, learning ability, and mental toughness- Scientists, mechanics, and hackers are likely to want high MENT",
-                  "spans": []
+                  "text": "Acuity, keenness of mind, learning ability, and mental toughness",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Scientists, mechanics, and hackers are likely to want high MENT",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             ]
@@ -1783,6 +2488,14 @@
                     {
                       "text": "Physique",
                       "spans": []
+                    },
+                    {
+                      "text": "Physique",
+                      "spans": []
+                    },
+                    {
+                      "text": "Physique",
+                      "spans": []
                     }
                   ],
                   [
@@ -1875,6 +2588,14 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Reflex",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reflex",
+                      "spans": []
+                    },
                     {
                       "text": "Reflex",
                       "spans": []
@@ -1973,6 +2694,14 @@
                     {
                       "text": "Social",
                       "spans": []
+                    },
+                    {
+                      "text": "Social",
+                      "spans": []
+                    },
+                    {
+                      "text": "Social",
+                      "spans": []
                     }
                   ],
                   [
@@ -2065,6 +2794,14 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Mental",
+                      "spans": []
+                    },
+                    {
+                      "text": "Mental",
+                      "spans": []
+                    },
                     {
                       "text": "Mental",
                       "spans": []
@@ -2203,6 +2940,14 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Backgrounds",
+                  "spans": []
+                },
+                {
+                  "text": "Backgrounds",
+                  "spans": []
+                },
                 {
                   "text": "Backgrounds",
                   "spans": []
@@ -2368,6 +3113,10 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Motivations",
+                  "spans": []
+                },
                 {
                   "text": "Motivations",
                   "spans": []
@@ -2543,7 +3292,8 @@
             "spans": [
               {
                 "style": "italic",
-                "text": "learned skills"
+                "text": "learned skills",
+                "href": null
               }
             ]
           },
@@ -3320,6 +4070,10 @@
                     {
                       "text": "Critical Hit Table",
                       "spans": []
+                    },
+                    {
+                      "text": "Critical Hit Table",
+                      "spans": []
                     }
                   ],
                   [
@@ -3368,6 +4122,10 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Ranged weapons attacking within Very Near range",
+                      "spans": []
+                    },
                     {
                       "text": "Ranged weapons attacking within Very Near range",
                       "spans": []
@@ -3729,7 +4487,8 @@
                 "spans": [
                   {
                     "style": "italic",
-                    "text": "Parry"
+                    "text": "Parry",
+                    "href": null
                   }
                 ]
               }
@@ -3758,6 +4517,14 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Actions",
+                      "spans": []
+                    },
+                    {
+                      "text": "Actions",
+                      "spans": []
+                    },
                     {
                       "text": "Actions",
                       "spans": []
@@ -3916,8 +4683,32 @@
                       "spans": []
                     },
                     {
-                      "text": "Choose a direction or a location within your weapon’s range, then spend 1-3 ammo. Until the start of your next turn, the first time each enemy you can see enters or moves from that direction or location, they must make a Cool Under Fire (DC4 + ammo used) check. This effect occurs once per ammo spent, up to a maximum of three times.- Extreme success: no effect.\n- Success: enemy gains +1 movement penalty.\n- Failure: enemy gains +1 stress and +1 movement penalty.\n- Extreme failure: enemy gains +1 stress and immediately falls prone, ending their movement.\nSuppressing fire may only be used with a ranged weapon.",
-                      "spans": []
+                      "text": "Choose a direction or a location within your weapon’s range, then spend 1-3 ammo. Until the start of your next turn, the first time each enemy you can see enters or moves from that direction or location, they must make a Cool Under Fire (DC4 + ammo used) check. This effect occurs once per ammo spent, up to a maximum of three times.Suppressing fire may only be used with a ranged weapon.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: no effect.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Success: enemy gains +1 movement penalty.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Failure: enemy gains +1 stress and +1 movement penalty.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Extreme failure: enemy gains +1 stress and immediately falls prone, ending their movement.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -3955,22 +4746,40 @@
                       "spans": []
                     },
                     {
-                      "text": "Attempt to demoralize or frighten an enemy. Roll Bearing or Persuade (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy was injured within the last round, another enemy was killed during combat, or is flanked.- Extreme success, target suffers +2 stress and is Demoralized.\n- Success: target is Demoralized.",
+                      "text": "Attempt to demoralize or frighten an enemy. Roll Bearing or Persuade (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy was injured within the last round, another enemy was killed during combat, or is flanked.",
                       "spans": [
                         {
                           "style": "link_underline",
                           "text": "flanked",
                           "href": "#h.fy3jgwiudtd9"
-                        },
+                        }
+                      ],
+                      "blocks": [
                         {
-                          "style": "link_underline",
-                          "text": "Demoralized",
-                          "href": "#h.p7xo9pm49k9v"
-                        },
-                        {
-                          "style": "link_underline",
-                          "text": "Demoralized",
-                          "href": "#h.p7xo9pm49k9v"
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success, target suffers +2 stress and is Demoralized.",
+                              "spans": [
+                                {
+                                  "style": "link_underline",
+                                  "text": "Demoralized",
+                                  "href": "#h.p7xo9pm49k9v"
+                                }
+                              ]
+                            },
+                            {
+                              "text": "Success: target is Demoralized.",
+                              "spans": [
+                                {
+                                  "style": "link_underline",
+                                  "text": "Demoralized",
+                                  "href": "#h.p7xo9pm49k9v"
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     }
@@ -3999,8 +4808,30 @@
                       "spans": []
                     },
                     {
-                      "text": "Co-ordinate with teammates. Choose any number of allies within Near range; roll Tactics (DC4 + 2 per ally).- Extreme Success: you and each targeted ally all gain +1 bonus die to any roll before the start of your next turn.\n- Success: each targeted ally gains +1 bonus die to any roll before the start of your next turn.\nTeamwork may be used no more than once per ally per turn.",
-                      "spans": []
+                      "text": "Co-ordinate with teammates. Choose any number of allies within Near range; roll Tactics (DC4 + 2 per ally).Teamwork may be used no more than once per ally per turn.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme Success: you and each targeted ally all gain +1 bonus die to any roll before the start of your next turn.",
+                              "spans": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Success: each targeted ally gains +1 bonus die to any roll before the start of your next turn.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -4027,8 +4858,42 @@
                       "spans": []
                     },
                     {
-                      "text": "Make an attack as normal against a character within Melee range who is Dying, Unconscious, or otherwise completely helpless (GM discretion).- Success: target dies.\n- Failure: no effect.\nAfter a successful Execute action, make a Composure (DC6 + your Empathy) check.- Success: no effect\n- Failure: suffer +1 stress.\n- Extreme failure: suffer +2 stress.",
-                      "spans": []
+                      "text": "Make an attack as normal against a character within Melee range who is Dying, Unconscious, or otherwise completely helpless (GM discretion).After a successful Execute action, make a Composure (DC6 + your Empathy) check.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Success: target dies.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Failure: no effect.",
+                              "spans": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Success: no effect",
+                              "spans": []
+                            },
+                            {
+                              "text": "Failure: suffer +1 stress.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Extreme failure: suffer +2 stress.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -4168,6 +5033,18 @@
                     {
                       "text": "Reactions",
                       "spans": []
+                    },
+                    {
+                      "text": "Reactions",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reactions",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reactions",
+                      "spans": []
                     }
                   ],
                   [
@@ -4226,8 +5103,24 @@
                       "spans": []
                     },
                     {
-                      "text": "Requires melee weapon. Roll Melee (Weapons) (DC 8 + attacker’s weapon skill).- Extreme Success: you may immediately use 1 additional reaction to attack your attacker.\n- Success: attack against you fails.",
-                      "spans": []
+                      "text": "Requires melee weapon. Roll Melee (Weapons) (DC 8 + attacker’s weapon skill).",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme Success: you may immediately use 1 additional reaction to attack your attacker.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Success: attack against you fails.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -4262,8 +5155,24 @@
                       "spans": []
                     },
                     {
-                      "text": "Roll Finesse. If your roll is higher than the throw roll, you successfully deflect or catch the thrown object.- Extreme success: you may catch or deflect object away from you (choose a location within Very Near range to deflect it to).\n- Success: you may catch or deflect object away from you (GM decides where). If the object would deal damage on impact, take half that damage.",
-                      "spans": []
+                      "text": "Roll Finesse. If your roll is higher than the throw roll, you successfully deflect or catch the thrown object.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: you may catch or deflect object away from you (choose a location within Very Near range to deflect it to).",
+                              "spans": []
+                            },
+                            {
+                              "text": "Success: you may catch or deflect object away from you (GM decides where). If the object would deal damage on impact, take half that damage.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -4318,6 +5227,10 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Free Actions",
+                      "spans": []
+                    },
                     {
                       "text": "Free Actions",
                       "spans": []
@@ -4379,7 +5292,8 @@
                 "spans": [
                   {
                     "style": "italic",
-                    "text": "Dive for Cover"
+                    "text": "Dive for Cover",
+                    "href": null
                   }
                 ]
               },
@@ -4422,11 +5336,13 @@
             "spans": [
               {
                 "style": "italic",
-                "text": "melee, very near, near, medium, long, very long, "
+                "text": "melee, very near, near, medium, long, very long, ",
+                "href": null
               },
               {
                 "style": "italic",
-                "text": "extreme."
+                "text": "extreme.",
+                "href": null
               }
             ]
           },
@@ -4579,11 +5495,13 @@
             "spans": [
               {
                 "style": "italic",
-                "text": "partial cover"
+                "text": "partial cover",
+                "href": null
               },
               {
                 "style": "italic",
-                "text": "full cover"
+                "text": "full cover",
+                "href": null
               }
             ]
           }
@@ -4600,7 +5518,8 @@
                 "spans": [
                   {
                     "style": "italic",
-                    "text": "being obscured from an attacker in such a way as reasonably blocks direct line of sight of up to half a character’s body."
+                    "text": "being obscured from an attacker in such a way as reasonably blocks direct line of sight of up to half a character’s body.",
+                    "href": null
                   }
                 ]
               }
@@ -4618,7 +5537,8 @@
                 "spans": [
                   {
                     "style": "italic",
-                    "text": "being obscured from an attacker’s view in such a way as reasonably blocks direct line of sight of almost the entirety of the character’s body."
+                    "text": "being obscured from an attacker’s view in such a way as reasonably blocks direct line of sight of almost the entirety of the character’s body.",
+                    "href": null
                   }
                 ]
               }
@@ -4649,6 +5569,14 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Reasonable Cover Durability",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reasonable Cover Durability",
+                      "spans": []
+                    },
                     {
                       "text": "Reasonable Cover Durability",
                       "spans": []
@@ -5416,11 +6344,13 @@
             "spans": [
               {
                 "style": "italic",
-                "text": "desire"
+                "text": "desire",
+                "href": null
               },
               {
                 "style": "italic",
-                "text": "question"
+                "text": "question",
+                "href": null
               }
             ]
           },
@@ -7047,7 +7977,8 @@
         "spans": [
           {
             "style": "italic",
-            "text": "feeling"
+            "text": "feeling",
+            "href": null
           }
         ]
       },
@@ -7203,6 +8134,22 @@
                 {
                   "text": "Reader Empathic Abilities",
                   "spans": []
+                },
+                {
+                  "text": "Reader Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Reader Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Reader Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Reader Empathic Abilities",
+                  "spans": []
                 }
               ],
               [
@@ -7245,8 +8192,28 @@
                   "spans": []
                 },
                 {
-                  "text": "Form an Empathic Bond with target. When you have an Empathic Bond:- All your other Empathic Abilities targeting bonded creature are bumped up one level of success. So an extreme failure becomes a failure, a failure becomes a success, etc.\n- Once per round, you may use 1 reaction to reduce stress gained by bonded creature by 1 (minimum 1).\n- Whenever bonded creature suffers stress, you take half of that stress (rounded up) while it takes the remainder.\nYou may have no more than one Empathic Bond at a time. You may dismiss an Empathic Bond by using 1 action. This ability cannot be Heightened.",
-                  "spans": []
+                  "text": "Form an Empathic Bond with target. When you have an Empathic Bond:You may have no more than one Empathic Bond at a time. You may dismiss an Empathic Bond by using 1 action. This ability cannot be Heightened.",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "All your other Empathic Abilities targeting bonded creature are bumped up one level of success. So an extreme failure becomes a failure, a failure becomes a success, etc.",
+                          "spans": []
+                        },
+                        {
+                          "text": "Once per round, you may use 1 reaction to reduce stress gained by bonded creature by 1 (minimum 1).",
+                          "spans": []
+                        },
+                        {
+                          "text": "Whenever bonded creature suffers stress, you take half of that stress (rounded up) while it takes the remainder.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -7267,8 +8234,34 @@
                   "spans": []
                 },
                 {
-                  "text": "Violent emotions have a particular tang to them, reminiscent of a metallic taste. You are aware of these around you at all times, though you cannot determine the exact origin.- You cannot be Surprised by living creatures.\n- You gain +1 bonus die on Initiative rolls against living creatures.\n- Heightened: you know the exact origin of these emotions. Additionally, the first attack by a living creature against you each combat suffers +1 penalty die.",
-                  "spans": []
+                  "text": "Violent emotions have a particular tang to them, reminiscent of a metallic taste. You are aware of these around you at all times, though you cannot determine the exact origin.",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "You cannot be Surprised by living creatures.",
+                          "spans": []
+                        },
+                        {
+                          "text": "You gain +1 bonus die on Initiative rolls against living creatures.",
+                          "spans": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: you know the exact origin of these emotions. Additionally, the first attack by a living creature against you each combat suffers +1 penalty die.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -7289,8 +8282,20 @@
                   "spans": []
                 },
                 {
-                  "text": "Discern what underlying emotions are influencing target creature’s current actions. What drives a merchant: greed or necessity?- Heightened: you gain knowledge of target’s greatest emotional lever: their greatest fear, desire, or hope.",
-                  "spans": []
+                  "text": "Discern what underlying emotions are influencing target creature’s current actions. What drives a merchant: greed or necessity?",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: you gain knowledge of target’s greatest emotional lever: their greatest fear, desire, or hope.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             ]
@@ -7354,6 +8359,22 @@
                 {
                   "text": "Pusher Empathic Abilities",
                   "spans": []
+                },
+                {
+                  "text": "Pusher Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Pusher Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Pusher Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Pusher Empathic Abilities",
+                  "spans": []
                 }
               ],
               [
@@ -7396,8 +8417,20 @@
                   "spans": []
                 },
                 {
-                  "text": "Transfer stress (amount equal to number of actions spent) from yourself to target creature.- Heightened: transfer twice as much stress to target instead.",
-                  "spans": []
+                  "text": "Transfer stress (amount equal to number of actions spent) from yourself to target creature.",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: transfer twice as much stress to target instead.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -7418,12 +8451,24 @@
                   "spans": []
                 },
                 {
-                  "text": "Impose the Frenzied condition on target. At the end of the target’s turns, they may roll a Composure or Willpower (DC8) check to end this condition.- Heightened: target creature ignores all penalty dice for the duration of Frenzied.",
+                  "text": "Impose the Frenzied condition on target. At the end of the target’s turns, they may roll a Composure or Willpower (DC8) check to end this condition.",
                   "spans": [
                     {
                       "style": "link_underline",
                       "text": "Frenzied",
                       "href": "#h.rm8belmo8fy3"
+                    }
+                  ],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: target creature ignores all penalty dice for the duration of Frenzied.",
+                          "spans": []
+                        }
+                      ]
                     }
                   ]
                 }
@@ -7446,12 +8491,24 @@
                   "spans": []
                 },
                 {
-                  "text": "Release a violent surge of emotions to all creatures within Near range of you. Every living creature in range gains 1 stress for every 2 stress you currently have (minimum 1). You reduce your stress by half the total stress inflicted (rounded up). Creatures who receive stress this way must immediately roll Composure (DC8) or gain the Demoralized condition.- Heightened: you may exclude yourself and any bonded creature from the distribution.",
+                  "text": "Release a violent surge of emotions to all creatures within Near range of you. Every living creature in range gains 1 stress for every 2 stress you currently have (minimum 1). You reduce your stress by half the total stress inflicted (rounded up). Creatures who receive stress this way must immediately roll Composure (DC8) or gain the Demoralized condition.",
                   "spans": [
                     {
                       "style": "link_underline",
                       "text": "Demoralized",
                       "href": "#h.p7xo9pm49k9v"
+                    }
+                  ],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: you may exclude yourself and any bonded creature from the distribution.",
+                          "spans": []
+                        }
+                      ]
                     }
                   ]
                 }
@@ -7492,6 +8549,22 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Vessel Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Vessel Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Vessel Empathic Abilities",
+                  "spans": []
+                },
+                {
+                  "text": "Vessel Empathic Abilities",
+                  "spans": []
+                },
                 {
                   "text": "Vessel Empathic Abilities",
                   "spans": []
@@ -7537,8 +8610,20 @@
                   "spans": []
                 },
                 {
-                  "text": "Remove up to 2 stress from target creature. Gain stress equal to the amount removed. If target is reduced to 0 stress in this way, they may ignore the next instance of stress gain before the end of the day.- Heightened: remove up to 4 stress instead.",
-                  "spans": []
+                  "text": "Remove up to 2 stress from target creature. Gain stress equal to the amount removed. If target is reduced to 0 stress in this way, they may ignore the next instance of stress gain before the end of the day.",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: remove up to 4 stress instead.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -7559,8 +8644,20 @@
                   "spans": []
                 },
                 {
-                  "text": "Transfer one negative mental condition from target creature to yourself.- Heightened: while you are affected by this condition, the target cannot regain it again from the same source.",
-                  "spans": []
+                  "text": "Transfer one negative mental condition from target creature to yourself.",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: while you are affected by this condition, the target cannot regain it again from the same source.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ],
               [
@@ -7581,8 +8678,34 @@
                   "spans": []
                 },
                 {
-                  "text": "Until the start of your next turn, choose one per action spent:- Target reduces all stress gain by 1.\n- Target gains +1 bonus die on Composure checks\nYou immediately gain 1 stress per action spent when using this ability.- Heightened: you may apply this effect to yourself as well.",
-                  "spans": []
+                  "text": "Until the start of your next turn, choose one per action spent:You immediately gain 1 stress per action spent when using this ability.",
+                  "spans": [],
+                  "blocks": [
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Target reduces all stress gain by 1.",
+                          "spans": []
+                        },
+                        {
+                          "text": "Target gains +1 bonus die on Composure checks",
+                          "spans": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "list",
+                      "ordered": false,
+                      "items": [
+                        {
+                          "text": "Heightened: you may apply this effect to yourself as well.",
+                          "spans": []
+                        }
+                      ]
+                    }
+                  ]
                 }
               ]
             ]
@@ -7877,6 +9000,42 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
                 {
                   "text": "Weapons",
                   "spans": []
@@ -8570,6 +9729,10 @@
                     {
                       "text": "Weapon keywords",
                       "spans": []
+                    },
+                    {
+                      "text": "Weapon keywords",
+                      "spans": []
                     }
                   ],
                   [
@@ -8721,6 +9884,30 @@
                     "type": "table",
                     "rows": [
                       [
+                        {
+                          "text": "Armour",
+                          "spans": []
+                        },
+                        {
+                          "text": "Armour",
+                          "spans": []
+                        },
+                        {
+                          "text": "Armour",
+                          "spans": []
+                        },
+                        {
+                          "text": "Armour",
+                          "spans": []
+                        },
+                        {
+                          "text": "Armour",
+                          "spans": []
+                        },
+                        {
+                          "text": "Armour",
+                          "spans": []
+                        },
                         {
                           "text": "Armour",
                           "spans": []
@@ -9015,6 +10202,22 @@
                     {
                       "text": "Items",
                       "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
                     }
                   ],
                   [
@@ -9045,7 +10248,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Applies Stun 1 to everyone within Very Near range, Thrown",
+                      "text": "Applies Stun 1 to everyone within Very Near range, Thrownzz",
                       "spans": []
                     },
                     {
@@ -9405,6 +10608,30 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Cyberware",
+                      "spans": []
+                    },
+                    {
+                      "text": "Cyberware",
+                      "spans": []
+                    },
+                    {
+                      "text": "Cyberware",
+                      "spans": []
+                    },
+                    {
+                      "text": "Cyberware",
+                      "spans": []
+                    },
+                    {
+                      "text": "Cyberware",
+                      "spans": []
+                    },
+                    {
+                      "text": "Cyberware",
+                      "spans": []
+                    },
                     {
                       "text": "Cyberware",
                       "spans": []
@@ -9990,8 +11217,28 @@
                       "spans": []
                     },
                     {
-                      "text": "When you would take a Medium or Heavy wound, roll Cybernetics (DC8).- Extreme success: ignore the wound.\n- Success: ignore the wound; this cyberware effect cannot be used for 1 day.\n- Failure: suffer the wound as normal; this cyberware effect cannot be used for 1 day.\nThis effect may only trigger once per instance of damage.",
-                      "spans": []
+                      "text": "When you would take a Medium or Heavy wound, roll Cybernetics (DC8).This effect may only trigger once per instance of damage.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: ignore the wound.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Success: ignore the wound; this cyberware effect cannot be used for 1 day.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Failure: suffer the wound as normal; this cyberware effect cannot be used for 1 day.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     },
                     {
                       "text": "4",
@@ -10252,6 +11499,26 @@
                         {
                           "text": "Narcotics",
                           "spans": []
+                        },
+                        {
+                          "text": "Narcotics",
+                          "spans": []
+                        },
+                        {
+                          "text": "Narcotics",
+                          "spans": []
+                        },
+                        {
+                          "text": "Narcotics",
+                          "spans": []
+                        },
+                        {
+                          "text": "Narcotics",
+                          "spans": []
+                        },
+                        {
+                          "text": "Narcotics",
+                          "spans": []
                         }
                       ],
                       [
@@ -10421,6 +11688,10 @@
                     "type": "table",
                     "rows": [
                       [
+                        {
+                          "text": "Addiction Effects",
+                          "spans": []
+                        },
                         {
                           "text": "Addiction Effects",
                           "spans": []
@@ -10642,6 +11913,22 @@
                 {
                   "text": "Rigs",
                   "spans": []
+                },
+                {
+                  "text": "Rigs",
+                  "spans": []
+                },
+                {
+                  "text": "Rigs",
+                  "spans": []
+                },
+                {
+                  "text": "Rigs",
+                  "spans": []
+                },
+                {
+                  "text": "Rigs",
+                  "spans": []
                 }
               ],
               [
@@ -10750,6 +12037,18 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Software",
+                      "spans": []
+                    },
+                    {
+                      "text": "Software",
+                      "spans": []
+                    },
+                    {
+                      "text": "Software",
+                      "spans": []
+                    },
                     {
                       "text": "Software",
                       "spans": []
@@ -10891,6 +12190,14 @@
         "type": "table",
         "rows": [
           [
+            {
+              "text": "Example System Tiers and DCs",
+              "spans": []
+            },
+            {
+              "text": "Example System Tiers and DCs",
+              "spans": []
+            },
             {
               "text": "Example System Tiers and DCs",
               "spans": []
@@ -11315,7 +12622,7 @@
           },
           {
             "type": "image",
-            "src": "images/image1.png",
+            "src": "assets/images/image1.png",
             "alt": ""
           }
         ],
@@ -11342,7 +12649,8 @@
             "spans": [
               {
                 "style": "italic",
-                "text": "unconscious"
+                "text": "unconscious",
+                "href": null
               },
               {
                 "style": "link_underline",
@@ -11810,6 +13118,10 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Fall Severity",
+                      "spans": []
+                    },
                     {
                       "text": "Fall Severity",
                       "spans": []
@@ -12419,7 +13731,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Do No Harm"
+                        "text": "Do No Harm",
+                        "href": null
                       }
                     ]
                   },
@@ -12480,6 +13793,26 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Burner Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Burner Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Burner Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Burner Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Burner Effects",
+                      "spans": []
+                    },
                     {
                       "text": "Burner Effects",
                       "spans": []
@@ -12617,8 +13950,24 @@
                       "spans": []
                     },
                     {
-                      "text": "Counter a Nanomantic Effect. DC = the effect’s Nanomancy roll.- Extreme success: negate the effect. In addition, that effect cannot be attempted again for 1 * ND minute(s).\n- Success: negate the effect.",
-                      "spans": []
+                      "text": "Counter a Nanomantic Effect. DC = the effect’s Nanomancy roll.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: negate the effect. In addition, that effect cannot be attempted again for 1 * ND minute(s).",
+                              "spans": []
+                            },
+                            {
+                              "text": "Success: negate the effect.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 ]
@@ -12641,6 +13990,26 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Physic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Physic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Physic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Physic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Physic Effects",
+                      "spans": []
+                    },
                     {
                       "text": "Physic Effects",
                       "spans": []
@@ -12694,8 +14063,20 @@
                       "spans": []
                     },
                     {
-                      "text": "Create a target location. For the duration, all living creatures within Very Near range of that location heal at a rate of half ND (rounded up) light wounds at the start of each of their turns. This effect lasts 1 round for each action used.- Extreme success: this effect may heal (and will prioritize) moderate wounds.",
-                      "spans": []
+                      "text": "Create a target location. For the duration, all living creatures within Very Near range of that location heal at a rate of half ND (rounded up) light wounds at the start of each of their turns. This effect lasts 1 round for each action used.",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: this effect may heal (and will prioritize) moderate wounds.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -12720,17 +14101,38 @@
                       "spans": []
                     },
                     {
-                      "text": "Heal up to 1 + half ND (rounded up) light or moderate wounds on target creature.- Extreme success: you may heal heavy wounds with this effect as well.\n- Failure: give target Bleeding (1) \n- Extreme failure: give target Bleeding (2).",
-                      "spans": [
+                      "text": "Heal up to 1 + half ND (rounded up) light or moderate wounds on target creature.",
+                      "spans": [],
+                      "blocks": [
                         {
-                          "style": "link_underline",
-                          "text": "Bleeding (1)",
-                          "href": "#h.bxuyd85drjou"
-                        },
-                        {
-                          "style": "link_underline",
-                          "text": "Bleeding (2)",
-                          "href": "#h.bxuyd85drjou"
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: you may heal heavy wounds with this effect as well.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Failure: give target Bleeding (1)",
+                              "spans": [
+                                {
+                                  "style": "link_underline",
+                                  "text": "Bleeding (1)",
+                                  "href": "#h.bxuyd85drjou"
+                                }
+                              ]
+                            },
+                            {
+                              "text": "Extreme failure: give target Bleeding (2).",
+                              "spans": [
+                                {
+                                  "style": "link_underline",
+                                  "text": "Bleeding (2)",
+                                  "href": "#h.bxuyd85drjou"
+                                }
+                              ]
+                            }
+                          ]
                         }
                       ]
                     }
@@ -12789,12 +14191,24 @@
                       "spans": []
                     },
                     {
-                      "text": "Impose Blinded on target creature for rounds equal to ND. While affected, target gains +1 stress at the end of each of their turns.- Extreme success: target gains +2 stress at the end of each of their turns instead.\nTarget may attempt a Willpower or Composure (DC 6 + ND) check at the end of each of their turns to end the effect early.",
+                      "text": "Impose Blinded on target creature for rounds equal to ND. While affected, target gains +1 stress at the end of each of their turns.Target may attempt a Willpower or Composure (DC 6 + ND) check at the end of each of their turns to end the effect early.",
                       "spans": [
                         {
                           "style": "link_underline",
                           "text": "Blinded",
                           "href": "#h.ydl52popm3kj"
+                        }
+                      ],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "Extreme success: target gains +2 stress at the end of each of their turns instead.",
+                              "spans": []
+                            }
+                          ]
                         }
                       ]
                     }
@@ -12855,6 +14269,26 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Kinetic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Kinetic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Kinetic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Kinetic Effects",
+                      "spans": []
+                    },
+                    {
+                      "text": "Kinetic Effects",
+                      "spans": []
+                    },
                     {
                       "text": "Kinetic Effects",
                       "spans": []
@@ -13456,7 +14890,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1770586801185801&usg=AOvVaw2rS_dJ4A55GJXWqxpPHpdf"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1770789989444099&usg=AOvVaw2C8MyfDgIqRGRrl7Dnh8MN"
               }
             ]
           }
@@ -13517,6 +14951,30 @@
                 "type": "table",
                 "rows": [
                   [
+                    {
+                      "text": "Ship Sizes",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ship Sizes",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ship Sizes",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ship Sizes",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ship Sizes",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ship Sizes",
+                      "spans": []
+                    },
                     {
                       "text": "Ship Sizes",
                       "spans": []
@@ -13909,7 +15367,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Propulsion:"
+                        "text": "Propulsion:",
+                        "href": null
                       }
                     ]
                   },
@@ -13918,7 +15377,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Weapons:"
+                        "text": "Weapons:",
+                        "href": null
                       }
                     ]
                   },
@@ -13927,7 +15387,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Defense:"
+                        "text": "Defense:",
+                        "href": null
                       }
                     ]
                   },
@@ -13936,7 +15397,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Utility:"
+                        "text": "Utility:",
+                        "href": null
                       }
                     ]
                   },
@@ -13945,7 +15407,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Command / Navigation:"
+                        "text": "Command / Navigation:",
+                        "href": null
                       }
                     ]
                   },
@@ -13954,7 +15417,8 @@
                     "spans": [
                       {
                         "style": "italic",
-                        "text": "Cargo:"
+                        "text": "Cargo:",
+                        "href": null
                       }
                     ]
                   }
@@ -14013,6 +15477,26 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Propulsion Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Propulsion Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Propulsion Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Propulsion Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Propulsion Modules",
+                  "spans": []
+                },
                 {
                   "text": "Propulsion Modules",
                   "spans": []
@@ -14209,6 +15693,22 @@
                 {
                   "text": "Power Modules",
                   "spans": []
+                },
+                {
+                  "text": "Power Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Power Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Power Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Power Modules",
+                  "spans": []
                 }
               ],
               [
@@ -14327,6 +15827,34 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Weapon Modules",
+                  "spans": []
+                },
                 {
                   "text": "Weapon Modules",
                   "spans": []
@@ -14749,6 +16277,10 @@
                 {
                   "text": "Weapon Keywords",
                   "spans": []
+                },
+                {
+                  "text": "Weapon Keywords",
+                  "spans": []
                 }
               ],
               [
@@ -14847,6 +16379,22 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Defense Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Defense Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Defense Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Defense Modules",
+                  "spans": []
+                },
                 {
                   "text": "Defense Modules",
                   "spans": []
@@ -14971,6 +16519,22 @@
                 {
                   "text": "Electronics Modules",
                   "spans": []
+                },
+                {
+                  "text": "Electronics Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Electronics Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Electronics Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Electronics Modules",
+                  "spans": []
                 }
               ],
               [
@@ -15089,6 +16653,22 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Cargo & Utility Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Cargo & Utility Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Cargo & Utility Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Cargo & Utility Modules",
+                  "spans": []
+                },
                 {
                   "text": "Cargo & Utility Modules",
                   "spans": []
@@ -15276,6 +16856,22 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Command & Navigation Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Command & Navigation Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Command & Navigation Modules",
+                  "spans": []
+                },
+                {
+                  "text": "Command & Navigation Modules",
+                  "spans": []
+                },
                 {
                   "text": "Command & Navigation Modules",
                   "spans": []
@@ -15516,7 +17112,8 @@
                 "spans": [
                   {
                     "style": "italic",
-                    "text": "Indomitable"
+                    "text": "Indomitable",
+                    "href": null
                   }
                 ]
               },
@@ -15611,6 +17208,10 @@
                 {
                   "text": "PTSD Reaction Table",
                   "spans": []
+                },
+                {
+                  "text": "PTSD Reaction Table",
+                  "spans": []
                 }
               ],
               [
@@ -15691,6 +17292,14 @@
                 {
                   "text": "Stress Breakdown Effects",
                   "spans": []
+                },
+                {
+                  "text": "Stress Breakdown Effects",
+                  "spans": []
+                },
+                {
+                  "text": "Stress Breakdown Effects",
+                  "spans": []
                 }
               ],
               [
@@ -15735,7 +17344,8 @@
                   "spans": [
                     {
                       "style": "italic",
-                      "text": "unconscious "
+                      "text": "unconscious ",
+                      "href": null
                     }
                   ]
                 }
@@ -15754,7 +17364,8 @@
                   "spans": [
                     {
                       "style": "italic",
-                      "text": "Flee "
+                      "text": "Flee ",
+                      "href": null
                     }
                   ]
                 }

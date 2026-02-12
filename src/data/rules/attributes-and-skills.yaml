@@ -38,36 +38,57 @@ sections:
         spans: []
       - text: PHYS
         spans: []
-      - text: 'Physical prowess, stamina, strength, and overall fitness- Each point
-          in Physique increases your carrying capacity
-
-          - Every point in Physique increases your movement speed by 5ft
-
-          - Soldiers and brawlers typically have high PHYS'
+      - text: Physical prowess, stamina, strength, and overall fitness
         spans: []
+        blocks:
+        - type: list
+          ordered: false
+          items:
+          - text: Each point in Physique increases your carrying capacity
+            spans: []
+          - text: Every point in Physique increases your movement speed by 5ft
+            spans: []
+          - text: Soldiers and brawlers typically have high PHYS
+            spans: []
     - - text: Reflex
         spans: []
       - text: REF
         spans: []
-      - text: 'Quickness of mind and body sometimes bordering on instinct- Reflex
-          is rolled to determine initiative order in combat
-
-          - Pilots, Martial Artists, and Spiderman are all known for high REF'
+      - text: Quickness of mind and body sometimes bordering on instinct
         spans: []
+        blocks:
+        - type: list
+          ordered: false
+          items:
+          - text: Reflex is rolled to determine initiative order in combat
+            spans: []
+          - text: Pilots, Martial Artists, and Spiderman are all known for high REF
+            spans: []
     - - text: Social
         spans: []
       - text: SOC
         spans: []
       - text: Empathy, charm, quickness of wit, gravitas, personal magnetism, and
-          picking up on social cues- Diplomats and empaths typically have high SOC
+          picking up on social cues
         spans: []
+        blocks:
+        - type: list
+          ordered: false
+          items:
+          - text: Diplomats and empaths typically have high SOC
+            spans: []
     - - text: Mental
         spans: []
       - text: MENT
         spans: []
-      - text: Acuity, keenness of mind, learning ability, and mental toughness- Scientists,
-          mechanics, and hackers are likely to want high MENT
+      - text: Acuity, keenness of mind, learning ability, and mental toughness
         spans: []
+        blocks:
+        - type: list
+          ordered: false
+          items:
+          - text: Scientists, mechanics, and hackers are likely to want high MENT
+            spans: []
   - type: list
     ordered: false
     items:
@@ -342,8 +363,11 @@ sections:
       spans: []
     - type: table
       rows:
-      - - text: Physique
+      - - &id001
+          text: Physique
           spans: []
+        - *id001
+        - *id001
       - - text: Physique Skills
           spans: []
         - text: Max rank
@@ -387,8 +411,11 @@ sections:
           spans: []
     - type: table
       rows:
-      - - text: Reflex
+      - - &id002
+          text: Reflex
           spans: []
+        - *id002
+        - *id002
       - - text: Reflex Skills
           spans: []
         - text: Max rank
@@ -433,8 +460,11 @@ sections:
           spans: []
     - type: table
       rows:
-      - - text: Social
+      - - &id003
+          text: Social
           spans: []
+        - *id003
+        - *id003
       - - text: Social Skills
           spans: []
         - text: Max rank
@@ -487,8 +517,11 @@ sections:
           spans: []
     - type: table
       rows:
-      - - text: Mental
+      - - &id004
+          text: Mental
           spans: []
+        - *id004
+        - *id004
       - - text: Mental Skills
           spans: []
         - text: Max rank

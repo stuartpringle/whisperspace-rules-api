@@ -36,8 +36,11 @@ sections:
     spans: []
   - type: table
     rows:
-    - - text: Backgrounds
+    - - &id001
+        text: Backgrounds
         spans: []
+      - *id001
+      - *id001
     - - text: D10 roll
         spans: []
       - text: Background
@@ -117,8 +120,10 @@ sections:
         spans: []
   - type: table
     rows:
-    - - text: Motivations
+    - - &id002
+        text: Motivations
         spans: []
+      - *id002
     - - text: D12 roll
         spans: []
       - text: Motivation
@@ -203,6 +208,7 @@ sections:
     spans:
     - style: italic
       text: learned skills
+      href: null
   - type: list
     ordered: true
     items:

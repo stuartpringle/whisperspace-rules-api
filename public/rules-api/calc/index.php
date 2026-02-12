@@ -245,32 +245,66 @@ function apply_damage_and_stress(array $body): array {
 function derive_attributes(array $body): array {
   $skills = is_array($body["skills"] ?? null) ? $body["skills"] : [];
   $inherent = is_array($body["inherentSkills"] ?? null) ? $body["inherentSkills"] : [];
+  $gameplayDeltas = merge_gameplay_deltas($body);
+  $effectiveSkills = apply_skill_deltas($skills, $gameplayDeltas);
   $sums = ["phys" => 0, "ref" => 0, "soc" => 0, "ment" => 0];
 
   foreach ($inherent as $s) {
     $id = (string)($s["id"] ?? "");
     $attr = (string)($s["attribute"] ?? "");
     if (!isset($sums[$attr])) continue;
-    $rank = (int)($skills[$id] ?? 0);
+    $rank = (int)($effectiveSkills[$id] ?? 0);
     $sums[$attr] += max(0, $rank);
   }
 
+  $split = split_gameplay_deltas($gameplayDeltas);
   return [
-    "phys" => max(0, (int)ceil($sums["phys"] / 4)),
-    "ref" => max(0, (int)ceil($sums["ref"] / 4)),
-    "soc" => max(0, (int)ceil($sums["soc"] / 4)),
-    "ment" => max(0, (int)ceil($sums["ment"] / 4)),
+    "phys" => max(0, (int)ceil($sums["phys"] / 4) + (int)$split["attributes"]["phys"]),
+    "ref" => max(0, (int)ceil($sums["ref"] / 4) + (int)$split["attributes"]["ref"]),
+    "soc" => max(0, (int)ceil($sums["soc"] / 4) + (int)$split["attributes"]["soc"]),
+    "ment" => max(0, (int)ceil($sums["ment"] / 4) + (int)$split["attributes"]["ment"]),
+    "gameplayDeltas" => $split,
   ];
 }
 
 function derive_cuf(array $body): array {
   $skills = is_array($body["skills"] ?? null) ? $body["skills"] : [];
+  $gameplayDeltas = merge_gameplay_deltas($body);
+  $effectiveSkills = apply_skill_deltas($skills, $gameplayDeltas);
   $ids = ["instinct", "willpower", "bearing", "toughness", "tactics"];
   $sum = 0;
   foreach ($ids as $id) {
-    $sum += max(0, (int)($skills[$id] ?? 0));
+    $sum += max(0, (int)($effectiveSkills[$id] ?? 0));
   }
-  return ["cuf" => 1 + (int)ceil($sum / 5)];
+  $split = split_gameplay_deltas($gameplayDeltas);
+  return [
+    "cuf" => max(0, 1 + (int)ceil($sum / 5) + (int)$split["derived"]["coolUnderFire"]),
+    "gameplayDeltas" => $split,
+  ];
+}
+
+function derive_speed(array $body): array {
+  $phys = isset($body["phys"]) ? (int)$body["phys"] : null;
+  if ($phys === null) fail("missing required fields: phys");
+  $gameplayDeltas = merge_gameplay_deltas($body);
+  $split = split_gameplay_deltas($gameplayDeltas);
+  $effectivePhys = max(0, (int)$phys + (int)$split["attributes"]["phys"]);
+  return [
+    "speed" => max(0, 30 + ($effectivePhys * 5) + (int)$split["derived"]["speed"]),
+    "gameplayDeltas" => $split,
+  ];
+}
+
+function derive_capacity(array $body): array {
+  $phys = isset($body["phys"]) ? (int)$body["phys"] : null;
+  if ($phys === null) fail("missing required fields: phys");
+  $gameplayDeltas = merge_gameplay_deltas($body);
+  $split = split_gameplay_deltas($gameplayDeltas);
+  $effectivePhys = max(0, (int)$phys + (int)$split["attributes"]["phys"]);
+  return [
+    "carryingCapacity" => max(0, 5 + ($effectivePhys * 5) + (int)$split["derived"]["carryingCapacity"]),
+    "gameplayDeltas" => $split,
+  ];
 }
 
 function build_skill_notation(array $body): array {
@@ -309,14 +343,29 @@ function skill_modifier_for(array $body): array {
   $ranks = is_array($body["ranks"] ?? null) ? $body["ranks"] : [];
   $learningFocus = (string)($body["learningFocus"] ?? "combat");
   $mods = is_array($body["skillMods"] ?? null) ? $body["skillMods"] : [];
+  $gameplayDeltas = merge_gameplay_deltas($body);
+  $split = split_gameplay_deltas($gameplayDeltas);
+  $skillDelta = (int)($split["skills"][$skillId] ?? 0);
 
-  $rank = (int)($ranks[$skillId] ?? 0);
+  $rank = max(0, (int)($ranks[$skillId] ?? 0) + $skillDelta);
   $bonus = (int)($mods[$skillId] ?? 0);
-  if ($rank > 0) return ["modifier" => $rank + $bonus];
+  if ($rank > 0) {
+    return [
+      "modifier" => $rank + $bonus,
+      "gameplayDeltas" => $split,
+      "skillDelta" => $skillDelta,
+      "effectiveRank" => $rank,
+    ];
+  }
 
   $learnedInfo = $learnedMap[$skillId] ?? null;
   $base = ($learnedInfo && ($learnedInfo["focus"] ?? "") === $learningFocus) ? 0 : -1;
-  return ["modifier" => $base + $bonus];
+  return [
+    "modifier" => $base + $bonus,
+    "gameplayDeltas" => $split,
+    "skillDelta" => $skillDelta,
+    "effectiveRank" => $rank,
+  ];
 }
 
 function parse_status_effects(string $raw): array {
@@ -331,6 +380,90 @@ function parse_status_effects(string $raw): array {
     $deltas[$key] = ($deltas[$key] ?? 0) + $sign * $amt;
   }
   return $deltas;
+}
+
+function append_effect_string(array &$out, $value): void {
+  if (!is_string($value)) return;
+  $trim = trim($value);
+  if ($trim === "") return;
+  $out[] = $trim;
+}
+
+function collect_gameplay_effects_from_entity($value, array &$out): void {
+  if (is_string($value)) {
+    append_effect_string($out, $value);
+    return;
+  }
+  if (!is_array($value)) return;
+
+  if (array_is_list($value)) {
+    foreach ($value as $item) {
+      collect_gameplay_effects_from_entity($item, $out);
+    }
+    return;
+  }
+
+  append_effect_string($out, $value["gameplayEffects"] ?? null);
+  append_effect_string($out, $value["gameplayEffect"] ?? null);
+}
+
+function collect_gameplay_effects(array $body): array {
+  $effects = [];
+  collect_gameplay_effects_from_entity($body["gameplayEffects"] ?? null, $effects);
+  collect_gameplay_effects_from_entity($body["gameplayEffect"] ?? null, $effects);
+
+  foreach (["weapons", "armour", "armor", "items", "feats", "inventory", "equipped"] as $sourceKey) {
+    collect_gameplay_effects_from_entity($body[$sourceKey] ?? null, $effects);
+  }
+
+  $sheet = is_array($body["sheet"] ?? null) ? $body["sheet"] : null;
+  if ($sheet) {
+    collect_gameplay_effects_from_entity($sheet["gameplayEffects"] ?? null, $effects);
+    foreach (["weapons", "armour", "armor", "items", "feats", "inventory", "equipped"] as $sourceKey) {
+      collect_gameplay_effects_from_entity($sheet[$sourceKey] ?? null, $effects);
+    }
+  }
+
+  return $effects;
+}
+
+function merge_gameplay_deltas(array $body): array {
+  return merge_status_deltas(collect_gameplay_effects($body));
+}
+
+function split_gameplay_deltas(array $deltas): array {
+  $skillDeltas = [];
+  $attributeKeys = ["phys", "ref", "soc", "ment"];
+  $derivedKeys = ["cool_under_fire", "speed", "carrying_capacity"];
+  foreach ($deltas as $k => $v) {
+    if (in_array($k, $attributeKeys, true)) continue;
+    if (in_array($k, $derivedKeys, true)) continue;
+    $skillDeltas[$k] = (int)$v;
+  }
+  return [
+    "attributes" => [
+      "phys" => (int)($deltas["phys"] ?? 0),
+      "ref" => (int)($deltas["ref"] ?? 0),
+      "soc" => (int)($deltas["soc"] ?? 0),
+      "ment" => (int)($deltas["ment"] ?? 0),
+    ],
+    "derived" => [
+      "coolUnderFire" => (int)($deltas["cool_under_fire"] ?? 0),
+      "speed" => (int)($deltas["speed"] ?? 0),
+      "carryingCapacity" => (int)($deltas["carrying_capacity"] ?? 0),
+    ],
+    "skills" => $skillDeltas,
+  ];
+}
+
+function apply_skill_deltas(array $skills, array $deltas): array {
+  $out = $skills;
+  $split = split_gameplay_deltas($deltas);
+  foreach ($split["skills"] as $skillId => $delta) {
+    $base = is_numeric($out[$skillId] ?? null) ? (int)$out[$skillId] : 0;
+    $out[$skillId] = max(0, $base + (int)$delta);
+  }
+  return $out;
 }
 
 function merge_status_deltas(array $statuses): array {
@@ -482,6 +615,14 @@ if ($path === "/derive-attributes") {
 }
 if ($path === "/derive-cuf") {
   echo json_encode(derive_cuf($body));
+  exit;
+}
+if ($path === "/derive-speed") {
+  echo json_encode(derive_speed($body));
+  exit;
+}
+if ($path === "/derive-capacity") {
+  echo json_encode(derive_capacity($body));
   exit;
 }
 if ($path === "/skill-notation") {

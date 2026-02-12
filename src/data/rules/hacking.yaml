@@ -10,8 +10,11 @@ content:
   spans: []
 - type: table
   rows:
-  - - text: Example System Tiers and DCs
+  - - &id001
+      text: Example System Tiers and DCs
       spans: []
+    - *id001
+    - *id001
   - - text: Tier
       spans: []
     - text: System Type

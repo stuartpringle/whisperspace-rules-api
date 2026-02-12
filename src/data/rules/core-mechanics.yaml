@@ -19,8 +19,10 @@ sections:
     spans:
     - style: italic
       text: desire
+      href: null
     - style: italic
       text: question
+      href: null
   - type: paragraph
     text: Want to fly a spaceship? Negotiate with terrorists? Shoot someone with a
       photon rifle? You’ll be rolling D12s and adding your skill modifiers for each

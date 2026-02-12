@@ -7,7 +7,17 @@
     "skillId": {"type": "string"},
     "ranks": {"type": "object", "additionalProperties": {"type": "integer"}},
     "learningFocus": {"type": "string"},
-    "skillMods": {"type": "object", "additionalProperties": {"type": "integer"}}
+    "skillMods": {"type": "object", "additionalProperties": {"type": "integer"}},
+    "gameplayEffects": {"type": "array", "items": {"type": "string"}},
+    "weapons": {"type": "array", "items": {"type": "object"}},
+    "armour": {
+      "oneOf": [
+        {"type": "object"},
+        {"type": "array", "items": {"type": "object"}}
+      ]
+    },
+    "items": {"type": "array", "items": {"type": "object"}},
+    "feats": {"type": "array", "items": {"type": "object"}}
   },
   "additionalProperties": false
 }

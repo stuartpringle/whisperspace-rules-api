@@ -4,6 +4,16 @@
   "required": ["skills", "inherentSkills"],
   "properties": {
     "skills": {"type": "object", "additionalProperties": {"type": "integer"}},
+    "gameplayEffects": {"type": "array", "items": {"type": "string"}},
+    "weapons": {"type": "array", "items": {"type": "object"}},
+    "armour": {
+      "oneOf": [
+        {"type": "object"},
+        {"type": "array", "items": {"type": "object"}}
+      ]
+    },
+    "items": {"type": "array", "items": {"type": "object"}},
+    "feats": {"type": "array", "items": {"type": "object"}},
     "inherentSkills": {
       "type": "array",
       "items": {

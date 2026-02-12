@@ -232,8 +232,10 @@ sections:
       spans: []
     - type: table
       rows:
-      - - text: Fall Severity
+      - - &id001
+          text: Fall Severity
           spans: []
+        - *id001
       - - text: Fall Severity roll result
           spans: []
         - text: Outcome

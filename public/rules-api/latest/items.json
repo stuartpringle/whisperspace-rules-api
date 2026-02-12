@@ -2,7 +2,7 @@
   "items": [
     {
       "name": "Flashbang Grenade",
-      "effect": "Applies Stun 1 to everyone within Very Near range, Thrown",
+      "effect": "Applies Stun 1 to everyone within Very Near range, Thrownzz",
       "uses": "1 use",
       "bulk": 1,
       "cost": 200
@@ -80,6 +80,7 @@
     {
       "name": "Compact Backpack",
       "effect": "+5 Inventory Slots when worn",
+      "gameplayEffects": "carrying_capacity+5",
       "uses": "Permanent",
       "bulk": 0,
       "cost": 150
