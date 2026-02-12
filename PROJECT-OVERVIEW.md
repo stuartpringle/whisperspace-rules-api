@@ -100,6 +100,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Applied frontend hardening pass: guarded hero-title animation script on templates that do not render `.animated-title`, aligned mobile/desktop nav CTA condition to `Get In Touch`, and removed stale JS references to legacy mobile menu IDs.
 - Added allowlist HTML sanitization for archetype descriptions before Alpine `x-html` rendering, preserving paragraph formatting while reducing DOM injection risk.
 - Updated repo hygiene to ignore Statamic `users/` and stop tracking committed user account file(s) containing credential hashes.
+- Improved frontend image delivery: compressed/width-bounded WebP Glide backgrounds, responsive archetype image `srcset`, lazy/async loading for below-the-fold images, and Apache cache headers for static assets.
 - Next steps:
 - Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
 - Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
