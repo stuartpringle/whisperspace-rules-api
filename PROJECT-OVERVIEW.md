@@ -107,6 +107,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Improved Archetypes section UX: preloaded carousel images for smoother transitions, stabilized image viewport sizing to reduce layout shift, and moved next/previous controls onto the image as overlay navigation buttons.
 - Further Archetypes polish: thumbnails now render above the main image, description area uses fixed-height shell for stability, image-shell fallback uses themed gradient (not flat black), and edge nav/hover zoom interactions were refined.
 - Archetypes interaction UX expanded: main image click now opens a framed modal view, edge nav controls were narrowed and intensified visually on hover, and description content width was increased for better visual alignment.
+- About section UX refreshed: lead copy, "At a glance" bullets, and author details now render with section-specific card/callout styling on `https://whisperspace.com` while preserving CMS-managed markdown editing.
 - Next steps:
 - Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
 - Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
@@ -169,6 +170,9 @@ Use this section to keep a single-source, cross-repo status summary.
 - Reordered builder step flow to mirror character-creation progression (`Origin`, `Archetype`, `Feats`, `Skills`, `Attributes`, `Equipment`, `Review`).
 - Consolidated builder progression by merging `Skills` + `Attributes` into one step (`Skills & Attributes`) with attributes displayed first.
 - Updated `Skills & Attributes` presentation with explicit section headers and metric cards (main attributes + CUF/Speed/Carrying Capacity).
+- Added hover/visual polish on attribute cards and skill rows; tooltip display now resolves from Rules API tooltip labels with safer fallback behavior.
+- Moved background controls into `Origin`; `Archetype` now renders narrative guidance text sourced from Rules API content.
+- Builder now sends normalized gameplay effects into calc derive endpoints so effects like `reflex+1` influence displayed derived attributes.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
 - Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
 - Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
