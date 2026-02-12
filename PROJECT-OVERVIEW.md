@@ -181,6 +181,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder now extracts narrative copy from direct `rules.json` text nodes and decouples tooltip fetch from skills fetch so missing tooltip payloads do not break skills UI.
 - Gear reorder handles now use stronger HTML5 drag payload/drop parsing semantics for better browser compatibility.
 - Character builder Review step now uses a polished dashboard-style layout aligned with the project’s updated visual language.
+- Builder calc calls were aligned to current API contracts by sending full equipment context and tolerating updated derive response field variants.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
 - Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
 - Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
