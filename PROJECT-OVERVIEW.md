@@ -163,6 +163,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - Updated gear search behavior to filter both catalog options and current inventory/weapon rows.
 - Gameplay effect add forms now auto-close after creating an effect tag.
 - Improved drag/reorder reliability with explicit HTML5 drag payload handling.
+- Reordered builder step flow to mirror character-creation progression (`Origin`, `Archetype`, `Feats`, `Skills`, `Attributes`, `Equipment`, `Review`).
+- Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
+- Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
+- Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
