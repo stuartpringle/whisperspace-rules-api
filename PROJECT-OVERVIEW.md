@@ -102,6 +102,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Updated repo hygiene to ignore Statamic `users/` and stop tracking committed user account file(s) containing credential hashes.
 - Improved frontend image delivery: compressed/width-bounded WebP Glide backgrounds, responsive archetype image `srcset`, lazy/async loading for below-the-fold images, and Apache cache headers for static assets.
 - Added a repeatable image optimization script (`scripts/optimize-image-formats.sh`) and generated AVIF/WebP variants for key website assets; above-the-fold hero background/ship now use static AVIF/WebP with PNG fallback.
+- Added AVIF transparency safeguards: skip AVIF generation for alpha-channel source images and use WebP+PNG fallback for the transparent hero ship asset.
 - Next steps:
 - Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
 - Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
