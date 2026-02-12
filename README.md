@@ -105,6 +105,9 @@ Gameplay effects contract (new):
   - Derived values (`speed`, `carryingCapacity`, `cuf`) are clamped at minimum `0`.
 - Response note:
   - These endpoints now include a `gameplayDeltas` object showing what was applied to `attributes`, `derived`, and `skills`.
+Integration gotchas:
+- Do not send a top-level `gameplayEffects` array that is built from the same gear/feat entries you also include in the request body. The calc API merges effects from both the top-level list and the gear payloads, so you will double-apply effects.
+- When mapping rules catalog entries into a character sheet payload, include the rules data `gameplayEffects` field on items/weapons/armour/feats (or ensure the `effect`/`description` text is passed through so inference can work).
 
 Common gameplay effect keys:
 - Attributes: `phys`, `ref`, `soc`, `ment`

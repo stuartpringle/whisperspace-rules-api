@@ -128,6 +128,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.
+- Clarify calc integration gotchas in downstream docs/clients (avoid double-counting gameplay effects from top-level lists + gear payloads).
 
 ### whisperspace-obr-extension
 - Current status:
@@ -192,6 +193,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 - Expand character view page with fuller derived stats and gear totals.
 - Add manual rules-cache refresh control.
+- Ensure gear mapped from rules catalogs preserves `gameplayEffects` (or at least passes effect text) so calc endpoints can apply gameplay deltas consistently.
 
 ### whisperspace-developer
 - Current status:
