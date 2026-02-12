@@ -104,6 +104,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added a repeatable image optimization script (`scripts/optimize-image-formats.sh`) and generated AVIF/WebP variants for key website assets; above-the-fold hero background/ship now use static AVIF/WebP with PNG fallback.
 - Added AVIF transparency safeguards: skip AVIF generation for alpha-channel source images and use WebP+PNG fallback for the transparent hero ship asset.
 - Refreshed website Rules section presentation: transformed markdown rule items into grouped card-grid UI with hover animation for better readability/scanability.
+- Improved Archetypes section UX: preloaded carousel images for smoother transitions, stabilized image viewport sizing to reduce layout shift, and moved next/previous controls onto the image as overlay navigation buttons.
 - Next steps:
 - Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
 - Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
