@@ -158,6 +158,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added gameplay-effects editor/tag UX for items, weapons, and armour (typed target + signed amount, removable chips).
 - Updated catalog search so matching owned gear appears alongside rule-catalog results.
 - Unified cut-corner panel spacing to shared 25px top/bottom padding treatment and strengthened destructive-button hover contrast.
+- Added collapsed-row column headers for weapon/item readability and icon-based reload control.
+- Updated gear search behavior to filter both catalog options and current inventory/weapon rows.
+- Gameplay effect add forms now auto-close after creating an effect tag.
+- Improved drag/reorder reliability with explicit HTML5 drag payload handling.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
