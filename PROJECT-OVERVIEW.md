@@ -98,6 +98,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added backward-compatible reCAPTCHA version mapping in `config/recaptcha.php` so legacy `RECAPTCHA_VERSION=3/2` env values continue to work with the addon’s new `enterprise|v3|v2` config expectations.
 - Captured runtime integration notes in this repo’s `README.md` for future addon upgrades (cache clear + vendor publish steps).
 - Applied frontend hardening pass: guarded hero-title animation script on templates that do not render `.animated-title`, aligned mobile/desktop nav CTA condition to `Get In Touch`, and removed stale JS references to legacy mobile menu IDs.
+- Removed raw HTML injection risk in archetype cards by switching from Alpine `x-html` to `x-text` rendering for archetype descriptions.
 - Next steps:
 - Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
 - Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
