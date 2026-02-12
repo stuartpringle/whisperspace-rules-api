@@ -165,6 +165,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Gameplay effect add forms now auto-close after creating an effect tag.
 - Improved drag/reorder reliability with explicit HTML5 drag payload handling.
 - Reordered builder step flow to mirror character-creation progression (`Origin`, `Archetype`, `Feats`, `Skills`, `Attributes`, `Equipment`, `Review`).
+- Consolidated builder progression by merging `Skills` + `Attributes` into one step (`Skills & Attributes`) with attributes displayed first.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
 - Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
 - Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
