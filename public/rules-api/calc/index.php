@@ -389,6 +389,61 @@ function append_effect_string(array &$out, $value): void {
   $out[] = $trim;
 }
 
+function normalize_effect_key(string $raw): string {
+  $key = strtolower(trim($raw));
+  $key = preg_replace("/[^a-z0-9_\\s]/", "", $key);
+  $key = preg_replace("/\\s+/", " ", $key);
+  if ($key === "cuf" || $key === "cool under fire") return "cool_under_fire";
+  if ($key === "inventory slots" || $key === "inventory slot" || $key === "carrying capacity") return "carrying_capacity";
+  if (in_array($key, ["phys", "ref", "soc", "ment"], true)) return $key;
+  return str_replace(" ", "_", $key);
+}
+
+function infer_gameplay_effects_from_text(string $raw): array {
+  $text = trim($raw);
+  if ($text === "") return [];
+
+  $out = [];
+  $push = function(string $key, int $amt) use (&$out) {
+    $norm = normalize_effect_key($key);
+    if ($norm === "" || $amt === 0) return;
+    $sign = $amt >= 0 ? "+" : "-";
+    $out[] = $norm . $sign . abs($amt);
+  };
+
+  if (preg_match_all("/(?:increase|decrease|reduce|gain|lose|grant|grants|add|adds)\\s+([a-z][a-z\\s_]+?)\\s+(?:by\\s+)?([+\\-]?\\d+)/i", $text, $m1, PREG_SET_ORDER)) {
+    foreach ($m1 as $m) {
+      $matchText = strtolower((string)($m[0] ?? ""));
+      if (str_contains($matchText, "penalty die") || str_contains($matchText, "bonus die")) continue;
+      $key = (string)($m[1] ?? "");
+      $amt = (int)($m[2] ?? 0);
+      if (str_contains($matchText, "decrease") || str_contains($matchText, "reduce") || str_contains($matchText, "lose")) {
+        $amt = -abs($amt);
+      }
+      $push($key, $amt);
+    }
+  }
+
+  if (preg_match_all("/([+\\-]\\d+)\\s*(?:to|for)\\s+([a-z][a-z\\s_]+?)(?=$|[.,;:])/i", $text, $m2, PREG_SET_ORDER | PREG_OFFSET_CAPTURE)) {
+    foreach ($m2 as $m) {
+      $amt = (int)($m[1][0] ?? 0);
+      $key = (string)($m[2][0] ?? "");
+      $offset = (int)($m[0][1] ?? 0);
+      $before = strtolower(substr($text, max(0, $offset - 20), 20));
+      if (str_contains($before, "penalty die") || str_contains($before, "bonus die")) continue;
+      $push($key, $amt);
+    }
+  }
+
+  if (preg_match_all("/([+\\-]?\\d+)\\s*(inventory slots?|carrying capacity|cool under fire|cuf)\\b/i", $text, $m3, PREG_SET_ORDER)) {
+    foreach ($m3 as $m) {
+      $push((string)($m[2] ?? ""), (int)($m[1] ?? 0));
+    }
+  }
+
+  return array_values(array_unique($out));
+}
+
 function collect_gameplay_effects_from_entity($value, array &$out): void {
   if (is_string($value)) {
     append_effect_string($out, $value);
@@ -403,8 +458,22 @@ function collect_gameplay_effects_from_entity($value, array &$out): void {
     return;
   }
 
-  append_effect_string($out, $value["gameplayEffects"] ?? null);
-  append_effect_string($out, $value["gameplayEffect"] ?? null);
+  $explicit = [];
+  append_effect_string($explicit, $value["gameplayEffects"] ?? null);
+  append_effect_string($explicit, $value["gameplayEffect"] ?? null);
+  foreach ($explicit as $e) {
+    $out[] = $e;
+  }
+  if (count($explicit) > 0) return;
+
+  $textParts = [];
+  foreach (["effect", "special", "description", "text", "notes", "name"] as $k) {
+    if (is_string($value[$k] ?? null)) $textParts[] = trim((string)$value[$k]);
+  }
+  $inferred = infer_gameplay_effects_from_text(implode(" ", array_filter($textParts)));
+  foreach ($inferred as $e) {
+    $out[] = $e;
+  }
 }
 
 function collect_gameplay_effects(array $body): array {
@@ -480,18 +549,19 @@ function merge_status_deltas(array $statuses): array {
 
 function apply_status_to_derived(array $derived, array $deltas): array {
   $next = $derived;
-  $add = function(string $key, int $val) use (&$next) {
+  $add = function(string $key, int $val, bool $clampFloor = false) use (&$next) {
     if (!is_numeric($val) || $val == 0) return;
-    $next[$key] = (int)($next[$key] ?? 0) + $val;
+    $result = (int)($next[$key] ?? 0) + $val;
+    $next[$key] = $clampFloor ? max(0, $result) : $result;
   };
 
-  $add("phys", (int)($deltas["phys"] ?? 0));
-  $add("ref", (int)($deltas["ref"] ?? 0));
-  $add("soc", (int)($deltas["soc"] ?? 0));
-  $add("ment", (int)($deltas["ment"] ?? 0));
-  $add("coolUnderFire", (int)($deltas["cool_under_fire"] ?? 0));
-  $add("speed", (int)($deltas["speed"] ?? 0));
-  $add("carryingCapacity", (int)($deltas["carrying_capacity"] ?? 0));
+  $add("phys", (int)($deltas["phys"] ?? 0), true);
+  $add("ref", (int)($deltas["ref"] ?? 0), true);
+  $add("soc", (int)($deltas["soc"] ?? 0), true);
+  $add("ment", (int)($deltas["ment"] ?? 0), true);
+  $add("coolUnderFire", (int)($deltas["cool_under_fire"] ?? 0), true);
+  $add("speed", (int)($deltas["speed"] ?? 0), true);
+  $add("carryingCapacity", (int)($deltas["carrying_capacity"] ?? 0), true);
 
   foreach ($deltas as $k => $v) {
     if (in_array($k, ["phys","ref","soc","ment","cool_under_fire","speed","carrying_capacity"], true)) continue;

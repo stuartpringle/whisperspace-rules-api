@@ -80,7 +80,58 @@ function getCell(row, map, key) {
   return row[idx] ?? "";
 }
 
-function getGameplayEffects(row, map, itemName = "") {
+function normalizeEffectKey(raw) {
+  const key = String(raw ?? "").trim().toLowerCase().replace(/[^a-z0-9\s_]/g, "").replace(/\s+/g, " ");
+  if (!key) return "";
+  if (key === "cuf" || key === "cool under fire") return "cool_under_fire";
+  if (key === "inventory slots" || key === "inventory slot" || key === "carrying capacity") return "carrying_capacity";
+  if (["phys", "ref", "soc", "ment"].includes(key)) return key;
+  return key.replace(/\s+/g, "_");
+}
+
+function inferGameplayEffectsFromText(raw) {
+  const text = String(raw ?? "");
+  if (!text.trim()) return [];
+  const lower = text.toLowerCase();
+  const out = [];
+  const push = (k, amt) => {
+    const key = normalizeEffectKey(k);
+    const num = Number(amt);
+    if (!key || !Number.isFinite(num) || num === 0) return;
+    const sign = num >= 0 ? "+" : "-";
+    out.push(`${key}${sign}${Math.abs(Math.trunc(num))}`);
+  };
+
+  const p1 = /(?:increase|decrease|reduce|gain|lose|grant|grants|add|adds)\s+([a-z][a-z\s_]+?)\s+(?:by\s+)?([+\-]?\d+)/gi;
+  let m;
+  while ((m = p1.exec(text)) !== null) {
+    const phrase = String(m[0] ?? "").toLowerCase();
+    if (phrase.includes("penalty die") || phrase.includes("bonus die")) continue;
+    const key = m[1];
+    let amt = Number(m[2]);
+    if (!Number.isFinite(amt)) continue;
+    if (phrase.includes("decrease") || phrase.includes("reduce") || phrase.includes("lose")) {
+      amt = -Math.abs(amt);
+    }
+    push(key, amt);
+  }
+
+  const p2 = /([+\-]\d+)\s*(?:to|for)\s+([a-z][a-z\s_]+?)(?=$|[.,;:])/gi;
+  while ((m = p2.exec(text)) !== null) {
+    const before = lower.slice(Math.max(0, m.index - 20), m.index);
+    if (before.includes("penalty die") || before.includes("bonus die")) continue;
+    push(m[2], Number(m[1]));
+  }
+
+  const p3 = /([+\-]?\d+)\s*(inventory slots?|carrying capacity|cool under fire|cuf)\b/gi;
+  while ((m = p3.exec(text)) !== null) {
+    push(m[2], Number(m[1]));
+  }
+
+  return Array.from(new Set(out));
+}
+
+function getGameplayEffects(row, map, ...textSources) {
   const raw =
     getCell(row, map, "gameplay effects") ||
     getCell(row, map, "gameplay effect") ||
@@ -88,9 +139,9 @@ function getGameplayEffects(row, map, itemName = "") {
   const text = String(raw ?? "").trim();
   if (text && text !== "-") return text;
 
-  // Backfill known legacy effects when source tables do not yet expose a column.
-  if (String(itemName).trim().toLowerCase() === "compact backpack") {
-    return "carrying_capacity+5";
+  const inferred = inferGameplayEffectsFromText(textSources.join(" "));
+  if (inferred.length) {
+    return inferred.join(", ");
   }
   return "";
 }
@@ -121,7 +172,7 @@ function parseWeapons(tableRows) {
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
     const special = getCell(row, map, "special");
     const cost = parseNumber(getCell(row, map, "cost"));
-    const gameplayEffects = getGameplayEffects(row, map, name);
+    const gameplayEffects = getGameplayEffects(row, map, special, name);
 
     const item = {
       id,
@@ -157,7 +208,7 @@ function parseArmor(tableRows) {
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
     const special = getCell(row, map, "special");
     const cost = parseNumber(getCell(row, map, "cost"));
-    const gameplayEffects = getGameplayEffects(row, map, name);
+    const gameplayEffects = getGameplayEffects(row, map, special, name);
 
     const item = {
       id,
@@ -186,7 +237,7 @@ function parseItems(tableRows) {
     const uses = getCell(row, map, "uses");
     const bulk = parseNumber(getCell(row, map, "bulk"));
     const cost = parseNumber(getCell(row, map, "cost"));
-    const gameplayEffects = getGameplayEffects(row, map, name);
+    const gameplayEffects = getGameplayEffects(row, map, effect, name);
     const item = { name, effect, uses, bulk, cost };
     if (gameplayEffects) item.gameplayEffects = gameplayEffects;
     out.push(item);

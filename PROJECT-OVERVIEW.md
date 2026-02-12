@@ -109,7 +109,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Recent milestones:
 - Added `gameplayEffects` field support across weapons/armour/items/feats contracts in this repo.
 - Updated calc derivation endpoints to apply gameplay deltas to attributes, derived stats, and skill modifiers (with floor-at-zero behavior for skill ranks).
-- Compact Backpack now maps to `carrying_capacity+5` in parsed/published item data flow.
+- Compact Backpack and similar gear now map gameplay effects via programmatic text parsing from source rules wording (with explicit field override support).
 - README calc docs expanded with gameplay-effects contract and request/response examples.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.

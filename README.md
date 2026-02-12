@@ -78,6 +78,12 @@ Gameplay effects contract (new):
 - Effects are additive across all provided non-empty sources:
   - top-level `gameplayEffects: string[]`
   - equipment payloads containing `gameplayEffects`/`gameplayEffect` under `weapons`, `armour`, `items`, `feats`, `inventory`, or `sheet`.
+- Programmatic extraction:
+  - During gear parsing (`scripts/parse-gear.mjs`), if the source table has no gameplay-effects column, a best-effort parser infers effects from plain-English text (for example, `+5 Inventory Slots when worn` -> `carrying_capacity+5`).
+  - During calc requests, if a feat/item/armour/weapon object has no explicit `gameplayEffects`, the calc API also performs best-effort extraction from `effect`/`special`/`description`/`text` fields.
+- Recommendation:
+  - Treat explicit `gameplayEffects` in parser output as the canonical contract for clients.
+  - Keep inference enabled as a safety net for upstream wording drift, but prefer explicit fields whenever available.
 - Clamping rules:
   - Skill deltas never reduce a skill rank below `0`.
   - Derived values (`speed`, `carryingCapacity`, `cuf`) are clamped at minimum `0`.
@@ -149,6 +155,16 @@ Response:
 }
 ```
 Response includes final attributes plus `gameplayDeltas` so clients can show exactly which stat/attribute adjustments were applied.
+
+Example feat text inference:
+- Input feat object:
+  ```json
+  {
+    "name": "Military Discipline",
+    "description": "Increase Cool Under Fire by +1. Additionally, once per turn you may ignore penalty dice from Suppressing Fire."
+  }
+  ```
+- Inferred gameplay effect: `cool_under_fire+1` (penalty-dice language is ignored by gameplay rank/derived parser).
 
 ## Character API (MySQL-backed)
 

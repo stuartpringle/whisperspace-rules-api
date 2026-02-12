@@ -46,19 +46,20 @@ export function applyStatusToDerived<T extends Record<string, any>>(
 ): T {
   const next: any = { ...derived };
 
-  const add = (key: string, val: number) => {
+  const add = (key: string, val: number, clampFloor = false) => {
     if (!Number.isFinite(val) || val === 0) return;
-    next[key] = (Number(next[key]) || 0) + val;
+    const out = (Number(next[key]) || 0) + val;
+    next[key] = clampFloor ? Math.max(0, out) : out;
   };
 
-  add("phys", deltas["phys"] ?? 0);
-  add("ref", deltas["ref"] ?? 0);
-  add("soc", deltas["soc"] ?? 0);
-  add("ment", deltas["ment"] ?? 0);
+  add("phys", deltas["phys"] ?? 0, true);
+  add("ref", deltas["ref"] ?? 0, true);
+  add("soc", deltas["soc"] ?? 0, true);
+  add("ment", deltas["ment"] ?? 0, true);
 
-  add("coolUnderFire", deltas["cool_under_fire"] ?? 0);
-  add("speed", deltas["speed"] ?? 0);
-  add("carryingCapacity", deltas["carrying_capacity"] ?? 0);
+  add("coolUnderFire", deltas["cool_under_fire"] ?? 0, true);
+  add("speed", deltas["speed"] ?? 0, true);
+  add("carryingCapacity", deltas["carrying_capacity"] ?? 0, true);
 
   for (const [k, v] of Object.entries(deltas)) {
     if (k === "phys" || k === "ref" || k === "soc" || k === "ment") continue;
