@@ -136,6 +136,9 @@ Use this section to keep a single-source, cross-repo status summary.
 - Increased augmented-ui prototype intensity for clearer visual comparison.
 - Fixed OAuth/session cache behavior so stale cached null sessions do not mask fresh authenticated state after redirect.
 - Added auth guard redirect from protected pages (`/characters`, `/settings`) to builder when logged out.
+- Moved Previous/Next controls into the builder content card.
+- Added drag-and-drop reordering for inventory and weapon cards.
+- Increased vertical padding on gear cards for readability.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
