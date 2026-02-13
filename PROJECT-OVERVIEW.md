@@ -187,6 +187,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder now normalizes gameplay-effect tags into a top-level `gameplayEffects` array for derive endpoints and omits per-entity effect fields in derive payload objects for deployed calc compatibility.
 - Builder now includes a temporary in-app calc debug panel to inspect derive payloads/responses/applied values while validating gameplay-effect behavior end-to-end.
 - Builder calc debug panel now flags likely old-contract calc responses (missing `gameplayDeltas`) so live deployment mismatches are immediately visible.
+- Builder now displays gameplay-adjusted effective skill ranks (capped at rank 5) and adds cancel actions to gameplay-effect editors for gear.
 - Builder derive polling now uses request-signature dedupe + in-flight guards to reduce calc rate-limit churn during debugging.
 - Builder derive triggers are now constrained to relevant state changes (skills + gameplay-effect fields + key step entry + save), with explicit 429 cooldown backoff.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
