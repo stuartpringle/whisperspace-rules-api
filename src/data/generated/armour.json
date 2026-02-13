@@ -33,7 +33,8 @@
       "durability": 5,
       "bulk": 1,
       "cost": 2500,
-      "special": "+1 to Stealth"
+      "special": "+1 to Stealth",
+      "gameplayEffects": "stealth_streetweave_jacket+1"
     },
     {
       "id": "milsec_bodyplate",

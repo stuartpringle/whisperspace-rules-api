@@ -2,7 +2,7 @@
   "items": [
     {
       "name": "Flashbang Grenade",
-      "effect": "Applies Stun 1 to everyone within Very Near range, Thrownzz",
+      "effect": "Applies Stun 1 to everyone within Very Near range, Thrown",
       "uses": "1 use",
       "bulk": 1,
       "cost": 200
@@ -80,10 +80,10 @@
     {
       "name": "Compact Backpack",
       "effect": "+5 Inventory Slots when worn",
-      "gameplayEffects": "carrying_capacity+5",
       "uses": "Permanent",
       "bulk": 0,
-      "cost": 150
+      "cost": 150,
+      "gameplayEffects": "carrying_capacity+5"
     },
     {
       "name": "Ammo (Flechette)",
@@ -104,14 +104,16 @@
       "effect": "Adds Piercing 1 to attacks.",
       "uses": "10",
       "bulk": 1,
-      "cost": 750
+      "cost": 750,
+      "gameplayEffects": "piercing+1"
     },
     {
       "name": "Ammo (Explosive)",
       "effect": "Adds Shredding 1 to attacks.",
       "uses": "10",
       "bulk": 1,
-      "cost": 750
+      "cost": 750,
+      "gameplayEffects": "shredding+1"
     }
   ]
 }
