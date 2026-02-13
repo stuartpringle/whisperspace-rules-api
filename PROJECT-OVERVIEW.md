@@ -187,6 +187,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder now sends normalized per-entity gameplay effect strings for calc derivation (instead of duplicating top-level effect aggregation), matching current Rules API guidance and tooltip ID-map contracts.
 - Builder now includes a temporary in-app calc debug panel to inspect derive payloads/responses/applied values while validating gameplay-effect behavior end-to-end.
 - Builder derive polling now uses request-signature dedupe + in-flight guards to reduce calc rate-limit churn during debugging.
+- Builder derive triggers are now constrained to relevant state changes (skills + gameplay-effect fields + key step entry + save), with explicit 429 cooldown backoff.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
 - Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
 - Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
