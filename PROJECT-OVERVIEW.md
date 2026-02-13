@@ -185,8 +185,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Character builder Review step now uses a polished dashboard-style layout aligned with the project’s updated visual language.
 - Builder calc calls were aligned to current API contracts by sending full equipment context and tolerating updated derive response field variants.
 - Builder now normalizes gameplay-effect tags into a top-level `gameplayEffects` array for derive endpoints and omits per-entity effect fields in derive payload objects for deployed calc compatibility.
-- Builder now includes a temporary in-app calc debug panel to inspect derive payloads/responses/applied values while validating gameplay-effect behavior end-to-end.
-- Builder calc debug panel now flags likely old-contract calc responses (missing `gameplayDeltas`) so live deployment mismatches are immediately visible.
+- Builder temporarily exposed an in-app calc debug panel during gameplay-effects rollout; this panel has now been removed from the user-facing UI after deployment validation.
 - Builder now displays gameplay-adjusted effective skill ranks (capped at rank 5) and adds cancel actions to gameplay-effect editors for gear.
 - Builder derive polling now uses request-signature dedupe + in-flight guards to reduce calc rate-limit churn during debugging.
 - Builder derive triggers are now constrained to relevant state changes (skills + gameplay-effect fields + key step entry + save), with explicit 429 cooldown backoff.
@@ -200,7 +199,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 - Expand character view page with fuller derived stats and gear totals.
 - Add manual rules-cache refresh control.
-- Continue validating live gameplay-effects behavior against deployed calc endpoints using the in-app debug panel; keep payload contract notes synced across repos.
+- Keep gameplay-effects calc payload/response contract notes synced across repos as rules/calc evolves.
 - Ensure gear mapped from rules catalogs preserves `gameplayEffects` (or at least passes effect text) so calc endpoints can apply gameplay deltas consistently.
 
 ### whisperspace-developer
