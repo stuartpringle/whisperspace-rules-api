@@ -195,6 +195,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder origin Motivation/Background dropdowns now sync default selection to current sheet values (including loaded sheets).
 - Builder weapon ammo controls now enforce catalog max ammo caps; melee weapons without explicit ammo now show `-` and disable/hide reload/decrement actions.
 - Builder drag/drop now includes drag-state polish and live hover reflow while dragging gear cards.
+- Builder drag/drop hover reordering now includes jitter guards (rate-limit + per-target dedupe) to reduce flicker during rapid dragover events.
 - Builder right-column account menu now includes `Save`/`Import`/`Reset` actions, uses full-email account labels, and no longer renders a menu container border.
 - Builder header now consumes cross-project nav JSON from `whisperspace.com/nav/main-menu.v1.json` so top-level site navigation updates can propagate without duplicating link config.
 - Builder derive polling now uses request-signature dedupe + in-flight guards to reduce calc rate-limit churn during debugging.
