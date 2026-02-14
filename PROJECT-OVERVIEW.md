@@ -196,6 +196,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder weapon ammo controls now enforce catalog max ammo caps; melee weapons without explicit ammo now show `-` and disable/hide reload/decrement actions.
 - Builder drag/drop now includes drag-state polish and live hover reflow while dragging gear cards.
 - Builder right-column account menu now includes `Save`/`Import`/`Reset` actions, uses full-email account labels, and no longer renders a menu container border.
+- Builder header now consumes cross-project nav JSON from `whisperspace.com/nav/main-menu.v1.json` so top-level site navigation updates can propagate without duplicating link config.
 - Builder derive polling now uses request-signature dedupe + in-flight guards to reduce calc rate-limit churn during debugging.
 - Builder derive triggers are now constrained to relevant state changes (skills + gameplay-effect fields + key step entry + save), with explicit 429 cooldown backoff.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
