@@ -219,15 +219,16 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 
 ### whisperspace-docs
-- Current status: Public rules docs frontend is scaffolded as a React/Vite app in `whisperspace-docs`, targeting `https://docs.whisperspace.com` with runtime fetches from Rules API latest JSON and sanitized rich markdown/HTML rendering.
+- Current status: Public rules docs frontend is scaffolded as a React/Vite app in `whisperspace-docs`, targeting `https://docs.whisperspace.com` with runtime Rules API fetches, metadata version checks, local cache reuse, and sanitized rich markdown/HTML rendering.
 - Recent milestones:
 - Implemented searchable rules reference UI with hash-based deep linking and section index navigation.
 - Added resilient payload normalization layer in `whisperspace-docs/src/lib/rules.js` to convert nested rules JSON structures into displayable section cards.
 - Enabled rich section rendering via markdown parse + sanitization (`marked` + `DOMPurify`) so upstream formatted rules content can render safely.
+- Added client-side cache orchestration in `whisperspace-docs/src/lib/rulesClient.js`: fetch `meta.json`, compare version against cached payload, serve cached rules on version match, and refresh cache when version changes.
 - Added Apache SPA hosting support (`public/.htaccess`) with rewrite fallback + static asset caching policy.
 - Expanded `whisperspace-docs/README.md` with concrete integration contracts: endpoint URLs, env var override (`VITE_RULES_URL`), auth/CORS expectations, build/deploy workflow, and known gotchas.
 - Next steps:
-- Validate production CORS + endpoint behavior for `https://docs.whisperspace.com` against `https://rules-api.whisperspace.com/rules-api/latest/rules.json`.
+- Validate production CORS + endpoint behavior for `https://docs.whisperspace.com` against `https://rules-api.whisperspace.com/rules-api/latest/rules.json` and `meta.json`.
 - Add a lightweight release smoke test (rules fetch + parse count threshold) to catch upstream payload regressions early.
 
 ### whisperspace-rules-parser
