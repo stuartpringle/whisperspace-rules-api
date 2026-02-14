@@ -226,6 +226,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Enabled rich section rendering via markdown parse + sanitization (`marked` + `DOMPurify`) so upstream formatted rules content can render safely.
 - Added client-side cache orchestration in `whisperspace-docs/src/lib/rulesClient.js`: fetch `meta.json`, compare version against cached payload, serve cached rules on version match, and refresh cache when version changes.
 - Relaxed docs payload normalization heuristics in `whisperspace-docs/src/lib/rules.js` to accept additional text/markdown field patterns and avoid false \"0 sections parsed\" failures when upstream structure varies.
+- Added docs operator control for manual refresh (force API pull + cache write), while default runtime continues version-aware cache reuse.
 - Added Apache SPA hosting support (`public/.htaccess`) with rewrite fallback + static asset caching policy.
 - Expanded `whisperspace-docs/README.md` with concrete integration contracts: endpoint URLs, env var override (`VITE_RULES_URL`), auth/CORS expectations, build/deploy workflow, and known gotchas.
 - Next steps:
