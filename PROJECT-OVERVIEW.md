@@ -220,16 +220,15 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 
 ### whisperspace-docs
-- Current status: Public rules docs frontend is scaffolded as a React/Vite app in `whisperspace-docs`, targeting `https://docs.whisperspace.com` with runtime Rules API fetches, metadata version checks, local cache reuse, and sanitized rich markdown/HTML rendering.
+- Current status: Public rules docs frontend is a chapter-driven React/Vite rulebook at `https://docs.whisperspace.com`, consuming canonical `rules.json` chapter hierarchy with runtime version-aware caching and sanitized rich rendering.
 - Recent milestones:
-- Implemented searchable rules reference UI with hash-based deep linking and section index navigation.
-- Added resilient payload normalization layer in `whisperspace-docs/src/lib/rules.js` to convert nested rules JSON structures into displayable section cards.
-- Enabled rich section rendering via markdown parse + sanitization (`marked` + `DOMPurify`) so upstream formatted rules content can render safely.
+- Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
+- Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
+- Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
+- Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
+- Enabled rich content rendering via markdown parse + sanitization (`marked` + `DOMPurify`) for paragraph/list text.
 - Added client-side cache orchestration in `whisperspace-docs/src/lib/rulesClient.js`: fetch `meta.json`, compare version against cached payload, serve cached rules on version match, and refresh cache when version changes.
-- Relaxed docs payload normalization heuristics in `whisperspace-docs/src/lib/rules.js` to accept additional text/markdown field patterns and avoid false \"0 sections parsed\" failures when upstream structure varies.
 - Added automatic docs background version checks (interval-based) while runtime continues version-aware cache reuse.
-- Expanded docs rendering model beyond prose sections to include structured collection tables parsed from object-array rules data (skills/weapons/items-style catalogs).
-- Added dedicated docs collection routes (`/skills`-style paths) and grouped narrative rendering so section text appears under the appropriate rules area rather than a single flat list.
 - Added Apache SPA hosting support (`public/.htaccess`) with rewrite fallback + static asset caching policy.
 - Expanded `whisperspace-docs/README.md` with concrete integration contracts: endpoint URLs, env var override (`VITE_RULES_URL`), auth/CORS expectations, build/deploy workflow, and known gotchas.
 - Next steps:
