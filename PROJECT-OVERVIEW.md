@@ -223,7 +223,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Current status: Public rules docs frontend is a chapter-driven React/Vite rulebook at `https://docs.whisperspace.com`, consuming canonical `rules.json` chapter hierarchy with runtime version-aware caching and sanitized rich rendering.
 - Recent milestones:
 - Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
-- Added query-aware chapter/topic navigation counts and scoped in-topic term highlighting when navigating to a matched topic.
+- Added query-aware chapter/topic navigation counts with search-order sorting (DESC by matches) and scoped in-topic term highlighting when navigating to a matched topic.
 - Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
 - Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
 - Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
