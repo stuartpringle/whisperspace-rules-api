@@ -203,6 +203,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
 - Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
 - Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
+- Builder + SDK schema now support multiple carried armour entries (`armours`) with a single equipped selector (`equippedArmourId`) while maintaining legacy `armour` compatibility.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
