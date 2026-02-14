@@ -228,6 +228,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Hardened docs Apache SPA fallback by adding `FallbackResource /index.html` + `-MultiViews` in docs `.htaccess` and documenting required vhost overrides for deep-link refresh reliability.
 - Added docs URL query search contract (`?search=<term>`) so chapter routes can deep-link directly into active search context (e.g., `/stress?search=stress`).
 - Implemented parser-span link rendering in docs so internal rules references navigate to mapped chapter/topic routes instead of inert text.
+- Switched docs topic hashes to human-readable slug anchors (with legacy hash compatibility mapping) for clearer shareable links.
 - Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
 - Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
 - Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
