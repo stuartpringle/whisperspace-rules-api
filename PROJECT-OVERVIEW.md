@@ -229,6 +229,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Relaxed docs payload normalization heuristics in `whisperspace-docs/src/lib/rules.js` to accept additional text/markdown field patterns and avoid false \"0 sections parsed\" failures when upstream structure varies.
 - Added automatic docs background version checks (interval-based) while runtime continues version-aware cache reuse.
 - Expanded docs rendering model beyond prose sections to include structured collection tables parsed from object-array rules data (skills/weapons/items-style catalogs).
+- Added dedicated docs collection routes (`/skills`-style paths) and grouped narrative rendering so section text appears under the appropriate rules area rather than a single flat list.
 - Added Apache SPA hosting support (`public/.htaccess`) with rewrite fallback + static asset caching policy.
 - Expanded `whisperspace-docs/README.md` with concrete integration contracts: endpoint URLs, env var override (`VITE_RULES_URL`), auth/CORS expectations, build/deploy workflow, and known gotchas.
 - Next steps:
