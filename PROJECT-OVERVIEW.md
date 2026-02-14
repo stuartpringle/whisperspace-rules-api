@@ -225,6 +225,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
 - Added query-aware chapter/topic navigation counts with search-order sorting (DESC by matches) and scoped in-topic term highlighting when navigating to a matched topic.
 - Fixed docs search UX edge cases: chapter-click highlighting now scopes to the opened chapter by default, search mode hides `Rulebook Home`, and route normalization handles trailing-slash chapter URLs.
+- Hardened docs Apache SPA fallback by adding `FallbackResource /index.html` + `-MultiViews` in docs `.htaccess` and documenting required vhost overrides for deep-link refresh reliability.
 - Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
 - Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
 - Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
