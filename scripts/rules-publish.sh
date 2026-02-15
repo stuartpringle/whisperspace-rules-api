@@ -34,6 +34,10 @@ fi
 if [ -f "index.html" ]; then
   echo "[rules:publish] Building Vite dist..."
   npm run build
+  if [ -f "public/.htaccess" ]; then
+    cp "public/.htaccess" "dist/.htaccess"
+    echo "[rules:publish] Copied public/.htaccess to dist/.htaccess"
+  fi
 else
   echo "[rules:publish] Skipping Vite dist build (index.html not found)."
 fi
