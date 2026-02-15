@@ -129,6 +129,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.
 - Clarify calc integration gotchas in downstream docs/clients (avoid double-counting gameplay effects from top-level lists + gear payloads).
+- Fixed inherited global Basic Auth prompt on `rules-api.whisperspace.com` root by adding a publish-root `.htaccess` override and wiring `rules:publish` to copy it into `dist/.htaccess`.
 
 ### whisperspace-obr-extension
 - Current status:
