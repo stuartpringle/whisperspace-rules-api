@@ -239,6 +239,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added docs sidebar scrollspy behavior so active nested topic highlighting follows reader scroll position within a chapter.
 - Fixed docs scroll-lock regression by stabilizing location callbacks so hash auto-scroll does not re-trigger every render while manually scrolling.
 - Added docs search toggle (`Hide empty categories`, default enabled) so zero-match chapter categories can be hidden during query-driven navigation.
+- Extended the same toggle to nested chapter sub-topic trees so unchecking it reveals non-matching sub-topics for context while searching.
 - Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
 - Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
 - Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
