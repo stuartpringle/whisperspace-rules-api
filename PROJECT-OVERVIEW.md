@@ -232,6 +232,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Improved docs table readability by compacting parser-expanded adjacent duplicate cells into merged display columns (`colSpan`), fixing repeated header/body labels on archetype/feat tables.
 - Updated docs sidebar navigation to nested chapter/topic tree behavior (indented sub-topic menu under active category), aligning docs UX with rulebook hierarchy.
 - Added variable-marker anchor normalization in docs (`(X)`/`(n)` references resolve to base anchors like `#bleeding`, `#emp`, `#agonized`) for consistent intra-rule linking.
+- Added parser-link contract fallback logic in docs: while parser contract is `#slug`/`file.yaml#slug`, current payload still includes some legacy `#h...` anchors, so docs resolves these via heading-text + singular/plural matching.
 - Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
 - Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
 - Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
