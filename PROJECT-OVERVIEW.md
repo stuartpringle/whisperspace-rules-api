@@ -236,6 +236,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added variable-marker anchor normalization in docs (`(X)`/`(n)` references resolve to base anchors like `#bleeding`, `#emp`, `#agonized`) for consistent intra-rule linking.
 - Added parser-link contract fallback logic in docs: while parser contract is `#slug`/`file.yaml#slug`, current payload still includes some legacy `#h...` anchors, so docs resolves these via heading-text + singular/plural matching.
 - Added docs sidebar scrollspy behavior so active nested topic highlighting follows reader scroll position within a chapter.
+- Fixed docs scroll-lock regression by stabilizing location callbacks so hash auto-scroll does not re-trigger every render while manually scrolling.
 - Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
 - Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
 - Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
