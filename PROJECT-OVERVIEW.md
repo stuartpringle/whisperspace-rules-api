@@ -208,7 +208,9 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder now includes a modular dice-roller service with swappable providers (default CSS 3D roller), so roll UX can be replaced without changing character-sheet logic.
 - Builder equipment UX now supports carried-armour card management (equip-highlight workflow) and a `Buy` vs `Acquire` mode that can enforce credits and auto-deduct catalog costs on add actions.
 - Builder armour UX now matches weapon/item row patterns: each armour row expands for edits, and equip state only changes via explicit `Equip` action.
+- Builder armour purchases now always create separate carried-armour instances (no merge) so durability can be tracked independently per piece.
 - Builder equipment add controls now switch to `Buy ... (<cost> credits)` labels in buy mode and auto-disable when credits are insufficient (while `Acquire` mode retains standard add behavior).
+- Builder buy-mode economy now supports sell semantics on gear controls (remove and item quantity decrement), while item quantity increment in buy mode performs affordability-checked purchases with credit deductions.
 - Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
 - Supports post-save redirect to shareable character view URL (`/character/:id`).
 - Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
