@@ -137,6 +137,8 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 
 ### whisperspace-character-builder
+- Builder armour action buttons were normalized to the same padded sizing as other row action controls for consistent touch/click targets.
+- Builder credits adjustments are now handled via a dedicated modal flow (`Add/Remove`) launched from Equipment credits display, reducing control clutter in the gear summary row.
 - Current status: Production React/Vite builder is live at `https://builder.whisperspace.com` with rules-driven character creation, local drafts, and authenticated cloud save.
 - Recent milestones:
 - Added account UX polish in the Save dialog (clear login/signup/reset messaging and readable auth errors).
