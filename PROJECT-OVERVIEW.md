@@ -164,6 +164,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added builder sci-fi name generation for character naming (`Generate` action beside name in Origin) and refreshed Review tab presentation with richer summary metadata, skill-point budget pills, and equipped-armour-aware loadout display.
 - Refined builder UX edge cases: default landing redirect now triggers only after explicit login (not refresh/deep links), and roll dialogs for Motivation/Background/credits remain visible until closed so dice outcomes are clearly surfaced.
 - Corrected builder dice-modal render scope so roll dialogs mount in the main builder page (not only the characters page), restoring visible roll animation/results for Origin `Roll Motivation` and `Roll Background`.
+- Reworked builder roll presentation to non-modal overlays: 3D die animation now runs across the screen and result text appears in a bottom-right toast (`Rolled 1d12: <result>` + contextual detail like credits/background/motivation) before auto-dismiss.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
