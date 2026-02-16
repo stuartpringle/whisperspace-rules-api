@@ -280,3 +280,5 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder gear card hover treatment now applies on expanded and collapsed cards uniformly; obsolete `.equipped-row` row-highlight styling was removed.
 
 - Builder character-list UX now includes delete controls and copy-link confirmation feedback, and auth modal Enter key submits login while preserving save-flow intent (no unintended save menu on standard login).
+
+- Builder now enforces logout safety on the editor: when auth is lost, cloud-only drafts are removed from active editing unless that character was explicitly saved to local storage by the user.
