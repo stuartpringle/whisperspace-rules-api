@@ -278,3 +278,5 @@ Use this section to keep a single-source, cross-repo status summary.
 
 - Builder save-options modal now restores visibility from per-character preference history, and character list requests were hardened to cookie-session auth to stop cross-account character bleed-through.
 - Builder gear card hover treatment now applies on expanded and collapsed cards uniformly; obsolete `.equipped-row` row-highlight styling was removed.
+
+- Builder character-list UX now includes delete controls and copy-link confirmation feedback, and auth modal Enter key submits login while preserving save-flow intent (no unintended save menu on standard login).
