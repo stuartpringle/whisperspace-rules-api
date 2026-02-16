@@ -274,3 +274,4 @@ Use this section to keep a single-source, cross-repo status summary.
 
 - Builder header menu now nests `Save`/`Import`/`Reset` under `Character Builder`, removes the separate back-to-builder button, and fixes dropdown clipping/hit-area behavior.
 - Builder weapons now render Rules API keyword chips with tooltip definitions (`weapon_keywords.json`), and gear rows now include consistent hover/equipped highlight styling.
+- Builder header/actions were adjusted so `Save`/`Import`/`Reset` are larger horizontal controls under the page title, while account dropdown now contains `My Characters` above `Settings`; buy/sell action labels now use simplified text.
