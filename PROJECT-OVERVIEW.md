@@ -168,6 +168,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Enhanced builder roll animation fidelity: toasts now pop more prominently and linger longer, die/toast lifetime increased by ~1s, die visuals now track roll type (`d10`/`d12`), launch vectors are randomized (force + direction + start face), and result numbers are hidden until motion ends.
 - Upgraded builder `d10`/`d12` roll visuals from ring approximations to polyhedron-style face constructions (kite faces for `d10`, pentagonal faces for `d12`) for closer geometric alignment with tabletop dice conventions.
 - Follow-up dice geometry pass kept face numbers visible during roll animation and adjusted d10/d12 orientation transforms to improve visible face-edge contact/alignment (notably d12 cap/band joins).
+- Rolled back builder visual dice overlays per UX direction: Origin roll actions now resolve via direct RNG without on-screen dice/toast, while retaining the modular dice abstraction in code for future optional dice-module restoration.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
