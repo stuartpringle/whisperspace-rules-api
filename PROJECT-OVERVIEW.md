@@ -151,7 +151,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
 - Skills UX refresh: grouped/collapsible trees, search-by-name, no slug labels, compact +/- rank controls, and tooltip hints.
 - Added inline SVG skill-group icons for attribute/focus trees.
-- Added authenticated account menu under username with Character Builder / Character List / Settings / Log out actions.
+- Added authenticated account menu under username with `My Characters` top-level nav and a username dropdown (`Settings`, `Log out`).
 - Implemented Character List page (search/sort/capacity slots/name-link/copy-link/edit, right-aligned numeric columns) with unsaved-change guard when switching edits.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
@@ -271,3 +271,6 @@ Use this section to keep a single-source, cross-repo status summary.
 - Current status:
 - Recent milestones:
 - Next steps:
+
+- Builder header menu now nests `Save`/`Import`/`Reset` under `Character Builder`, removes the separate back-to-builder button, and fixes dropdown clipping/hit-area behavior.
+- Builder weapons now render Rules API keyword chips with tooltip definitions (`weapon_keywords.json`), and gear rows now include consistent hover/equipped highlight styling.
