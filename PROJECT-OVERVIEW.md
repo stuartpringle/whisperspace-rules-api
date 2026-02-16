@@ -159,6 +159,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Reworked builder account navigation presentation: submenu links now render inline as an indented tree under the user entry (not a detached floating dropdown), and the account menu group sits slightly higher in the header layout.
 - Simplified builder account menu structure by removing the separate user-name parent item and rendering `My Characters`, `Settings`, and `Log out` directly as indented entries in the same primary menu list.
 - Finalized builder account menu presentation as a flat normal menu list (no submenu indentation), while styling `Log out` with a lighter danger treatment for clearer action distinction.
+- Aligned builder header `Log out` styling to the shared destructive-action button pattern (`ghost danger`) used by inventory remove actions for consistent affordance.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
