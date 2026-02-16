@@ -165,6 +165,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Refined builder UX edge cases: default landing redirect now triggers only after explicit login (not refresh/deep links), and roll dialogs for Motivation/Background/credits remain visible until closed so dice outcomes are clearly surfaced.
 - Corrected builder dice-modal render scope so roll dialogs mount in the main builder page (not only the characters page), restoring visible roll animation/results for Origin `Roll Motivation` and `Roll Background`.
 - Reworked builder roll presentation to non-modal overlays: 3D die animation now runs across the screen and result text appears in a bottom-right toast (`Rolled 1d12: <result>` + contextual detail like credits/background/motivation) before auto-dismiss.
+- Enhanced builder roll animation fidelity: toasts now pop more prominently and linger longer, die/toast lifetime increased by ~1s, die visuals now track roll type (`d10`/`d12`), launch vectors are randomized (force + direction + start face), and result numbers are hidden until motion ends.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
