@@ -154,6 +154,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added authenticated account menu under username with `My Characters` top-level nav and a username dropdown (`Settings`, `Log out`).
 - Implemented Character List page (search/sort/capacity slots/name-link/copy-link/edit, right-aligned numeric columns) with unsaved-change guard when switching edits.
 - Polished account-submenu behavior on protected routes: `/characters` and `/settings` now keep the submenu expanded with proper active highlighting, `/characters` action copy now uses `New Character`, and character rows gained consistent hover-highlight affordances.
+- Updated builder navigation + budgeting UX: non-builder pages now present `Continue Building`, default landing preference fallback is `My Characters`, and `Skills & Attributes` now uses an `Add / Remove` skill-points modal with spent-point removal safeguards and warning feedback.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
