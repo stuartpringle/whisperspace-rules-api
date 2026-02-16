@@ -160,6 +160,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Simplified builder account menu structure by removing the separate user-name parent item and rendering `My Characters`, `Settings`, and `Log out` directly as indented entries in the same primary menu list.
 - Finalized builder account menu presentation as a flat normal menu list (no submenu indentation), while styling `Log out` with a lighter danger treatment for clearer action distinction.
 - Aligned builder header `Log out` styling to the shared destructive-action button pattern (`ghost danger`) used by inventory remove actions for consistent affordance.
+- Updated builder equipment-purchase UX labels: weapon/armour/item catalog dropdowns now include inline cost text (`Name (<cost> credits)`) in both `Buy` and `Acquire` modes, while `Buy` buttons no longer append per-item cost text.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
