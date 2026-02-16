@@ -161,6 +161,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Finalized builder account menu presentation as a flat normal menu list (no submenu indentation), while styling `Log out` with a lighter danger treatment for clearer action distinction.
 - Aligned builder header `Log out` styling to the shared destructive-action button pattern (`ghost danger`) used by inventory remove actions for consistent affordance.
 - Updated builder equipment-purchase UX labels: weapon/armour/item catalog dropdowns now include inline cost text (`Name (<cost> credits)`) in both `Buy` and `Acquire` modes, while `Buy` buttons no longer append per-item cost text.
+- Added builder sci-fi name generation for character naming (`Generate` action beside name in Origin) and refreshed Review tab presentation with richer summary metadata, skill-point budget pills, and equipped-armour-aware loadout display.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
