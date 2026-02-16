@@ -156,6 +156,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Polished account-submenu behavior on protected routes: `/characters` and `/settings` now keep the submenu expanded with proper active highlighting, `/characters` action copy now uses `New Character`, and character rows gained consistent hover-highlight affordances.
 - Updated builder navigation + budgeting UX: non-builder pages now present `Continue Building`, default landing preference fallback is `My Characters`, and `Skills & Attributes` now uses an `Add / Remove` skill-points modal with spent-point removal safeguards and warning feedback.
 - Refined `Skills & Attributes` layout by removing the direct total skill-points input, adding an explicit `Skill Points` budget heading, and relocating `Learning Focus` directly below that budget section.
+- Reworked builder account navigation presentation: submenu links now render inline as an indented tree under the user entry (not a detached floating dropdown), and the account menu group sits slightly higher in the header layout.
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
