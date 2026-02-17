@@ -277,6 +277,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added visual parity pass with builder app styling (`builder.whisperspace.com`): docs now uses the shared dark-blue gradient/panel language, matching typography direction (`Space Grotesk` + `Unbounded`), and aligned interaction accents for navigation/inputs/cards.
 - Docs hierarchy polish: nested in-content sub-sections now render borderless while top-level section framing remains, and sidebar nested topic links now use slightly deeper indentation for clearer tree legibility.
 - Docs content styling simplification: nested sub-sections now also drop distinct background fills, preserving background emphasis only at the main/top-level section layer.
+- Docs container simplification: article-level wrappers (`<article>`) now render without border/background, with framing handled exclusively by parent sections.
 - Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
 - Added query-aware chapter/topic navigation counts with search-order sorting (DESC by matches) and scoped in-topic term highlighting when navigating to a matched topic.
 - Fixed docs search UX edge cases: chapter-click highlighting now scopes to the opened chapter by default, search mode hides `Rulebook Home`, and route normalization handles trailing-slash chapter URLs.
