@@ -10,6 +10,7 @@
     "rules:sync": "bash scripts/import-rules.sh",
     "core:build": "bash scripts/core-build.sh",
     "rules:publish": "bash scripts/rules-publish.sh",
+    "test:character-auth": "bash scripts/test-character-ownership.sh",
     "build": "vite build",
     "dev": "npm run generate:data && vite",
     "preview": "vite preview --host"

@@ -7,6 +7,11 @@ Quick publish:
 npm run rules:publish
 ```
 
+Character API ownership regression:
+```bash
+npm run test:character-auth
+```
+
 Related repos:
 - `whisperspace-obr-extension`
 - `whisperspace-obr-rules-extension`
@@ -236,12 +241,15 @@ Endpoints:
 - `GET /character-api/schema.json`
   - Returns JSON schema for `CharacterRecordV1`.
 - `GET /character-api/characters`
-  - Returns array of `{ id, name, updatedAt }`.
+  - Requires authenticated session (`ws_session` cookie).
+  - Returns owner-scoped array of `{ id, name, updatedAt }` for the current account only (admins still receive all records).
+  - This endpoint does not include other users' public records; public sharing is handled by direct `GET /character-api/characters/:id`.
 - `POST /character-api/characters`
   - Body: full character sheet. Generates `id` if missing.
   - Optional `?visibility=public|private` can override the default (body still accepts a `visibility` field; public visibility is persisted and returned on list/detail calls).
 - `GET /character-api/characters/:id`
   - Returns full sheet.
+  - Access policy: owner/admin always allowed; non-owners allowed only when character visibility is `public`.
 - `PUT /character-api/characters/:id`
   - Body: full sheet. Uses `If-Unmodified-Since` to detect conflicts.
   - On conflict: `409` with `{ error: "conflict", current: <sheet> }`.

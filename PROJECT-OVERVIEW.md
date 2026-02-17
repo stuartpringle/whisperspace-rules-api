@@ -173,6 +173,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Expanded builder Character View semantics: page header now resolves to character name with focus/updated/motivation metadata, metrics now label `Cool Under Fire` explicitly and show equipped-armour `Protection` (with durability-aware zeroing), and Equipment now supports constrained weapon equip logic (max two equipped, two-handed exclusivity, and `Req` attribute validation with explicit failure messaging).
 - Builder UI consistency pass: weapon action-button spacing now matches armour controls, desktop header account nav remains right-aligned on Character View, and `CUF Loss` was removed from Health cards for cleaner summary surfaces.
 - Builder auth/session isolation hardening: character list state now clears on account identity change, stale in-flight list responses are ignored after user switches, and `/auth/session` is always server-validated (no trust-only cached authenticated session) to prevent cross-account character visibility.
+- Character API ownership hardening: `GET /character-api/characters` is now authenticated and owner-scoped (admins excepted), preventing cross-account leaks even when records are public; added integration regression script `scripts/test-character-ownership.sh` (`npm run test:character-auth`).
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.

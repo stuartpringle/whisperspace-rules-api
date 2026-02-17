@@ -1044,27 +1044,22 @@ function handle_auth_routes(PDO $pdo, array $tail): void {
   }
 }
 
-function character_visibility_filter(PDO $pdo, ?array $user): array {
-  $isAdmin = $user && $user["is_admin"];
-  if ($isAdmin) {
+function list_characters_for_user(PDO $pdo, array $user): array {
+  if ($user["is_admin"]) {
     $stmt = $pdo->query("SELECT id, name, data, updated_at, owner_user_id, visibility FROM characters ORDER BY updated_at DESC");
     return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
   }
-  if ($user) {
-    $stmt = $pdo->prepare("SELECT id, name, data, updated_at, owner_user_id, visibility FROM characters WHERE visibility = 'public' OR owner_user_id = :uid ORDER BY updated_at DESC");
-    $stmt->execute([":uid" => $user["id"]]);
-    return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
-  }
-  $stmt = $pdo->query("SELECT id, name, data, updated_at, owner_user_id, visibility FROM characters WHERE visibility = 'public' ORDER BY updated_at DESC");
+  $stmt = $pdo->prepare("SELECT id, name, data, updated_at, owner_user_id, visibility FROM characters WHERE owner_user_id = :uid ORDER BY updated_at DESC");
+  $stmt->execute([":uid" => $user["id"]]);
   return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
 }
 
 function handle_characters(PDO $pdo, array $tail): void {
   $method = $_SERVER["REQUEST_METHOD"];
-  $user = current_user($pdo);
   if (count($tail) === 1) {
     if ($method === "GET") {
-      $rows = character_visibility_filter($pdo, $user);
+      $user = require_auth($pdo);
+      $rows = list_characters_for_user($pdo, $user);
       $list = [];
       foreach ($rows as $row) {
         $list[] = [
