@@ -1062,6 +1062,10 @@ function handle_characters(PDO $pdo, array $tail): void {
       $rows = list_characters_for_user($pdo, $user);
       $list = [];
       foreach ($rows as $row) {
+        // Defense-in-depth: list endpoint must never emit non-owner rows for non-admin users.
+        if (!$user["is_admin"] && ($row["owner_user_id"] ?? null) !== $user["id"]) {
+          continue;
+        }
         $list[] = [
           "id" => $row["id"],
           "name" => $row["name"],

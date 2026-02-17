@@ -249,6 +249,7 @@ Endpoints:
   - Requires authenticated session (`ws_session` cookie).
   - Returns owner-scoped array of `{ id, name, updatedAt }` for the current account only (admins still receive all records).
   - This endpoint does not include other users' public records; public sharing is handled by direct `GET /character-api/characters/:id`.
+  - Enforcement is defense-in-depth: owner scoping is applied in query selection and re-checked before rows are emitted.
 - `POST /character-api/characters`
   - Body: full character sheet. Generates `id` if missing.
   - Optional `?visibility=public|private` can override the default (body still accepts a `visibility` field; public visibility is persisted and returned on list/detail calls).
