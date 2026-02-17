@@ -143,6 +143,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Verified end-to-end compile with `npm run build` in `whisperspace-obr-extension` on 2026-02-17.
 - Added backward-compatible `rules.html` route in `whisperspace-obr-extension/public/rules.html` that redirects to `https://docs.whisperspace.com/` (hash preserved), covering older same-origin rules links from legacy extension flows.
 - Removed stale `packages/core/src` include from `whisperspace-obr-extension/tsconfig.json` so new migration work is constrained to repo-local `src/`.
+- Restored initiative token focus UX in OBR extension: clicking avatar entries now selects and centers the token via current OBR SDK APIs.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
