@@ -6,6 +6,11 @@ Quick publish:
 ```bash
 npm run rules:publish
 ```
+`rules:publish` now includes the character ownership regression gate (`npm run test:character-auth`) before publish steps continue.
+If needed for constrained environments where local port binding is unavailable, you can bypass this gate explicitly:
+```bash
+WS_SKIP_CHARACTER_AUTH_TEST=1 npm run rules:publish
+```
 
 Character API ownership regression:
 ```bash

@@ -10,6 +10,13 @@ echo "[rules:publish] Running rules parser (validate + diff)..."
   PYTHONPATH="${PARSER_ROOT}/src" python3 -m whisperspace_rules_parser.cli --out "${PARSER_OUT}" --validate --diff
 )
 
+if [[ "${WS_SKIP_CHARACTER_AUTH_TEST:-0}" == "1" ]]; then
+  echo "[rules:publish] Skipping character ownership regression test (WS_SKIP_CHARACTER_AUTH_TEST=1)."
+else
+  echo "[rules:publish] Running character ownership regression test..."
+  npm run test:character-auth
+fi
+
 echo "[rules:publish] Building core HTTP module..."
 bash scripts/core-build.sh
 

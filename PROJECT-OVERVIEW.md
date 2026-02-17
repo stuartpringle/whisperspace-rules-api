@@ -174,6 +174,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder UI consistency pass: weapon action-button spacing now matches armour controls, desktop header account nav remains right-aligned on Character View, and `CUF Loss` was removed from Health cards for cleaner summary surfaces.
 - Builder auth/session isolation hardening: character list state now clears on account identity change, stale in-flight list responses are ignored after user switches, and `/auth/session` is always server-validated (no trust-only cached authenticated session) to prevent cross-account character visibility.
 - Character API ownership hardening: `GET /character-api/characters` is now authenticated and owner-scoped (admins excepted), preventing cross-account leaks even when records are public; added integration regression script `scripts/test-character-ownership.sh` (`npm run test:character-auth`).
+- Release gate hardening: `npm run rules:publish` now runs `npm run test:character-auth` before continuing, so character ownership isolation is validated on each publish (with explicit opt-out via `WS_SKIP_CHARACTER_AUTH_TEST=1` only when required).
 - Enforced character-limit checks before creating new cloud/local copies.
 - Added Settings page with account summary and persistent builder preferences.
 - Hid empty character slots while list search filtering is active.
