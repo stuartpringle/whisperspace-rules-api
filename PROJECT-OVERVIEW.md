@@ -145,6 +145,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Removed stale `packages/core/src` include from `whisperspace-obr-extension/tsconfig.json` so new migration work is constrained to repo-local `src/`.
 - Restored initiative token focus UX in OBR extension: clicking avatar entries now selects and centers the token via current OBR SDK APIs.
 - Fixed OBR calc CORS regression by aliasing `@whisperspace/sdk` in `whisperspace-obr-extension` to a local shim that targets `https://rules-api.whisperspace.com/rules-api/calc` (instead of `https://whisperspace.com/rules-api/calc`).
+- Documented explicit OBR extension deployment policy: after each change batch, run `npm run build` in `whisperspace-obr-extension` so hosted `dist/` is updated and validate manifest/calc endpoint behavior.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
@@ -280,6 +281,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Docs hierarchy polish: nested in-content sub-sections now render borderless while top-level section framing remains, and sidebar nested topic links now use slightly deeper indentation for clearer tree legibility.
 - Docs content styling simplification: nested sub-sections now also drop distinct background fills, preserving background emphasis only at the main/top-level section layer.
 - Docs container simplification: article-level wrappers (`<article>`) now render without border/background, with framing handled exclusively by parent sections.
+- Docs polish follow-up: removed hero subtitle copy, aligned background glow/gradient direction more closely to builder visual language, and made no-subtopic chapter clicks navigate with chapter anchors so the view still pulls to the selected chapter content.
 - Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
 - Added query-aware chapter/topic navigation counts with search-order sorting (DESC by matches) and scoped in-topic term highlighting when navigating to a matched topic.
 - Fixed docs search UX edge cases: chapter-click highlighting now scopes to the opened chapter by default, search mode hides `Rulebook Home`, and route normalization handles trailing-slash chapter URLs.
