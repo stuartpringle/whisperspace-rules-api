@@ -132,9 +132,19 @@ Use this section to keep a single-source, cross-repo status summary.
 - Fixed inherited global Basic Auth prompt on `rules-api.whisperspace.com` root by adding a publish-root `.htaccess` override and wiring `rules:publish` to copy it into `dist/.htaccess`.
 
 ### whisperspace-obr-extension
-- Current status:
+- Current status: OBR sheet migration work is active in `/hdd/sites/stuartpringle/whisperspace-obr-extension`, and the project now builds successfully against current `@whisperspace/sdk` exports.
 - Recent milestones:
+- Unblocked TypeScript build by removing stale imports to legacy `packages/core/src/*` modules and replacing with current SDK exports/local helpers.
+- Switched combat/damage hook usage to `getHookBus` from `@whisperspace/sdk`.
+- Added local ammo helper (`src/rules/weapons.ts`) to preserve weapon ammo-max behavior after core-module decoupling.
+- Hardened initiative status parsing for inventory unions that include `hacker_gear` entries without `statusEffects`.
+- Restored strict typing in `SkillsPanel` by inlining a local learned-skill focus map helper and removing legacy core dependency.
+- Added a local compatibility `CharacterRecordV1` adapter type in `src/rules/schema.ts` because current SDK exports `CharacterSheetV1` only.
+- Verified end-to-end compile with `npm run build` in `whisperspace-obr-extension` on 2026-02-17.
 - Next steps:
+- Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
+- Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
+- Smoke test extension behavior in Owlbear Rodeo (initiative, combat rolls, damage apply, token save/load) after each migration batch.
 
 ### whisperspace-character-builder
 - Builder preview modals now present cleaned field labels (no raw IDs, pretty skill names) with two-column detail layout and improved selector action-row wrapping for `Preview` + `Buy` controls.
