@@ -163,6 +163,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR targeting/range-context pass landed: non-GM right-click sheet/initiative actions are now hidden on tokens not owned by that player, a new token `Target` action stores target metadata on the owner token, and `Test -> Attack Targeted` now enforces rules-api range logic (melee out-of-range auto-fail, ranged Very Near penalty die, +2 DC per farther band, 3+ farther bands auto-miss).
 - OBR target UX follow-up landed: target selection now renders a per-player red target-ring attachment on the targeted token, and `Attack Targeted` confirms equipped-weapon ammo decrement/persist behavior where ammo applies.
 - OBR targeting semantics were expanded: right-click now swaps between `Target`/`Untarget` per token state, target rings now encode ally/enemy (`player-owned non-GM` => teal, otherwise red), and ring padding was tightened for a closer fit.
+- OBR combat-tab attacks now conditionally inherit targeted/range-aware behavior: when a target exists they apply range-band penalties/DC adjustments and auto-miss constraints; when no target exists they retain legacy direct-roll behavior.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
