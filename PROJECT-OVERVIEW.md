@@ -284,6 +284,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Docs container simplification: article-level wrappers (`<article>`) now render without border/background, with framing handled exclusively by parent sections.
 - Docs polish follow-up: removed hero subtitle copy, aligned background glow/gradient direction more closely to builder visual language, and made no-subtopic chapter clicks navigate with chapter anchors so the view still pulls to the selected chapter content.
 - Docs chapter-nav behavior refinement: clicking a chapter that has sub-topics now keeps the current viewport position instead of auto-scrolling to the top.
+- Docs responsive layout tweak: chapter menu remains a left sidebar at OBR-like widths (collapse breakpoint reduced to ~760px), so in-VTT usage keeps side navigation.
 - Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
 - Added query-aware chapter/topic navigation counts with search-order sorting (DESC by matches) and scoped in-topic term highlighting when navigating to a matched topic.
 - Fixed docs search UX edge cases: chapter-click highlighting now scopes to the opened chapter by default, search mode hides `Rulebook Home`, and route normalization handles trailing-slash chapter URLs.
