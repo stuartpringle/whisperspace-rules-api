@@ -166,6 +166,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR combat-tab attacks now conditionally inherit targeted/range-aware behavior: when a target exists they apply range-band penalties/DC adjustments and auto-miss constraints; when no target exists they retain legacy direct-roll behavior.
 - OBR combat follow-up: targeted hits now auto-apply resulting damage/stress to the targeted token sheet and append effect entries to combat log, and manual Combat-panel `Apply Damage` flow was stabilized to avoid wound-state flicker from redundant stress callback writes.
 - OBR targeted-hit application now includes an ownership-safe fallback: if attacker-side cross-token writes fail due permissions, effect payloads carry `autoApplyToTarget` and the target owner client applies the hit locally to its own sheet.
+- OBR targeted-hit apply routing was tightened to avoid silent non-owner write attempts: attackers now choose direct apply only for owner/GM contexts, otherwise they always emit target-owner auto-apply payloads.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
