@@ -158,6 +158,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR follow-up UX pass landed: add flows are now button-gated (`Add Gear/Weapon/Armour` -> `Cancel`), inventory add-field layout was tightened (`bulk/qty/cost/uses` 2x2), initiative tab label now surfaces as `Combat`, and GM can directly edit initiative values with automatic re-sort.
 - OBR row-flow polish landed: gear-add controls now live directly in Inventory section (no separate Gear section), weapons/armour now use inventory-like collapsed row summaries, buy-mode remove actions expose sell intent in tooltips, and carried armour can remain fully unequipped.
 - OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
+- OBR combat/utility follow-up landed: top header token-id line removed, a new `Test` tab now supports token-to-token distance measuring, and initiative row combat actions now strictly use equipped gear semantics (`Attack` uses equipped weapon or unarmed fallback, `Reload` requires equipped weapon, PROT shows equipped armour only with `0` default when unequipped).
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
