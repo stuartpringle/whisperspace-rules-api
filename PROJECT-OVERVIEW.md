@@ -170,6 +170,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR combat-log persistence moved to a scene-global metadata model (`whisperspace.obr.sheet/globalCombatLog`), so sheet panels now render shared recent history (latest 4) regardless of which tabs were open when rolls occurred; Test tab now also surfaces live current-token position coordinates.
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
+- OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
