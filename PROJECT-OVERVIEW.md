@@ -156,6 +156,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR gameplay-effect editor controls are now toggle-revealed (`Gameplay Effects` / `Hide Gameplay Effects`) so chips stay visible while edit fields are opt-in.
 - OBR inventory/equipment UX parity follow-up landed: credits controls + `Acquire/Buy` mode are now inventory-tab-first, buy mode enforces credits and sell refunds, Gear add section is collapsible/grid-based, and armour editing now uses per-item card flow with explicit `Equip`/`Unequip`/`Remove`.
 - OBR follow-up UX pass landed: add flows are now button-gated (`Add Gear/Weapon/Armour` -> `Cancel`), inventory add-field layout was tightened (`bulk/qty/cost/uses` 2x2), initiative tab label now surfaces as `Combat`, and GM can directly edit initiative values with automatic re-sort.
+- OBR row-flow polish landed: gear-add controls now live directly in Inventory section (no separate Gear section), weapons/armour now use inventory-like collapsed row summaries, buy-mode remove actions expose sell intent in tooltips, and carried armour can remain fully unequipped.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
