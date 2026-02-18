@@ -152,6 +152,8 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR extension model alignment batch landed: canonical `gameplayEffects` usage, multi-armour (`armours[]` + `equippedArmourId`) support, equipped-weapon UX, and initiative/damage paths now resolving equipped gear instead of first-slot assumptions.
 - OBR inventory/effects parity follow-up landed: `hacker_gear` template/import/edit support is now in-panel, and gameplay-effects chip editors are now used across feats, inventory, weapons, and equipped armour.
 - OBR gameplay-effects parity now includes a builder-style guided composer in the shared editor (`category`/`target`/`amount` -> canonical `target+N` string) so effect-entry format is consistent across builder and OBR.
+- OBR tab/layout parity pass landed: removed standalone Combat tab, moved weapon/armour editors into Inventory tab, moved Combat Log into Initiative tab, and added a dedicated Settings tab for JSON sync/import/export + token binding actions.
+- OBR gameplay-effect editor controls are now toggle-revealed (`Gameplay Effects` / `Hide Gameplay Effects`) so chips stay visible while edit fields are opt-in.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
