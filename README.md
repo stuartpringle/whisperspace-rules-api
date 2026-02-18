@@ -323,7 +323,7 @@ Completed:
 - MySQL driver support added (with optional `DB_SOCKET`) and verified via PHP socket test.
 - MySQL-compatible table creation and column/index checks.
 - OAuth upsert uses MySQL `ON DUPLICATE KEY UPDATE`.
-- CORS headers restricted to `https://builder.whisperspace.com` via `.htaccess`.
+- Character API CORS headers restricted to allowed origins via `.htaccess` (`https://builder.whisperspace.com`, `https://obr.whisperspace.com`).
 - Validation fix: empty object now allowed (avoids `skills must be an object` when `{}` decodes to `[]`).
 - Read-time normalization: if stored `skills` is an empty list, API returns `{}`.
 - Added `gameplayEffects` support for weapons/armour/items/feats contracts and calc endpoints.
@@ -338,7 +338,7 @@ In progress / remaining:
 
 Operational notes:
 - Google OAuth Redirect URI: `https://rules-api.whisperspace.com/character-api/auth/oauth/google`
-- Suggested JS origins (if used): `https://builder.whisperspace.com` (plus any local/dev origins in use).
+- Suggested JS origins (if used): `https://builder.whisperspace.com`, `https://obr.whisperspace.com` (plus any local/dev origins in use).
 
 ## Integration Checklist
 - Public entrypoints (URLs) and environment variables.
