@@ -161,6 +161,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR combat/utility follow-up landed: top header token-id line removed, a new `Test` tab now supports token-to-token distance measuring, and initiative row combat actions now strictly use equipped gear semantics (`Attack` uses equipped weapon or unarmed fallback, `Reload` requires equipped weapon, PROT shows equipped armour only with `0` default when unequipped).
 - OBR range-band starter landed: shared ground-band mapping (`Melee` through `Extreme`) now derives from the current rules distance table, and `Test -> Measure` now shows both feet conversion (`1 unit = 5 ft`) and resolved range band labels.
 - OBR targeting/range-context pass landed: non-GM right-click sheet/initiative actions are now hidden on tokens not owned by that player, a new token `Target` action stores target metadata on the owner token, and `Test -> Attack Targeted` now enforces rules-api range logic (melee out-of-range auto-fail, ranged Very Near penalty die, +2 DC per farther band, 3+ farther bands auto-miss).
+- OBR target UX follow-up landed: target selection now renders a per-player red target-ring attachment on the targeted token, and `Attack Targeted` confirms equipped-weapon ammo decrement/persist behavior where ammo applies.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
