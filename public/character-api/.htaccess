@@ -3,18 +3,3 @@ RewriteRule ^ - [E=WS_CHARACTER_API:1]
 RewriteCond %{ENV:WS_CHARACTER_API} =1
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^ index.php [L]
-
-<IfModule mod_headers.c>
-  Header unset Access-Control-Allow-Origin
-  Header unset Access-Control-Allow-Methods
-  Header unset Access-Control-Allow-Headers
-  Header unset Access-Control-Allow-Credentials
-  Header unset Vary
-
-  SetEnvIfNoCase Origin "^https://(builder\\.whisperspace\\.com|obr\\.whisperspace\\.com)$" WS_ALLOWED_ORIGIN=$0
-  Header always set Access-Control-Allow-Origin "%{WS_ALLOWED_ORIGIN}e" env=WS_ALLOWED_ORIGIN
-  Header always set Vary "Origin" env=WS_ALLOWED_ORIGIN
-  Header always set Access-Control-Allow-Credentials "true" env=WS_ALLOWED_ORIGIN
-  Header always set Access-Control-Allow-Methods "GET, POST, PUT, DELETE, OPTIONS"
-  Header always set Access-Control-Allow-Headers "Content-Type, Authorization, X-CSRF-Token, If-Unmodified-Since"
-</IfModule>
