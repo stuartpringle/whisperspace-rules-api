@@ -159,6 +159,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR row-flow polish landed: gear-add controls now live directly in Inventory section (no separate Gear section), weapons/armour now use inventory-like collapsed row summaries, buy-mode remove actions expose sell intent in tooltips, and carried armour can remain fully unequipped.
 - OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
 - OBR combat/utility follow-up landed: top header token-id line removed, a new `Test` tab now supports token-to-token distance measuring, and initiative row combat actions now strictly use equipped gear semantics (`Attack` uses equipped weapon or unarmed fallback, `Reload` requires equipped weapon, PROT shows equipped armour only with `0` default when unequipped).
+- OBR range-band starter landed: shared ground-band mapping (`Melee` through `Extreme`) now derives from the current rules distance table, and `Test -> Measure` now shows both feet conversion (`1 unit = 5 ft`) and resolved range band labels.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
