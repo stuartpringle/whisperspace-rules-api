@@ -150,6 +150,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Updated Character API CORS allowlist to include `https://obr.whisperspace.com` alongside builder origin so OBR can fetch public character records cross-origin.
 - Added OBR `Export JSON` and interoperability normalization so builder/OBR JSON exchange is cleaner (supports builder `armours`/`equippedArmourId` and gameplay-effects fallback during import).
 - OBR extension model alignment batch landed: canonical `gameplayEffects` usage, multi-armour (`armours[]` + `equippedArmourId`) support, equipped-weapon UX, and initiative/damage paths now resolving equipped gear instead of first-slot assumptions.
+- OBR inventory/effects parity follow-up landed: `hacker_gear` template/import/edit support is now in-panel, and gameplay-effects chip editors are now used across feats, inventory, weapons, and equipped armour.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
