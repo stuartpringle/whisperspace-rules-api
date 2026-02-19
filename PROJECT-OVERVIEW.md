@@ -173,6 +173,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
 - OBR focus UX follow-up: temporary camera debug logging has been removed, header token thumbnail now supports click-to-center behavior, and my-sheet load now auto-centers once on the bound character token.
 - OBR distance/range follow-up now uses live scene grid scale (`OBR.scene.grid.getScale`) for measure/range checks, supports `ft`/`yd`/`m` conversions, and normalizes displayed distance values to cleaner increments.
+- OBR combat range-penalty parity fix landed: initiative-row `Attack` actions now apply the same targeted range logic as combat-panel attacks (ranged Melee/Very Near penalty die, +2 DC per farther band, 3+ farther bands auto-miss).
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
