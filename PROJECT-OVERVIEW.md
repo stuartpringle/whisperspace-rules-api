@@ -191,7 +191,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - combat-log fallback formatting was fixed for freeform thrown-grenade entries (avoids `0 vs DC 0` display when no structured outcome exists);
   - AoE target inclusion now uses token bounds center coordinates for better parity with visual template placement;
   - range-band penalty/impossible logic is now centralized in a shared OBR module (`ui/combat/rangeCheck.ts`) and consumed by both targeted attacks and thrown-grenade placement;
-  - grenade placement preview now color-codes by throw viability (in-range, farther with penalties, impossible).
+- grenade placement preview now color-codes by throw viability (in-range, farther with penalties, impossible).
+  - grenade placement also surfaces a live on-map range HUD text (band + die/DC adjustments or impossible) driven by the centralized range-check evaluator.
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
