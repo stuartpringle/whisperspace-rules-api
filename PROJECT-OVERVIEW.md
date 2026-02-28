@@ -177,6 +177,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR targeted-attack reliability/dedupe follow-up landed: shared targeted-attack helper now drives both combat-panel and initiative-row attack actions, and initiative-row targeted hits now use the same target damage/stress apply + ownership-safe broadcast fallback path.
 - OBR dedupe pass expanded shared combat helpers: Test and initiative flows now reuse shared loadout/status/ammo utilities (`ui/combat/loadout.ts`) instead of duplicating status aggregation, unarmed fallback, and equipped-ammo persistence logic.
 - OBR non-combat dedupe sweep landed in `SheetApp`: token-ready state setup and import/sync parsing flows now use shared local helpers (`setReadyStateFromToken`, `importRawIntoCurrentToken`, `fetchPublicCharacter`) to reduce duplicated ownership/import/export logic.
+- OBR follow-up dedupe landed for map focus + status aggregation: both sheet-header and initiative-avatar camera centering now use shared `obr/focusToken.ts`, and repeated status-string aggregation moved to shared `rules/statuses.ts` consumed by background and SheetApp derivation flows.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
