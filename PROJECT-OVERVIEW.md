@@ -208,6 +208,8 @@ Use this section to keep a single-source, cross-repo status summary.
 
 ### whisperspace-character-builder
 - Builder preview modals now present cleaned field labels (no raw IDs, pretty skill names) with two-column detail layout and improved selector action-row wrapping for `Preview` + `Buy` controls.
+- Builder now includes a dedicated Nanomancy step (unlocked by the `Nanomancy` feat) with primary-field selection, known-effect tracking, ND planning, and a rules-driven check simulator.
+- Character records now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) via SDK schema updates, enabling cloud save compatibility without metadata hacks.
 - Builder equipment selectors now expose `Preview` modals for weapons, armour, and gear entries so users can inspect full catalog detail before adding/buying.
 - Builder armour action buttons were normalized to the same padded sizing as other row action controls for consistent touch/click targets.
 - Builder credits adjustments are now handled via a dedicated modal flow (`Add/Remove`) launched from Equipment credits display, reducing control clutter in the gear summary row.
@@ -375,9 +377,11 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 
 ### whisperspace-sdk
-- Current status:
+- Current status: Shared schema/types package is live and now includes first-class Nanomancy record support consumed by character-api validation.
 - Recent milestones:
+- Added `nanomancy` object contract to `CharacterRecordV1` (`primaryField`, `knownEffects`, `preferredND`) in both TS schema source and published JSON schema.
 - Next steps:
+- Bump/publish SDK package version so downstream apps can consume updated types via dependency update instead of local path coupling.
 
 - Builder header menu now nests `Save`/`Import`/`Reset` under `Character Builder`, removes the separate back-to-builder button, and fixes dropdown clipping/hit-area behavior.
 - Builder weapons now render Rules API keyword chips with tooltip definitions (`weapon_keywords.json`), and gear rows now include consistent hover/equipped highlight styling.
