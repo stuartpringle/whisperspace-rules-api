@@ -211,6 +211,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder preview modals now present cleaned field labels (no raw IDs, pretty skill names) with two-column detail layout and improved selector action-row wrapping for `Preview` + `Buy` controls.
 - Builder now includes a dedicated Nanomancy step (unlocked by the `Nanomancy` feat) with primary-field selection, known-effect tracking, ND planning, and a rules-driven check simulator.
 - Character records now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) via SDK schema updates, enabling cloud save compatibility without metadata hacks.
+- Builder Feats step now includes a dedicated `Nanomancy` checkbox that adds/removes the `Nanomancy` feat automatically and directly controls Nanomancy tab visibility.
 - Builder equipment selectors now expose `Preview` modals for weapons, armour, and gear entries so users can inspect full catalog detail before adding/buying.
 - Builder armour action buttons were normalized to the same padded sizing as other row action controls for consistent touch/click targets.
 - Builder credits adjustments are now handled via a dedicated modal flow (`Add/Remove`) launched from Equipment credits display, reducing control clutter in the gear summary row.
