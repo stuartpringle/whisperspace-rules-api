@@ -175,6 +175,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR distance/range follow-up now uses live scene grid scale (`OBR.scene.grid.getScale`) for measure/range checks, supports `ft`/`yd`/`m` conversions, and normalizes displayed distance values to cleaner increments.
 - OBR combat range-penalty parity fix landed: initiative-row `Attack` actions now apply the same targeted range logic as combat-panel attacks (ranged Melee/Very Near penalty die, +2 DC per farther band, 3+ farther bands auto-miss).
 - OBR targeted-attack reliability/dedupe follow-up landed: shared targeted-attack helper now drives both combat-panel and initiative-row attack actions, and initiative-row targeted hits now use the same target damage/stress apply + ownership-safe broadcast fallback path.
+- OBR dedupe pass expanded shared combat helpers: Test and initiative flows now reuse shared loadout/status/ammo utilities (`ui/combat/loadout.ts`) instead of duplicating status aggregation, unarmed fallback, and equipped-ammo persistence logic.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
