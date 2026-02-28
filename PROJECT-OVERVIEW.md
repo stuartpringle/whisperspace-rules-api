@@ -195,6 +195,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - grenade placement HUD text was removed (ring-only preview retained), and click flow now restores tool/placement UI before running roll and effect resolution.
   - thrown grenades now bypass close-range penalty-die logic (farther-band penalties/impossible checks still apply via shared range-check module).
   - OBR sheet UI now refreshes ready-state sheet data from live token metadata changes, fixing delayed visibility of background-driven inventory quantity updates (e.g. grenade stack decrement).
+  - grenade AoE affected-target selection now uses the exact rendered template pixel radius for hit inclusion, reducing visual discrepancy reports.
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
