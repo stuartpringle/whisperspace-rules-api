@@ -188,6 +188,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - grenade throw UX has been moved to grenade item rows in Inventory (item-centric throw action), with combat-tab selector controls removed;
   - grenade throws now use a click-to-place map workflow: item-row `Throw` activates cursor-follow AoE preview and click finalizes impact center;
   - placement tool supports cancel (`Esc`) and restores previous active tool;
+  - combat-log fallback formatting was fixed for freeform thrown-grenade entries (avoids `0 vs DC 0` display when no structured outcome exists);
+  - AoE target inclusion now uses token bounds center coordinates for better parity with visual template placement;
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
