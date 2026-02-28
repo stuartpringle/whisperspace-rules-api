@@ -198,7 +198,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - grenade AoE affected-target selection now uses the exact rendered template pixel radius for hit inclusion, reducing visual discrepancy reports.
   - Test tab now exposes a manual `Clear AoE Templates` action for immediate cleanup of lingering AoE indicators.
   - grenade placement tool no longer force-switches users to Move when no previous tool id is captured.
-  - started queue item P3: Nanomancy tab scaffold is now feat-gated for players, always visible for GMs, with reusable gate helpers prepared for Empathy tab follow-up.
+  - queue item P3 follow-up landed: Nanomancy tab is now fully functional in OBR (feat-gated for players, visible for GMs) with field/effect management and rules-aware check rolling.
+  - OBR token schema + record adapters now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) for builder/API interoperability.
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
