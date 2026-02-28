@@ -193,6 +193,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - range-band penalty/impossible logic is now centralized in a shared OBR module (`ui/combat/rangeCheck.ts`) and consumed by both targeted attacks and thrown-grenade placement;
 - grenade placement preview now color-codes by throw viability (in-range, farther with penalties, impossible).
   - grenade placement HUD text was removed (ring-only preview retained), and click flow now restores tool/placement UI before running roll and effect resolution.
+  - thrown grenades now bypass close-range penalty-die logic (farther-band penalties/impossible checks still apply via shared range-check module).
+  - OBR sheet UI now refreshes ready-state sheet data from live token metadata changes, fixing delayed visibility of background-driven inventory quantity updates (e.g. grenade stack decrement).
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
