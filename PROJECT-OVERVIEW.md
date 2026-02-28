@@ -178,6 +178,8 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR dedupe pass expanded shared combat helpers: Test and initiative flows now reuse shared loadout/status/ammo utilities (`ui/combat/loadout.ts`) instead of duplicating status aggregation, unarmed fallback, and equipped-ammo persistence logic.
 - OBR non-combat dedupe sweep landed in `SheetApp`: token-ready state setup and import/sync parsing flows now use shared local helpers (`setReadyStateFromToken`, `importRawIntoCurrentToken`, `fetchPublicCharacter`) to reduce duplicated ownership/import/export logic.
 - OBR follow-up dedupe landed for map focus + status aggregation: both sheet-header and initiative-avatar camera centering now use shared `obr/focusToken.ts`, and repeated status-string aggregation moved to shared `rules/statuses.ts` consumed by background and SheetApp derivation flows.
+- OBR dedupe follow-up expanded initiative/attack prep sharing: context-menu and panel initiative rolls now use shared `ui/combat/initiativeRoll.ts`, and Test/Initiative attack prep now uses shared `ui/combat/attackActor.ts` for status/attrs/CUF/stress/mod/ammo derivation.
+- OBR final dedupe pass also centralized repeated combat text literals into `ui/combat/messages.ts` and removed remaining duplicated out-of-ammo/range-abort strings across panels/helpers.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
