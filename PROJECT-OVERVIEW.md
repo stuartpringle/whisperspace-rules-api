@@ -180,6 +180,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR follow-up dedupe landed for map focus + status aggregation: both sheet-header and initiative-avatar camera centering now use shared `obr/focusToken.ts`, and repeated status-string aggregation moved to shared `rules/statuses.ts` consumed by background and SheetApp derivation flows.
 - OBR dedupe follow-up expanded initiative/attack prep sharing: context-menu and panel initiative rolls now use shared `ui/combat/initiativeRoll.ts`, and Test/Initiative attack prep now uses shared `ui/combat/attackActor.ts` for status/attrs/CUF/stress/mod/ammo derivation.
 - OBR final dedupe pass also centralized repeated combat text literals into `ui/combat/messages.ts` and removed remaining duplicated out-of-ammo/range-abort strings across panels/helpers.
+- OBR grenade/AoE rules integration pass landed with reusable helper architecture:
+  - shared grenade module (`ui/combat/grenade.ts`) now handles grenade item lookup, effect parsing, AoE target collection, and map AoE indicators;
+  - Combat panel now supports both grenade-launcher consumption/resolve flow and hand-thrown grenade flow (Very Near, DC8 baseline, PHYS/REF choice);
+  - frag-style AoE save resolution now uses a target checklist dialog (Evade half) and applies through the existing ownership-safe targeted-hit pipeline.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
