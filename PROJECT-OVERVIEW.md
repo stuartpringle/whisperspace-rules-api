@@ -184,6 +184,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - shared grenade module (`ui/combat/grenade.ts`) now handles grenade item lookup, effect parsing, AoE target collection, and map AoE indicators;
   - Combat panel now supports both grenade-launcher consumption/resolve flow and hand-thrown grenade flow (Very Near, DC8 baseline, PHYS/REF choice);
   - frag-style AoE save resolution now uses a target checklist dialog (Evade half) and applies through the existing ownership-safe targeted-hit pipeline.
+- OBR combat-tab usability/rate-limit hardening follow-up:
+  - grenade throw controls are now available directly on the active Combat tab (initiative panel) with actor/grenade/attribute selection;
+  - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
+  - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
 - Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
