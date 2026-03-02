@@ -210,6 +210,7 @@ Use this section to keep a single-source, cross-repo status summary.
 ### whisperspace-character-builder
 - Builder preview modals now present cleaned field labels (no raw IDs, pretty skill names) with two-column detail layout and improved selector action-row wrapping for `Preview` + `Buy` controls.
 - Builder now includes a dedicated Nanomancy step (unlocked by the `Nanomancy` feat) with primary-field selection, known-effect tracking, ND planning, and a rules-driven check simulator.
+- Builder Nanomancy UX now mirrors OBR’s card flow: effects-known cap, add-effect modal with full descriptions, per-effect cards with `Use` actions, and shared bonus/penalty + range/action controls.
 - Character records now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) via SDK schema updates, enabling cloud save compatibility without metadata hacks.
 - Builder equipment selectors now expose `Preview` modals for weapons, armour, and gear entries so users can inspect full catalog detail before adding/buying.
 - Builder armour action buttons were normalized to the same padded sizing as other row action controls for consistent touch/click targets.
