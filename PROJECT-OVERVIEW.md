@@ -208,6 +208,9 @@ Use this section to keep a single-source, cross-repo status summary.
   - Removed standalone `Add Custom` weapon action; modal field editing now covers custom weapon/armour creation.
   - Buy-mode add actions now render as `Buy (<credits>)` across gear/weapon/armour add modals; non-buy mode keeps plain `Add`.
   - Skills point adjustment now uses modal add/remove controls, and Learning Focus now uses button-triggered modal selection (with `Select One` when unset).
+- OBR settings sync-link flow now uses a dedicated modal with persisted token-level link metadata and last edited timestamp.
+  - Import path now prompts overwrite confirmation before replacing the current token sheet.
+  - Export path performs session verification against `character-api/auth/session` before writing to `PUT /character-api/characters/:id?visibility=public`.
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
