@@ -673,21 +673,44 @@ function find_user_by_email(PDO $pdo, string $email): ?array {
 }
 
 function create_user(PDO $pdo, string $email, string $passwordHash): array {
+  $emailLower = strtolower($email);
   $now = gmdate("c");
   $id = uuid4();
-  $stmt = $pdo->prepare(<<<'SQL'
+  try {
+    $stmt = $pdo->prepare(<<<'SQL'
 INSERT INTO users (id, email, password_hash, is_admin, created_at, updated_at)
 VALUES (:id, :email, :password_hash, 0, :created_at, :updated_at)
 SQL
-  );
-  $stmt->execute([
-    ":id" => $id,
-    ":email" => strtolower($email),
-    ":password_hash" => $passwordHash,
-    ":created_at" => $now,
-    ":updated_at" => $now,
-  ]);
-  return ["id" => $id, "email" => strtolower($email)];
+    );
+    $stmt->execute([
+      ":id" => $id,
+      ":email" => $emailLower,
+      ":password_hash" => $passwordHash,
+      ":created_at" => $now,
+      ":updated_at" => $now,
+    ]);
+    return ["id" => $id, "email" => $emailLower];
+  } catch (PDOException $e) {
+    // Legacy compatibility: existing installs may already have Laravel-style users columns.
+    $name = explode("@", $emailLower, 2)[0] ?? "user";
+    $name = trim((string)preg_replace("/[._-]+/", " ", $name));
+    if ($name === "") $name = "user";
+    $stmt = $pdo->prepare(<<<'SQL'
+INSERT INTO users (name, email, password, is_admin, created_at, updated_at)
+VALUES (:name, :email, :password, 0, :created_at, :updated_at)
+SQL
+    );
+    $stmt->execute([
+      ":name" => $name,
+      ":email" => $emailLower,
+      ":password" => $passwordHash,
+      ":created_at" => gmdate("Y-m-d H:i:s"),
+      ":updated_at" => gmdate("Y-m-d H:i:s"),
+    ]);
+    $user = find_user_by_email($pdo, $emailLower);
+    if (!$user) throw $e;
+    return ["id" => (string)$user["id"], "email" => $emailLower];
+  }
 }
 
 function send_postmark_email(array $payload): bool {
@@ -874,16 +897,38 @@ function find_or_create_user_for_google(PDO $pdo, array $profile): ?array {
   }
   $user = find_user_by_email($pdo, $email);
   if (!$user) {
-    $now = gmdate("c");
-    $id = uuid4();
-    $stmt = $pdo->prepare("INSERT INTO users (id, email, created_at, updated_at) VALUES (:id, :email, :created_at, :updated_at)");
-    $stmt->execute([
-      ":id" => $id,
-      ":email" => strtolower($email),
-      ":created_at" => $now,
-      ":updated_at" => $now,
-    ]);
-    $user = ["id" => $id, "email" => strtolower($email), "is_admin" => 0];
+    $emailLower = strtolower($email);
+    try {
+      $now = gmdate("c");
+      $id = uuid4();
+      $stmt = $pdo->prepare("INSERT INTO users (id, email, created_at, updated_at) VALUES (:id, :email, :created_at, :updated_at)");
+      $stmt->execute([
+        ":id" => $id,
+        ":email" => $emailLower,
+        ":created_at" => $now,
+        ":updated_at" => $now,
+      ]);
+      $user = ["id" => $id, "email" => $emailLower, "is_admin" => 0];
+    } catch (PDOException $e) {
+      // Legacy compatibility: fallback for Laravel-style users schema.
+      $name = explode("@", $emailLower, 2)[0] ?? "user";
+      $name = trim((string)preg_replace("/[._-]+/", " ", $name));
+      if ($name === "") $name = "user";
+      $stmt = $pdo->prepare("INSERT INTO users (name, email, password, is_admin, created_at, updated_at) VALUES (:name, :email, NULL, 0, :created_at, :updated_at)");
+      $stmt->execute([
+        ":name" => $name,
+        ":email" => $emailLower,
+        ":created_at" => gmdate("Y-m-d H:i:s"),
+        ":updated_at" => gmdate("Y-m-d H:i:s"),
+      ]);
+      $existing = find_user_by_email($pdo, $emailLower);
+      if (!$existing) throw $e;
+      $user = [
+        "id" => (string)$existing["id"],
+        "email" => $emailLower,
+        "is_admin" => (int)($existing["is_admin"] ?? 0),
+      ];
+    }
   }
   $now = gmdate("c");
   if (is_mysql_driver($driver)) {
@@ -948,7 +993,8 @@ function handle_auth_routes(PDO $pdo, array $tail): void {
         respond_error(400, "invalid_credentials");
       }
       $user = find_user_by_email($pdo, $email);
-      if (!$user || empty($user["password_hash"]) || !password_verify($password, $user["password_hash"])) {
+      $storedHash = (string)($user["password_hash"] ?? $user["password"] ?? "");
+      if (!$user || $storedHash === "" || !password_verify($password, $storedHash)) {
         respond_error(401, "invalid_credentials");
       }
       issue_session($pdo, $user["id"]);
