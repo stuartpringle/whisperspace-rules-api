@@ -168,6 +168,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR row-flow polish landed: gear-add controls now live directly in Inventory section (no separate Gear section), weapons/armour now use inventory-like collapsed row summaries, buy-mode remove actions expose sell intent in tooltips, and carried armour can remain fully unequipped.
 - OBR inventory add dialogs now auto-close after successful add operations for gear, weapon, and armour flows.
 - OBR -> Builder export compatibility fix landed: outbound inventory payloads now omit unsupported gameplayEffects fields so Character API validation passes during sync updates.
+- OBR settings copy/ux polish landed in Sync modal: renamed flow to `Sync with Whisperspace Builder`, simplified action labels (`Builder Login`, `Import from Link`), and added inline `?` help beside `Character Link`.
 - OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
 - OBR character binding now uses click-to-pick flow: `Set Token as My Character` prompts for a token click after pressing the button.
 - OBR shared click-to-pick prompts now auto-dismiss when selection resolves (or times out), avoiding lingering `Dismiss` notices.
