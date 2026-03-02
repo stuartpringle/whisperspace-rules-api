@@ -198,6 +198,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - reload now supports multi-equipped weapon selection via modal when needed,
   - GM-only row-settings modal now owns initiative edit/surprised/remove controls (replacing inline row controls),
   - active-player row visibility increased (green name + enlarged avatar), and surprised state now renders as red in-row text.
+- OBR non-attack roll UX now uses shared roll-config modal flow:
+  - `Roll Initiative`, Skills `Roll with Dice+`, and Core attribute roll actions now open a common modal with shared bonus/penalty selector and net-dice summary.
+  - Initiative modal now surfaces stress-driven penalty context before roll.
+  - Roll modals close immediately on confirm, then execute the async Dice+ request.
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
