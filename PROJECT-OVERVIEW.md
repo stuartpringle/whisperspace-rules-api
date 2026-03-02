@@ -211,6 +211,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR settings sync-link flow now uses a dedicated modal with persisted token-level link metadata and last edited timestamp.
   - Import path now prompts overwrite confirmation before replacing the current token sheet.
   - Export path performs session verification against `character-api/auth/session` before writing to `PUT /character-api/characters/:id?visibility=public`.
+  - Added OBR-side auth helpers (`Open Builder Login`, `Check Login`) and status-aware diagnostic notifications for session/export failures.
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
