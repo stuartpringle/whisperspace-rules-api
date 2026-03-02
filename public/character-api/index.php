@@ -29,7 +29,17 @@ function load_env(string $path): void {
   }
 }
 
-load_env("/hdd/sites/stuartpringle/whisperspace-rules-api/.env");
+$envPaths = [
+  "/hdd/sites/stuartpringle/whisperspace-rules-api/.env",
+  "/hdd/sites/stuartpringle/whisperspace-rules-api/public/character-api/.env",
+  "/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api/.env",
+  "/hdd/sites/stuartpringle/whisperspace/.env",
+  "/hdd/sites/stuartpringle/whisperspace/public/.env",
+  "/hdd/sites/stuartpringle/whisperspace/public/character-api/.env",
+];
+foreach ($envPaths as $envPath) {
+  load_env($envPath);
+}
 
 function respond(int $code, $payload): void {
   http_response_code($code);
@@ -306,8 +316,7 @@ CREATE TABLE IF NOT EXISTS `user_sessions` (
   `expires_at` TEXT NOT NULL,
   `revoked_at` TEXT,
   `ip` VARCHAR(64),
-  `user_agent` TEXT,
-  FOREIGN KEY(`user_id`) REFERENCES `users`(`id`)
+  `user_agent` TEXT
 )
 SQL
 );
@@ -341,8 +350,7 @@ CREATE TABLE IF NOT EXISTS `password_resets` (
   `token_hash` CHAR(64) NOT NULL,
   `created_at` TEXT NOT NULL,
   `expires_at` TEXT NOT NULL,
-  `used_at` TEXT,
-  FOREIGN KEY(`user_id`) REFERENCES `users`(`id`)
+  `used_at` TEXT
 )
 SQL
 );
@@ -375,8 +383,7 @@ CREATE TABLE IF NOT EXISTS `oauth_accounts` (
   `owner_user_id` VARCHAR(36),
   `created_at` TEXT NOT NULL,
   `updated_at` TEXT NOT NULL,
-  UNIQUE(`provider`, `provider_user_id`),
-  FOREIGN KEY(`owner_user_id`) REFERENCES `users`(`id`)
+  UNIQUE(`provider`, `provider_user_id`)
 )
 SQL
 );
