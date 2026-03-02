@@ -189,6 +189,15 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR targeted-hit application now includes an ownership-safe fallback: if attacker-side cross-token writes fail due permissions, effect payloads carry `autoApplyToTarget` and the target owner client applies the hit locally to its own sheet.
 - OBR targeted-hit apply routing was tightened to avoid silent non-owner write attempts: attackers now choose direct apply only for owner/GM contexts, otherwise they always emit target-owner auto-apply payloads.
 - OBR combat-log persistence moved to a scene-global metadata model (`whisperspace.obr.sheet/globalCombatLog`), so sheet panels now render shared recent history (latest 4) regardless of which tabs were open when rolls occurred; Test tab now also surfaces live current-token position coordinates.
+- OBR combat-log apply flow was refactored to modal-based actions:
+  - single `Apply` button per eligible row opens apply options (`Damage`, `Stress`, `Both`),
+  - GM flow supports explicit target-token selection before applying,
+  - rows representing already auto-applied targeted hits no longer show manual apply actions.
+- OBR initiative/combat tab UX pass:
+  - removed top-level attack-roll dice controls (attack modal owns dice config),
+  - reload now supports multi-equipped weapon selection via modal when needed,
+  - GM-only row-settings modal now owns initiative edit/surprised/remove controls (replacing inline row controls),
+  - active-player row visibility increased (green name + enlarged avatar), and surprised state now renders as red in-row text.
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
