@@ -206,9 +206,6 @@ Environment:
   - `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`
   - `/hdd/sites/stuartpringle/whisperspace-rules-api/public/character-api/.env`
   - `/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api/.env`
-  - `/hdd/sites/stuartpringle/whisperspace/.env` (legacy compatibility)
-  - `/hdd/sites/stuartpringle/whisperspace/public/.env` (legacy compatibility)
-  - `/hdd/sites/stuartpringle/whisperspace/public/character-api/.env` (legacy compatibility)
 - Keep one authoritative env file updated (prefer `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`) with:
   - `WS_CHARACTER_API_KEY` and optional overrides for `WS_CHARACTER_DB_PATH`/`WS_CHARACTER_SCHEMA_PATH`.
   - MySQL settings: `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_SOCKET` (if using UNIX socket), `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`.
@@ -216,6 +213,7 @@ Environment:
   - Mail/Postmark secrets: `POSTMARK_SERVER_TOKEN`, `MAIL_FROM`, `MAIL_REPLY_TO`, `MAIL_APP_NAME`.
   - Google OAuth hooks when enabled: `WS_OAUTH_GOOGLE_CLIENT_ID`, `WS_OAUTH_GOOGLE_CLIENT_SECRET`, `WS_OAUTH_GOOGLE_REDIRECT_URI`.
   - Keep Postmark/mail values in this file rather than exposing a public `.env`.
+- Database boundary rule: character-api must use `DB_DATABASE=stuartpringle_whisperspace_character_builder`; do not point character-api to `stuartpringle_whisperspace` (Statamic website DB).
 
 Auth (shared key):
 - Set `WS_CHARACTER_API_KEY` inside `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`.

@@ -33,9 +33,6 @@ $envPaths = [
   "/hdd/sites/stuartpringle/whisperspace-rules-api/.env",
   "/hdd/sites/stuartpringle/whisperspace-rules-api/public/character-api/.env",
   "/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api/.env",
-  "/hdd/sites/stuartpringle/whisperspace/.env",
-  "/hdd/sites/stuartpringle/whisperspace/public/.env",
-  "/hdd/sites/stuartpringle/whisperspace/public/character-api/.env",
 ];
 foreach ($envPaths as $envPath) {
   load_env($envPath);
