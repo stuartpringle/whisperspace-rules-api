@@ -129,6 +129,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Fixed character-api auth outage on 2026-03-02: restored multi-path env loading compatibility (`whisperspace-rules-api/.env`, `public/character-api/.env`, and legacy `whisperspace/.env` paths) after a hardcoded env-path regression left DB config unset and caused `PDOException: unable to open database file` on all character-api routes.
 - Added MySQL migration compatibility hardening for legacy installs by removing strict FK creation on auth tables (`user_sessions`, `password_resets`, `oauth_accounts`), preventing startup crashes from pre-existing incompatible column definitions.
 - Character API now surfaces OAuth configuration gaps explicitly (`{"error":"oauth_unconfigured"}`) after bootstrap recovery, replacing prior generic 500 behavior.
+- Added auth/OAuth schema compatibility for legacy Laravel `users` tables (`id` bigint + `password`) so Google callback no longer fatals when UUID/password_hash-specific inserts are not supported.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.
