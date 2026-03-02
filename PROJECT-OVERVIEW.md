@@ -202,6 +202,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - `Roll Initiative`, Skills `Roll with Dice+`, and Core attribute roll actions now open a common modal with shared bonus/penalty selector and net-dice summary.
   - Initiative modal now surfaces stress-driven penalty context before roll.
   - Roll modals close immediately on confirm, then execute the async Dice+ request.
+- OBR inventory/skills modal UX sweep:
+  - Inventory credits now use one `Add / Remove` modal action (amount + add/remove/close).
+  - Inventory `Add Gear` and equipment `Add Weapon` / `Add Armour` flows were moved from inline sections to modal workflows.
+  - Skills point adjustment now uses modal add/remove controls, and Learning Focus now uses button-triggered modal selection (with `Select One` when unset).
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
