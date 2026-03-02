@@ -183,6 +183,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - attack-modal helper text now displays only when relevant (e.g. subsequent-attack rule only on subsequent attacks; cover help only for selected cover).
   - attack modal now displays live range-effects math (weapon band vs target band, farther-band DC increase, and close-range penalty-die indicator when triggered).
   - attack modal text order was adjusted so dice/range summaries appear above the main attack preview sentence.
+  - attack modal now closes immediately on `Attack` click before async roll resolution runs.
   - close-range penalties were corrected to the ranged-weapon table (Light 0, Medium +1 PD, Heavy +2 PD, Exotic +1 PD at Very Near/Melee), with `Point Blank` keyword exemption.
 - OBR combat follow-up: targeted hits now auto-apply resulting damage/stress to the targeted token sheet and append effect entries to combat log, and manual Combat-panel `Apply Damage` flow was stabilized to avoid wound-state flicker from redundant stress callback writes.
 - OBR targeted-hit application now includes an ownership-safe fallback: if attacker-side cross-token writes fail due permissions, effect payloads carry `autoApplyToTarget` and the target owner client applies the hit locally to its own sheet.
