@@ -206,6 +206,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Inventory credits now use one `Add / Remove` modal action (amount + add/remove).
   - Inventory `Add Gear` and equipment `Add Weapon` / `Add Armour` flows now share one standardized modal workflow (template optional + editable fields + footer `+ Add`).
   - Removed standalone `Add Custom` weapon action; modal field editing now covers custom weapon/armour creation.
+  - Buy-mode add actions now render as `Buy (<credits>)` across gear/weapon/armour add modals; non-buy mode keeps plain `Add`.
   - Skills point adjustment now uses modal add/remove controls, and Learning Focus now uses button-triggered modal selection (with `Select One` when unset).
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
