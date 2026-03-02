@@ -169,7 +169,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - both surfaces use the same modal component and execution helpers (reduced duplicated logic),
   - attack-order control is now a `1st Attack` toggle switch,
   - bonus/penalty dice controls use a shared Skills-style selector,
-  - modal now includes `Select Target` when no target is set.
+  - modal now includes `Select Target` when no target is set (click-to-pick token flow).
 - OBR attack-config follow-up:
   - modal now supports manual `Distance` range-band targeting when no token target is set (for non-token/manual adjudication attacks),
   - attack preview now includes an explicit net-dice breakdown line (final net + capped bonus/penalty components),
