@@ -176,6 +176,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - additional bonus/penalty controls in Skills/Core/Nanomancy/Inventory grenade-throw flows now reuse a shared selector component.
   - modal target controls now include `Untarget`, and modal preview reacts live while open to context-menu target changes.
   - zero-net dice messaging now displays as `Straight roll`.
+  - attack modal field pairs now stay in explicit two-column layout within OBR panel widths.
 - OBR combat follow-up: targeted hits now auto-apply resulting damage/stress to the targeted token sheet and append effect entries to combat log, and manual Combat-panel `Apply Damage` flow was stabilized to avoid wound-state flicker from redundant stress callback writes.
 - OBR targeted-hit application now includes an ownership-safe fallback: if attacker-side cross-token writes fail due permissions, effect payloads carry `autoApplyToTarget` and the target owner client applies the hit locally to its own sheet.
 - OBR targeted-hit apply routing was tightened to avoid silent non-owner write attempts: attackers now choose direct apply only for owner/GM contexts, otherwise they always emit target-owner auto-apply payloads.
