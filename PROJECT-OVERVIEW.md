@@ -126,6 +126,9 @@ Use this section to keep a single-source, cross-repo status summary.
 - Expanded gameplay effect key normalization in calc parsing (aliases like `cuf` and `carryingCapacity` now resolve to canonical keys).
 - README calc docs expanded with gameplay-effects contract and request/response examples.
 - Character API auth contract now returns CSRF token material to cross-origin clients: `GET /character-api/auth/session` includes `csrfToken` and new `GET /character-api/auth/csrf` endpoint exposes `{ csrfToken, authenticated }`, enabling OBR export flows to satisfy CSRF header requirements without relying on direct cookie reads.
+- Fixed character-api auth outage on 2026-03-02: restored multi-path env loading compatibility (`whisperspace-rules-api/.env`, `public/character-api/.env`, and legacy `whisperspace/.env` paths) after a hardcoded env-path regression left DB config unset and caused `PDOException: unable to open database file` on all character-api routes.
+- Added MySQL migration compatibility hardening for legacy installs by removing strict FK creation on auth tables (`user_sessions`, `password_resets`, `oauth_accounts`), preventing startup crashes from pre-existing incompatible column definitions.
+- Character API now surfaces OAuth configuration gaps explicitly (`{"error":"oauth_unconfigured"}`) after bootstrap recovery, replacing prior generic 500 behavior.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.

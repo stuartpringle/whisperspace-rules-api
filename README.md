@@ -202,8 +202,14 @@ Base URL:
 - `https://rules-api.whisperspace.com/character-api`
 
 Environment:
-- The character API loads only `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`.
-- Keep `/hdd/sites/stuartpringle/whisperspace-rules-api/.env` updated with:
+- The character API loads env files in this order (later files can override earlier values):
+  - `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`
+  - `/hdd/sites/stuartpringle/whisperspace-rules-api/public/character-api/.env`
+  - `/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api/.env`
+  - `/hdd/sites/stuartpringle/whisperspace/.env` (legacy compatibility)
+  - `/hdd/sites/stuartpringle/whisperspace/public/.env` (legacy compatibility)
+  - `/hdd/sites/stuartpringle/whisperspace/public/character-api/.env` (legacy compatibility)
+- Keep one authoritative env file updated (prefer `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`) with:
   - `WS_CHARACTER_API_KEY` and optional overrides for `WS_CHARACTER_DB_PATH`/`WS_CHARACTER_SCHEMA_PATH`.
   - MySQL settings: `DB_CONNECTION`, `DB_HOST`, `DB_PORT`, `DB_SOCKET` (if using UNIX socket), `DB_DATABASE`, `DB_USERNAME`, `DB_PASSWORD`.
   - `WS_COOKIE_DOMAIN` (e.g. `.whisperspace.com`) and `WS_BUILDER_URL` used in password-reset emails.
@@ -233,7 +239,7 @@ Auth contract:
   - `GET /character-api/auth/csrf`: returns `200` with `{ "csrfToken": "<token>", "authenticated": <boolean> }` for clients that need an explicit CSRF read endpoint.
   - `POST /character-api/auth/password/request`: body `{ "email": "..." }`; responds `200` with `{ "ok": true }` even if the email is not known (to avoid leaking accounts). Errors (e.g., `invalid_email`, `email_failure`) return `{ "error": "<code>" }`.
   - `POST /character-api/auth/password/reset`: body `{ "token": "...", "newPassword": "..." }`; on success responds `{ "ok": true }` and revokes existing sessions; errors include `missing_fields`, `invalid_token`, or `validation_failed`.
-  - `GET /character-api/auth/oauth/google`: without query params, immediately redirects the browser to Google’s OAuth consent page. With `?code=...` (callback) it exchanges tokens, finds/creates the linked user, issues a session (sets cookies), and then redirects back to the `state` URL if it matches `WS_BUILDER_URL`, otherwise falls back to `WS_BUILDER_URL`.
+  - `GET /character-api/auth/oauth/google`: without query params, redirects to Google OAuth when configured; if OAuth env keys are missing it returns `500` with `{ "error": "oauth_unconfigured" }`. With `?code=...` (callback) it exchanges tokens, finds/creates the linked user, issues a session (sets cookies), and then redirects back to the `state` URL if it matches `WS_BUILDER_URL`, otherwise falls back to `WS_BUILDER_URL`.
 - **Cookies / CSRF:** the API sets two cookies when a session exists: a **`ws_session`** http-only cookie containing a random 32-byte session token, and a non-HttpOnly **`ws_csrf`** cookie that mirrors the CSRF token. State-changing requests (`POST /auth/logout`, character `POST/PUT/DELETE`, etc.) require the `X-CSRF-Token` header to match the `ws_csrf` cookie. Cookies use `SameSite=Lax` and `Secure` when the request is over HTTPS, and `WS_COOKIE_DOMAIN` controls the domain scope.
 - **Error responses:** all failures use `respond_error(...)` so the body is `{ "error": "<code>" }` with an optional `"details": [ ... ]` array for validation or conflict explanations; HTTP status codes reflect the failure (`400` for invalid inputs, `401`/`403` for auth issues, `409` for conflicts, `500` for server-side errors).
 
@@ -273,7 +279,7 @@ Admin endpoints:
 
 Storage:
 - MySQL is the default (via `DB_CONNECTION=mysql`). The API supports a UNIX socket via `DB_SOCKET`.
-- SQLite support still exists for local/dev, using `/hdd/sites/stuartpringle/whisperspace-character-builder/db/characters.sqlite` or `WS_CHARACTER_DB_PATH`.
+- SQLite support still exists for local/dev and always requires a valid `WS_CHARACTER_DB_PATH` that the PHP runtime can read/write.
 - Keep character-API-specific settings in `/hdd/sites/stuartpringle/whisperspace-rules-api/.env` (copy the Postmark/mail fields from `/hdd/sites/stuartpringle/whisperspace/.env` instead of exposing a `/public/.env` file).
 
 Schema override:
