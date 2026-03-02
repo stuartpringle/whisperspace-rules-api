@@ -258,7 +258,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
 - Next steps:
-- Continue porting remaining legacy OBR sheet behavior from `whisperspace-obr-sheet` into this extension repo.
+- Continue iterating directly in `whisperspace-obr-extension` as the primary/most up-to-date OBR sheet implementation.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
 - Smoke test extension behavior in Owlbear Rodeo (initiative, combat rolls, damage apply, token save/load) after each migration batch.
 
