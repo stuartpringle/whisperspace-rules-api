@@ -150,6 +150,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added a local compatibility `CharacterRecordV1` adapter type in `src/rules/schema.ts` because current SDK exports `CharacterSheetV1` only.
 - Verified end-to-end compile with `npm run build` in `whisperspace-obr-extension` on 2026-02-17.
 - Added backward-compatible `rules.html` route in `whisperspace-obr-extension/public/rules.html` that redirects to `https://docs.whisperspace.com/` (hash preserved), covering older same-origin rules links from legacy extension flows.
+- Added durable `/rules/manifest.json` hosting directly in `whisperspace-obr-extension/public/rules/manifest.json`, so normal `npm run build` deploys retain the OBR rules-extension manifest even when `dist/` is rebuilt.
 - Removed stale `packages/core/src` include from `whisperspace-obr-extension/tsconfig.json` so new migration work is constrained to repo-local `src/`.
 - Restored initiative token focus UX in OBR extension: clicking avatar entries now selects and centers the token via current OBR SDK APIs.
 - Fixed OBR calc CORS regression by aliasing `@whisperspace/sdk` in `whisperspace-obr-extension` to a local shim that targets `https://rules-api.whisperspace.com/rules-api/calc` (instead of `https://whisperspace.com/rules-api/calc`).
