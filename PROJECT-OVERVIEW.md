@@ -129,6 +129,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Fixed character-api auth outage on 2026-03-02 by restoring rules-api-local env loading and explicit DB config.
 - Enforced cross-project DB boundary on 2026-03-02: character-api now reads env only from rules-api paths and is bound to `stuartpringle_whisperspace_character_builder`; `stuartpringle_whisperspace` is reserved for `whisperspace.com` (Statamic) only.
 - Cleanup completed on 2026-03-02: accidentally created character-api tables in the Statamic DB (`characters`, `user_sessions`, `password_resets`, `oauth_accounts`) were removed.
+- OBR export auth fix on 2026-03-02: character-api session/CSRF cookies now use `SameSite=None` (with HTTPS `Secure`) so embedded OBR export flows can send credential cookies and satisfy CSRF checks.
 - Added MySQL migration compatibility hardening for legacy installs by removing strict FK creation on auth tables (`user_sessions`, `password_resets`, `oauth_accounts`), preventing startup crashes from pre-existing incompatible column definitions.
 - Character API now surfaces OAuth configuration gaps explicitly (`{"error":"oauth_unconfigured"}`) after bootstrap recovery, replacing prior generic 500 behavior.
 - Added auth/OAuth schema compatibility for legacy Laravel `users` tables (`id` bigint + `password`) so Google callback no longer fatals when UUID/password_hash-specific inserts are not supported.

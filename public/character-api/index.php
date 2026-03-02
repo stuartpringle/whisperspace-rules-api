@@ -518,7 +518,8 @@ function cookie_options(): array {
   $opts = [
     "expires" => time() + SESSION_TTL,
     "path" => "/",
-    "samesite" => "Lax",
+    // OBR runs in an embedded cross-site context; SameSite=None keeps auth/csrf cookies available there.
+    "samesite" => "None",
   ];
   if ($domain !== false && $domain !== "") $opts["domain"] = $domain;
   if (is_secure_request()) $opts["secure"] = true;
@@ -538,7 +539,7 @@ function clear_session_cookies(): void {
   $opts = [
     "expires" => time() - 3600,
     "path" => "/",
-    "samesite" => "Lax",
+    "samesite" => "None",
   ];
   $domain = getenv("WS_COOKIE_DOMAIN");
   if ($domain !== false && $domain !== "") $opts["domain"] = $domain;
