@@ -220,6 +220,7 @@ Auth endpoints:
 - `POST /character-api/auth/login`
 - `POST /character-api/auth/logout`
 - `GET /character-api/auth/session`
+- `GET /character-api/auth/csrf`
 - `POST /character-api/auth/password/request`
 - `POST /character-api/auth/password/reset`
 - `GET /character-api/auth/oauth/google`
@@ -228,7 +229,8 @@ Auth contract:
 - **Request/response shapes:**
   - `POST /character-api/auth/signup` / `POST /character-api/auth/login`: body `{ "email": "...", "password": "..." }`. Successful responses return `201`/`200` with `{ "user": { "id": "<uuid>", "email": "<email>" } }`. Failures return `{ "error": "<code>" }` (e.g., `invalid_credentials`, `user_exists`, `validation_failed`).
   - `POST /character-api/auth/logout`: no body; responds `200` with `{ "ok": true }` and clears `ws_session`/`ws_csrf` cookies. Requires `X-CSRF-Token` header matching the `ws_csrf` cookie.
-  - `GET /character-api/auth/session`: returns `200` with `{ "user": null }` when no session or `{ "user": { "id": "<uuid>", "email": "<email>" } }` when authenticated.
+  - `GET /character-api/auth/session`: returns `200` with `{ "user": null, "csrfToken": "<token>" }` when no session or `{ "user": { "id": "<uuid>", "email": "<email>" }, "csrfToken": "<token>" }` when authenticated.
+  - `GET /character-api/auth/csrf`: returns `200` with `{ "csrfToken": "<token>", "authenticated": <boolean> }` for clients that need an explicit CSRF read endpoint.
   - `POST /character-api/auth/password/request`: body `{ "email": "..." }`; responds `200` with `{ "ok": true }` even if the email is not known (to avoid leaking accounts). Errors (e.g., `invalid_email`, `email_failure`) return `{ "error": "<code>" }`.
   - `POST /character-api/auth/password/reset`: body `{ "token": "...", "newPassword": "..." }`; on success responds `{ "ok": true }` and revokes existing sessions; errors include `missing_fields`, `invalid_token`, or `validation_failed`.
   - `GET /character-api/auth/oauth/google`: without query params, immediately redirects the browser to Google’s OAuth consent page. With `?code=...` (callback) it exchanges tokens, finds/creates the linked user, issues a session (sets cookies), and then redirects back to the `state` URL if it matches `WS_BUILDER_URL`, otherwise falls back to `WS_BUILDER_URL`.

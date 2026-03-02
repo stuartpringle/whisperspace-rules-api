@@ -125,6 +125,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Published `skill_tooltips.json` in ID-keyed form (`skills.<skill_id>`, `attributes.<attribute_id>`) with label-keyed compatibility maps to unblock builder tooltip lookup.
 - Expanded gameplay effect key normalization in calc parsing (aliases like `cuf` and `carryingCapacity` now resolve to canonical keys).
 - README calc docs expanded with gameplay-effects contract and request/response examples.
+- Character API auth contract now returns CSRF token material to cross-origin clients: `GET /character-api/auth/session` includes `csrfToken` and new `GET /character-api/auth/csrf` endpoint exposes `{ csrfToken, authenticated }`, enabling OBR export flows to satisfy CSRF header requirements without relying on direct cookie reads.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.

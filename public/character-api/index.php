@@ -572,6 +572,10 @@ function require_csrf(): void {
   }
 }
 
+function current_csrf_token(): string {
+  return (string)($_COOKIE[CSRF_COOKIE] ?? "");
+}
+
 function current_user(PDO $pdo): ?array {
   static $cached = null;
   if ($cached !== null) return $cached;
@@ -958,10 +962,20 @@ function handle_auth_routes(PDO $pdo, array $tail): void {
     case "session":
       if ($method !== "GET") respond_error(405, "method_not_allowed");
       $user = current_user($pdo);
+      $csrf = current_csrf_token();
       if (!$user) {
-        respond(200, ["user" => null]);
+        respond(200, ["user" => null, "csrfToken" => $csrf]);
       }
-      respond(200, ["user" => ["id" => $user["id"], "email" => $user["email"]]]);
+      respond(200, ["user" => ["id" => $user["id"], "email" => $user["email"]], "csrfToken" => $csrf]);
+      break;
+
+    case "csrf":
+      if ($method !== "GET") respond_error(405, "method_not_allowed");
+      $user = current_user($pdo);
+      respond(200, [
+        "csrfToken" => current_csrf_token(),
+        "authenticated" => (bool)$user,
+      ]);
       break;
 
     case "password":
@@ -1233,6 +1247,7 @@ if (count($tail) === 0) {
       "POST /character-api/auth/login",
       "POST /character-api/auth/logout",
       "GET /character-api/auth/session",
+      "GET /character-api/auth/csrf",
       "POST /character-api/auth/password/request",
       "POST /character-api/auth/password/reset",
       "GET /character-api/auth/oauth/google",
