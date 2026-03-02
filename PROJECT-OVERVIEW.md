@@ -221,6 +221,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - Export path performs session verification against `character-api/auth/session` before writing to `PUT /character-api/characters/:id?visibility=public`.
 - OBR settings auth UX follow-up: removed `Check Login` button; export auth/CSRF failures now show a simple login-required message (`Must be logged in on builder.whisperspace.com to export.`) while keeping `Open Builder Login`.
 - OBR settings sync export now supports first-time publish: if no link/id is set, `Export to Builder` creates a new public character and persists the new builder link on the token; if a link/id is set, export updates that existing character.
+- OBR inventory tab parity follow-up landed: `Equipment` now renders above `Inventory`, inventory uses the same collapsible section pattern and left-aligned add action as weapons/armour, and credits + acquire/buy controls are rendered in a single row when space allows.
+- OBR sheet popover width increased (`520` -> `560`) to improve inventory/equipment row layout.
 - OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
 - OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
 - OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
