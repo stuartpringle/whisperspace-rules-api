@@ -281,6 +281,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder preview modals now present cleaned field labels (no raw IDs, pretty skill names) with two-column detail layout and improved selector action-row wrapping for `Preview` + `Buy` controls.
 - Builder now includes a dedicated Nanomancy step (unlocked by the `Nanomancy` feat) with primary-field selection, known-effect tracking, ND planning, and a rules-driven check simulator.
 - Builder Nanomancy UX now mirrors OBR’s card flow: effects-known cap, add-effect modal with full descriptions, per-effect cards with `Use` actions, and shared bonus/penalty + range/action controls.
+- Builder Nanomancy follow-up now adds collapsed effect top rows with icon-only `Use`, calculated DC/range labels, per-effect target token + `Untarget` display, and a dedicated `Use <Effect>` modal with resolved numeric effect text plus roll/range context copy.
 - Character records now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) via SDK schema updates, enabling cloud save compatibility without metadata hacks.
 - Builder equipment selectors now expose `Preview` modals for weapons, armour, and gear entries so users can inspect full catalog detail before adding/buying.
 - Builder armour action buttons were normalized to the same padded sizing as other row action controls for consistent touch/click targets.
@@ -292,6 +293,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Save flow now uses staged modals (save menu -> auth when needed -> save options by target).
 - Save options are conditional by target (only show `New copy` when an existing local/cloud record exists).
 - Reset action now confirms and restores latest saved local/cloud copy when available.
+- Nanomancy cards now show computed DC/range in collapsed headers and use a dedicated modal with resolved numeric effect descriptions to match combat-style pre-roll context.
 - Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
 - Skills UX refresh: grouped/collapsible trees, search-by-name, no slug labels, compact +/- rank controls, and tooltip hints.
 - Added inline SVG skill-group icons for attribute/focus trees.
