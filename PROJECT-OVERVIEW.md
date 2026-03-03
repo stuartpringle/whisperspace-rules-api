@@ -173,6 +173,8 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR dialog accessibility follow-up landed extension-wide: all dialog openers now blur active focus first to prevent Chrome `aria-hidden` focus-retention warnings on modal mount.
 - OBR navigation/tooling polish landed: removed `Test` tab, hid dedicated grenade-placement tool from standard OBR tool menus while keeping click-to-place flow active, and added status-strip visual meters for Bulk capacity and Stress with CUF threshold marker.
 - OBR Nanomancy tab gating tightened: tab visibility now depends on Nanomancy feat unlocks for all users (including GM view).
+- OBR stress meter follow-up landed: removed CUF text label, added explicit PTSD threshold marker (stress `6`, per stress rules `PTSD Range (6-8)`), and color zoning for below-CUF / CUF-to-PTSD / PTSD+ ranges.
+- OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
 - OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
 - OBR character binding now uses click-to-pick flow: `Set Token as My Character` prompts for a token click after pressing the button.
 - OBR shared click-to-pick prompts now auto-dismiss when selection resolves (or times out), avoiding lingering `Dismiss` notices.
@@ -315,6 +317,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder auth-guard timing fix: refreshing protected pages (`/characters`, `/settings`) now waits for initial session verification before redirecting, preventing false redirects to builder while still unauthenticated users are blocked.
 - Builder visibility toggle update: `My Characters` now uses a true switch control for `Private/Public`, and visibility updates no longer send `If-Unmodified-Since` so browser preflight/CORS succeeds on cross-origin `PUT ...?visibility=...` requests.
 - Builder character-row action layout refinement: visibility switch now appears immediately left of `Copy Link` on `My Characters` rows.
+- Builder character-list organization update: users can now add/remove local list tags per character (for example campaign or NPC groups), filter by list tag, and search characters by both name and tag text without changing character creation/storage schemas.
 - Builder view-page ownership action: when a logged-in user is viewing their own character at `/character/:id`, the header action now reads `Edit` and loads that character directly into builder edit mode (instead of generic `Continue Building`).
 - Character API ownership hardening: `GET /character-api/characters` is now authenticated and owner-scoped (admins excepted), preventing cross-account leaks even when records are public; added integration regression script `scripts/test-character-ownership.sh` (`npm run test:character-auth`).
 - Character API list endpoint now includes a second defense-in-depth owner check during response assembly, so non-owner rows are dropped even if upstream query behavior is changed/misconfigured.
