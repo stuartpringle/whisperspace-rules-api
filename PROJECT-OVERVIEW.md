@@ -287,6 +287,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - AoE placement activation for nanomancy now validates tool activation and clears pending cast on failure instead of silently closing.
   - Added background placement-activation fallback channel so nanomancy AoE `Use Effect` can force placement mode even when panel-context tool activation fails.
   - Added placement-activation race protection (serialized activation + throttled panel requests) to prevent tool mode thrash between panel/background contexts.
+  - Removed move-tool fallback attempts in placement activation and panel-side reactivation loop to prevent placement mode from being canceled immediately after activation.
 - Next steps:
 - Continue iterating directly in `whisperspace-obr-extension` as the primary/most up-to-date OBR sheet implementation.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
