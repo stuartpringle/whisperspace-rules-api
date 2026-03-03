@@ -178,6 +178,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR stress meter follow-up landed: removed CUF text label, added explicit PTSD threshold marker (stress `6`, per stress rules `PTSD Range (6-8)`), and color zoning for below-CUF / CUF-to-PTSD / PTSD+ ranges.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
 - OBR inventory/equipment card follow-up landed: status warnings now sit directly under Stress/Bulk meters; Weapons and Armour now support drag-and-drop ordering like Gear; and all three card types now keep visible collapsed-card borders with reduced duplicate top-row control content in expanded views.
+- OBR typing-stability fix landed: feat rows now use stable keys (preventing `Feat Name` input remount/focus loss) and `Core > Name` now commits on blur so per-keystroke token sync does not interrupt text entry.
 - OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
 - OBR character binding now uses click-to-pick flow: `Set Token as My Character` prompts for a token click after pressing the button.
 - OBR shared click-to-pick prompts now auto-dismiss when selection resolves (or times out), avoiding lingering `Dismiss` notices.
