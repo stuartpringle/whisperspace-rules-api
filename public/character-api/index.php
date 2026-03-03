@@ -530,15 +530,31 @@ function is_secure_request(): bool {
   return strtolower($proto) === "https";
 }
 
+function cookie_samesite(): string {
+  // Browsers reject SameSite=None without Secure; keep local HTTP/test flows functional with Lax.
+  return is_secure_request() ? "None" : "Lax";
+}
+
+function cookie_domain(): string {
+  $configured = (string)(getenv("WS_COOKIE_DOMAIN") ?: "");
+  if ($configured === "") return "";
+  $hostHeader = (string)($_SERVER["HTTP_HOST"] ?? "");
+  $host = strtolower(trim(explode(":", $hostHeader)[0] ?? ""));
+  if ($host === "localhost" || $host === "127.0.0.1" || $host === "::1") {
+    // Local dev/test hosts cannot set cross-domain cookies like .whisperspace.com.
+    return "";
+  }
+  return $configured;
+}
+
 function cookie_options(): array {
-  $domain = getenv("WS_COOKIE_DOMAIN");
+  $domain = cookie_domain();
   $opts = [
     "expires" => time() + SESSION_TTL,
     "path" => "/",
-    // OBR runs in an embedded cross-site context; SameSite=None keeps auth/csrf cookies available there.
-    "samesite" => "None",
+    "samesite" => cookie_samesite(),
   ];
-  if ($domain !== false && $domain !== "") $opts["domain"] = $domain;
+  if ($domain !== "") $opts["domain"] = $domain;
   if (is_secure_request()) $opts["secure"] = true;
   return $opts;
 }
@@ -556,10 +572,10 @@ function clear_session_cookies(): void {
   $opts = [
     "expires" => time() - 3600,
     "path" => "/",
-    "samesite" => "None",
+    "samesite" => cookie_samesite(),
   ];
-  $domain = getenv("WS_COOKIE_DOMAIN");
-  if ($domain !== false && $domain !== "") $opts["domain"] = $domain;
+  $domain = cookie_domain();
+  if ($domain !== "") $opts["domain"] = $domain;
   if (is_secure_request()) $opts["secure"] = true;
   $opts["httponly"] = true;
   setcookie(SESSION_COOKIE, "", $opts);

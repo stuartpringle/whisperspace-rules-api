@@ -31,6 +31,7 @@ start_server() {
       cd "${ROOT_DIR}"
       WS_CHARACTER_DB_DRIVER=sqlite \
         WS_CHARACTER_DB_PATH="${TMP_DB}" \
+        WS_COOKIE_DOMAIN= \
         php -S "127.0.0.1:${PORT}" -t public
     ) >"${SERVER_LOG}" 2>&1 &
     SERVER_PID="$!"
