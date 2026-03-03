@@ -272,6 +272,15 @@ Use this section to keep a single-source, cross-repo status summary.
   - OBR token schema + record adapters now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) for builder/API interoperability.
   - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
   - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
+- OBR nanomancy AoE persistence follow-up landed:
+  - `Regenerative Cloud` now routes through AoE placement/template flow and creates a persistent zone template on cast success.
+  - Active cloud zones are stored in scene metadata and processed each wrapped initiative round, healing all tokens currently in-zone before duration decrement.
+  - Zone templates are removed automatically when their remaining round count expires.
+- OBR high-stress rules follow-up landed:
+  - stress remains clamped to max `8`,
+  - Crucible checks now run from modal flow when stress crosses above `5` (`DC = 8 + incoming stress`, CUF check without bonus/penalty dice),
+  - failed Crucible supports permanent CUF spend (`cufLoss +1`) to pass,
+  - PTSD reaction modal now supports rolling the `1d4` PTSD table and applies table effects (including `Fleeing (1)`).
 - Next steps:
 - Continue iterating directly in `whisperspace-obr-extension` as the primary/most up-to-date OBR sheet implementation.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
