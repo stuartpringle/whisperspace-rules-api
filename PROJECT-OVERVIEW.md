@@ -184,6 +184,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - nanomancy cast start now calls direct placement activation from panel flow (matching grenade throw path) to avoid duplicated background broadcast handling during AoE activation.
 - OBR AoE activation compatibility fix landed (2026-03-03):
   - shared placement activator now retries placement-mode activation through current/move tool contexts before tool-id fallback, restoring hidden-mode activation reliability for grenade and nanomancy AoE casts.
+- OBR AoE registration compatibility rollback landed (2026-03-03):
+  - placement tool/mode explicit icon registration was restored (`AoE Effects` / `Place AoE`) to align with the last known-working activation behavior in OBR.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
 - OBR inventory/equipment card follow-up landed: status warnings now sit directly under Stress/Bulk meters; Weapons and Armour now support drag-and-drop ordering like Gear; and all three card types now keep visible collapsed-card borders with reduced duplicate top-row control content in expanded views.
 - OBR typing-stability fix landed: feat rows now use stable keys (preventing `Feat Name` input remount/focus loss) and `Core > Name` now commits on blur so per-keystroke token sync does not interrupt text entry.
