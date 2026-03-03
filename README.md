@@ -255,7 +255,7 @@ Endpoints:
   - Returns JSON schema for `CharacterRecordV1`.
 - `GET /character-api/characters`
   - Requires authenticated session (`ws_session` cookie).
-  - Returns owner-scoped array of `{ id, name, updatedAt }` for the current account only (admins still receive all records).
+  - Returns owner-scoped array of `{ id, name, updatedAt, visibility, tags }` for the current account only (admins still receive all records).
   - This endpoint does not include other users' public records; public sharing is handled by direct `GET /character-api/characters/:id`.
   - Enforcement is defense-in-depth: owner scoping is applied in query selection and re-checked before rows are emitted.
 - `POST /character-api/characters`
@@ -306,6 +306,7 @@ Character sheet (v1) shape:
   "weapons": [],
   "armour": null,
   "inventory": [],
+  "tags": ["npc", "campaign-alpha"],
   "notes": "",
   "createdAt": "",
   "updatedAt": "",

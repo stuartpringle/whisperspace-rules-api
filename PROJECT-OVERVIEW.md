@@ -133,6 +133,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added MySQL migration compatibility hardening for legacy installs by removing strict FK creation on auth tables (`user_sessions`, `password_resets`, `oauth_accounts`), preventing startup crashes from pre-existing incompatible column definitions.
 - Character API now surfaces OAuth configuration gaps explicitly (`{"error":"oauth_unconfigured"}`) after bootstrap recovery, replacing prior generic 500 behavior.
 - Added auth/OAuth schema compatibility for legacy Laravel `users` tables (`id` bigint + `password`) so Google callback no longer fatals when UUID/password_hash-specific inserts are not supported.
+- Added character-organization tags support in Character API contracts: `CharacterRecordV1.tags` is now schema-validated and `/character-api/characters` summaries now include `tags` arrays for synchronized cross-device list grouping.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.
@@ -175,6 +176,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR Nanomancy tab gating tightened: tab visibility now depends on Nanomancy feat unlocks for all users (including GM view).
 - OBR stress meter follow-up landed: removed CUF text label, added explicit PTSD threshold marker (stress `6`, per stress rules `PTSD Range (6-8)`), and color zoning for below-CUF / CUF-to-PTSD / PTSD+ ranges.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
+- OBR inventory/equipment card follow-up landed: status warnings now sit directly under Stress/Bulk meters; Weapons and Armour now support drag-and-drop ordering like Gear; and all three card types now keep visible collapsed-card borders with reduced duplicate top-row control content in expanded views.
 - OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
 - OBR character binding now uses click-to-pick flow: `Set Token as My Character` prompts for a token click after pressing the button.
 - OBR shared click-to-pick prompts now auto-dismiss when selection resolves (or times out), avoiding lingering `Dismiss` notices.
@@ -317,7 +319,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Builder auth-guard timing fix: refreshing protected pages (`/characters`, `/settings`) now waits for initial session verification before redirecting, preventing false redirects to builder while still unauthenticated users are blocked.
 - Builder visibility toggle update: `My Characters` now uses a true switch control for `Private/Public`, and visibility updates no longer send `If-Unmodified-Since` so browser preflight/CORS succeeds on cross-origin `PUT ...?visibility=...` requests.
 - Builder character-row action layout refinement: visibility switch now appears immediately left of `Copy Link` on `My Characters` rows.
-- Builder character-list organization update: users can now add/remove local list tags per character (for example campaign or NPC groups), filter by list tag, and search characters by both name and tag text without changing character creation/storage schemas.
+- Builder character-list organization update: users can now add/remove synced list tags per character (for example campaign or NPC groups), filter by list tag, and search characters by both name and tag text, with tags persisted through Character API saves.
 - Builder view-page ownership action: when a logged-in user is viewing their own character at `/character/:id`, the header action now reads `Edit` and loads that character directly into builder edit mode (instead of generic `Continue Building`).
 - Character API ownership hardening: `GET /character-api/characters` is now authenticated and owner-scoped (admins excepted), preventing cross-account leaks even when records are public; added integration regression script `scripts/test-character-ownership.sh` (`npm run test:character-auth`).
 - Character API list endpoint now includes a second defense-in-depth owner check during response assembly, so non-owner rows are dropped even if upstream query behavior is changed/misconfigured.
@@ -445,9 +447,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - Next steps:
 
 ### whisperspace-sdk
-- Current status: Shared schema/types package is live and now includes first-class Nanomancy record support consumed by character-api validation.
+- Current status: Shared schema/types package is live and now includes first-class Nanomancy + character-organization tags support consumed by character-api validation.
 - Recent milestones:
 - Added `nanomancy` object contract to `CharacterRecordV1` (`primaryField`, `knownEffects`, `preferredND`) in both TS schema source and published JSON schema.
+- Added optional `tags: string[]` contract to `CharacterRecordV1` in TS types, validator, and published JSON schema for cross-device builder organization lists.
 - Next steps:
 - Bump/publish SDK package version so downstream apps can consume updated types via dependency update instead of local path coupling.
 

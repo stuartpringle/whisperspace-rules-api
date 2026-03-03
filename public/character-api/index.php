@@ -499,7 +499,24 @@ function normalize_record(array $record): array {
   if (array_key_exists("skills", $record) && is_array($record["skills"]) && array_is_list($record["skills"]) && $record["skills"] === []) {
     $record["skills"] = (object)[];
   }
+  if (array_key_exists("tags", $record)) {
+    $record["tags"] = normalize_tags($record["tags"]);
+  }
   return $record;
+}
+
+function normalize_tags($value): array {
+  if (!is_array($value) || !array_is_list($value)) {
+    return [];
+  }
+  $tags = [];
+  foreach ($value as $tag) {
+    if (!is_string($tag)) continue;
+    $normalized = trim($tag);
+    if ($normalized === "") continue;
+    $tags[$normalized] = true;
+  }
+  return array_keys($tags);
 }
 
 const SESSION_COOKIE = "ws_session";
@@ -1131,11 +1148,14 @@ function handle_characters(PDO $pdo, array $tail): void {
         if (!$user["is_admin"] && ($row["owner_user_id"] ?? null) !== $user["id"]) {
           continue;
         }
+        $decoded = json_decode($row["data"] ?? "", true);
+        $record = is_array($decoded) ? normalize_record($decoded) : [];
         $list[] = [
           "id" => $row["id"],
           "name" => $row["name"],
           "updatedAt" => $row["updated_at"],
           "visibility" => $row["visibility"],
+          "tags" => normalize_tags($record["tags"] ?? []),
         ];
       }
       respond(200, $list);
