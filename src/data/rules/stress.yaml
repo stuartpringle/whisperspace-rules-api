@@ -20,7 +20,7 @@ sections:
   - type: paragraph
     text: 'Each time you take damage, you gain stress based on the highest severity
       of wound that the incoming damage creates. You do not add multiple severities
-      together (light + moderate, for example). Only the highest severity is applied.
+      together (moderate + heavy, for example). Only the highest severity is applied.
       For example:'
     spans: []
   - type: list

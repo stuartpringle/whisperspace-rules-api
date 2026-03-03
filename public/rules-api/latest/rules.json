@@ -9369,7 +9369,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Point Blank, Shredding 1",
+                  "text": "Two-Handed, Point Blank, Shredding 1",
                   "spans": []
                 },
                 {
@@ -9411,7 +9411,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Bullet Spray",
+                  "text": "Two-Handed, Bullet Spray",
                   "spans": []
                 },
                 {
@@ -9495,7 +9495,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Area (melee), Slow Load, Shredding 3",
+                  "text": "Area (melee), Two-Handed, Slow Load, Shredding 3",
                   "spans": []
                 },
                 {
@@ -13969,6 +13969,32 @@
                         }
                       ]
                     }
+                  ],
+                  [
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    }
                   ]
                 ]
               },
@@ -14159,11 +14185,11 @@
                       "spans": []
                     },
                     {
-                      "text": "Give target Bleeding (0 + ND).",
+                      "text": "Give target Bleeding (1 + ND).",
                       "spans": [
                         {
                           "style": "link_underline",
-                          "text": "Bleeding (0 + ND)",
+                          "text": "Bleeding (1 + ND)",
                           "href": "#h.bxuyd85drjou"
                         }
                       ]
@@ -14191,7 +14217,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Impose Blinded on target creature for rounds equal to ND. While affected, target gains +1 stress at the end of each of their turns.Target may attempt a Willpower or Composure (DC 6 + ND) check at the end of each of their turns to end the effect early.",
+                      "text": "Impose Blinded on target creature for rounds equal to ND. While affected, target gains +1 stress at the end of each of their turns.Target may attempt a Willpower or Composure (DC6 + ND) check at the end of each of their turns to end the effect early.",
                       "spans": [
                         {
                           "style": "link_underline",
@@ -14211,6 +14237,32 @@
                           ]
                         }
                       ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Macabre Puppeteering",
+                      "spans": []
+                    },
+                    {
+                      "text": "12",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Take control of target creature’s motor functions for 1 + half ND rounds. On each of that creature’s turns, you may use 1 reaction to dictate their actions. Target may attempt a Willpower (DC4 + ND) check at the end of each of their turns to end the effect early.",
+                      "spans": []
                     }
                   ]
                 ]
@@ -14435,6 +14487,32 @@
                       "text": "Deal 1 + ND damage to anything within melee range of target. Increase the range of this effect by 1 range band for each action used beyond 1.",
                       "spans": []
                     }
+                  ],
+                  [
+                    {
+                      "text": "Scrap Shield",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    }
                   ]
                 ]
               }
@@ -14547,6 +14625,33 @@
     "level": 1,
     "content": [],
     "sections": []
+  },
+  {
+    "file": "running-the-game.yaml",
+    "title": "Running the Game",
+    "slug": "running-the-game",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "What does a game of Whisperspace look like? How can you plan a long-form campaign in this setting? A one-shot? Here you will find recommendations and tools for Game Masters looking to run Whisperspace games. Nothing here is set in stone; everything here is meant as advice or to be helpful. If you think the game runs better for your table when you alter these ideas or ignore them entirely, please do that.",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "As the Game Master, it is your responsibility to tailor the world of Whisperspace as well as the rules themselves to create as entertaining an experience for your players as you can. To that end, this section contains tables to generate random encounters, stat blocks for various NPCs, villains, and monsters for you to challenge your players with, and an introductory adventure you can open up and run as-is or modified however you wish. Ready? Good. Let’s dive in.",
+        "spans": []
+      }
+    ],
+    "sections": [
+      {
+        "title": "Enemy NPCs, Villains, and Monsters",
+        "slug": "enemy-npcs-villains-and-monsters",
+        "level": 2,
+        "content": [],
+        "sections": []
+      }
+    ]
   },
   {
     "file": "starships.yaml",
@@ -14890,7 +14995,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1770965571250273&usg=AOvVaw1v4HGa-oUrPI5qF3F8BO-F"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1772486111303910&usg=AOvVaw1tWYHl_HDLRoe3r3GRLN-q"
               }
             ]
           }
@@ -16981,6 +17086,977 @@
     "sections": []
   },
   {
+    "file": "step-2-choose-role.yaml",
+    "title": "STEP 2 — Choose Role",
+    "slug": "step-2-choose-role",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Pick one. This sets attribute priority and behavior.",
+        "spans": []
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            {
+              "text": "Role",
+              "spans": []
+            },
+            {
+              "text": "Primary Attribute",
+              "spans": []
+            },
+            {
+              "text": "Typical Skills",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Brute",
+              "spans": []
+            },
+            {
+              "text": "PHYS",
+              "spans": []
+            },
+            {
+              "text": "Melee, Toughness",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Skirmisher",
+              "spans": []
+            },
+            {
+              "text": "REF",
+              "spans": []
+            },
+            {
+              "text": "Light Weapons, Evade",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Sniper",
+              "spans": []
+            },
+            {
+              "text": "REF",
+              "spans": []
+            },
+            {
+              "text": "Medium Weapons, Observe",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Controller",
+              "spans": []
+            },
+            {
+              "text": "MENT",
+              "spans": []
+            },
+            {
+              "text": "Electronics, Tactics",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Leader",
+              "spans": []
+            },
+            {
+              "text": "SOC",
+              "spans": []
+            },
+            {
+              "text": "Persuade, Tactics",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Swarm",
+              "spans": []
+            },
+            {
+              "text": "PHYS",
+              "spans": []
+            },
+            {
+              "text": "Melee only",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "Hunter Beast",
+              "spans": []
+            },
+            {
+              "text": "REF",
+              "spans": []
+            },
+            {
+              "text": "Melee, Stealth",
+              "spans": []
+            }
+          ]
+        ]
+      }
+    ],
+    "sections": []
+  },
+  {
+    "file": "step-3-assign-attributes.yaml",
+    "title": "STEP 3 — Assign Attributes",
+    "slug": "step-3-assign-attributes",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Use this template:",
+        "spans": []
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            {
+              "text": "Tier",
+              "spans": []
+            },
+            {
+              "text": "Primary",
+              "spans": []
+            },
+            {
+              "text": "Secondary",
+              "spans": []
+            },
+            {
+              "text": "Others",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "0",
+              "spans": []
+            },
+            {
+              "text": "1",
+              "spans": []
+            },
+            {
+              "text": "1",
+              "spans": []
+            },
+            {
+              "text": "0",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "1",
+              "spans": []
+            },
+            {
+              "text": "2",
+              "spans": []
+            },
+            {
+              "text": "1",
+              "spans": []
+            },
+            {
+              "text": "1",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "2",
+              "spans": []
+            },
+            {
+              "text": "3",
+              "spans": []
+            },
+            {
+              "text": "2",
+              "spans": []
+            },
+            {
+              "text": "1",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "3",
+              "spans": []
+            },
+            {
+              "text": "4",
+              "spans": []
+            },
+            {
+              "text": "3",
+              "spans": []
+            },
+            {
+              "text": "2",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "4",
+              "spans": []
+            },
+            {
+              "text": "5",
+              "spans": []
+            },
+            {
+              "text": "4",
+              "spans": []
+            },
+            {
+              "text": "3",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "5",
+              "spans": []
+            },
+            {
+              "text": "6",
+              "spans": []
+            },
+            {
+              "text": "5",
+              "spans": []
+            },
+            {
+              "text": "4",
+              "spans": []
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Assign:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Primary = Role attribute",
+            "spans": []
+          },
+          {
+            "text": "Secondary = What supports the role",
+            "spans": []
+          },
+          {
+            "text": "Others = Remaining stats",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Done. No math.",
+        "spans": []
+      }
+    ],
+    "sections": []
+  },
+  {
+    "file": "step-4-assign-skills.yaml",
+    "title": "STEP 4 — Assign Skills",
+    "slug": "step-4-assign-skills",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Use this distribution:",
+        "spans": []
+      }
+    ],
+    "sections": [
+      {
+        "title": "Tier 0",
+        "slug": "tier-0",
+        "level": 3,
+        "content": [
+          {
+            "type": "list",
+            "ordered": false,
+            "items": [
+              {
+                "text": "1 skill at +1",
+                "spans": []
+              }
+            ]
+          }
+        ],
+        "sections": [
+          {
+            "title": "Tier 1",
+            "slug": "tier-1",
+            "level": 3,
+            "content": [
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "1 skill at +2",
+                    "spans": []
+                  },
+                  {
+                    "text": "2 skills at +1",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Tier 2",
+            "slug": "tier-2",
+            "level": 3,
+            "content": [
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "1 skill at +3",
+                    "spans": []
+                  },
+                  {
+                    "text": "3 skills at +2",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Tier 3",
+            "slug": "tier-3",
+            "level": 3,
+            "content": [
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "2 skills at +3",
+                    "spans": []
+                  },
+                  {
+                    "text": "3 skills at +2",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Tier 4",
+            "slug": "tier-4",
+            "level": 3,
+            "content": [
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "2 skills at +4",
+                    "spans": []
+                  },
+                  {
+                    "text": "4 skills at +3",
+                    "spans": []
+                  }
+                ]
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Tier 5",
+            "slug": "tier-5",
+            "level": 3,
+            "content": [
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "2 skills at +5",
+                    "spans": []
+                  },
+                  {
+                    "text": "4 skills at +4",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Only choose skills relevant to the encounter.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "Unlisted skills default to +0.",
+                "spans": []
+              }
+            ],
+            "sections": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "step-5-add-combat-profile.yaml",
+    "title": "STEP 5 — Add Combat Profile",
+    "slug": "step-5-add-combat-profile",
+    "level": 1,
+    "content": [],
+    "sections": [
+      {
+        "title": "Weapon Damage Guidelines",
+        "slug": "weapon-damage-guidelines",
+        "level": 3,
+        "content": [
+          {
+            "type": "table",
+            "rows": [
+              [
+                {
+                  "text": "Tier",
+                  "spans": []
+                },
+                {
+                  "text": "Typical Damage",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "0",
+                  "spans": []
+                },
+                {
+                  "text": "1",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "1",
+                  "spans": []
+                },
+                {
+                  "text": "2",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "2",
+                  "spans": []
+                },
+                {
+                  "text": "2–3",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "3",
+                  "spans": []
+                },
+                {
+                  "text": "3",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "4",
+                  "spans": []
+                },
+                {
+                  "text": "3–4",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "5",
+                  "spans": []
+                },
+                {
+                  "text": "4+",
+                  "spans": []
+                }
+              ]
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Use standard weapon structure",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": "TTRPG_System_Core_v0_01",
+            "spans": []
+          },
+          {
+            "type": "paragraph",
+            "text": ".",
+            "spans": []
+          }
+        ],
+        "sections": [
+          {
+            "title": "Armor Guidelines",
+            "slug": "armor-guidelines",
+            "level": 3,
+            "content": [
+              {
+                "type": "table",
+                "rows": [
+                  [
+                    {
+                      "text": "Tier",
+                      "spans": []
+                    },
+                    {
+                      "text": "Protection",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "0",
+                      "spans": []
+                    },
+                    {
+                      "text": "0",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "1–2",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "2–3",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    }
+                  ]
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Natural armor works the same way as worn armor",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "TTRPG_System_Core_v0_01",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": ".",
+                "spans": []
+              }
+            ],
+            "sections": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "file": "step-6-add-1-3-specials.yaml",
+    "title": "STEP 6 — Add 1–3 Specials",
+    "slug": "step-6-add-1-3-specials",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Quick Special Generator:",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Roll 1d6 or pick:",
+        "spans": []
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            {
+              "text": "d6",
+              "spans": []
+            },
+            {
+              "text": "Special",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "1",
+              "spans": []
+            },
+            {
+              "text": "Gains 1 Bonus Die when outnumbering",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "2",
+              "spans": []
+            },
+            {
+              "text": "On Extreme Success: +1 Morale damage",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "3",
+              "spans": []
+            },
+            {
+              "text": "Immune to Morale loss",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "4",
+              "spans": []
+            },
+            {
+              "text": "First attack each combat gains 1 Bonus Die",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "5",
+              "spans": []
+            },
+            {
+              "text": "Rear attacks ignore 1 Protection",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "6",
+              "spans": []
+            },
+            {
+              "text": "At Morale 2 or lower: gains 1 Bonus Die",
+              "spans": []
+            }
+          ]
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Tier 4–5 may take two.",
+        "spans": []
+      }
+    ],
+    "sections": []
+  },
+  {
+    "file": "step-7-write-tactics-mandatory.yaml",
+    "title": "STEP 7 — Write Tactics (Mandatory)",
+    "slug": "step-7-write-tactics-mandatory",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "One sentence:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Rush nearest wounded target.",
+            "spans": []
+          },
+          {
+            "text": "Holds position and suppresses.",
+            "spans": []
+          },
+          {
+            "text": "Retreats at Morale 1.",
+            "spans": []
+          },
+          {
+            "text": "Focuses fire on leader.",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "This is more important than half the stat block.",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Name\n Tier X | Role | Faction",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Wounds: X Light, Y Moderate, Z Heavy\n Morale: X",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Attributes:\n PHYS X | REF X | MENT X | SOC X",
+        "spans": []
+      },
+      {
+        "type": "paragraph",
+        "text": "Skills:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Elite: Skill +X",
+            "spans": []
+          },
+          {
+            "text": "Trained: Skill +X",
+            "spans": []
+          },
+          {
+            "text": "Others: +0",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Weapons:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Weapon – Damage X, Range, Keywords",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Armor:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Name (Protection X, Keywords)",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Special:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Bullet",
+            "spans": []
+          },
+          {
+            "text": "Bullet",
+            "spans": []
+          }
+        ]
+      },
+      {
+        "type": "paragraph",
+        "text": "Tactics:",
+        "spans": []
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "items": [
+          {
+            "text": "Behavior summary",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "sections": [
+      {
+        "title": "Robots",
+        "slug": "robots",
+        "level": 3,
+        "content": [],
+        "sections": [
+          {
+            "title": "Fauna",
+            "slug": "fauna",
+            "level": 3,
+            "content": [],
+            "sections": []
+          },
+          {
+            "title": "Flora",
+            "slug": "flora",
+            "level": 3,
+            "content": [],
+            "sections": []
+          },
+          {
+            "title": "Humans",
+            "slug": "humans",
+            "level": 3,
+            "content": [],
+            "sections": []
+          },
+          {
+            "title": "Whisper-Influenced",
+            "slug": "whisper-influenced",
+            "level": 3,
+            "content": [],
+            "sections": []
+          },
+          {
+            "title": "Nanite Entities",
+            "slug": "nanite-entities",
+            "level": 3,
+            "content": [],
+            "sections": [
+              {
+                "title": "Nanite Swarm",
+                "slug": "nanite-swarm",
+                "level": 4,
+                "content": [],
+                "sections": []
+              },
+              {
+                "title": "Possessed",
+                "slug": "possessed",
+                "level": 4,
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "text": "Tier 1",
+                    "spans": []
+                  }
+                ],
+                "sections": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "file": "stress.yaml",
     "title": "Stress",
     "slug": "stress",
@@ -17005,7 +18081,7 @@
         "content": [
           {
             "type": "paragraph",
-            "text": "Each time you take damage, you gain stress based on the highest severity of wound that the incoming damage creates. You do not add multiple severities together (light + moderate, for example). Only the highest severity is applied. For example:",
+            "text": "Each time you take damage, you gain stress based on the highest severity of wound that the incoming damage creates. You do not add multiple severities together (moderate + heavy, for example). Only the highest severity is applied. For example:",
             "spans": []
           },
           {
@@ -17501,6 +18577,179 @@
         ]
       }
     ]
+  },
+  {
+    "file": "tep-1-choose-tier.yaml",
+    "title": "TEP 1 — Choose Tier",
+    "slug": "tep-1-choose-tier",
+    "level": 1,
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "This sets durability, morale, and skill ceiling.",
+        "spans": []
+      },
+      {
+        "type": "table",
+        "rows": [
+          [
+            {
+              "text": "Tier",
+              "spans": []
+            },
+            {
+              "text": "Use For",
+              "spans": []
+            },
+            {
+              "text": "Elite Skill",
+              "spans": []
+            },
+            {
+              "text": "Wounds",
+              "spans": []
+            },
+            {
+              "text": "Morale",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "0",
+              "spans": []
+            },
+            {
+              "text": "Fodder / swarm",
+              "spans": []
+            },
+            {
+              "text": "—",
+              "spans": []
+            },
+            {
+              "text": "2L",
+              "spans": []
+            },
+            {
+              "text": "2",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "1",
+              "spans": []
+            },
+            {
+              "text": "Weak threats",
+              "spans": []
+            },
+            {
+              "text": "+2",
+              "spans": []
+            },
+            {
+              "text": "3L / 1M",
+              "spans": []
+            },
+            {
+              "text": "3",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "2",
+              "spans": []
+            },
+            {
+              "text": "Standard foes",
+              "spans": []
+            },
+            {
+              "text": "+3",
+              "spans": []
+            },
+            {
+              "text": "4L / 2M / 1H",
+              "spans": []
+            },
+            {
+              "text": "4",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "3",
+              "spans": []
+            },
+            {
+              "text": "Dangerous enemies",
+              "spans": []
+            },
+            {
+              "text": "+3 (x2)",
+              "spans": []
+            },
+            {
+              "text": "4L / 2M / 1H",
+              "spans": []
+            },
+            {
+              "text": "5",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "4",
+              "spans": []
+            },
+            {
+              "text": "Elite leaders",
+              "spans": []
+            },
+            {
+              "text": "+4 (x2)",
+              "spans": []
+            },
+            {
+              "text": "5L / 3M / 1H",
+              "spans": []
+            },
+            {
+              "text": "6",
+              "spans": []
+            }
+          ],
+          [
+            {
+              "text": "5",
+              "spans": []
+            },
+            {
+              "text": "Major villain",
+              "spans": []
+            },
+            {
+              "text": "+5 (x2)",
+              "spans": []
+            },
+            {
+              "text": "6L / 3M / 2H",
+              "spans": []
+            },
+            {
+              "text": "7",
+              "spans": []
+            }
+          ]
+        ]
+      }
+    ],
+    "sections": []
   },
   {
     "file": "the-world.yaml",

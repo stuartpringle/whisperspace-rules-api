@@ -1,14 +1,14 @@
 {
   "version": "0.1.0",
-  "generatedAt": "2026-02-14T07:30:56.116Z",
+  "generatedAt": "2026-03-03T00:36:27.415Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
       "bytes": 4702
     },
     "weapons.json": {
-      "sha256": "3f46daf2fccbad4c0d6bfd63fb6c7f6c7163c296934c23d991fcf98e0a833d74",
-      "bytes": 4301
+      "sha256": "f7af59e0ede1db55f3511aba9819acf5602a5e73adfa780cea33462797c1ef89",
+      "bytes": 4367
     },
     "armour.json": {
       "sha256": "d04527d6a086b75802c8f0202eeff6f720a6fda0fe28f99eec4d6bfb554535f9",
@@ -35,8 +35,8 @@
       "bytes": 1086
     },
     "rules.json": {
-      "sha256": "872f4d660c5684f42ed5f40d83d137686de5ff67a93fce9a1c4326b0dc61ff4d",
-      "bytes": 603601
+      "sha256": "7d655d000ab9d3707e68d34f378b6f45384f023ee4012f74b15f069282d5bb2b",
+      "bytes": 632880
     },
     "skill_tooltips.json": {
       "sha256": "b3258dc5703043e34d49fee51ada6302700c9aaa77b49c1484be65b54dc27014",

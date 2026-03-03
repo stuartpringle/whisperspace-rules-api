@@ -1,0 +1,81 @@
+title: STEP 3 — Assign Attributes
+slug: step-3-assign-attributes
+level: 1
+content:
+- type: paragraph
+  text: 'Use this template:'
+  spans: []
+- type: table
+  rows:
+  - - text: Tier
+      spans: []
+    - text: Primary
+      spans: []
+    - text: Secondary
+      spans: []
+    - text: Others
+      spans: []
+  - - text: '0'
+      spans: []
+    - text: '1'
+      spans: []
+    - text: '1'
+      spans: []
+    - text: '0'
+      spans: []
+  - - text: '1'
+      spans: []
+    - text: '2'
+      spans: []
+    - text: '1'
+      spans: []
+    - text: '1'
+      spans: []
+  - - text: '2'
+      spans: []
+    - text: '3'
+      spans: []
+    - text: '2'
+      spans: []
+    - text: '1'
+      spans: []
+  - - text: '3'
+      spans: []
+    - text: '4'
+      spans: []
+    - text: '3'
+      spans: []
+    - text: '2'
+      spans: []
+  - - text: '4'
+      spans: []
+    - text: '5'
+      spans: []
+    - text: '4'
+      spans: []
+    - text: '3'
+      spans: []
+  - - text: '5'
+      spans: []
+    - text: '6'
+      spans: []
+    - text: '5'
+      spans: []
+    - text: '4'
+      spans: []
+- type: paragraph
+  text: 'Assign:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: Primary = Role attribute
+    spans: []
+  - text: Secondary = What supports the role
+    spans: []
+  - text: Others = Remaining stats
+    spans: []
+- type: paragraph
+  text: Done. No math.
+  spans: []
+sections: []

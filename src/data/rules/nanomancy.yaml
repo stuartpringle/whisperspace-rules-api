@@ -314,6 +314,18 @@ sections:
               spans: []
             - text: 'Success: negate the effect.'
               spans: []
+      - - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
     - type: list
       ordered: false
       items:
@@ -406,10 +418,10 @@ sections:
           spans: []
         - text: '1'
           spans: []
-        - text: Give target Bleeding (0 + ND).
+        - text: Give target Bleeding (1 + ND).
           spans:
           - style: link_underline
-            text: Bleeding (0 + ND)
+            text: Bleeding (1 + ND)
             href: '#h.bxuyd85drjou'
       - - text: Horrifying Hallucinations
           spans: []
@@ -423,7 +435,7 @@ sections:
           spans: []
         - text: Impose Blinded on target creature for rounds equal to ND. While affected,
             target gains +1 stress at the end of each of their turns.Target may attempt
-            a Willpower or Composure (DC 6 + ND) check at the end of each of their
+            a Willpower or Composure (DC6 + ND) check at the end of each of their
             turns to end the effect early.
           spans:
           - style: link_underline
@@ -436,6 +448,21 @@ sections:
             - text: 'Extreme success: target gains +2 stress at the end of each of
                 their turns instead.'
               spans: []
+      - - text: Macabre Puppeteering
+          spans: []
+        - text: '12'
+          spans: []
+        - text: Melee
+          spans: []
+        - text: '3'
+          spans: []
+        - text: '3'
+          spans: []
+        - text: Take control of target creature’s motor functions for 1 + half ND
+            rounds. On each of that creature’s turns, you may use 1 reaction to dictate
+            their actions. Target may attempt a Willpower (DC4 + ND) check at the
+            end of each of their turns to end the effect early.
+          spans: []
     - type: list
       ordered: false
       items:
@@ -544,6 +571,18 @@ sections:
           spans: []
         - text: Deal 1 + ND damage to anything within melee range of target. Increase
             the range of this effect by 1 range band for each action used beyond 1.
+          spans: []
+      - - text: Scrap Shield
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
+          spans: []
+        - text: ''
           spans: []
     sections: []
 - title: Fine Control

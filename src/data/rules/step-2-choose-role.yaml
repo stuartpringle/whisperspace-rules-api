@@ -1,0 +1,58 @@
+title: STEP 2 — Choose Role
+slug: step-2-choose-role
+level: 1
+content:
+- type: paragraph
+  text: Pick one. This sets attribute priority and behavior.
+  spans: []
+- type: table
+  rows:
+  - - text: Role
+      spans: []
+    - text: Primary Attribute
+      spans: []
+    - text: Typical Skills
+      spans: []
+  - - text: Brute
+      spans: []
+    - text: PHYS
+      spans: []
+    - text: Melee, Toughness
+      spans: []
+  - - text: Skirmisher
+      spans: []
+    - text: REF
+      spans: []
+    - text: Light Weapons, Evade
+      spans: []
+  - - text: Sniper
+      spans: []
+    - text: REF
+      spans: []
+    - text: Medium Weapons, Observe
+      spans: []
+  - - text: Controller
+      spans: []
+    - text: MENT
+      spans: []
+    - text: Electronics, Tactics
+      spans: []
+  - - text: Leader
+      spans: []
+    - text: SOC
+      spans: []
+    - text: Persuade, Tactics
+      spans: []
+  - - text: Swarm
+      spans: []
+    - text: PHYS
+      spans: []
+    - text: Melee only
+      spans: []
+  - - text: Hunter Beast
+      spans: []
+    - text: REF
+      spans: []
+    - text: Melee, Stealth
+      spans: []
+sections: []

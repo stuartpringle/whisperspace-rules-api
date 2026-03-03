@@ -1,0 +1,80 @@
+title: TEP 1 — Choose Tier
+slug: tep-1-choose-tier
+level: 1
+content:
+- type: paragraph
+  text: This sets durability, morale, and skill ceiling.
+  spans: []
+- type: table
+  rows:
+  - - text: Tier
+      spans: []
+    - text: Use For
+      spans: []
+    - text: Elite Skill
+      spans: []
+    - text: Wounds
+      spans: []
+    - text: Morale
+      spans: []
+  - - text: '0'
+      spans: []
+    - text: Fodder / swarm
+      spans: []
+    - text: —
+      spans: []
+    - text: 2L
+      spans: []
+    - text: '2'
+      spans: []
+  - - text: '1'
+      spans: []
+    - text: Weak threats
+      spans: []
+    - text: '+2'
+      spans: []
+    - text: 3L / 1M
+      spans: []
+    - text: '3'
+      spans: []
+  - - text: '2'
+      spans: []
+    - text: Standard foes
+      spans: []
+    - text: '+3'
+      spans: []
+    - text: 4L / 2M / 1H
+      spans: []
+    - text: '4'
+      spans: []
+  - - text: '3'
+      spans: []
+    - text: Dangerous enemies
+      spans: []
+    - text: +3 (x2)
+      spans: []
+    - text: 4L / 2M / 1H
+      spans: []
+    - text: '5'
+      spans: []
+  - - text: '4'
+      spans: []
+    - text: Elite leaders
+      spans: []
+    - text: +4 (x2)
+      spans: []
+    - text: 5L / 3M / 1H
+      spans: []
+    - text: '6'
+      spans: []
+  - - text: '5'
+      spans: []
+    - text: Major villain
+      spans: []
+    - text: +5 (x2)
+      spans: []
+    - text: 6L / 3M / 2H
+      spans: []
+    - text: '7'
+      spans: []
+sections: []

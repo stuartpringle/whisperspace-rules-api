@@ -305,7 +305,7 @@ sections:
         spans: []
       - text: PHYS 1
         spans: []
-      - text: Point Blank, Shredding 1
+      - text: Two-Handed, Point Blank, Shredding 1
         spans: []
       - text: '800'
         spans: []
@@ -325,7 +325,7 @@ sections:
         spans: []
       - text: PHYS 3
         spans: []
-      - text: Bullet Spray
+      - text: Two-Handed, Bullet Spray
         spans: []
       - text: '900'
         spans: []
@@ -365,7 +365,7 @@ sections:
         spans: []
       - text: PHYS 1
         spans: []
-      - text: Area (melee), Slow Load, Shredding 3
+      - text: Area (melee), Two-Handed, Slow Load, Shredding 3
         spans: []
       - text: '8000'
         spans: []

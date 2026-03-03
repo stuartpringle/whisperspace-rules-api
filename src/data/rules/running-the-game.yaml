@@ -1,0 +1,26 @@
+title: Running the Game
+slug: running-the-game
+level: 1
+content:
+- type: paragraph
+  text: What does a game of Whisperspace look like? How can you plan a long-form campaign
+    in this setting? A one-shot? Here you will find recommendations and tools for
+    Game Masters looking to run Whisperspace games. Nothing here is set in stone;
+    everything here is meant as advice or to be helpful. If you think the game runs
+    better for your table when you alter these ideas or ignore them entirely, please
+    do that.
+  spans: []
+- type: paragraph
+  text: As the Game Master, it is your responsibility to tailor the world of Whisperspace
+    as well as the rules themselves to create as entertaining an experience for your
+    players as you can. To that end, this section contains tables to generate random
+    encounters, stat blocks for various NPCs, villains, and monsters for you to challenge
+    your players with, and an introductory adventure you can open up and run as-is
+    or modified however you wish. Ready? Good. Let’s dive in.
+  spans: []
+sections:
+- title: Enemy NPCs, Villains, and Monsters
+  slug: enemy-npcs-villains-and-monsters
+  level: 2
+  content: []
+  sections: []

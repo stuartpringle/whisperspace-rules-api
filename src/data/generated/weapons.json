@@ -95,6 +95,7 @@
       "cost": 800,
       "req": "PHYS 1",
       "keywords": [
+        "Two-Handed",
         "Point Blank",
         "Shredding 1"
       ]
@@ -111,6 +112,7 @@
       "cost": 900,
       "req": "PHYS 3",
       "keywords": [
+        "Two-Handed",
         "Bullet Spray"
       ]
     },
@@ -145,6 +147,7 @@
       "req": "PHYS 1",
       "keywords": [
         "Area (melee)",
+        "Two-Handed",
         "Slow Load",
         "Shredding 3"
       ]

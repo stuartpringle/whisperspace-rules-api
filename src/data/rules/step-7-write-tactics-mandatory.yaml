@@ -1,0 +1,120 @@
+title: STEP 7 — Write Tactics (Mandatory)
+slug: step-7-write-tactics-mandatory
+level: 1
+content:
+- type: paragraph
+  text: 'One sentence:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: Rush nearest wounded target.
+    spans: []
+  - text: Holds position and suppresses.
+    spans: []
+  - text: Retreats at Morale 1.
+    spans: []
+  - text: Focuses fire on leader.
+    spans: []
+- type: paragraph
+  text: This is more important than half the stat block.
+  spans: []
+- type: paragraph
+  text: "Name\n Tier X | Role | Faction"
+  spans: []
+- type: paragraph
+  text: "Wounds: X Light, Y Moderate, Z Heavy\n Morale: X"
+  spans: []
+- type: paragraph
+  text: "Attributes:\n PHYS X | REF X | MENT X | SOC X"
+  spans: []
+- type: paragraph
+  text: 'Skills:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: 'Elite: Skill +X'
+    spans: []
+  - text: 'Trained: Skill +X'
+    spans: []
+  - text: 'Others: +0'
+    spans: []
+- type: paragraph
+  text: 'Weapons:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: Weapon – Damage X, Range, Keywords
+    spans: []
+- type: paragraph
+  text: 'Armor:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: Name (Protection X, Keywords)
+    spans: []
+- type: paragraph
+  text: 'Special:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: Bullet
+    spans: []
+  - text: Bullet
+    spans: []
+- type: paragraph
+  text: 'Tactics:'
+  spans: []
+- type: list
+  ordered: false
+  items:
+  - text: Behavior summary
+    spans: []
+sections:
+- title: Robots
+  slug: robots
+  level: 3
+  content: []
+  sections:
+  - title: Fauna
+    slug: fauna
+    level: 3
+    content: []
+    sections: []
+  - title: Flora
+    slug: flora
+    level: 3
+    content: []
+    sections: []
+  - title: Humans
+    slug: humans
+    level: 3
+    content: []
+    sections: []
+  - title: Whisper-Influenced
+    slug: whisper-influenced
+    level: 3
+    content: []
+    sections: []
+  - title: Nanite Entities
+    slug: nanite-entities
+    level: 3
+    content: []
+    sections:
+    - title: Nanite Swarm
+      slug: nanite-swarm
+      level: 4
+      content: []
+      sections: []
+    - title: Possessed
+      slug: possessed
+      level: 4
+      content:
+      - type: paragraph
+        text: Tier 1
+        spans: []
+      sections: []
