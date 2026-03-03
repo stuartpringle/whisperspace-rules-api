@@ -281,6 +281,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - Crucible checks now run from modal flow when stress crosses above `5` (`DC = 8 + incoming stress`, CUF check without bonus/penalty dice),
   - failed Crucible supports permanent CUF spend (`cufLoss +1`) to pass,
   - PTSD reaction modal now supports rolling the `1d4` PTSD table and applies table effects (including `Fleeing (1)`).
+- OBR nanomancy follow-up landed:
+  - Nanomancy panel heading now reads `Nanomancy` (was `Nanomancy Controls`).
+  - Regenerative Cloud turn logic now heals on affected token turn-start (initiative advance), with round-duration decrement retained on wrap.
+  - AoE placement activation for nanomancy now validates tool activation and clears pending cast on failure instead of silently closing.
 - Next steps:
 - Continue iterating directly in `whisperspace-obr-extension` as the primary/most up-to-date OBR sheet implementation.
 - Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
