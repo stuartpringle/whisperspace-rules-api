@@ -176,6 +176,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR navigation/tooling polish landed: removed `Test` tab, hid dedicated grenade-placement tool from standard OBR tool menus while keeping click-to-place flow active, and added status-strip visual meters for Bulk capacity and Stress with CUF threshold marker.
 - OBR Nanomancy tab gating tightened: tab visibility now depends on Nanomancy feat unlocks for all users (including GM view).
 - OBR stress meter follow-up landed: removed CUF text label, added explicit PTSD threshold marker (stress `6`, per stress rules `PTSD Range (6-8)`), and color zoning for below-CUF / CUF-to-PTSD / PTSD+ ranges.
+- OBR nanomancy AoE placement stabilization follow-up landed (2026-03-03):
+  - placement activation requests now use local-only broadcast scope,
+  - background activation handler now no-ops when placement mode is already active,
+  - background startup is singleton-guarded to avoid duplicate activation listeners and mode churn.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
 - OBR inventory/equipment card follow-up landed: status warnings now sit directly under Stress/Bulk meters; Weapons and Armour now support drag-and-drop ordering like Gear; and all three card types now keep visible collapsed-card borders with reduced duplicate top-row control content in expanded views.
 - OBR typing-stability fix landed: feat rows now use stable keys (preventing `Feat Name` input remount/focus loss) and `Core > Name` now commits on blur so per-keystroke token sync does not interrupt text entry.
