@@ -205,6 +205,9 @@ Use this section to keep a single-source, cross-repo status summary.
   - Added optional character-instance lock flag; locked instances prevent non-GM claim/fork/owner reassignment operations.
 - OBR initiative context-menu parity landed (2026-03-03):
   - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
+- OBR initiative UX follow-up landed (2026-03-03):
+  - Added right-click `Remove From Initiative` shortcut for tokens in initiative tracker, backed by token metadata tracking flags.
+  - Initiative roll-config modal now persists per-player defaults (net dice and situational modifier) and reuses them across rolls.
 - OBR debug cleanup landed (2026-03-03):
   - temporary placement/nanomancy debug logging was removed from runtime extension code after AoE placement stabilization.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
