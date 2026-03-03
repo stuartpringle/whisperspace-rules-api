@@ -194,6 +194,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - follow-up: scene-ready change listener now triggers immediate re-resolution on scene switch (`OBR.scene.onReadyChange`), so continuity works without full browser refresh.
 - OBR global character continuity landed (2026-03-03):
   - canonical character sheet state is now stored at room scope keyed by `characterInstanceId`; token sheet data is treated as local cache, and load/save now resolve via canonical-first behavior so edits propagate across scene copies of the same character instance.
+- OBR ownership/identity management follow-up landed (2026-03-03):
+  - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings now exposes `Fork Character Instance` plus GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
 - OBR inventory/equipment card follow-up landed: status warnings now sit directly under Stress/Bulk meters; Weapons and Armour now support drag-and-drop ordering like Gear; and all three card types now keep visible collapsed-card borders with reduced duplicate top-row control content in expanded views.
 - OBR typing-stability fix landed: feat rows now use stable keys (preventing `Feat Name` input remount/focus loss) and `Core > Name` now commits on blur so per-keystroke token sync does not interrupt text entry.
