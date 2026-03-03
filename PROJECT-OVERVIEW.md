@@ -203,6 +203,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - Added GM `Prepare Transfer` helper to normalize selected tokens before cross-scene copy/paste (ensure instance IDs + canonical owner sync).
   - Added duplicate-instance warnings when same-name tokens in scene map to different character instances (owner-compatible scope), highlighting potential accidental fork drift.
   - Added optional character-instance lock flag; locked instances prevent non-GM claim/fork/owner reassignment operations.
+- OBR stress modal refinement landed (2026-03-03):
+  - Crucible/PTSD modals now include explicit rule snippets for trigger/roll/outcomes.
+  - Stress-trigger and resolution events now publish into combat history/effect log stream.
+  - Added GM override actions for pending Crucible/PTSD states for table adjudication.
 - OBR initiative context-menu parity landed (2026-03-03):
   - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
 - OBR initiative UX follow-up landed (2026-03-03):
