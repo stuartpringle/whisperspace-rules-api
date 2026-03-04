@@ -237,6 +237,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Nanomancy outcome visibility follow-up (2026-03-04): casts now emit explicit outcome-clause notes (`Success`/`Failure`/`Extreme ...`) into combat/effect log stream for clearer table adjudication.
   - Static Burst targeting workflow follow-up (2026-03-04): cast modal now enforces selecting exactly `actions used` targets with Very-Near chain validation (each additional target connected to any prior selected target), and runtime resolves ordered chain damage (`ND` first, `half ND up` additional).
   - Regenerative Cloud observability follow-up (2026-03-04): per-turn zone application now writes combat-log effect entries per affected token (healed amount or no-eligible-wounds), exposing lingering-effect ticks in shared log history.
+  - Combat-log UX follow-up (2026-03-04): effect entries now render their explicit text content in the sheet Combat Log, and global broadcast toasts now ignore `kind: "effect"` messages to avoid lingering-effect notification spam.
 - OBR initiative context-menu parity landed (2026-03-03):
   - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
 - OBR initiative UX follow-up landed (2026-03-03):
