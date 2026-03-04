@@ -239,6 +239,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Regenerative Cloud observability follow-up (2026-03-04): per-turn zone application now writes combat-log effect entries per affected token (healed amount or no-eligible-wounds), exposing lingering-effect ticks in shared log history.
   - Combat-log UX follow-up (2026-03-04): effect entries now render their explicit text content in the sheet Combat Log, and global broadcast toasts now ignore `kind: "effect"` messages to avoid lingering-effect notification spam.
   - Regenerative Cloud clarity follow-up (2026-03-04): cast flow now logs an immediate effect-summary line covering heal-per-turn amount, duration, and extreme-success moderate-wound capability for clearer player expectations.
+  - Regenerative Cloud timing follow-up (2026-03-04): initiative-driven zone ticking now decrements duration on caster turn-start cadence (after start-of-turn healing), replacing prior round-wrap decrement behavior.
 - OBR initiative context-menu parity landed (2026-03-03):
   - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
 - OBR initiative UX follow-up landed (2026-03-03):
