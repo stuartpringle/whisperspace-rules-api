@@ -204,6 +204,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Continuity durability follow-up (2026-03-04): OBR extension now queues failed canonical instance writes locally and replays them automatically on later access after auth/network recovery, reducing risk of stale cross-scene state after long gaps.
   - API hygiene follow-up (2026-03-04): character-api now performs opportunistic cleanup of expired/revoked auth rows (`obr_guest_sessions`, `user_sessions`, `password_resets`) and normalizes/echoes requested CORS preflight headers for better cross-origin consistency.
   - Observability follow-up (2026-03-04): character-api now tracks lightweight counters + sampled logs for OBR guest issuance and OBR instance write/delete outcomes; OBR extension adds throttled canonical sync summary logs and a manual `Force Sync Now` replay action.
+  - Continuity UX follow-up (2026-03-04): manual `Prepare Transfer` UI flow was removed; scene-ready auto-normalization now repairs token instance/sheet/owner continuity automatically for relevant tokens.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
