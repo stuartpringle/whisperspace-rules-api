@@ -240,6 +240,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Combat-log UX follow-up (2026-03-04): effect entries now render their explicit text content in the sheet Combat Log, and global broadcast toasts now ignore `kind: "effect"` messages to avoid lingering-effect notification spam.
   - Regenerative Cloud clarity follow-up (2026-03-04): cast flow now logs an immediate effect-summary line covering heal-per-turn amount, duration, and extreme-success moderate-wound capability for clearer player expectations.
   - Regenerative Cloud timing follow-up (2026-03-04): initiative-driven zone ticking now decrements duration on caster turn-start cadence (after start-of-turn healing), replacing prior round-wrap decrement behavior.
+  - Canonical write-rate follow-up (2026-03-04): OBR extension now applies per-instance write cooldown after `429` responses (using `Retry-After` when available), queues pending writes locally during cooldown, and suppresses repeated endpoint hammering/noise.
 - OBR initiative context-menu parity landed (2026-03-03):
   - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
 - OBR initiative UX follow-up landed (2026-03-03):
