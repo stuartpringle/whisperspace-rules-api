@@ -207,6 +207,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - Crucible/PTSD modals now include explicit rule snippets for trigger/roll/outcomes.
   - Stress-trigger and resolution events now publish into combat history/effect log stream.
   - Added GM override actions for pending Crucible/PTSD states for table adjudication.
+- OBR nanomancy follow-up landed (2026-03-03):
+  - Added manual nanomancy zone lifecycle controls (`Apply To Selected`, `Advance Round`, `Dismiss`) in Nanomancy tab, with active-zone listing and remaining-round visibility.
+  - Regenerative Cloud templates now show remaining-round labels and update across round advances.
+  - Nanomancy condition auto-application now resolves from summary-text outcome clauses (success/failure/extreme variants) in addition to base condition-bearing effect text.
 - OBR initiative context-menu parity landed (2026-03-03):
   - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
 - OBR initiative UX follow-up landed (2026-03-03):
