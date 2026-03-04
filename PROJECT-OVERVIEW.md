@@ -211,6 +211,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Ownership binding parity follow-up (2026-03-04): persisted `my character` owner-validation now applies for all roles (including GM), so unassign/reassign-away clears stale self-binding immediately instead of reopening as `unowned`.
   - Ownership race follow-up (2026-03-04): explicit self-unassign/reassign-away now clears open-token override and skips immediate post-owner-update reload to prevent brief rebind to the just-released token.
   - Ownership consistency follow-up (2026-03-04): all GM owner-mutation actions now share one post-change binding enforcement routine, so `Release`, `Assign -> Unowned`, `Assign -> Other`, and per-instance assignment apply the same immediate unbind/rebind semantics.
+  - Ownership UX follow-up (2026-03-04): ownership-driven unbind now shows a persistent in-panel `Select token` reason banner (not just transient notifications), improving player clarity after GM ownership changes.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
@@ -240,6 +241,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Combat-log UX follow-up (2026-03-04): effect entries now render their explicit text content in the sheet Combat Log, and global broadcast toasts now ignore `kind: "effect"` messages to avoid lingering-effect notification spam.
   - Regenerative Cloud clarity follow-up (2026-03-04): cast flow now logs an immediate effect-summary line covering heal-per-turn amount, duration, and extreme-success moderate-wound capability for clearer player expectations.
   - Regenerative Cloud timing follow-up (2026-03-04): initiative-driven zone ticking now decrements duration on caster turn-start cadence (after start-of-turn healing), replacing prior round-wrap decrement behavior.
+  - Nullify branch visibility follow-up (2026-03-04): failed/extreme-failed Nullify outcomes now log explicit guidance that the triggering nanomantic effect resolves normally.
   - Canonical write-rate follow-up (2026-03-04): OBR extension now applies per-instance write cooldown after `429` responses (using `Retry-After` when available), queues pending writes locally during cooldown, and suppresses repeated endpoint hammering/noise.
   - Pending-flush cooldown follow-up (2026-03-04): pending canonical write replay paths now skip instances currently in write cooldown (including force-flush), reducing repetitive `429`/flush-failed telemetry during cooldown windows.
 - OBR initiative context-menu parity landed (2026-03-03):
