@@ -200,6 +200,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Owner modal now supports player search/filtering and adds bulk actions for selected tokens (`Claim Selected`, `Release Selected`, `Assign Selected`).
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
   - Ownership Audit rows now include per-instance owner reassignment controls (owner selector + apply) to update canonical owner mappings directly.
+  - Added a GM token context-menu action (`Manage Owner`) that opens sheet Settings and launches the Owner modal for the selected token.
 - OBR continuity hardening follow-up landed (2026-03-03):
   - Added GM `Prepare Transfer` helper to normalize selected tokens before cross-scene copy/paste (ensure instance IDs + canonical owner sync).
   - Added duplicate-instance warnings when same-name tokens in scene map to different character instances (owner-compatible scope), highlighting potential accidental fork drift.
