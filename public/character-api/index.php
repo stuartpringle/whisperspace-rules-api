@@ -174,6 +174,7 @@ function open_db(): PDO {
     $pdo->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
   }
   create_characters_table($pdo, $driver);
+  create_obr_instance_sheets_table($pdo, $driver);
   apply_migrations($pdo);
   return $pdo;
 }
@@ -195,6 +196,32 @@ SQL
     return;
   }
   $pdo->exec("CREATE TABLE IF NOT EXISTS characters (id TEXT PRIMARY KEY, name TEXT, data TEXT, created_at TEXT, updated_at TEXT)");
+}
+
+function create_obr_instance_sheets_table(PDO $pdo, string $driver): void {
+  if (is_mysql_driver($driver)) {
+    $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS `obr_instance_sheets` (
+  `room_id` VARCHAR(128) NOT NULL,
+  `instance_id` VARCHAR(96) NOT NULL,
+  `data` LONGTEXT NOT NULL,
+  `updated_at` TEXT,
+  PRIMARY KEY (`room_id`, `instance_id`)
+)
+SQL
+);
+    return;
+  }
+  $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS obr_instance_sheets (
+  room_id TEXT NOT NULL,
+  instance_id TEXT NOT NULL,
+  data TEXT NOT NULL,
+  updated_at TEXT,
+  PRIMARY KEY (room_id, instance_id)
+)
+SQL
+);
 }
 
 function apply_migrations(PDO $pdo): void {
@@ -1311,6 +1338,98 @@ function handle_admin_routes(PDO $pdo, array $tail, bool $hasValidApiKey): void 
   respond_error(405, "method_not_allowed");
 }
 
+function get_obr_room_id(): string {
+  $roomId = $_GET["roomId"] ?? "";
+  if (!is_string($roomId)) $roomId = "";
+  $roomId = trim($roomId);
+  return $roomId;
+}
+
+function handle_obr_instance_route(PDO $pdo, array $tail): void {
+  $method = $_SERVER["REQUEST_METHOD"];
+  $instanceId = $tail[1] ?? "";
+  if (!is_string($instanceId) || trim($instanceId) === "") {
+    respond_error(400, "missing_instance_id");
+  }
+  $instanceId = trim($instanceId);
+  $roomId = get_obr_room_id();
+  if ($roomId === "") {
+    respond_error(400, "missing_room_id");
+  }
+
+  if ($method === "GET") {
+    $stmt = $pdo->prepare("SELECT data, updated_at FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
+    $stmt->execute([
+      ":room" => $roomId,
+      ":instance" => $instanceId,
+    ]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$row) respond_error(404, "not_found");
+    $decoded = json_decode($row["data"] ?? "", true);
+    $record = is_array($decoded) ? normalize_record($decoded) : [];
+    respond(200, [
+      "instanceId" => $instanceId,
+      "roomId" => $roomId,
+      "updatedAt" => $row["updated_at"] ?? null,
+      "sheet" => $record,
+    ]);
+  }
+
+  if ($method === "PUT") {
+    $body = parse_body();
+    $sheet = $body["sheet"] ?? null;
+    if (!is_array($sheet)) {
+      respond_error(400, "missing_sheet");
+    }
+    $errors = validate_record($sheet);
+    if ($errors) {
+      respond_error(400, "validation_failed", $errors);
+    }
+    $now = gmdate("c");
+    $sheet["updatedAt"] = $sheet["updatedAt"] ?? $now;
+    $sheet["id"] = $sheet["id"] ?? ($instanceId);
+    $stmt = $pdo->prepare("SELECT room_id FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
+    $stmt->execute([
+      ":room" => $roomId,
+      ":instance" => $instanceId,
+    ]);
+    if ($stmt->fetch(PDO::FETCH_ASSOC)) {
+      $up = $pdo->prepare("UPDATE obr_instance_sheets SET data = :data, updated_at = :updated WHERE room_id = :room AND instance_id = :instance");
+      $up->execute([
+        ":data" => json_encode($sheet, JSON_UNESCAPED_SLASHES),
+        ":updated" => $now,
+        ":room" => $roomId,
+        ":instance" => $instanceId,
+      ]);
+    } else {
+      $ins = $pdo->prepare("INSERT INTO obr_instance_sheets (room_id, instance_id, data, updated_at) VALUES (:room, :instance, :data, :updated)");
+      $ins->execute([
+        ":room" => $roomId,
+        ":instance" => $instanceId,
+        ":data" => json_encode($sheet, JSON_UNESCAPED_SLASHES),
+        ":updated" => $now,
+      ]);
+    }
+    respond(200, [
+      "ok" => true,
+      "instanceId" => $instanceId,
+      "roomId" => $roomId,
+      "updatedAt" => $now,
+    ]);
+  }
+
+  if ($method === "DELETE") {
+    $stmt = $pdo->prepare("DELETE FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
+    $stmt->execute([
+      ":room" => $roomId,
+      ":instance" => $instanceId,
+    ]);
+    respond(200, ["ok" => true]);
+  }
+
+  respond_error(405, "method_not_allowed");
+}
+
 function get_if_unmodified_since(): ?string {
   $headers = function_exists("getallheaders") ? getallheaders() : [];
   $val = $headers["If-Unmodified-Since"] ?? $headers["if-unmodified-since"] ?? null;
@@ -1343,6 +1462,9 @@ if (count($tail) === 0) {
       "GET /character-api/characters/:id",
       "PUT /character-api/characters/:id",
       "DELETE /character-api/characters/:id",
+      "GET /character-api/obr-instance/:instanceId?roomId=:roomId",
+      "PUT /character-api/obr-instance/:instanceId?roomId=:roomId",
+      "DELETE /character-api/obr-instance/:instanceId?roomId=:roomId",
       "GET /character-api/admin/characters",
       "DELETE /character-api/admin/characters?confirm=1",
     ],
@@ -1373,6 +1495,10 @@ if ($tail[0] === "admin") {
 
 if ($tail[0] === "characters") {
   handle_characters($pdo, $tail);
+}
+
+if ($tail[0] === "obr-instance") {
+  handle_obr_instance_route($pdo, $tail);
 }
 
 respond_error(404, "not_found");

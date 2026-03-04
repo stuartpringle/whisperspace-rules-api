@@ -269,6 +269,15 @@ Endpoints:
   - On conflict: `409` with `{ error: "conflict", current: <sheet> }`.
   - Visibility can also be forced via `?visibility=public|private`; this overrides both the saved value and any `visibility` field in the body.
 - `DELETE /character-api/characters/:id`
+
+OBR canonical instance endpoints (separate from Builder character records):
+- `GET /character-api/obr-instance/:instanceId?roomId=:roomId`
+  - Returns `{ instanceId, roomId, updatedAt, sheet }` when present.
+- `PUT /character-api/obr-instance/:instanceId?roomId=:roomId`
+  - Body: `{ "sheet": <CharacterRecordV1-compatible object> }`
+  - Upserts canonical OBR instance sheet for the room+instance key.
+- `DELETE /character-api/obr-instance/:instanceId?roomId=:roomId`
+  - Removes canonical OBR instance sheet for the room+instance key.
   - Returns `{ ok: true }`.
 
 Admin endpoints:
