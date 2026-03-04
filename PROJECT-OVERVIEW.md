@@ -18,6 +18,9 @@ All project directories live in `/hdd/sites/stuartpringle` on an Ubuntu server a
 - `whisperspace-obr-extension`
   - Owlbear.rodeo VTT extension.
   - URL: `https://obr.whisperspace.com`
+- `whisperspace-obr-gm`
+  - GM-only Owlbear.rodeo extension for adjudication, ongoing-effect operations, and encounter oversight.
+  - URL: TBD
 - `whisperspace-character-builder`
   - Main character builder application.
   - URL: `https://builder.whisperspace.com`
@@ -218,6 +221,19 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR GM ownership tooling follow-up landed (2026-03-03):
   - Owner modal now supports player search/filtering and bulk actions for selected tokens (`Release Selected`, `Assign Selected`).
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
+
+### whisperspace-obr-gm
+- Current status: New repo scaffolded at `/hdd/sites/stuartpringle/whisperspace-obr-gm` with initial README + AGENTS.
+- Recent milestones:
+- Defined GM-only scope split from player sheet extension:
+  - Unified Ongoing Effects Manager
+  - GM Adjudication Queue
+  - Party/Encounter HUD
+  - Ownership Dashboard
+- Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
+- Next steps:
+- Scaffold extension runtime/manifest and panel shell.
+- Implement read-only HUD against existing metadata first, then adjudication/effects management flows.
 - OBR nanomancy targeting/outcome follow-up landed (2026-03-04):
   - Static Burst modal now uses dedicated chain-target UX end-to-end (selected target names shown in order, generic single-target controls hidden for this effect).
   - Static Burst selected targets now get temporary purple ring highlights on-map during selection, and those highlights clear on cast/cancel.
