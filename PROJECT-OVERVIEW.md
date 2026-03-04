@@ -218,6 +218,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR GM ownership tooling follow-up landed (2026-03-03):
   - Owner modal now supports player search/filtering and bulk actions for selected tokens (`Release Selected`, `Assign Selected`).
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
+- OBR nanomancy targeting/outcome follow-up landed (2026-03-04):
+  - Static Burst modal now uses dedicated chain-target UX end-to-end (selected target names shown in order, generic single-target controls hidden for this effect).
+  - Static Burst selected targets now get temporary purple ring highlights on-map during selection, and those highlights clear on cast/cancel.
+  - Nanomancy extreme success now increments scene ND by `+1` (shared ND state), with explicit cast-log text showing the ND increase.
   - Ownership Audit rows now include per-instance owner reassignment controls (owner selector + apply) to update canonical owner mappings directly.
   - Added a GM token context-menu action (`Manage Owner`) that opens sheet Settings and launches the Owner modal for the selected token.
   - Owner player list loading now subscribes to party changes and includes current-player fallback to avoid empty owner dropdowns.
