@@ -299,6 +299,7 @@ CORS for character-api:
 
 Auth/session hygiene:
 - Expired/revoked `obr_guest_sessions`, `user_sessions`, and stale `password_resets` rows are opportunistically cleaned during normal API traffic.
+- Lightweight observability counters/logs are emitted for OBR guest issuance and OBR instance write/delete outcomes; counters persist in temp storage (`/tmp/whisperspace_character_api_observability.json`) and sampled events are logged with `[ws][character-api]`.
 
 Admin endpoints:
 - `GET /character-api/admin/characters`

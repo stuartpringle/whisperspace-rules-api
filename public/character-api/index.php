@@ -111,6 +111,51 @@ function respond_error(int $code, string $error, array $details = []): void {
   respond($code, $body);
 }
 
+function observability_file_path(): string {
+  return sys_get_temp_dir() . "/whisperspace_character_api_observability.json";
+}
+
+function observability_sample_gate(int $sampleRate): bool {
+  if ($sampleRate <= 1) return true;
+  try {
+    return random_int(1, $sampleRate) === 1;
+  } catch (Throwable $e) {
+    return false;
+  }
+}
+
+function observability_increment(string $metric, int $count = 1): void {
+  $path = observability_file_path();
+  $dir = dirname($path);
+  if (!is_dir($dir)) @mkdir($dir, 0755, true);
+  $fh = @fopen($path, "c+");
+  if (!$fh) return;
+  flock($fh, LOCK_EX);
+  $raw = stream_get_contents($fh);
+  $state = [];
+  if (is_string($raw) && trim($raw) !== "") {
+    $decoded = json_decode($raw, true);
+    if (is_array($decoded)) $state = $decoded;
+  }
+  $state[$metric] = (int)($state[$metric] ?? 0) + $count;
+  $state["_updatedAt"] = gmdate("c");
+  ftruncate($fh, 0);
+  rewind($fh);
+  fwrite($fh, json_encode($state, JSON_UNESCAPED_SLASHES));
+  fflush($fh);
+  flock($fh, LOCK_UN);
+  fclose($fh);
+}
+
+function observability_log(string $event, array $context = [], int $sampleRate = 1): void {
+  if (!observability_sample_gate($sampleRate)) return;
+  $payload = array_merge([
+    "ts" => gmdate("c"),
+    "event" => $event,
+  ], $context);
+  error_log("[ws][character-api] " . json_encode($payload, JSON_UNESCAPED_SLASHES));
+}
+
 function client_ip(): string {
   $headers = function_exists("getallheaders") ? getallheaders() : [];
   $ip = $headers["CF-Connecting-IP"] ?? $headers["cf-connecting-ip"] ?? null;
@@ -848,6 +893,8 @@ SQL
     ":user_agent" => $_SERVER["HTTP_USER_AGENT"] ?? "",
   ]);
   set_obr_guest_cookie($token);
+  observability_increment("obr_guest_session_issued");
+  observability_log("obr_guest_session_issued", ["roomId" => $roomId], 20);
   return [
     "roomId" => $roomId,
     "expiresAt" => $expiresAt,
@@ -1610,9 +1657,12 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
   }
 
   if ($method === "PUT") {
+    observability_increment("obr_instance_put_attempt");
     $user = current_user($pdo);
     $hasGuestSession = has_valid_obr_guest_session_for_room($pdo, $roomId);
     if (!$hasValidApiKey && !$user && !has_valid_obr_write_key() && !$hasGuestSession) {
+      observability_increment("obr_instance_put_unauthorized");
+      observability_log("obr_instance_put_unauthorized", ["roomId" => $roomId, "instanceId" => $instanceId], 5);
       respond_error(401, "unauthorized");
     }
     $body = parse_body();
@@ -1622,6 +1672,12 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
     }
     $errors = validate_record($sheet);
     if ($errors) {
+      observability_increment("obr_instance_put_validation_failed");
+      observability_log("obr_instance_put_validation_failed", [
+        "roomId" => $roomId,
+        "instanceId" => $instanceId,
+        "errorCount" => count($errors),
+      ], 5);
       respond_error(400, "validation_failed", $errors);
     }
     $now = gmdate("c");
@@ -1649,6 +1705,7 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
         ":updated" => $now,
       ]);
     }
+    observability_increment("obr_instance_put_ok");
     respond(200, [
       "ok" => true,
       "instanceId" => $instanceId,
@@ -1658,9 +1715,12 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
   }
 
   if ($method === "DELETE") {
+    observability_increment("obr_instance_delete_attempt");
     $user = current_user($pdo);
     $hasGuestSession = has_valid_obr_guest_session_for_room($pdo, $roomId);
     if (!$hasValidApiKey && !$user && !has_valid_obr_write_key() && !$hasGuestSession) {
+      observability_increment("obr_instance_delete_unauthorized");
+      observability_log("obr_instance_delete_unauthorized", ["roomId" => $roomId, "instanceId" => $instanceId], 5);
       respond_error(401, "unauthorized");
     }
     $stmt = $pdo->prepare("DELETE FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
@@ -1668,6 +1728,7 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
       ":room" => $roomId,
       ":instance" => $instanceId,
     ]);
+    observability_increment("obr_instance_delete_ok");
     respond(200, ["ok" => true]);
   }
 

@@ -203,6 +203,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Seamless auth follow-up (2026-03-04): added room-scoped guest auth bootstrap (`POST /character-api/auth/obr-guest`) that issues `ws_obr_guest` cookie sessions; OBR instance writes now accept this cookie, enabling no-manual-key continuity for extension users.
   - Continuity durability follow-up (2026-03-04): OBR extension now queues failed canonical instance writes locally and replays them automatically on later access after auth/network recovery, reducing risk of stale cross-scene state after long gaps.
   - API hygiene follow-up (2026-03-04): character-api now performs opportunistic cleanup of expired/revoked auth rows (`obr_guest_sessions`, `user_sessions`, `password_resets`) and normalizes/echoes requested CORS preflight headers for better cross-origin consistency.
+  - Observability follow-up (2026-03-04): character-api now tracks lightweight counters + sampled logs for OBR guest issuance and OBR instance write/delete outcomes; OBR extension adds throttled canonical sync summary logs and a manual `Force Sync Now` replay action.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
