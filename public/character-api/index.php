@@ -271,6 +271,7 @@ function apply_migrations(PDO $pdo): void {
   ensure_characters_columns($pdo);
   ensure_users_table($pdo);
   ensure_user_sessions_table($pdo);
+  ensure_obr_guest_sessions_table($pdo);
   ensure_password_resets_table($pdo);
   ensure_oauth_accounts_table($pdo);
 }
@@ -405,6 +406,43 @@ CREATE TABLE IF NOT EXISTS user_sessions (
 SQL
 );
   create_index_if_missing($pdo, "user_sessions", "idx_user_sessions_token", "token_hash");
+}
+
+function ensure_obr_guest_sessions_table(PDO $pdo): void {
+  $driver = db_driver();
+  if (is_mysql_driver($driver)) {
+    $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS `obr_guest_sessions` (
+  `id` VARCHAR(36) PRIMARY KEY,
+  `room_id` VARCHAR(160) NOT NULL,
+  `token_hash` CHAR(64) NOT NULL,
+  `created_at` TEXT NOT NULL,
+  `expires_at` TEXT NOT NULL,
+  `revoked_at` TEXT,
+  `ip` VARCHAR(64),
+  `user_agent` TEXT
+)
+SQL
+);
+    create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_token", "token_hash");
+    create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_room", "room_id");
+    return;
+  }
+  $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS obr_guest_sessions (
+  id TEXT PRIMARY KEY,
+  room_id TEXT NOT NULL,
+  token_hash TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  expires_at TEXT NOT NULL,
+  revoked_at TEXT,
+  ip TEXT,
+  user_agent TEXT
+)
+SQL
+);
+  create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_token", "token_hash");
+  create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_room", "room_id");
 }
 
 function ensure_password_resets_table(PDO $pdo): void {
@@ -591,8 +629,10 @@ function normalize_tags($value): array {
 
 const SESSION_COOKIE = "ws_session";
 const CSRF_COOKIE = "ws_csrf";
+const OBR_GUEST_COOKIE = "ws_obr_guest";
 const CSRF_HEADER = "X-CSRF-Token";
 const SESSION_TTL = 2592000;
+const OBR_GUEST_TTL = 43200;
 
 function is_secure_request(): bool {
   if (!empty($_SERVER["HTTPS"])) return strtolower($_SERVER["HTTPS"]) !== "off";
@@ -653,6 +693,26 @@ function clear_session_cookies(): void {
   setcookie(CSRF_COOKIE, "", $opts);
 }
 
+function set_obr_guest_cookie(string $token): void {
+  $opts = cookie_options();
+  $opts["expires"] = time() + OBR_GUEST_TTL;
+  $opts["httponly"] = true;
+  setcookie(OBR_GUEST_COOKIE, $token, $opts);
+}
+
+function clear_obr_guest_cookie(): void {
+  $opts = [
+    "expires" => time() - 3600,
+    "path" => "/",
+    "samesite" => cookie_samesite(),
+    "httponly" => true,
+  ];
+  $domain = cookie_domain();
+  if ($domain !== "") $opts["domain"] = $domain;
+  if (is_secure_request()) $opts["secure"] = true;
+  setcookie(OBR_GUEST_COOKIE, "", $opts);
+}
+
 function create_token(int $bytes = 32): string {
   return bin2hex(random_bytes($bytes));
 }
@@ -710,6 +770,54 @@ SQL
     "is_admin" => (bool)$row["is_admin"],
   ];
   return $cached;
+}
+
+function issue_obr_guest_session(PDO $pdo, string $roomId): array {
+  $token = create_token(32);
+  $hash = hash_token($token);
+  $now = gmdate("c");
+  $expiresAt = gmdate("c", time() + OBR_GUEST_TTL);
+  $stmt = $pdo->prepare(<<<'SQL'
+INSERT INTO obr_guest_sessions (id, room_id, token_hash, created_at, expires_at, ip, user_agent)
+VALUES (:id, :room_id, :token_hash, :created_at, :expires_at, :ip, :user_agent)
+SQL
+  );
+  $stmt->execute([
+    ":id" => uuid4(),
+    ":room_id" => $roomId,
+    ":token_hash" => $hash,
+    ":created_at" => $now,
+    ":expires_at" => $expiresAt,
+    ":ip" => client_ip(),
+    ":user_agent" => $_SERVER["HTTP_USER_AGENT"] ?? "",
+  ]);
+  set_obr_guest_cookie($token);
+  return [
+    "roomId" => $roomId,
+    "expiresAt" => $expiresAt,
+  ];
+}
+
+function has_valid_obr_guest_session_for_room(PDO $pdo, string $roomId): bool {
+  $token = $_COOKIE[OBR_GUEST_COOKIE] ?? "";
+  if (!is_string($token) || trim($token) === "") return false;
+  $hash = hash_token($token);
+  $stmt = $pdo->prepare(<<<'SQL'
+SELECT id, room_id, revoked_at, expires_at
+FROM obr_guest_sessions
+WHERE token_hash = :hash
+ORDER BY created_at DESC
+LIMIT 1
+SQL
+  );
+  $stmt->execute([":hash" => $hash]);
+  $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  if (!$row) return false;
+  if ((string)($row["room_id"] ?? "") !== $roomId) return false;
+  if ($row["revoked_at"] !== null) return false;
+  $expires = strtotime((string)($row["expires_at"] ?? ""));
+  if ($expires && time() > $expires) return false;
+  return true;
 }
 
 function require_auth(PDO $pdo): array {
@@ -1132,6 +1240,24 @@ function handle_auth_routes(PDO $pdo, array $tail): void {
       ]);
       break;
 
+    case "obr-guest":
+      if ($method !== "POST") respond_error(405, "method_not_allowed");
+      $body = parse_body();
+      $roomId = trim((string)($body["roomId"] ?? ""));
+      if ($roomId === "") {
+        respond_error(400, "missing_room_id");
+      }
+      if (strlen($roomId) > 160) {
+        respond_error(400, "invalid_room_id");
+      }
+      $session = issue_obr_guest_session($pdo, $roomId);
+      respond(200, [
+        "ok" => true,
+        "roomId" => $session["roomId"],
+        "expiresAt" => $session["expiresAt"],
+      ]);
+      break;
+
     case "password":
       if (!isset($tail[2])) respond_error(404, "not_found");
       if ($tail[2] === "request") {
@@ -1429,7 +1555,8 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
 
   if ($method === "PUT") {
     $user = current_user($pdo);
-    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key()) {
+    $hasGuestSession = has_valid_obr_guest_session_for_room($pdo, $roomId);
+    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key() && !$hasGuestSession) {
       respond_error(401, "unauthorized");
     }
     $body = parse_body();
@@ -1476,7 +1603,8 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
 
   if ($method === "DELETE") {
     $user = current_user($pdo);
-    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key()) {
+    $hasGuestSession = has_valid_obr_guest_session_for_room($pdo, $roomId);
+    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key() && !$hasGuestSession) {
       respond_error(401, "unauthorized");
     }
     $stmt = $pdo->prepare("DELETE FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");

@@ -200,6 +200,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - API contract follow-up (2026-03-04): `GET /character-api/obr-instance/:instanceId?roomId=:roomId` now returns `200 { found:false, sheet:null }` on misses instead of `404 not_found`, removing browser “Failed to load resource” noise for expected first-read misses.
   - OBR serializer follow-up (2026-03-04): canonical instance `PUT` payloads now strip local-only `gameplayEffects` fields from weapon/armour/feat objects before write, preventing `400 validation_failed` after scene transitions.
   - Auth/CORS hardening follow-up (2026-03-04): OBR instance `PUT/DELETE` now require authenticated session or configured write key/api key, and character-api now enforces an explicit origin allowlist when `Origin` is present.
+  - Seamless auth follow-up (2026-03-04): added room-scoped guest auth bootstrap (`POST /character-api/auth/obr-guest`) that issues `ws_obr_guest` cookie sessions; OBR instance writes now accept this cookie, enabling no-manual-key continuity for extension users.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
