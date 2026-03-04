@@ -198,6 +198,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - follow-up architecture change: canonical OBR instance sheets now persist via dedicated character-api storage (`obr_instance_sheets` keyed by `room_id + instance_id`), keeping room metadata small for owner/lock maps only; token/local caches remain fallback.
   - OBR client follow-up: canonical instance writes now use CharacterRecord-compatible payloads and read conversion adapters, and remote 404/error lookup throttling was added to reduce repeated network-error console spam.
   - API contract follow-up (2026-03-04): `GET /character-api/obr-instance/:instanceId?roomId=:roomId` now returns `200 { found:false, sheet:null }` on misses instead of `404 not_found`, removing browser “Failed to load resource” noise for expected first-read misses.
+  - OBR serializer follow-up (2026-03-04): canonical instance `PUT` payloads now strip local-only `gameplayEffects` fields from weapon/armour/feat objects before write, preventing `400 validation_failed` after scene transitions.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
