@@ -295,6 +295,10 @@ CORS for character-api:
 - Origin allowlist is enforced when `Origin` header is present.
 - Configure via `WS_CHARACTER_ALLOWED_ORIGINS` (comma-separated).
 - Default allowlist: `https://builder.whisperspace.com`, `https://obr.whisperspace.com`, `https://www.owlbear.rodeo`, `https://owlbear.rodeo`.
+- `Access-Control-Allow-Headers` now includes core headers plus requested preflight headers (normalized), so OBR-specific auth headers are consistently accepted when configured.
+
+Auth/session hygiene:
+- Expired/revoked `obr_guest_sessions`, `user_sessions`, and stale `password_resets` rows are opportunistically cleaned during normal API traffic.
 
 Admin endpoints:
 - `GET /character-api/admin/characters`

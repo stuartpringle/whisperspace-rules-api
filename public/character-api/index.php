@@ -17,6 +17,33 @@ function get_allowed_origins(): array {
   return array_keys($out);
 }
 
+function normalize_header_name(string $name): string {
+  $parts = explode("-", strtolower(trim($name)));
+  $parts = array_filter($parts, fn($part) => $part !== "");
+  if (!$parts) return "";
+  return implode("-", array_map(fn($part) => ucfirst($part), $parts));
+}
+
+function get_allowed_cors_headers_value(): string {
+  $base = [
+    "Content-Type",
+    "Authorization",
+    "X-CSRF-Token",
+    "If-Unmodified-Since",
+    "X-WS-OBR-Write-Key",
+  ];
+  $requestedRaw = $_SERVER["HTTP_ACCESS_CONTROL_REQUEST_HEADERS"] ?? "";
+  if (is_string($requestedRaw) && trim($requestedRaw) !== "") {
+    foreach (explode(",", $requestedRaw) as $header) {
+      $normalized = normalize_header_name($header);
+      if ($normalized !== "") $base[] = $normalized;
+    }
+  }
+  $unique = [];
+  foreach ($base as $header) $unique[$header] = true;
+  return implode(", ", array_keys($unique));
+}
+
 function apply_cors_headers(): bool {
   $origin = $_SERVER["HTTP_ORIGIN"] ?? "";
   if (!is_string($origin) || trim($origin) === "") return true;
@@ -27,7 +54,7 @@ function apply_cors_headers(): bool {
   header("Vary: Origin");
   header("Access-Control-Allow-Credentials: true");
   header("Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS");
-  header("Access-Control-Allow-Headers: Content-Type, Authorization, X-CSRF-Token, X-WS-OBR-Write-Key");
+  header("Access-Control-Allow-Headers: " . get_allowed_cors_headers_value());
   header("Access-Control-Max-Age: 600");
   return true;
 }
@@ -443,6 +470,35 @@ SQL
 );
   create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_token", "token_hash");
   create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_room", "room_id");
+}
+
+function cleanup_expired_auth_rows(PDO $pdo): void {
+  static $done = false;
+  if ($done) return;
+  $done = true;
+  try {
+    if (random_int(1, 100) !== 1) return;
+  } catch (Throwable $e) {
+    return;
+  }
+  $driver = db_driver();
+  $now = gmdate("c");
+  $revokedCutoff = gmdate("c", time() - 86400);
+  if (is_mysql_driver($driver)) {
+    $pdo->prepare("DELETE FROM obr_guest_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
+      ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+    $pdo->prepare("DELETE FROM user_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
+      ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+    $pdo->prepare("DELETE FROM password_resets WHERE expires_at < :now OR (used_at IS NOT NULL AND used_at < :cutoff)")
+      ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+    return;
+  }
+  $pdo->prepare("DELETE FROM obr_guest_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
+    ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+  $pdo->prepare("DELETE FROM user_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
+    ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+  $pdo->prepare("DELETE FROM password_resets WHERE expires_at < :now OR (used_at IS NOT NULL AND used_at < :cutoff)")
+    ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
 }
 
 function ensure_password_resets_table(PDO $pdo): void {
@@ -1660,6 +1716,7 @@ if (count($tail) === 0) {
 }
 
 $pdo = open_db();
+cleanup_expired_auth_rows($pdo);
 
 if ($tail[0] === "health") {
   respond(200, ["ok" => true]);
