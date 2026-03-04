@@ -196,11 +196,13 @@ Use this section to keep a single-source, cross-repo status summary.
   - canonical character sheet state is now stored at room scope keyed by `characterInstanceId`; token sheet data is treated as local cache, and load/save now resolve via canonical-first behavior so edits propagate across scene copies of the same character instance.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings now exposes `Fork Character Instance` plus GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
+  - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
 - OBR GM ownership tooling follow-up landed (2026-03-03):
   - Owner modal now supports player search/filtering and adds bulk actions for selected tokens (`Claim Selected`, `Release Selected`, `Assign Selected`).
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
   - Ownership Audit rows now include per-instance owner reassignment controls (owner selector + apply) to update canonical owner mappings directly.
   - Added a GM token context-menu action (`Manage Owner`) that opens sheet Settings and launches the Owner modal for the selected token.
+  - Owner player list loading now subscribes to party changes and includes current-player fallback to avoid empty owner dropdowns.
 - OBR continuity hardening follow-up landed (2026-03-03):
   - Added GM `Prepare Transfer` helper to normalize selected tokens before cross-scene copy/paste (ensure instance IDs + canonical owner sync).
   - Added duplicate-instance warnings when same-name tokens in scene map to different character instances (owner-compatible scope), highlighting potential accidental fork drift.
