@@ -273,7 +273,9 @@ Endpoints:
 
 OBR canonical instance endpoints (separate from Builder character records):
 - `GET /character-api/obr-instance/:instanceId?roomId=:roomId`
-  - Returns `{ instanceId, roomId, updatedAt, sheet }` when present.
+  - Always returns `200` for a valid request.
+  - Returns `{ instanceId, roomId, updatedAt, found, sheet }`.
+  - Misses return `{ found: false, updatedAt: null, sheet: null }` (no `404`), so OBR clients can treat missing canonical rows as normal cacheable misses without browser resource-error noise.
 - `PUT /character-api/obr-instance/:instanceId?roomId=:roomId`
   - Body: `{ "sheet": <CharacterRecordV1-compatible object> }`
   - Upserts canonical OBR instance sheet for the room+instance key.

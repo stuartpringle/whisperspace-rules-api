@@ -1364,13 +1364,22 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
       ":instance" => $instanceId,
     ]);
     $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    if (!$row) respond_error(404, "not_found");
+    if (!$row) {
+      respond(200, [
+        "instanceId" => $instanceId,
+        "roomId" => $roomId,
+        "updatedAt" => null,
+        "found" => false,
+        "sheet" => null,
+      ]);
+    }
     $decoded = json_decode($row["data"] ?? "", true);
     $record = is_array($decoded) ? normalize_record($decoded) : [];
     respond(200, [
       "instanceId" => $instanceId,
       "roomId" => $roomId,
       "updatedAt" => $row["updated_at"] ?? null,
+      "found" => true,
       "sheet" => $record,
     ]);
   }
