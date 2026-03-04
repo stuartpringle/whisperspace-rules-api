@@ -207,6 +207,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Continuity UX follow-up (2026-03-04): manual `Prepare Transfer` UI flow was removed; scene-ready auto-normalization now repairs token instance/sheet/owner continuity automatically for relevant tokens.
   - Ownership UX follow-up (2026-03-04): owner modal bulk actions now rely on `Assign Selected` + `Release Selected`; releasing selected instances also clears matching player self-binding immediately to avoid stale token auto-open without page refresh.
   - Ownership realtime follow-up (2026-03-04): non-GM sheets now subscribe to room owner-map metadata changes and immediately rebind/unbind local character selection when GM ownership reassignment/release occurs (no scene reload required).
+  - Ownership UX messaging follow-up (2026-03-04): non-GM sheets now show concise info toasts when GM ownership changes trigger immediate character rebind/unbind.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
