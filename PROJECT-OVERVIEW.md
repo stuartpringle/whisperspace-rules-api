@@ -196,6 +196,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR global character continuity landed (2026-03-03):
   - canonical character sheet state is stored by `room + characterInstanceId`; token sheet data is treated as local cache, and load/save resolve via canonical-first behavior so edits propagate across scene copies of the same character instance.
   - follow-up architecture change: canonical OBR instance sheets now persist via dedicated character-api storage (`obr_instance_sheets` keyed by `room_id + instance_id`), keeping room metadata small for owner/lock maps only; token/local caches remain fallback.
+  - OBR client follow-up: canonical instance writes now use CharacterRecord-compatible payloads and read conversion adapters, and remote 404/error lookup throttling was added to reduce repeated network-error console spam.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
