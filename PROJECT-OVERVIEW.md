@@ -206,11 +206,12 @@ Use this section to keep a single-source, cross-repo status summary.
   - Observability follow-up (2026-03-04): character-api now tracks lightweight counters + sampled logs for OBR guest issuance and OBR instance write/delete outcomes; OBR extension adds throttled canonical sync summary logs and a manual `Force Sync Now` replay action.
   - Continuity UX follow-up (2026-03-04): manual `Prepare Transfer` UI flow was removed; scene-ready auto-normalization now repairs token instance/sheet/owner continuity automatically for relevant tokens.
   - Ownership UX follow-up (2026-03-04): owner modal bulk actions now rely on `Assign Selected` + `Release Selected`; releasing selected instances also clears matching player self-binding immediately to avoid stale token auto-open without page refresh.
+  - Ownership realtime follow-up (2026-03-04): non-GM sheets now subscribe to room owner-map metadata changes and immediately rebind/unbind local character selection when GM ownership reassignment/release occurs (no scene reload required).
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
 - OBR GM ownership tooling follow-up landed (2026-03-03):
-  - Owner modal now supports player search/filtering and adds bulk actions for selected tokens (`Claim Selected`, `Release Selected`, `Assign Selected`).
+  - Owner modal now supports player search/filtering and bulk actions for selected tokens (`Release Selected`, `Assign Selected`).
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
   - Ownership Audit rows now include per-instance owner reassignment controls (owner selector + apply) to update canonical owner mappings directly.
   - Added a GM token context-menu action (`Manage Owner`) that opens sheet Settings and launches the Owner modal for the selected token.
