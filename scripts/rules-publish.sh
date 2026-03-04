@@ -38,6 +38,16 @@ else
   cp "$CALC_SRC/schemas/"*.json "$CALC_DEST/schemas/"
 fi
 
+echo "[rules:publish] Publishing character API endpoints..."
+CHAR_API_SRC="public/character-api"
+CHAR_API_DEST="/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api"
+mkdir -p "$CHAR_API_DEST"
+cp "$CHAR_API_SRC/index.php" "$CHAR_API_DEST/index.php"
+cp "$CHAR_API_SRC/.htaccess" "$CHAR_API_DEST/.htaccess"
+if [[ -f "$CHAR_API_SRC/.env.example" ]]; then
+  cp "$CHAR_API_SRC/.env.example" "$CHAR_API_DEST/.env.example"
+fi
+
 if [ -f "index.html" ]; then
   echo "[rules:publish] Building Vite dist..."
   npm run build

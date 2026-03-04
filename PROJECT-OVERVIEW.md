@@ -135,6 +135,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Added auth/OAuth schema compatibility for legacy Laravel `users` tables (`id` bigint + `password`) so Google callback no longer fatals when UUID/password_hash-specific inserts are not supported.
 - Added character-organization tags support in Character API contracts: `CharacterRecordV1.tags` is now schema-validated and `/character-api/characters` summaries now include `tags` arrays for synchronized cross-device list grouping.
 - Fixed local character-auth regression gate reliability: character-api cookie domain/samesite handling now avoids forcing `.whisperspace.com` on localhost test hosts, and ownership regression script runs with local cookie-domain override so `npm run test:character-auth` passes during full publish.
+- Publish pipeline hardening on 2026-03-04: `scripts/rules-publish.sh` now also deploys Character API runtime files into `dist/character-api` (`index.php`, `.htaccess`, `.env.example`), preventing route drift where rules data was published but new PHP endpoints (for example `/character-api/obr-instance/:instanceId`) were not.
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.
