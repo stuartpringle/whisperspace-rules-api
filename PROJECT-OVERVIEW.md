@@ -210,6 +210,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Ownership UX messaging follow-up (2026-03-04): non-GM sheets now show concise info toasts when GM ownership changes trigger immediate character rebind/unbind.
   - Ownership binding parity follow-up (2026-03-04): persisted `my character` owner-validation now applies for all roles (including GM), so unassign/reassign-away clears stale self-binding immediately instead of reopening as `unowned`.
   - Ownership race follow-up (2026-03-04): explicit self-unassign/reassign-away now clears open-token override and skips immediate post-owner-update reload to prevent brief rebind to the just-released token.
+  - Ownership consistency follow-up (2026-03-04): all GM owner-mutation actions now share one post-change binding enforcement routine, so `Release`, `Assign -> Unowned`, `Assign -> Other`, and per-instance assignment apply the same immediate unbind/rebind semantics.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
