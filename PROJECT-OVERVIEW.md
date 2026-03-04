@@ -201,6 +201,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - OBR serializer follow-up (2026-03-04): canonical instance `PUT` payloads now strip local-only `gameplayEffects` fields from weapon/armour/feat objects before write, preventing `400 validation_failed` after scene transitions.
   - Auth/CORS hardening follow-up (2026-03-04): OBR instance `PUT/DELETE` now require authenticated session or configured write key/api key, and character-api now enforces an explicit origin allowlist when `Origin` is present.
   - Seamless auth follow-up (2026-03-04): added room-scoped guest auth bootstrap (`POST /character-api/auth/obr-guest`) that issues `ws_obr_guest` cookie sessions; OBR instance writes now accept this cookie, enabling no-manual-key continuity for extension users.
+  - Continuity durability follow-up (2026-03-04): OBR extension now queues failed canonical instance writes locally and replays them automatically on later access after auth/network recovery, reducing risk of stale cross-scene state after long gaps.
 - OBR ownership/identity management follow-up landed (2026-03-03):
   - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
   - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
