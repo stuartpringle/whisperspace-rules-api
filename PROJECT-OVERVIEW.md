@@ -199,6 +199,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR GM ownership tooling follow-up landed (2026-03-03):
   - Owner modal now supports player search/filtering and adds bulk actions for selected tokens (`Claim Selected`, `Release Selected`, `Assign Selected`).
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
+  - Ownership Audit rows now include per-instance owner reassignment controls (owner selector + apply) to update canonical owner mappings directly.
 - OBR continuity hardening follow-up landed (2026-03-03):
   - Added GM `Prepare Transfer` helper to normalize selected tokens before cross-scene copy/paste (ensure instance IDs + canonical owner sync).
   - Added duplicate-instance warnings when same-name tokens in scene map to different character instances (owner-compatible scope), highlighting potential accidental fork drift.
@@ -216,6 +217,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - OBR initiative UX follow-up landed (2026-03-03):
   - Added right-click `Remove From Initiative` shortcut for tokens in initiative tracker, backed by token metadata tracking flags.
   - Initiative roll-config modal now persists per-player defaults (net dice and situational modifier) and reuses them across rolls.
+  - `Roll Initiative` context action is now hidden for tokens already marked initiative-tracked to prevent duplicate-entry roll attempts.
 - OBR debug cleanup landed (2026-03-03):
   - temporary placement/nanomancy debug logging was removed from runtime extension code after AoE placement stabilization.
 - OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
