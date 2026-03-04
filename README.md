@@ -279,9 +279,19 @@ OBR canonical instance endpoints (separate from Builder character records):
 - `PUT /character-api/obr-instance/:instanceId?roomId=:roomId`
   - Body: `{ "sheet": <CharacterRecordV1-compatible object> }`
   - Upserts canonical OBR instance sheet for the room+instance key.
+  - Write auth required: one of
+    - valid user session cookie (`ws_session`) or
+    - `Authorization: Bearer <WS_CHARACTER_API_KEY>` or
+    - `X-WS-OBR-Write-Key: <WS_OBR_INSTANCE_WRITE_KEY>` (for OBR extension runtime).
 - `DELETE /character-api/obr-instance/:instanceId?roomId=:roomId`
   - Removes canonical OBR instance sheet for the room+instance key.
   - Returns `{ ok: true }`.
+  - Same write auth requirement as `PUT`.
+
+CORS for character-api:
+- Origin allowlist is enforced when `Origin` header is present.
+- Configure via `WS_CHARACTER_ALLOWED_ORIGINS` (comma-separated).
+- Default allowlist: `https://builder.whisperspace.com`, `https://obr.whisperspace.com`, `https://www.owlbear.rodeo`, `https://owlbear.rodeo`.
 
 Admin endpoints:
 - `GET /character-api/admin/characters`

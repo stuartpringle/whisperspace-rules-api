@@ -4,6 +4,40 @@ declare(strict_types=1);
 
 header("Content-Type: application/json");
 
+function get_allowed_origins(): array {
+  $raw = getenv("WS_CHARACTER_ALLOWED_ORIGINS") ?: "";
+  if (!is_string($raw) || trim($raw) === "") {
+    $raw = "https://builder.whisperspace.com,https://obr.whisperspace.com,https://www.owlbear.rodeo,https://owlbear.rodeo";
+  }
+  $parts = array_map("trim", explode(",", $raw));
+  $out = [];
+  foreach ($parts as $origin) {
+    if ($origin !== "") $out[$origin] = true;
+  }
+  return array_keys($out);
+}
+
+function apply_cors_headers(): bool {
+  $origin = $_SERVER["HTTP_ORIGIN"] ?? "";
+  if (!is_string($origin) || trim($origin) === "") return true;
+  $origin = trim($origin);
+  $allowed = get_allowed_origins();
+  if (!in_array($origin, $allowed, true)) return false;
+  header("Access-Control-Allow-Origin: {$origin}");
+  header("Vary: Origin");
+  header("Access-Control-Allow-Credentials: true");
+  header("Access-Control-Allow-Methods: GET,POST,PUT,DELETE,OPTIONS");
+  header("Access-Control-Allow-Headers: Content-Type, Authorization, X-CSRF-Token, X-WS-OBR-Write-Key");
+  header("Access-Control-Max-Age: 600");
+  return true;
+}
+
+if (!apply_cors_headers()) {
+  http_response_code(403);
+  echo json_encode(["error" => "origin_not_allowed"]);
+  exit;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "OPTIONS") {
   http_response_code(204);
   exit;
@@ -128,6 +162,15 @@ function get_provided_api_key(): string {
 $masterApiKey = getenv("WS_CHARACTER_API_KEY") ?: "";
 $providedApiKey = get_provided_api_key();
 $hasValidApiKey = $masterApiKey !== "" && $providedApiKey !== "" && hash_equals($masterApiKey, $providedApiKey);
+
+function has_valid_obr_write_key(): bool {
+  $expected = getenv("WS_OBR_INSTANCE_WRITE_KEY") ?: "";
+  if (!is_string($expected) || trim($expected) === "") return false;
+  $headers = function_exists("getallheaders") ? getallheaders() : [];
+  $provided = $headers["X-WS-OBR-Write-Key"] ?? $headers["x-ws-obr-write-key"] ?? "";
+  if (!is_string($provided) || trim($provided) === "") return false;
+  return hash_equals(trim($expected), trim($provided));
+}
 
 function db_driver(): string {
   $env = getenv("WS_CHARACTER_DB_DRIVER");
@@ -1385,6 +1428,10 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
   }
 
   if ($method === "PUT") {
+    $user = current_user($pdo);
+    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key()) {
+      respond_error(401, "unauthorized");
+    }
     $body = parse_body();
     $sheet = $body["sheet"] ?? null;
     if (!is_array($sheet)) {
@@ -1428,6 +1475,10 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
   }
 
   if ($method === "DELETE") {
+    $user = current_user($pdo);
+    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key()) {
+      respond_error(401, "unauthorized");
+    }
     $stmt = $pdo->prepare("DELETE FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
     $stmt->execute([
       ":room" => $roomId,
