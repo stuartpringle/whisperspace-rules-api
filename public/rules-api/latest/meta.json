@@ -1,6 +1,6 @@
 {
   "version": "0.1.0",
-  "generatedAt": "2026-03-03T00:36:27.415Z",
+  "generatedAt": "2026-03-04T02:24:18.228Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
@@ -35,8 +35,8 @@
       "bytes": 1086
     },
     "rules.json": {
-      "sha256": "7d655d000ab9d3707e68d34f378b6f45384f023ee4012f74b15f069282d5bb2b",
-      "bytes": 632880
+      "sha256": "34ce9fd1b57f146be7be03ca5b8efd14ea4452f3742c3fde315c3a460d4ca909",
+      "bytes": 632953
     },
     "skill_tooltips.json": {
       "sha256": "b3258dc5703043e34d49fee51ada6302700c9aaa77b49c1484be65b54dc27014",

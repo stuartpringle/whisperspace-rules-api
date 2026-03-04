@@ -4746,7 +4746,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Attempt to demoralize or frighten an enemy. Roll Bearing or Persuade (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy was injured within the last round, another enemy was killed during combat, or is flanked.",
+                      "text": "Attempt to demoralize or frighten an enemy. Roll Bearing, Persuade, or Subterfuge (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy was injured within the last round, another enemy was killed during combat, or is flanked.",
                       "spans": [
                         {
                           "style": "link_underline",
@@ -6677,11 +6677,6 @@
       {
         "type": "paragraph",
         "text": "Whisperspace began as an extremely simple system of rules I put together when creating one-shot adventures. I wanted the adventures to be system-agnostic and I didn’t want to have to put a lot of thought into how to alter existing systems to allow me to put together the character archetypes I wanted to include. This had the advantage of being useful for players who were unfamiliar with existing roleplaying game rulesets to play a new setting easily and quickly. I’ve since rebuilt the system from the ground up but I’ve kept the core identity of what Whisperspace is: an easy-to-play, simple rule system designed to promote fun, quick-paced gameplay and minimize dead time during your gaming sessions.",
-        "spans": []
-      },
-      {
-        "type": "paragraph",
-        "text": "Todo: bring back empathy somehow to tie into empaths, feats, and execute action, look over execute action, new nanomancer field updates to burner, dying condition…. Also add cyberware to interact with dying, maybe by rolling cybernetics? Or using the cybernetics rank as a modifier, like rounds you can auto-succeed a dying check or something.",
         "spans": []
       },
       {
@@ -14995,7 +14990,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1772486111303910&usg=AOvVaw1tWYHl_HDLRoe3r3GRLN-q"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1772594649582985&usg=AOvVaw1sKaE1ywvW4t_x3PgADTAu"
               }
             ]
           }
@@ -18045,6 +18040,11 @@
                   {
                     "type": "paragraph",
                     "text": "Tier 1",
+                    "spans": []
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Todo: bring back empathy somehow to tie into empaths, feats, and execute action, look over execute action, new nanomancer field updates to burner, dying condition…. Also add cyberware to interact with dying, maybe by rolling cybernetics? Or using the cybernetics rank as a modifier, like rounds you can auto-succeed a dying check or something.",
                     "spans": []
                   }
                 ],

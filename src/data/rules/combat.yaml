@@ -644,10 +644,10 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: Attempt to demoralize or frighten an enemy. Roll Bearing or Persuade
-            (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy
-            was injured within the last round, another enemy was killed during combat,
-            or is flanked.
+        - text: Attempt to demoralize or frighten an enemy. Roll Bearing, Persuade,
+            or Subterfuge (DC 12 - enemy’s stress level). Gain a bonus die to this
+            roll if the enemy was injured within the last round, another enemy was
+            killed during combat, or is flanked.
           spans:
           - style: link_underline
             text: flanked
