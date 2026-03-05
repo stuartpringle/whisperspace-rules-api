@@ -237,6 +237,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - active-turn indicator,
   - summary counters,
   - event-driven refresh via OBR scene/room/party subscriptions.
+- Implemented Effects tab v1 in GM extension:
+  - live active-zone table driven by shared `activeNanomancyZones` metadata (caster, rounds, heal/turn, heal mode),
+  - condition-impact table derived from shared character sheet metadata across scene tokens,
+  - reused existing HUD data path to avoid duplicated parsing/state logic.
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
 - Scaffold extension runtime/manifest and panel shell.
