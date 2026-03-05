@@ -245,6 +245,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - live queue derived from shared global combat log metadata (`globalCombatLog`) with manual-resolution filtering,
   - queue entries classified by reason/priority and summarized in-panel,
   - local acknowledge/reset controls added without introducing parallel gameplay-state writes.
+- Implemented Ownership Dashboard v1 in GM extension:
+  - canonical owner map editing per character instance with apply action,
+  - bulk assign-selected ownership action for current scene token selection,
+  - lock-state visibility and owner-sync mismatch indicators for GM reconciliation.
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
 - Scaffold extension runtime/manifest and panel shell.
