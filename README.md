@@ -425,8 +425,8 @@ Workflow:
 7. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
 
 Script behavior:
-- `codex-shared/pre-commit-managed.sh` always runs `git diff --cached --check` and `audit-status`; it runs `codex:audit:batch` + `codex:audit:docs` only when `codex-shared/risk-trigger.sh` flags staged paths as risk-sensitive.
-- `codex-shared/risk-trigger.sh` identifies workflow/security/auth/API/schema/docs-sensitive changes and supports `WS_FORCE_FULL_CODEX_AUDIT=1`.
+- `codex-shared/pre-commit-managed.sh` always runs `git diff --cached --check` and `audit-status`; it runs `codex:audit:batch` + `codex:audit:docs` whenever `codex-shared/risk-trigger.sh` marks the change set as risk-sensitive.
+- `codex-shared/risk-trigger.sh` is fail-closed: full audits run for code/config/workflow/security/API/schema paths and for any non-allowlisted path; full audits are skipped only when all changed files are low-risk allowlisted docs/static assets. Supports `WS_FORCE_FULL_CODEX_AUDIT=1`.
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.

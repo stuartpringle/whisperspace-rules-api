@@ -48,4 +48,4 @@ EOF
   echo "Installed pre-commit codex audit hook: ${hook_path}"
 done
 
-echo "Done. Use WS_SKIP_CODEX_AUDIT=1 to bypass temporarily."
+echo "Done. Emergency bypass requires WS_SKIP_CODEX_AUDIT=1 + WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS (and WS_ALLOW_RISKY_SKIP=1 for risk-triggered sets)."

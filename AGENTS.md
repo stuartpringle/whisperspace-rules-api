@@ -19,7 +19,9 @@ Workflow guardrails for each change batch:
 1. At startup, review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status`. Report unresolved high/critical findings (or explicitly state none).
 2. Pre-commit runs in fast-path mode by default:
    - Always-on lightweight checks: `git diff --cached --check` + `codex:audit:status`.
-   - Full codex subprocess audits (`codex:audit:batch` + `codex:audit:docs`) run only when risk-trigger files change (security/auth/API/schema/workflow/docs paths).
+   - Trigger source: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/risk-trigger.sh`.
+   - Full codex subprocess audits (`codex:audit:batch` + `codex:audit:docs`) run for code/config/workflow/security/API/schema paths and fail closed for any non-allowlisted path.
+   - Full audits are skipped only when all changed files are in the low-risk allowlist (docs/static assets).
 3. Force full codex audit for any commit with `WS_FORCE_FULL_CODEX_AUDIT=1`.
 4. Emergency bypass is explicit only:
    - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` after manual batch/docs audits.

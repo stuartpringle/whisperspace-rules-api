@@ -37,7 +37,9 @@ Mandatory controls for this repo (do not skip):
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-status.sh`
 3. Pre-commit fast-path is default:
    - Always-on lightweight checks: `git diff --cached --check` + audit status.
-   - Full codex subprocess audits (`codex:audit:batch`, `codex:audit:docs`) run only for risk-triggered changes.
+   - Trigger source: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/risk-trigger.sh`.
+   - Full codex subprocess audits (`codex:audit:batch`, `codex:audit:docs`) run for code/config/workflow/security/API/schema paths and fail closed for non-allowlisted paths.
+   - Full audits are skipped only when all changed files are in the low-risk allowlist (docs/static assets).
 4. Force a full codex subprocess audit with `WS_FORCE_FULL_CODEX_AUDIT=1` when needed.
 5. Emergency bypass is explicit only:
    - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` after manual batch/docs audits.

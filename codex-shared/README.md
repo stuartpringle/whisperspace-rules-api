@@ -32,6 +32,7 @@ Managed pre-commit fast-path env vars:
 - Risk-triggered change sets still run full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set for explicit emergency bypass.
 - `WS_FORCE_FULL_CODEX_AUDIT=1` forces full subprocess audits on every commit.
 - `WS_CODEX_RISK_REGEX` overrides default risk-path regex used by `risk-trigger.sh`.
+- `WS_CODEX_LOW_RISK_ONLY_REGEX` overrides the low-risk allowlist regex used by `risk-trigger.sh`.
 
 All Whisperspace repo `AGENTS.md` files should point to this location via the canonical policy file:
 - `/hdd/sites/stuartpringle/whisperspace-rules-api/AGENTS.md`
