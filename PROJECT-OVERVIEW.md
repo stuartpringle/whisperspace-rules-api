@@ -230,6 +230,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - GM Adjudication Queue
   - Party/Encounter HUD
   - Ownership Dashboard
+- Added initial extension runtime scaffold (`package.json`, TS/Vite config, OBR manifest, and starter tabbed GM panel shell).
+- Verified scaffold compiles (`npm install` + `npm run build`) in `/hdd/sites/stuartpringle/whisperspace-obr-gm`.
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
 - Scaffold extension runtime/manifest and panel shell.
