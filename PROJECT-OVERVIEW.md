@@ -5,6 +5,10 @@ Whisperspace is a multi-repo ecosystem for a TTRPG ruleset. The goal is to maint
 
 All project directories live in `/hdd/sites/stuartpringle` on an Ubuntu server and are served via Apache2 where applicable.
 
+Security planning note:
+- Cross-project security policy and hardening guidance now lives in `PROJECT-SECURITY.md` (same directory as this file).
+- Maintain usability-first constraints there, especially for low-friction OBR extension usage.
+
 ## Repositories And Roles
 - `whisperspace`
   - Public-facing website.
