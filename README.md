@@ -465,3 +465,26 @@ Uses `compatibility/platform-client-readiness.json` to track adoption status for
 
 Execution note:
 - Track progress in `PROJECT-OVERVIEW.md` under `Ecosystem Streamlining Backlog (2026-03-05)` and update status on every release batch.
+
+## Codex MCP Prerequisites
+
+Codex MCP servers are machine-level runtime config (`~/.codex`), not repo files.
+
+Required MCPs for this repo:
+- `playwright`
+
+One-time install:
+```bash
+codex mcp add playwright -- npx -y @playwright/mcp@latest
+```
+
+Verify:
+```bash
+codex mcp list
+codex mcp get playwright --json
+```
+
+Project check:
+```bash
+bash scripts/check-mcp.sh
+```

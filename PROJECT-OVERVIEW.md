@@ -171,6 +171,7 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - This file (`PROJECT-OVERVIEW.md`): architecture map, roadmap/backlog, compatibility snapshot, concise per-repo status.
 - Per-repo README/CHANGELOG: detailed milestones, implementation history, local operational notes.
 - Security policies/findings: `PROJECT-SECURITY.md`.
+- MCP prerequisites: each active repo README includes a `Codex MCP Prerequisites` section and `scripts/check-mcp.sh`; keep those in sync when MCP requirements change.
 
 ## Review Cadence
 - Update this overview at least once per release batch that changes contracts or deployment workflow.
