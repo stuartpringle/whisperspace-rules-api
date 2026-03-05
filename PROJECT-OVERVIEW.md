@@ -83,7 +83,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - `ECO-002` complete (rules-api scope): contract smoke checks wired into publish flow.
 - `ECO-003` complete (rules-api scope): `ecosystem:release` orchestrator live with summary artifact.
 - `ECO-004` in progress: SDK readiness scaffold added (`compatibility/sdk-readiness.json`, `npm run sdk:readiness`) with shim-free gate enforcement for repos marked `complete`.
-- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, and builder phase-2 consumer migration landed (auth session + character list + character detail fetch + save paths).
+- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, and builder phase-3 consumer migration landed (auth session + auth POST flows + character list/detail + save/delete paths).
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
 
@@ -136,7 +136,7 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - Status: Live and feature-rich; active parity work with OBR and rules contracts.
 - Role in ecosystem: canonical character authoring UX and share-link origin.
 - Key integration dependencies: rules-api rules/calc + character-api + SDK schema.
-- Latest milestone: phase-2 ECO-005 migration landed; auth session, character-list, character-detail fetch, and save paths now route through a platform adapter that prefers SDK `createPlatformClient` (with compatibility fallback).
+- Latest milestone: phase-3 ECO-005 migration landed; auth session, auth POST flows (signup/login/logout/password request/reset), character-list/detail, save, and delete paths now route through a platform adapter that prefers SDK `createPlatformClient` (with compatibility fallback).
 - Next milestone: finalize SDK-first contract usage and reduce app-local integration logic.
 
 ### whisperspace-docs
