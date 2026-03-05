@@ -417,10 +417,12 @@ Local operational files:
 
 Workflow:
 1. Make a change batch.
-2. Stage changes.
-3. Run `npm run codex:audit:batch`.
-4. Resolve high/critical findings before commit.
-5. Commit once the batch passes gates.
+2. Review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md` for unresolved issues.
+3. Stage changes.
+4. Run `npm run codex:audit:batch`.
+5. Resolve high/critical findings before commit.
+6. Commit once the batch passes gates.
+7. Re-check latest audit artifacts and log/report unresolved findings.
 
 Script behavior:
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
