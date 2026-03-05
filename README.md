@@ -44,6 +44,12 @@ Single release orchestrator:
 npm run ecosystem:release
 ```
 On success this writes `dist/ecosystem-release-summary.json` with publish metadata and gate status.
+It also writes structured observability artifacts:
+- `dist/ecosystem-observability.json` (step durations/status + failure signal)
+- `dist/telemetry/ecosystem-release.ndjson` (run/step events for ingestion)
+
+Observability baseline config:
+- `compatibility/observability-baseline.json` defines initial SLO targets, alert thresholds, and standard log fields for ecosystem services.
 
 Related repos:
 - `whisperspace-obr-extension`

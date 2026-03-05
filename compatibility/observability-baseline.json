@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-03-05",
+  "services": [
+    {
+      "id": "rules-api",
+      "slo": {
+        "availability_percent_30d": 99.9,
+        "p95_latency_ms_get_meta": 600
+      },
+      "alerts": [
+        {
+          "id": "rules_api_5xx_rate",
+          "condition": "5xx_rate_percent_5m > 2",
+          "severity": "critical"
+        },
+        {
+          "id": "rules_api_429_spike",
+          "condition": "429_count_5m > 200",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "character-api",
+      "slo": {
+        "availability_percent_30d": 99.9,
+        "p95_latency_ms_character_crud": 800
+      },
+      "alerts": [
+        {
+          "id": "character_api_5xx_rate",
+          "condition": "5xx_rate_percent_5m > 2",
+          "severity": "critical"
+        },
+        {
+          "id": "character_api_auth_fail_spike",
+          "condition": "auth_failures_5m > 100",
+          "severity": "warning"
+        }
+      ]
+    },
+    {
+      "id": "release-pipeline",
+      "slo": {
+        "success_percent_7d": 95.0
+      },
+      "alerts": [
+        {
+          "id": "ecosystem_release_failed",
+          "condition": "ecosystem_release_last_run_ok == false",
+          "severity": "critical"
+        }
+      ]
+    }
+  ],
+  "logFields": [
+    "runId",
+    "event",
+    "stepId",
+    "status",
+    "durationMs",
+    "endpoint",
+    "retryCount",
+    "context"
+  ]
+}
