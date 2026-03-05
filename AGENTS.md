@@ -17,15 +17,18 @@ Documentation discipline:
 
 Workflow guardrails for each change batch:
 1. At startup, review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status`. Report unresolved high/critical findings (or explicitly state none).
-2. Run a codex guardrail audit before commit.
-   - Preferred: `npm run codex:audit:batch` (shared implementation at `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/codex-batch-audit.sh`).
-   - Fallback: `git diff --staged | codex exec "Audit this diff for security/workflow/docs drift. Return critical/high findings first."`
-3. Run documentation audit before commit (`npm run codex:audit:docs` or shared script path).
-4. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path).
-5. Resolve critical/high findings before commit.
-6. Commit after each completed batch.
-7. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
-8. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
+2. Pre-commit runs in fast-path mode by default:
+   - Always-on lightweight checks: `git diff --cached --check` + `codex:audit:status`.
+   - Full codex subprocess audits (`codex:audit:batch` + `codex:audit:docs`) run only when risk-trigger files change (security/auth/API/schema/workflow/docs paths).
+3. Force full codex audit for any commit with `WS_FORCE_FULL_CODEX_AUDIT=1`.
+4. Emergency bypass is explicit only:
+   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` after manual batch/docs audits.
+   - Risk-triggered changes still require full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set.
+5. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path) when needed.
+6. Resolve critical/high findings before commit.
+7. Commit after each completed batch.
+8. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
+9. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
 
 Shared helper location (single source of truth):
 - `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/`

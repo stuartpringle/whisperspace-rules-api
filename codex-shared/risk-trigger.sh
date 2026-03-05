@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+MODE="staged"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --staged)
+      MODE="staged"
+      shift
+      ;;
+    --working-tree)
+      MODE="working"
+      shift
+      ;;
+    *)
+      echo "Usage: $0 [--staged|--working-tree]"
+      exit 2
+      ;;
+  esac
+done
+
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+  echo "RISK_AUDIT: no"
+  echo "REASON: not in a git repository"
+  exit 1
+fi
+
+if [[ "${WS_FORCE_FULL_CODEX_AUDIT:-0}" == "1" ]]; then
+  echo "RISK_AUDIT: yes"
+  echo "REASON: WS_FORCE_FULL_CODEX_AUDIT=1"
+  exit 0
+fi
+
+if [[ "${MODE}" == "staged" ]]; then
+  CHANGED_FILES="$(git diff --cached --name-only)"
+else
+  CHANGED_FILES="$(git diff --name-only)"
+fi
+
+if [[ -z "${CHANGED_FILES}" ]]; then
+  echo "RISK_AUDIT: no"
+  echo "REASON: no changed files"
+  exit 1
+fi
+
+# Trigger full audits only for workflow/security/contract-sensitive changes.
+DEFAULT_RISK_REGEX='(^|/)(AGENTS\.md|README\.md|PROJECT-OVERVIEW\.md|PROJECT_OVERVIEW\.md|PROJECT-SECURITY\.md|PROJECT_SECURITY\.md|package\.json|package-lock\.json|composer\.json|composer\.lock|pyproject\.toml|requirements.*\.txt|go\.mod|go\.sum|Cargo\.toml|Cargo\.lock)$|^\.github/workflows/|^codex-shared/|^scripts/(codex|claude|sync-codex|install-codex-hooks|ecosystem-release|rules-publish|contract-smoke|test-character-ownership|check-compatibility|check-platform-readiness|check-sdk-readiness)|^public/character-api/|^public/rules-api/calc/|^public/rules-api/calc/schemas/|^packages/core/src/|(^|/)(auth|oauth|session|csrf|cors|security|permission|ownership|schema|contract|endpoint|api)(/|_|-|\.)'
+RISK_REGEX="${WS_CODEX_RISK_REGEX:-$DEFAULT_RISK_REGEX}"
+
+if command -v rg >/dev/null 2>&1; then
+  MATCHES="$(printf "%s\n" "${CHANGED_FILES}" | rg -n -e "${RISK_REGEX}" || true)"
+else
+  MATCHES="$(printf "%s\n" "${CHANGED_FILES}" | grep -En "${RISK_REGEX}" || true)"
+fi
+
+if [[ -n "${MATCHES}" ]]; then
+  echo "RISK_AUDIT: yes"
+  echo "MATCHES:"
+  printf "%s\n" "${MATCHES}"
+  exit 0
+fi
+
+echo "RISK_AUDIT: no"
+echo "REASON: only low-risk paths changed"
+exit 1

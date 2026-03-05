@@ -419,13 +419,14 @@ Workflow:
 1. Make a change batch.
 2. Review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status` for unresolved high/critical status.
 3. Stage changes.
-4. Run `npm run codex:audit:batch`.
-5. Run `npm run codex:audit:autoresolve` to auto-log closed findings.
-6. Resolve high/critical findings before commit.
-7. Commit once the batch passes gates.
-8. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
+4. Commit (managed pre-commit runs fast checks always and full Codex audits only for risk-triggered change sets).
+5. Run `npm run codex:audit:autoresolve` when explicitly resolving stale findings.
+6. Resolve high/critical findings before merge.
+7. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
 
 Script behavior:
+- `codex-shared/pre-commit-managed.sh` always runs `git diff --cached --check` and `audit-status`; it runs `codex:audit:batch` + `codex:audit:docs` only when `codex-shared/risk-trigger.sh` flags staged paths as risk-sensitive.
+- `codex-shared/risk-trigger.sh` identifies workflow/security/auth/API/schema/docs-sensitive changes and supports `WS_FORCE_FULL_CODEX_AUDIT=1`.
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
@@ -435,7 +436,9 @@ Script behavior:
 - `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `scripts/sync-codex-ecosystem.sh` syncs AGENTS stubs + CI workflow + managed hooks across all Whisperspace repos, then verifies hook wiring.
-- `WS_SKIP_CODEX_AUDIT=1` is a temporary emergency bypass only; run `npm run codex:audit:batch` manually before merge/push when using it.
+- `WS_SKIP_CODEX_AUDIT=1` is emergency-only and requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` (after running `npm run codex:audit:batch && npm run codex:audit:docs`).
+- Risk-triggered change sets ignore `WS_SKIP_CODEX_AUDIT=1` unless `WS_ALLOW_RISKY_SKIP=1` is also set for explicit emergency bypass.
+- `WS_FORCE_FULL_CODEX_AUDIT=1` forces full Codex subprocess audits even for low-risk path changes.
 
 Audit finding lifecycle note:
 - `npm run codex:audit:autoresolve` lists candidate keys.

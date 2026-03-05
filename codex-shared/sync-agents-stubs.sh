@@ -35,20 +35,21 @@ Mandatory controls for this repo (do not skip):
 2. At startup and after each commit, run audit status and report unresolved findings:
    - Preferred: `npm run codex:audit:status` (if available in this repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-status.sh`
-3. Run guardrail audit before commit:
-   - Preferred: `npm run codex:audit:batch` (if available in this repo).
-   - Fallback: `git diff --staged | codex exec "Audit this diff for security/workflow/docs drift. Return critical/high findings first."`
-4. Run documentation audit before commit:
-   - Preferred: `npm run codex:audit:docs` (if available in this repo).
-   - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/codex-docs-audit.sh`
-5. Run auto-resolution sweep for closed findings:
+3. Pre-commit fast-path is default:
+   - Always-on lightweight checks: `git diff --cached --check` + audit status.
+   - Full codex subprocess audits (`codex:audit:batch`, `codex:audit:docs`) run only for risk-triggered changes.
+4. Force a full codex subprocess audit with `WS_FORCE_FULL_CODEX_AUDIT=1` when needed.
+5. Emergency bypass is explicit only:
+   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` after manual batch/docs audits.
+   - Risk-triggered changes still require full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set.
+6. Run auto-resolution sweep for closed findings:
    - Preferred: `npm run codex:audit:autoresolve` (if available in this repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-autoresolve.sh`
-6. Resolve critical/high audit findings before commit.
-7. Keep ecosystem guardrails synchronized after helper/policy updates:
+7. Resolve critical/high audit findings before commit.
+8. Keep ecosystem guardrails synchronized after helper/policy updates:
    - Preferred: `npm run codex:ecosystem:sync` (from rules-api control repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/scripts/sync-codex-ecosystem.sh`
-8. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
+9. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
 
 Repo-specific additions:
 - Keep this section minimal and only add true local exceptions.
