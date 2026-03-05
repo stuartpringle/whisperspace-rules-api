@@ -430,15 +430,17 @@ Script behavior:
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
+  - It also reports recent emergency bypass events from `.codex/BYPASS-LOG.tsv`.
 - `scripts/codex-audit-autoresolve.sh` lists resolution candidates and writes `RESOLVED:` entries only for explicit `--resolve-key` values.
 - `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
 - `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
 - `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `scripts/sync-codex-ecosystem.sh` syncs AGENTS stubs + CI workflow + managed hooks across all Whisperspace repos, then verifies hook wiring.
-- `WS_SKIP_CODEX_AUDIT=1` is emergency-only and requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` (after running `npm run codex:audit:batch && npm run codex:audit:docs`).
+- `WS_SKIP_CODEX_AUDIT=1` is emergency-only and requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` plus `WS_BYPASS_REASON="<ticket or short reason>"` (after running `npm run codex:audit:batch && npm run codex:audit:docs`).
 - Risk-triggered change sets ignore `WS_SKIP_CODEX_AUDIT=1` unless `WS_ALLOW_RISKY_SKIP=1` is also set for explicit emergency bypass.
 - `WS_FORCE_FULL_CODEX_AUDIT=1` forces full Codex subprocess audits even for low-risk path changes.
+- Emergency bypass usage is logged to `.codex/BYPASS-LOG.tsv` and surfaced by `codex:audit:status`.
 
 Audit finding lifecycle note:
 - `npm run codex:audit:autoresolve` lists candidate keys.

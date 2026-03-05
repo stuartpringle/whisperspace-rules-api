@@ -8,13 +8,7 @@ fi
 
 AUDIT_DIR=".codex/audits"
 AUDIT_LOG=".codex/AUDIT-LOG.md"
-
-if [[ ! -d "${AUDIT_DIR}" ]]; then
-  echo "AUDIT_STATUS: PASS"
-  echo "UNRESOLVED_HIGH_CRITICAL: 0"
-  echo "UNRESOLVED_OLDER_THAN_ONE_COMMIT: 0"
-  exit 0
-fi
+BYPASS_LOG=".codex/BYPASS-LOG.tsv"
 
 HEAD_TS="$(git log -1 --format=%ct 2>/dev/null || echo 0)"
 PREV_TS="$(git log -1 --skip=1 --format=%ct 2>/dev/null || echo 0)"
@@ -28,11 +22,53 @@ fi
 
 tmp_findings="$(mktemp)"
 tmp_resolved="$(mktemp)"
-trap 'rm -f "${tmp_findings}" "${tmp_resolved}"' EXIT
+tmp_bypass_recent="$(mktemp)"
+trap 'rm -f "${tmp_findings}" "${tmp_resolved}" "${tmp_bypass_recent}"' EXIT
+
+bypass_recent=0
+declare -a bypass_lines=()
+if [[ -f "${BYPASS_LOG}" ]]; then
+  awk -F '\t' -v prev="${PREV_TS}" '
+    BEGIN { OFS="\t" }
+    /^#/ { next }
+    NF < 7 { next }
+    {
+      epoch=$1+0
+      if (prev <= 0 || epoch > prev) {
+        print $0
+      }
+    }
+  ' "${BYPASS_LOG}" > "${tmp_bypass_recent}"
+
+  if [[ -s "${tmp_bypass_recent}" ]]; then
+    bypass_recent="$(wc -l < "${tmp_bypass_recent}" | tr -d ' ')"
+    while IFS=$'\t' read -r epoch iso branch head risk reason files; do
+      bypass_lines+=( "${iso} | branch=${branch} | head=${head} | risk_mode=${risk} | reason=${reason} | files=${files}" )
+    done < "${tmp_bypass_recent}"
+  fi
+fi
 
 shopt -s nullglob
 reports=( "${AUDIT_DIR}"/*.txt )
 shopt -u nullglob
+
+if [[ ! -d "${AUDIT_DIR}" ]]; then
+  if [[ "${bypass_recent}" -gt 0 ]]; then
+    echo "AUDIT_STATUS: WARN"
+  else
+    echo "AUDIT_STATUS: PASS"
+  fi
+  echo "UNRESOLVED_HIGH_CRITICAL: 0"
+  echo "UNRESOLVED_OLDER_THAN_ONE_COMMIT: 0"
+  echo "BYPASS_EVENTS_SINCE_PREVIOUS_COMMIT: ${bypass_recent}"
+  if [[ "${bypass_recent}" -gt 0 ]]; then
+    echo "BYPASS_EVENTS:"
+    for line in "${bypass_lines[@]}"; do
+      echo "- ${line}"
+    done
+  fi
+  exit 0
+fi
 
 for report in "${reports[@]}"; do
   base="$(basename "${report}")"
@@ -71,14 +107,25 @@ if [[ -f "${AUDIT_LOG}" ]]; then
 fi
 
 if [[ ! -s "${tmp_findings}" ]]; then
-  echo "AUDIT_STATUS: PASS"
+  if [[ "${bypass_recent}" -gt 0 ]]; then
+    echo "AUDIT_STATUS: WARN"
+  else
+    echo "AUDIT_STATUS: PASS"
+  fi
   echo "UNRESOLVED_HIGH_CRITICAL: 0"
   echo "UNRESOLVED_OLDER_THAN_ONE_COMMIT: 0"
+  echo "BYPASS_EVENTS_SINCE_PREVIOUS_COMMIT: ${bypass_recent}"
+  if [[ "${bypass_recent}" -gt 0 ]]; then
+    echo "BYPASS_EVENTS:"
+    for line in "${bypass_lines[@]}"; do
+      echo "- ${line}"
+    done
+  fi
   exit 0
 fi
 
 summary_tmp="$(mktemp)"
-trap 'rm -f "${tmp_findings}" "${tmp_resolved}" "${summary_tmp}"' EXIT
+trap 'rm -f "${tmp_findings}" "${tmp_resolved}" "${tmp_bypass_recent}" "${summary_tmp}"' EXIT
 
 awk -F '\t' '
   {
@@ -122,12 +169,15 @@ if [[ "${unresolved_older}" -gt 0 ]]; then
   echo "AUDIT_STATUS: FAIL"
 elif [[ "${unresolved_total}" -gt 0 ]]; then
   echo "AUDIT_STATUS: WARN"
+elif [[ "${bypass_recent}" -gt 0 ]]; then
+  echo "AUDIT_STATUS: WARN"
 else
   echo "AUDIT_STATUS: PASS"
 fi
 
 echo "UNRESOLVED_HIGH_CRITICAL: ${unresolved_total}"
 echo "UNRESOLVED_OLDER_THAN_ONE_COMMIT: ${unresolved_older}"
+echo "BYPASS_EVENTS_SINCE_PREVIOUS_COMMIT: ${bypass_recent}"
 echo "HEAD_COMMIT_EPOCH: ${HEAD_TS}"
 echo "PREVIOUS_COMMIT_EPOCH: ${PREV_TS}"
 
@@ -141,6 +191,13 @@ fi
 if [[ "${unresolved_older}" -gt 0 ]]; then
   echo "BLOCKING_FINDINGS:"
   for line in "${unresolved_older_lines[@]}"; do
+    echo "- ${line}"
+  done
+fi
+
+if [[ "${bypass_recent}" -gt 0 ]]; then
+  echo "BYPASS_EVENTS:"
+  for line in "${bypass_lines[@]}"; do
     echo "- ${line}"
   done
 fi

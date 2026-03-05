@@ -24,8 +24,9 @@ Workflow guardrails for each change batch:
    - Full audits are skipped only when all changed files are in the low-risk allowlist (docs/static assets).
 3. Force full codex audit for any commit with `WS_FORCE_FULL_CODEX_AUDIT=1`.
 4. Emergency bypass is explicit only:
-   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` after manual batch/docs audits.
+   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` and `WS_BYPASS_REASON="<ticket or short reason>"` after manual batch/docs audits.
    - Risk-triggered changes still require full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set.
+   - Every emergency bypass is written to `.codex/BYPASS-LOG.tsv` and surfaced by `codex:audit:status`.
 5. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path) when needed.
 6. Resolve critical/high findings before commit.
 7. Commit after each completed batch.

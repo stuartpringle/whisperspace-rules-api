@@ -42,8 +42,9 @@ Mandatory controls for this repo (do not skip):
    - Full audits are skipped only when all changed files are in the low-risk allowlist (docs/static assets).
 4. Force a full codex subprocess audit with `WS_FORCE_FULL_CODEX_AUDIT=1` when needed.
 5. Emergency bypass is explicit only:
-   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` after manual batch/docs audits.
+   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` and `WS_BYPASS_REASON="<ticket or short reason>"` after manual batch/docs audits.
    - Risk-triggered changes still require full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set.
+   - Every emergency bypass is written to `.codex/BYPASS-LOG.tsv` and surfaced by audit status.
 6. Run auto-resolution sweep for closed findings:
    - Preferred: `npm run codex:audit:autoresolve` (if available in this repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-autoresolve.sh`
