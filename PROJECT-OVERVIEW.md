@@ -139,7 +139,7 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - Status: Live and feature-rich; active parity work with OBR and rules contracts.
 - Role in ecosystem: canonical character authoring UX and share-link origin.
 - Key integration dependencies: rules-api rules/calc + character-api + SDK schema.
-- Latest milestone: phase-3 ECO-005 migration landed; auth session, auth POST flows (signup/login/logout/password request/reset), character-list/detail, save, and delete paths now route through a platform adapter that prefers SDK `createPlatformClient` (with compatibility fallback).
+- Latest milestone: phase-3 ECO-005 migration landed; auth session, auth POST flows (signup/login/logout/password request/reset), character-list/detail, save, and delete paths now route through a platform adapter that prefers SDK `createPlatformClient` (with compatibility fallback). Codex MCP integration note added: `database-explorer` must pass a MySQL URL argument to `@berthojoris/mcp-mysql-server` or startup initialize handshake fails.
 - Next milestone: finalize SDK-first contract usage and reduce app-local integration logic.
 
 ### whisperspace-docs
