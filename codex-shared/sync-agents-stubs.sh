@@ -35,25 +35,20 @@ Mandatory controls for this repo (do not skip):
 2. At startup and after each commit, run audit status and report unresolved findings:
    - Preferred: `npm run codex:audit:status` (if available in this repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-status.sh`
-3. Pre-commit fast-path is default:
+3. Pre-commit fast checks are default:
    - Always-on lightweight checks: `git diff --cached --check` + audit status.
-   - Trigger source: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/risk-trigger.sh`.
-   - Full codex subprocess audits (`codex:audit:batch`, `codex:audit:docs`) run for code/config/workflow/security/API/schema paths and fail closed for non-allowlisted paths.
-   - Full audits are skipped only when all changed files are in the low-risk allowlist (docs/static assets).
-4. Force a full codex subprocess audit with `WS_FORCE_FULL_CODEX_AUDIT=1` when needed.
-5. Emergency bypass is explicit only:
-   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` and `WS_BYPASS_REASON="<ticket or short reason>"` after manual batch/docs audits.
-   - Risk-triggered changes still require full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set.
-   - Every emergency bypass is written to `.codex/BYPASS-LOG.tsv` and surfaced by audit status.
-6. Run auto-resolution sweep for closed findings:
+4. Post-commit queues asynchronous commit-scoped Codex review:
+   - Queue file: `.codex/audits/post-commit-queue.tsv`.
+   - Manual run fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/post-commit-review.sh <commit>`.
+5. Run auto-resolution sweep for closed findings:
    - Preferred: `npm run codex:audit:autoresolve` (if available in this repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-autoresolve.sh`
-7. Resolve critical/high audit findings before commit.
-8. Keep ecosystem guardrails synchronized after helper/policy updates:
+6. Resolve critical/high audit findings before merge.
+7. Keep ecosystem guardrails synchronized after helper/policy updates:
    - Preferred: `npm run codex:ecosystem:sync` (from rules-api control repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/scripts/sync-codex-ecosystem.sh`
-9. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
-10. Treat scheduled Claude ecosystem audit cron as set-once + verify:
+8. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
+9. Treat scheduled Claude ecosystem audit cron as set-once + verify:
    - Preferred check: `npm run claude:audit:cron:check` (from rules-api control repo).
    - Preferred install/update only when missing or drifted: `npm run claude:audit:cron:install -- 7`.
    - Fallback check: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/check-claude-audit-cron.sh`

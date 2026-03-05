@@ -11,6 +11,9 @@ Scripts:
 - `install-claude-audit-cron.sh`: installs/updates the user crontab entry for daily Claude scheduled audits.
 - `check-claude-audit-cron.sh`: verifies the managed Claude cron block exists and points to the scheduled audit command.
 - `pre-commit-managed.sh`: managed pre-commit hook runtime used by all repos.
+- `post-commit-managed.sh`: managed post-commit hook runtime that queues async Codex commit reviews.
+- `post-commit-worker.sh`: single-worker queue processor for post-commit Codex reviews.
+- `post-commit-review.sh`: commit-scoped Codex review runner (security/workflow/docs/contracts).
 - `risk-trigger.sh`: detects risk-sensitive path changes to decide when full subprocess audits are required.
 - `sync-agents-stubs.sh`: sync AGENTS stubs across all Whisperspace repos.
 - `sync-ci-workflow.sh`: sync CI workflow (`codex-audit-status.yml`) across all repos.
@@ -21,10 +24,12 @@ Used by:
 - `scripts/codex-audit-autoresolve.sh` (wrapper)
 - `scripts/codex-audit-status.sh` (wrapper)
 - `scripts/codex-scheduled-audit.sh` (wrapper)
+- `scripts/codex-post-commit-review.sh` (wrapper)
+- `scripts/codex-post-commit-worker.sh` (wrapper)
 - `scripts/claude-scheduled-audit.sh` (wrapper)
 - `scripts/install-claude-audit-cron.sh` (wrapper)
 - `scripts/check-claude-audit-cron.sh` (wrapper)
-- `scripts/install-codex-hooks-ecosystem.sh` (installer writes hook wrappers to call `pre-commit-managed.sh`)
+- `scripts/install-codex-hooks-ecosystem.sh` (installer writes hook wrappers to call `pre-commit-managed.sh` + `post-commit-managed.sh`)
 - `scripts/sync-codex-ecosystem.sh` (ecosystem sync wrapper)
 
 Claude scheduled audit runtime env vars:
@@ -33,13 +38,10 @@ Claude scheduled audit runtime env vars:
 - `WS_CLAUDE_AUDIT_CRON_SCHEDULE` (optional cron schedule override for installer; default `17 3 * * *`)
 - `WS_CLAUDE_AUDIT_DAYS` (optional default day window for cron installer when argument is omitted)
 
-Managed pre-commit fast-path env vars:
-- `WS_SKIP_CODEX_AUDIT=1` bypasses Codex subprocess audits in pre-commit (fast checks/status still run).
-- `WS_SKIP_CODEX_AUDIT=1` is emergency-only and requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` plus `WS_BYPASS_REASON="<ticket or short reason>"` (after manual `codex:audit:batch` + `codex:audit:docs`).
-- Risk-triggered change sets still run full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set for explicit emergency bypass.
-- `WS_FORCE_FULL_CODEX_AUDIT=1` forces full subprocess audits on every commit.
-- `WS_CODEX_RISK_REGEX` overrides default risk-path regex used by `risk-trigger.sh`.
-- `WS_CODEX_LOW_RISK_ONLY_REGEX` overrides the low-risk allowlist regex used by `risk-trigger.sh`.
+Managed hook behavior:
+- Pre-commit now runs fast checks only (`git diff --cached --check` + `audit-status`).
+- Codex subprocess review runs asynchronously after commit through the managed post-commit queue.
+- Emergency skip for post-commit queueing: `WS_SKIP_POST_COMMIT_CODEX_AUDIT=1`.
 
 Emergency bypass telemetry:
 - `pre-commit-managed.sh` appends bypass events to `.codex/BYPASS-LOG.tsv`.

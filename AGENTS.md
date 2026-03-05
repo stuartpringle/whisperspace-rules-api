@@ -17,22 +17,18 @@ Documentation discipline:
 
 Workflow guardrails for each change batch:
 1. At startup, review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status`. Report unresolved high/critical findings (or explicitly state none).
-2. Pre-commit runs in fast-path mode by default:
+2. Pre-commit runs fast checks only:
    - Always-on lightweight checks: `git diff --cached --check` + `codex:audit:status`.
-   - Trigger source: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/risk-trigger.sh`.
-   - Full codex subprocess audits (`codex:audit:batch` + `codex:audit:docs`) run for code/config/workflow/security/API/schema paths and fail closed for any non-allowlisted path.
-   - Full audits are skipped only when all changed files are in the low-risk allowlist (docs/static assets).
-3. Force full codex audit for any commit with `WS_FORCE_FULL_CODEX_AUDIT=1`.
-4. Emergency bypass is explicit only:
-   - `WS_SKIP_CODEX_AUDIT=1` requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` and `WS_BYPASS_REASON="<ticket or short reason>"` after manual batch/docs audits.
-   - Risk-triggered changes still require full subprocess audits unless `WS_ALLOW_RISKY_SKIP=1` is also set.
-   - Every emergency bypass is written to `.codex/BYPASS-LOG.tsv` and surfaced by `codex:audit:status`.
-5. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path) when needed.
-6. Resolve critical/high findings before commit.
-7. Commit after each completed batch.
-8. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
-9. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
-10. Treat Claude scheduled audit cron as set-once + verify:
+3. Post-commit queues asynchronous Codex review automatically through managed hooks:
+   - Queue file: `.codex/audits/post-commit-queue.tsv`
+   - Worker log: `.codex/audits/post-commit-worker.log`
+   - Manual run for a commit: `npm run codex:audit:post-commit -- <commit>`
+4. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path) when needed.
+5. Resolve critical/high findings before merge.
+6. Commit after each completed batch.
+7. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
+8. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
+9. Treat Claude scheduled audit cron as set-once + verify:
    - Install/update only when missing or drifted: `npm run claude:audit:cron:install -- 7`
    - Routine check: `npm run claude:audit:cron:check`
    - Report recent scheduled findings when relevant.

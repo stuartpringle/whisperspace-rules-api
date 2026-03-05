@@ -15,21 +15,40 @@ for repo in "${WS_REPOS[@]}"; do
     continue
   fi
 
-  hook_path="$(git -C "${repo}" rev-parse --git-path hooks)/pre-commit"
-  if [[ ! -f "${hook_path}" ]]; then
+  pre_hook_path="$(git -C "${repo}" rev-parse --git-path hooks)/pre-commit"
+  post_hook_path="$(git -C "${repo}" rev-parse --git-path hooks)/post-commit"
+  if [[ ! -f "${pre_hook_path}" ]]; then
     echo "FAIL: missing pre-commit hook: ${repo}"
     fail=1
     continue
   fi
 
-  if ! grep -q "WS_CODEX_MANAGED_PRECOMMIT" "${hook_path}" 2>/dev/null; then
+  if [[ ! -f "${post_hook_path}" ]]; then
+    echo "FAIL: missing post-commit hook: ${repo}"
+    fail=1
+    continue
+  fi
+
+  if ! grep -q "WS_CODEX_MANAGED_PRECOMMIT" "${pre_hook_path}" 2>/dev/null; then
     echo "FAIL: unmanaged pre-commit hook: ${repo}"
     fail=1
     continue
   fi
 
-  if ! grep -q "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh" "${hook_path}" 2>/dev/null; then
-    echo "FAIL: hook does not target shared runtime: ${repo}"
+  if ! grep -q "WS_CODEX_MANAGED_POSTCOMMIT" "${post_hook_path}" 2>/dev/null; then
+    echo "FAIL: unmanaged post-commit hook: ${repo}"
+    fail=1
+    continue
+  fi
+
+  if ! grep -q "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh" "${pre_hook_path}" 2>/dev/null; then
+    echo "FAIL: pre-commit hook does not target shared runtime: ${repo}"
+    fail=1
+    continue
+  fi
+
+  if ! grep -q "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/post-commit-managed.sh" "${post_hook_path}" 2>/dev/null; then
+    echo "FAIL: post-commit hook does not target shared runtime: ${repo}"
     fail=1
     continue
   fi

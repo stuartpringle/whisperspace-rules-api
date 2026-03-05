@@ -53,6 +53,10 @@ Batch guardrail audit (Codex CLI subprocess):
 ```bash
 npm run codex:audit:batch
 ```
+Manual post-commit audit for a specific commit:
+```bash
+npm run codex:audit:post-commit -- HEAD
+```
 Codex multi-agent orchestrator (fan-out task list, default max 4):
 ```bash
 npm run codex:orchestrate -- --tasks .codex/tasks.txt --max-agents 4
@@ -433,14 +437,16 @@ Workflow:
 1. Make a change batch.
 2. Review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status` for unresolved high/critical status.
 3. Stage changes.
-4. Commit (managed pre-commit runs fast checks always and full Codex audits only for risk-triggered change sets).
+4. Commit (managed pre-commit runs fast checks; managed post-commit queues asynchronous Codex review for the new commit).
 5. Run `npm run codex:audit:autoresolve` when explicitly resolving stale findings.
 6. Resolve high/critical findings before merge.
 7. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
 
 Script behavior:
-- `codex-shared/pre-commit-managed.sh` always runs `git diff --cached --check` and `audit-status`; it runs `codex:audit:batch` + `codex:audit:docs` whenever `codex-shared/risk-trigger.sh` marks the change set as risk-sensitive.
-- `codex-shared/risk-trigger.sh` is fail-closed: full audits run for code/config/workflow/security/API/schema paths and for any non-allowlisted path; full audits are skipped only when all changed files are low-risk allowlisted docs/static assets. Supports `WS_FORCE_FULL_CODEX_AUDIT=1`.
+- `codex-shared/pre-commit-managed.sh` runs fast checks only (`git diff --cached --check` + `audit-status`).
+- `codex-shared/post-commit-managed.sh` queues asynchronous commit-scoped Codex audits after each commit.
+- `codex-shared/post-commit-worker.sh` processes `.codex/audits/post-commit-queue.tsv` with a single lock-protected worker.
+- `codex-shared/post-commit-review.sh <commit>` runs security/workflow/docs/contract review against a specific commit diff and writes report artifacts.
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
@@ -454,10 +460,7 @@ Script behavior:
 - `scripts/check-claude-audit-cron.sh` verifies the managed Claude audit cron block is present and correctly configured.
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `scripts/sync-codex-ecosystem.sh` syncs AGENTS stubs + CI workflow + managed hooks across all Whisperspace repos, then verifies hook wiring.
-- `WS_SKIP_CODEX_AUDIT=1` is emergency-only and requires `WS_MANUAL_AUDIT_ACK=I_RAN_CODEX_AUDITS` plus `WS_BYPASS_REASON="<ticket or short reason>"` (after running `npm run codex:audit:batch && npm run codex:audit:docs`).
-- Risk-triggered change sets ignore `WS_SKIP_CODEX_AUDIT=1` unless `WS_ALLOW_RISKY_SKIP=1` is also set for explicit emergency bypass.
-- `WS_FORCE_FULL_CODEX_AUDIT=1` forces full Codex subprocess audits even for low-risk path changes.
-- Emergency bypass usage is logged to `.codex/BYPASS-LOG.tsv` and surfaced by `codex:audit:status`.
+- `WS_SKIP_POST_COMMIT_CODEX_AUDIT=1` skips queueing asynchronous Codex commit review (emergency-only).
 
 Audit finding lifecycle note:
 - `npm run codex:audit:autoresolve` lists candidate keys.
