@@ -13,9 +13,26 @@ if ! [[ "${DAYS}" =~ ^[0-9]+$ ]]; then
   exit 2
 fi
 
+if [[ "${SCHEDULE}" == *$'\n'* || "${SCHEDULE}" == *$'\r'* ]]; then
+  echo "ERROR: schedule must not contain newlines."
+  exit 2
+fi
+
+IFS=' ' read -r -a SCHEDULE_PARTS <<< "${SCHEDULE}"
+if [[ "${#SCHEDULE_PARTS[@]}" -ne 5 ]]; then
+  echo "ERROR: schedule must have exactly 5 cron fields."
+  exit 2
+fi
+
+if ! command -v npm >/dev/null 2>&1; then
+  echo "ERROR: npm not found in PATH."
+  exit 2
+fi
+NPM_BIN="$(command -v npm)"
+
 mkdir -p "${RULES_API_REPO}/.codex/audits"
 
-CRON_CMD="cd ${RULES_API_REPO} && npm run claude:audit:repo -- ${DAYS} >> ${LOG_PATH} 2>&1"
+CRON_CMD="cd ${RULES_API_REPO} && ${NPM_BIN} run claude:audit:repo -- ${DAYS} >> ${LOG_PATH} 2>&1"
 BEGIN_MARKER="# WS_CLAUDE_AUDIT_CRON_BEGIN"
 END_MARKER="# WS_CLAUDE_AUDIT_CRON_END"
 
