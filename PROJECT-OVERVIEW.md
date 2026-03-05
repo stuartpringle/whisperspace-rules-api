@@ -91,6 +91,66 @@ Canonical contracts and where they live:
 - Character record schema (source of truth): `/hdd/sites/stuartpringle/whisperspace-sdk/schema/character-record.v1.json`
 - Character schema endpoint: `https://rules-api.whisperspace.com/character-api/schema.json`
 
+## Ecosystem Streamlining Backlog (2026-03-05)
+This is the prioritized execution plan for making the multi-repo system more manageable, maintainable, and efficient.
+
+### Program Goals
+- Manageability: one reliable release path and one compatibility view across repos.
+- Maintainability: shared contracts and shared client/runtime code paths, fewer one-off adapters.
+- Efficiency: fewer regressions, less duplicate work, faster diagnosis/recovery when issues happen.
+
+### Delivery Sequence
+1. Foundation hardening (P0): compatibility matrix + contract checks + release orchestration.
+2. Shared runtime consolidation (P1): SDK-first contracts and shared platform client for builder/OBR/GM.
+3. Operational maturity (P2): observability/SLOs and overview-doc structure cleanup.
+
+### Backlog (Epics)
+| ID | Priority | Epic | Primary Owner | Supporting Repos | Success Criteria |
+| --- | --- | --- | --- | --- | --- |
+| ECO-001 | P0 | Cross-repo compatibility matrix enforcement | `whisperspace-rules-api` maintainer | `whisperspace-sdk`, `whisperspace-character-builder`, `whisperspace-obr-extension`, `whisperspace-obr-gm`, `whisperspace-docs` | Matrix has real version rows per release; PR/publish checks fail when a repo declares incompatible contract version. |
+| ECO-002 | P0 | Contract smoke tests + post-deploy verification | `whisperspace-rules-api` maintainer | `whisperspace-character-builder`, `whisperspace-obr-extension`, `whisperspace-obr-gm`, `whisperspace-docs` | Automated checks verify key live endpoints/response shapes (rules/meta/calc/schema/auth/OBR instance) after publish; deploy is marked failed on mismatch. |
+| ECO-003 | P0 | Single release orchestrator workflow | `whisperspace-rules-api` maintainer | all repos | One command/workflow runs parser -> publish -> downstream smoke tests -> compatibility update; partial deploy states are blocked. |
+| ECO-004 | P1 | SDK-first contract adoption (remove production shims) | `whisperspace-sdk` maintainer | `whisperspace-obr-extension`, `whisperspace-character-builder`, `whisperspace-rules-api` | Builder/OBR/rules-api consume pinned SDK releases for shared models; no production local compatibility shim for core contracts. |
+| ECO-005 | P1 | Shared Whisperspace platform client package | `whisperspace-sdk` maintainer | `whisperspace-character-builder`, `whisperspace-obr-extension`, `whisperspace-obr-gm` | Shared auth/session/calc/character-api client used by all UI apps; duplicate network/retry/cooldown logic is removed from app repos. |
+| ECO-006 | P2 | Ecosystem observability + SLO baseline | `whisperspace-rules-api` maintainer | `whisperspace-obr-extension`, `whisperspace-obr-gm`, `whisperspace-character-builder` | Metrics/alerts exist for API errors, publish failures, 429 bursts, OBR sync retries; error budget/SLOs documented and reviewed monthly. |
+| ECO-007 | P2 | Documentation normalization and ownership | `whisperspace-rules-api` maintainer | all repos | `PROJECT-OVERVIEW.md` is concise dashboard-style; detailed changelogs move to per-repo docs; blank/stray status sections are removed. |
+
+### Implementation Tasks (First Pass)
+1. `ECO-001` compatibility matrix enforcement
+   - Add required columns: `rulesVersion`, `sdkVersion`, `character-api contract rev`, `builder release`, `OBR release`, `GM release`, `docs release`.
+   - Add repo-local `compatibility.json` manifests and a validator script in `whisperspace-rules-api`.
+   - Gate `rules:publish` on compatibility validation for declared dependent repos.
+2. `ECO-002` contract smoke tests
+   - Create a test script that checks live status/body contracts for:
+     - `GET /rules-api/latest/meta.json`
+     - `GET /rules-api/calc/schemas/index.json`
+     - `GET /character-api/schema.json`
+     - `GET /character-api/auth/csrf`
+     - `GET /character-api/obr-instance/:instanceId?roomId=:roomId` miss behavior
+   - Record expected status/body keys centrally and fail on drift.
+3. `ECO-003` release orchestrator
+   - Add `npm run ecosystem:release` in this repo to orchestrate parser/publish/verification.
+   - Include explicit rollback guidance and a "promotion complete" summary artifact.
+4. `ECO-004` SDK-first rollout
+   - Publish the pending SDK version with nanomancy/tags and document migration steps.
+   - Remove local compatibility adapter/shim usage from OBR where SDK already covers contract.
+5. `ECO-005` shared platform client
+   - Extract common API client logic into SDK package modules:
+     - session/bootstrap, csrf, character CRUD/public fetch, calc calls, retry/backoff.
+   - Migrate builder first, then OBR sheet, then OBR GM.
+6. `ECO-006` observability baseline
+   - Standardize client log fields (`requestId`, `endpoint`, `status`, `retryCount`, `context`).
+   - Add aggregated counters and alerts for publish failures and elevated API error rates.
+7. `ECO-007` docs normalization
+   - Keep `PROJECT-OVERVIEW.md` focused on architecture, roadmap, and live status.
+   - Move dense per-repo milestone logs to each repo's README/CHANGELOG.
+
+### Exit Criteria
+- No contract-breaking release reaches production without failing a pre-deploy gate.
+- No manual publish sequence is required for standard releases.
+- Builder + OBR + GM use shared SDK/platform client paths for core API interactions.
+- On-call/operator can identify root cause within 10 minutes using standardized checks and metrics.
+
 ## Status Rollup (Fill In)
 Use this section to keep a single-source, cross-repo status summary.
 

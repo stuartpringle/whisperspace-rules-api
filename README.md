@@ -387,3 +387,35 @@ Operational notes:
 - Build/publish commands and deployment steps.
 - Local dev setup and dependencies.
 - Known integration pitfalls or gotchas.
+
+## Cross-Repo Improvement Backlog (2026-03-05)
+This repo is the orchestration point for ecosystem releases. The following backlog is the active plan for improving whole-system manageability, maintainability, and efficiency.
+
+Priority order:
+1. `P0` enforce compatibility + contract verification + one release workflow.
+2. `P1` move Builder/OBR/GM to shared SDK/platform client runtime paths.
+3. `P2` standardize observability and keep overview docs concise/accurate.
+
+### Epics Owned Or Coordinated Here
+1. `ECO-001` compatibility matrix enforcement
+   - Deliverables: machine-readable compatibility manifests + validator.
+   - Acceptance: publish/release fails when declared versions are incompatible.
+2. `ECO-002` contract smoke tests and post-deploy checks
+   - Deliverables: automated endpoint/shape checks for rules/calc/character-api critical paths.
+   - Acceptance: contract drift is detected automatically before/after deploy.
+3. `ECO-003` single release orchestrator
+   - Deliverables: one workflow (`ecosystem:release`) that runs parser sync, publish, and verification.
+   - Acceptance: no manual multi-command release is required for standard updates.
+4. `ECO-006` observability baseline
+   - Deliverables: shared counters/log conventions + alerts for API/publish failures and retry storms.
+   - Acceptance: root cause triage for ecosystem incidents is fast and repeatable.
+5. `ECO-007` documentation normalization
+   - Deliverables: concise `PROJECT-OVERVIEW.md` dashboard + per-repo detailed changelogs.
+   - Acceptance: overview stays current, short, and operationally reliable.
+
+Coordination dependencies:
+- `ECO-004` SDK-first contract adoption (owned by `whisperspace-sdk`, consumed by rules-api/builder/OBR).
+- `ECO-005` shared platform client rollout (owned by `whisperspace-sdk`, integrated by builder/OBR/GM).
+
+Execution note:
+- Track progress in `PROJECT-OVERVIEW.md` under `Ecosystem Streamlining Backlog (2026-03-05)` and update status on every release batch.
