@@ -61,6 +61,8 @@ Install/update pre-commit audit hooks across Whisperspace repos:
 ```bash
 npm run codex:hooks:install
 ```
+Shared helper root (canonical):
+- `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/`
 
 Observability baseline config:
 - `compatibility/observability-baseline.json` defines initial SLO targets, alert thresholds, and standard log fields for ecosystem services.
@@ -413,7 +415,7 @@ Script behavior:
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
 - `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
-- `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`, running preserved user hooks before Codex audit, running `npm run codex:audit:batch` where available, and failing closed if no audit runner exists (unless `WS_SKIP_CODEX_AUDIT=1` is set).
+- `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `WS_SKIP_CODEX_AUDIT=1` is a temporary emergency bypass only; run `npm run codex:audit:batch` manually before merge/push when using it.
 
 ## Current Status (2026-03-05)
