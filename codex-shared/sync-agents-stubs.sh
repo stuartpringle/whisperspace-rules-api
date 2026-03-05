@@ -53,9 +53,11 @@ Mandatory controls for this repo (do not skip):
    - Preferred: `npm run codex:ecosystem:sync` (from rules-api control repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/scripts/sync-codex-ecosystem.sh`
 9. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
-10. Keep scheduled Claude ecosystem audits active via user crontab:
-   - Preferred: `npm run claude:audit:cron:install -- 7` (from rules-api control repo).
-   - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/install-claude-audit-cron.sh 7`
+10. Treat scheduled Claude ecosystem audit cron as set-once + verify:
+   - Preferred check: `npm run claude:audit:cron:check` (from rules-api control repo).
+   - Preferred install/update only when missing or drifted: `npm run claude:audit:cron:install -- 7`.
+   - Fallback check: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/check-claude-audit-cron.sh`
+   - Fallback install/update: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/install-claude-audit-cron.sh 7`
 
 Repo-specific additions:
 - Keep this section minimal and only add true local exceptions.

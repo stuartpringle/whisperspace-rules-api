@@ -9,6 +9,7 @@ Scripts:
 - `codex-scheduled-audit.sh`: scheduled drift/security/docs audit runner.
 - `claude-scheduled-audit.sh`: scheduled ecosystem audit using Claude CLI with file-path context.
 - `install-claude-audit-cron.sh`: installs/updates the user crontab entry for daily Claude scheduled audits.
+- `check-claude-audit-cron.sh`: verifies the managed Claude cron block exists and points to the scheduled audit command.
 - `pre-commit-managed.sh`: managed pre-commit hook runtime used by all repos.
 - `risk-trigger.sh`: detects risk-sensitive path changes to decide when full subprocess audits are required.
 - `sync-agents-stubs.sh`: sync AGENTS stubs across all Whisperspace repos.
@@ -22,6 +23,7 @@ Used by:
 - `scripts/codex-scheduled-audit.sh` (wrapper)
 - `scripts/claude-scheduled-audit.sh` (wrapper)
 - `scripts/install-claude-audit-cron.sh` (wrapper)
+- `scripts/check-claude-audit-cron.sh` (wrapper)
 - `scripts/install-codex-hooks-ecosystem.sh` (installer writes hook wrappers to call `pre-commit-managed.sh`)
 - `scripts/sync-codex-ecosystem.sh` (ecosystem sync wrapper)
 

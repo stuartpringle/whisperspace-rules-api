@@ -32,7 +32,10 @@ Workflow guardrails for each change batch:
 7. Commit after each completed batch.
 8. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
 9. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
-10. Keep scheduled Claude ecosystem audits active via user crontab (`npm run claude:audit:cron:install -- 7`) and report recent scheduled findings when relevant.
+10. Treat Claude scheduled audit cron as set-once + verify:
+   - Install/update only when missing or drifted: `npm run claude:audit:cron:install -- 7`
+   - Routine check: `npm run claude:audit:cron:check`
+   - Report recent scheduled findings when relevant.
 
 Shared helper location (single source of truth):
 - `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/`
