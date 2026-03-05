@@ -53,6 +53,10 @@ Batch guardrail audit (Codex CLI subprocess):
 ```bash
 npm run codex:audit:batch
 ```
+Codex multi-agent orchestrator (fan-out task list, default max 4):
+```bash
+npm run codex:orchestrate -- --tasks .codex/tasks.txt --max-agents 4
+```
 Repository-level scheduled audit:
 ```bash
 npm run codex:audit:repo -- 7
@@ -432,6 +436,7 @@ Script behavior:
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
   - It also reports recent emergency bypass events from `.codex/BYPASS-LOG.tsv`.
 - `scripts/codex-audit-autoresolve.sh` lists resolution candidates and writes `RESOLVED:` entries only for explicit `--resolve-key` values.
+- `scripts/codex-orchestrate.sh` runs multiple Codex subprocess tasks from a tasks file with bounded concurrency and writes run artifacts to `.codex/orchestrator/run-<timestamp>/`.
 - `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
 - `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
 - `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).

@@ -7,6 +7,7 @@
   "scripts": {
     "codex:hooks:install": "bash scripts/install-codex-hooks-ecosystem.sh",
     "codex:ecosystem:sync": "bash scripts/sync-codex-ecosystem.sh",
+    "codex:orchestrate": "bash scripts/codex-orchestrate.sh",
     "codex:audit:batch": "bash scripts/codex-batch-audit.sh --staged",
     "codex:audit:docs": "bash scripts/codex-docs-audit.sh",
     "codex:audit:status": "bash scripts/codex-audit-status.sh",
