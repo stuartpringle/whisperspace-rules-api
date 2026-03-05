@@ -1,0 +1,20 @@
+name: Codex Audit Status
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  codex-audit-status:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.fork == false
+    runs-on: self-hosted
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Audit Status
+        run: bash /hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-status.sh

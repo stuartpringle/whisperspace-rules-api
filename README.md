@@ -420,22 +420,27 @@ Workflow:
 2. Review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status` for unresolved high/critical status.
 3. Stage changes.
 4. Run `npm run codex:audit:batch`.
-5. Resolve high/critical findings before commit.
-6. Commit once the batch passes gates.
-7. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
+5. Run `npm run codex:audit:autoresolve` to auto-log closed findings.
+6. Resolve high/critical findings before commit.
+7. Commit once the batch passes gates.
+8. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
 
 Script behavior:
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
+- `scripts/codex-audit-autoresolve.sh` lists resolution candidates and writes `RESOLVED:` entries only for explicit `--resolve-key` values.
 - `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
 - `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
 - `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
+- `scripts/sync-codex-ecosystem.sh` syncs AGENTS stubs + CI workflow + managed hooks across all Whisperspace repos, then verifies hook wiring.
 - `WS_SKIP_CODEX_AUDIT=1` is a temporary emergency bypass only; run `npm run codex:audit:batch` manually before merge/push when using it.
 
 Audit finding lifecycle note:
-- Add `RESOLVED: <severity|scope|issue>` entries in `.codex/AUDIT-LOG.md` when a previously reported high/critical finding is fixed, so `codex:audit:status` can treat it as resolved.
+- `npm run codex:audit:autoresolve` lists candidate keys.
+- Resolve explicitly with:
+  - `bash scripts/codex-audit-autoresolve.sh --resolve-key '<severity|scope|issue>'`
 
 ## Current Status (2026-03-05)
 

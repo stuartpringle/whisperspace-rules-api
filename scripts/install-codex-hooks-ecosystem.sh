@@ -2,22 +2,9 @@
 set -euo pipefail
 
 ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+source "${ROOT_SHARED}/ecosystem-repos.sh"
 
-REPOS=(
-  "/hdd/sites/stuartpringle/whisperspace"
-  "/hdd/sites/stuartpringle/whisperspace-character-builder"
-  "/hdd/sites/stuartpringle/whisperspace-developer"
-  "/hdd/sites/stuartpringle/whisperspace-docs"
-  "/hdd/sites/stuartpringle/whisperspace-obr-extension"
-  "/hdd/sites/stuartpringle/whisperspace-obr-gm"
-  "/hdd/sites/stuartpringle/whisperspace-obr-rules-extension"
-  "/hdd/sites/stuartpringle/whisperspace-obr-sheet"
-  "/hdd/sites/stuartpringle/whisperspace-rules-api"
-  "/hdd/sites/stuartpringle/whisperspace-rules-parser"
-  "/hdd/sites/stuartpringle/whisperspace-sdk"
-)
-
-for repo in "${REPOS[@]}"; do
+for repo in "${WS_REPOS[@]}"; do
   if [[ ! -d "${repo}" ]]; then
     echo "WARN: missing repo path, skipping: ${repo}"
     continue
