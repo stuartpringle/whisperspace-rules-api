@@ -110,7 +110,7 @@ This is the prioritized execution plan for making the multi-repo system more man
 
 ### Progress Snapshot
 - `ECO-001` in progress (2026-03-05): baseline manifests + matrix + validator landed in `whisperspace-rules-api`; `rules:publish` now runs `compat:check` as a pre-publish gate.
-- `ECO-002` pending: live endpoint contract smoke tests not yet wired.
+- `ECO-002` in progress (2026-03-05): live endpoint contract smoke script landed (`npm run contract:smoke`) and is now wired as a post-publish verification gate in `rules:publish`.
 - `ECO-003` pending: single orchestrator command still to be implemented.
 
 ### Backlog (Epics)
@@ -209,6 +209,7 @@ Use this section to keep a single-source, cross-repo status summary.
 - Fixed local character-auth regression gate reliability: character-api cookie domain/samesite handling now avoids forcing `.whisperspace.com` on localhost test hosts, and ownership regression script runs with local cookie-domain override so `npm run test:character-auth` passes during full publish.
 - Publish pipeline hardening on 2026-03-04: `scripts/rules-publish.sh` now also deploys Character API runtime files into `dist/character-api` (`index.php`, `.htaccess`, `.env.example`), preventing route drift where rules data was published but new PHP endpoints (for example `/character-api/obr-instance/:instanceId`) were not.
 - ECO-001 compatibility enforcement scaffold landed on 2026-03-05: added `compatibility/matrix.json`, per-repo manifests, and validator script (`npm run compat:check`) gated by `rules:publish`.
+- ECO-002 contract smoke scaffold landed on 2026-03-05: added endpoint shape/status checks in `scripts/contract-smoke.mjs` and wired them into `rules:publish` (override via `WS_SKIP_CONTRACT_SMOKE=1`).
 - Next steps:
 - Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
 - Backfill gameplay effects for additional gear/feat entries as rules content is formalized.

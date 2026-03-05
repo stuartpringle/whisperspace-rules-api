@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "compat:check": "node scripts/check-compatibility.mjs",
+    "contract:smoke": "node scripts/contract-smoke.mjs",
     "generate:data": "node scripts/generate-data.mjs",
     "rules:gear": "node scripts/parse-gear.mjs",
     "rules:sync": "bash scripts/import-rules.sh",

@@ -9,9 +9,14 @@ npm run rules:publish
 `rules:publish` now includes the character ownership regression gate (`npm run test:character-auth`) before publish steps continue.
 It also publishes Character API runtime files (`public/character-api/index.php`, `.htaccess`, `.env.example`) into `dist/character-api`, so new Character API routes are deployed alongside rules/calc updates.
 It now also runs a compatibility gate (`npm run compat:check`) using `compatibility/matrix.json` + `compatibility/manifests/*.json` before publish continues.
+After publish, it runs contract smoke verification (`npm run contract:smoke`) against critical rules/calc/character-api endpoints.
 If needed for constrained environments where local port binding is unavailable, you can bypass this gate explicitly:
 ```bash
 WS_SKIP_CHARACTER_AUTH_TEST=1 npm run rules:publish
+```
+To skip post-publish contract smoke checks explicitly:
+```bash
+WS_SKIP_CONTRACT_SMOKE=1 npm run rules:publish
 ```
 
 Character API ownership regression:
@@ -22,6 +27,11 @@ npm run test:character-auth
 Compatibility gate:
 ```bash
 npm run compat:check
+```
+
+Contract smoke checks:
+```bash
+npm run contract:smoke
 ```
 
 Related repos:

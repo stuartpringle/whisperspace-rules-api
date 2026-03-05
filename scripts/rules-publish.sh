@@ -61,3 +61,10 @@ if [ -f "index.html" ]; then
 else
   echo "[rules:publish] Skipping Vite dist build (index.html not found)."
 fi
+
+if [[ "${WS_SKIP_CONTRACT_SMOKE:-0}" == "1" ]]; then
+  echo "[rules:publish] Skipping contract smoke verification (WS_SKIP_CONTRACT_SMOKE=1)."
+else
+  echo "[rules:publish] Running contract smoke verification..."
+  npm run contract:smoke
+fi
