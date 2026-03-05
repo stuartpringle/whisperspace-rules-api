@@ -260,6 +260,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - GM extension panel now uses a dark Whisperspace-style theme and wider popover (`width: 760`).
   - `HUD` tab has been promoted to interactive `Party` operations with direct modals for initiative, stress/CUF, wounds, conditions, and token renaming.
   - `View Sheet` action now opens the selected character in the existing sheet extension flow, and initiative modal includes a bridge into the sheet’s initiative roller.
+  - Party rows now include clickable token thumbnails that center/select the token on the map.
+  - Adjudication queue now removes acknowledged entries from shared combat-log metadata directly (no local reset-ack state).
 - GM extension performance pass:
   - tab-level lazy loading added for HUD/Effects/Adjudication/Ownership panels,
   - build chunk strategy updated to split heavy shared dependencies (MUI + OBR SDK),
