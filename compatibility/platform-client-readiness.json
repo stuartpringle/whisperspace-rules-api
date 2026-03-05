@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-03-05",
+  "targetPackage": "@whisperspace/sdk/platform-client",
+  "repos": [
+    {
+      "repo": "whisperspace-character-builder",
+      "status": "pending",
+      "adopted": false,
+      "notes": "Planned first migration target for shared auth/session/calc/character-api calls."
+    },
+    {
+      "repo": "whisperspace-obr-extension",
+      "status": "pending",
+      "adopted": false,
+      "notes": "Planned second migration target; currently has app-local network/retry logic."
+    },
+    {
+      "repo": "whisperspace-obr-gm",
+      "status": "pending",
+      "adopted": false,
+      "notes": "Planned third migration target."
+    }
+  ]
+}

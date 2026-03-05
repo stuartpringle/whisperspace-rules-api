@@ -51,6 +51,28 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, "utf8"));
 }
 
+function listFilesRecursive(rootDir) {
+  const out = [];
+  const stack = [rootDir];
+  while (stack.length > 0) {
+    const current = stack.pop();
+    if (!current || !fs.existsSync(current)) continue;
+    const entries = fs.readdirSync(current, { withFileTypes: true });
+    for (const entry of entries) {
+      if (entry.name === ".git" || entry.name === "node_modules" || entry.name === "dist") {
+        continue;
+      }
+      const fullPath = path.join(current, entry.name);
+      if (entry.isDirectory()) {
+        stack.push(fullPath);
+      } else if (entry.isFile()) {
+        out.push(fullPath);
+      }
+    }
+  }
+  return out;
+}
+
 const errors = [];
 const warnings = [];
 
@@ -122,6 +144,54 @@ for (const entry of readiness.repos || []) {
   }
   if (status !== "complete" && entry.shimFree === true) {
     warnings.push(`${entry.repo} shimFree=true but status is ${status}`);
+  }
+
+  if (status === "complete") {
+    const repoPath = entry.repoPath;
+    if (typeof repoPath !== "string" || repoPath.trim() === "") {
+      errors.push(`${entry.repo} marked complete but repoPath is missing`);
+      continue;
+    }
+    if (!fs.existsSync(repoPath)) {
+      errors.push(`${entry.repo} marked complete but repoPath does not exist: ${repoPath}`);
+      continue;
+    }
+
+    const scanRoots = Array.isArray(entry.scanRoots) && entry.scanRoots.length > 0
+      ? entry.scanRoots
+      : ["src"];
+    const forbiddenMarkers = Array.isArray(entry.forbiddenMarkers) && entry.forbiddenMarkers.length > 0
+      ? entry.forbiddenMarkers
+      : ["compatibility shim", "local shim", "sdk compatibility adapter"];
+
+    const filesToScan = [];
+    for (const relRoot of scanRoots) {
+      if (typeof relRoot !== "string" || relRoot.trim() === "") continue;
+      const fullRoot = path.join(repoPath, relRoot);
+      if (!fs.existsSync(fullRoot)) continue;
+      filesToScan.push(...listFilesRecursive(fullRoot));
+    }
+
+    const textFilePattern = /\.(ts|tsx|js|mjs|cjs|json|php|sh)$/i;
+    const normalizedMarkers = forbiddenMarkers.map((m) => m.toLowerCase());
+    for (const filePath of filesToScan) {
+      if (!textFilePattern.test(filePath)) continue;
+      let content = "";
+      try {
+        content = fs.readFileSync(filePath, "utf8");
+      } catch {
+        continue;
+      }
+      const lower = content.toLowerCase();
+      for (const marker of normalizedMarkers) {
+        if (!marker) continue;
+        if (lower.includes(marker)) {
+          errors.push(
+            `${entry.repo} shim gate failed: marker "${marker}" found in ${filePath}`
+          );
+        }
+      }
+    }
   }
 }
 

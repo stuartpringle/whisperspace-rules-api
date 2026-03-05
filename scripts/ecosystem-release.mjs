@@ -71,6 +71,8 @@ const steps = [
   { id: "rules_publish", cmd: "npm", args: ["run", "rules:publish"] },
   { id: "ecosystem_smoke", cmd: "npm", args: ["run", "ecosystem:smoke"] },
   { id: "compat_check", cmd: "npm", args: ["run", "compat:check"] },
+  { id: "sdk_readiness", cmd: "npm", args: ["run", "sdk:readiness"] },
+  { id: "platform_readiness", cmd: "npm", args: ["run", "platform:readiness"] },
   { id: "release_summary", cmd: "node", args: ["scripts/write-release-summary.mjs"] },
 ];
 

@@ -44,6 +44,7 @@ Single release orchestrator:
 npm run ecosystem:release
 ```
 On success this writes `dist/ecosystem-release-summary.json` with publish metadata and gate status.
+It runs these gates in-order: `rules:publish`, `ecosystem:smoke`, `compat:check`, `sdk:readiness`, `platform:readiness`.
 It also writes structured observability artifacts:
 - `dist/ecosystem-observability.json` (step durations/status + failure signal)
 - `dist/telemetry/ecosystem-release.ndjson` (run/step events for ingestion)
@@ -455,6 +456,12 @@ SDK readiness scaffold command:
 npm run sdk:readiness
 ```
 Uses `compatibility/sdk-readiness.json` plus repo manifests to validate SDK contract adoption progress markers.
+
+Platform-client readiness scaffold command:
+```bash
+npm run platform:readiness
+```
+Uses `compatibility/platform-client-readiness.json` to track adoption status for `@whisperspace/sdk/platform-client`.
 
 Execution note:
 - Track progress in `PROJECT-OVERVIEW.md` under `Ecosystem Streamlining Backlog (2026-03-05)` and update status on every release batch.
