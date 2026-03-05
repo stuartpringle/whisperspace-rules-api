@@ -14,7 +14,7 @@ Used by:
 - `scripts/install-codex-hooks-ecosystem.sh` (installer writes hook wrappers to call `pre-commit-managed.sh`)
 
 Claude scheduled audit runtime env vars:
-- `WS_CLAUDE_AUDIT_TIMEOUT_SEC` (seconds, default `900`)
+- `WS_CLAUDE_AUDIT_TIMEOUT_SEC` (seconds, optional; unset means no timeout)
 - `WS_CLAUDE_AUDIT_REPOS` (optional comma-separated repo list override)
 
 All Whisperspace repo `AGENTS.md` files should point to this location via the canonical policy file:

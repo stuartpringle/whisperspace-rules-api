@@ -62,7 +62,7 @@ Claude scheduled ecosystem audit (path-based context):
 npm run claude:audit:repo -- 7
 ```
 Runtime controls:
-- `WS_CLAUDE_AUDIT_TIMEOUT_SEC` (default `900`)
+- `WS_CLAUDE_AUDIT_TIMEOUT_SEC` (optional; unset means no timeout)
 - `WS_CLAUDE_AUDIT_REPOS` (optional comma-separated override for targeted runs)
 Documentation drift audit:
 ```bash

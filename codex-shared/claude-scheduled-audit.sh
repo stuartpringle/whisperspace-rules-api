@@ -7,7 +7,7 @@ OUT_DIR="${ROOT}/whisperspace-rules-api/.codex/audits"
 TS="$(date -u +%Y%m%dT%H%M%SZ)"
 PROMPT_PATH="${OUT_DIR}/claude-scheduled-audit-${TS}.prompt.txt"
 REPORT_PATH="${OUT_DIR}/claude-scheduled-audit-${TS}.txt"
-TIMEOUT_SEC="${WS_CLAUDE_AUDIT_TIMEOUT_SEC:-900}"
+TIMEOUT_SEC="${WS_CLAUDE_AUDIT_TIMEOUT_SEC:-}"
 
 DEFAULT_REPOS=(
   "${ROOT}/whisperspace"
@@ -77,7 +77,7 @@ FINDINGS:
 EOF
 } > "${PROMPT_PATH}"
 
-if command -v timeout >/dev/null 2>&1; then
+if [[ -n "${TIMEOUT_SEC}" ]] && command -v timeout >/dev/null 2>&1; then
   if ! cat "${PROMPT_PATH}" | timeout "${TIMEOUT_SEC}" claude -p --permission-mode bypassPermissions --output-format text --add-dir "${ROOT}" > "${REPORT_PATH}"; then
     echo "claude:audit:repo ERROR: timed out or failed (timeout=${TIMEOUT_SEC}s)."
     exit 124
