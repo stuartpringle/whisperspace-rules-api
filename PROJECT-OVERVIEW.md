@@ -79,22 +79,23 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 3. Operational maturity (P2): observability/SLOs + docs normalization.
 
 ### Progress Snapshot
-- `ECO-001` in progress: compatibility matrix/manifests/validator enforced in publish flow.
-- `ECO-002` in progress: contract smoke checks wired into publish flow.
-- `ECO-003` in progress: `ecosystem:release` orchestrator live with summary artifact.
+- `ECO-001` complete (rules-api scope): compatibility matrix/manifests/validator enforced in publish flow.
+- `ECO-002` complete (rules-api scope): contract smoke checks wired into publish flow.
+- `ECO-003` complete (rules-api scope): `ecosystem:release` orchestrator live with summary artifact.
+- `ECO-004` in progress: SDK readiness scaffold added (`compatibility/sdk-readiness.json`, `npm run sdk:readiness`).
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
-- `ECO-007` in progress: this overview normalized to dashboard format.
+- `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
 
 ### Backlog (Epics)
 | ID | Priority | Epic | Primary Owner | Supporting Repos | Status |
 | --- | --- | --- | --- | --- | --- |
-| ECO-001 | P0 | Cross-repo compatibility matrix enforcement | `whisperspace-rules-api` maintainer | `sdk`, `builder`, `obr`, `obr-gm`, `docs` | In progress |
-| ECO-002 | P0 | Contract smoke tests + post-deploy verification | `whisperspace-rules-api` maintainer | `builder`, `obr`, `obr-gm`, `docs` | In progress |
-| ECO-003 | P0 | Single release orchestrator workflow | `whisperspace-rules-api` maintainer | all repos | In progress |
-| ECO-004 | P1 | SDK-first contract adoption (remove production shims) | `whisperspace-sdk` maintainer | `obr`, `builder`, `rules-api` | Pending |
+| ECO-001 | P0 | Cross-repo compatibility matrix enforcement | `whisperspace-rules-api` maintainer | `sdk`, `builder`, `obr`, `obr-gm`, `docs` | Complete (rules-api scope) |
+| ECO-002 | P0 | Contract smoke tests + post-deploy verification | `whisperspace-rules-api` maintainer | `builder`, `obr`, `obr-gm`, `docs` | Complete (rules-api scope) |
+| ECO-003 | P0 | Single release orchestrator workflow | `whisperspace-rules-api` maintainer | all repos | Complete (rules-api scope) |
+| ECO-004 | P1 | SDK-first contract adoption (remove production shims) | `whisperspace-sdk` maintainer | `obr`, `builder`, `rules-api` | In progress |
 | ECO-005 | P1 | Shared Whisperspace platform client package | `whisperspace-sdk` maintainer | `builder`, `obr`, `obr-gm` | Pending |
 | ECO-006 | P2 | Ecosystem observability + SLO baseline | `whisperspace-rules-api` maintainer | `obr`, `obr-gm`, `builder` | In progress |
-| ECO-007 | P2 | Documentation normalization and ownership | `whisperspace-rules-api` maintainer | all repos | In progress |
+| ECO-007 | P2 | Documentation normalization and ownership | `whisperspace-rules-api` maintainer | all repos | Complete |
 
 ### Exit Criteria
 - Contract-breaking changes fail pre/post deploy gates.

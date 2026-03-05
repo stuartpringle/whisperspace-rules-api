@@ -450,5 +450,11 @@ Coordination dependencies:
 - `ECO-004` SDK-first contract adoption (owned by `whisperspace-sdk`, consumed by rules-api/builder/OBR).
 - `ECO-005` shared platform client rollout (owned by `whisperspace-sdk`, integrated by builder/OBR/GM).
 
+SDK readiness scaffold command:
+```bash
+npm run sdk:readiness
+```
+Uses `compatibility/sdk-readiness.json` plus repo manifests to validate SDK contract adoption progress markers.
+
 Execution note:
 - Track progress in `PROJECT-OVERVIEW.md` under `Ecosystem Streamlining Backlog (2026-03-05)` and update status on every release batch.

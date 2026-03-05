@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-03-05",
+  "targetSdkVersion": "1.1.0",
+  "targetCharacterRecordSchema": "1.1.0",
+  "repos": [
+    {
+      "repo": "whisperspace-rules-api",
+      "status": "complete",
+      "shimFree": true,
+      "notes": "rules-api contract and publish gates use matrix/manifests; no runtime compatibility shim needed here."
+    },
+    {
+      "repo": "whisperspace-character-builder",
+      "status": "in_progress",
+      "shimFree": false,
+      "notes": "core schema alignment is active; complete after explicit SDK pin/update and shim review."
+    },
+    {
+      "repo": "whisperspace-obr-extension",
+      "status": "in_progress",
+      "shimFree": false,
+      "notes": "has known local compatibility adapters/shims; remove before marking complete."
+    },
+    {
+      "repo": "whisperspace-obr-gm",
+      "status": "pending",
+      "shimFree": false,
+      "notes": "awaiting shared platform-client + SDK-first rollout sequencing."
+    }
+  ]
+}
