@@ -9,6 +9,7 @@
     "codex:audit:batch": "bash scripts/codex-batch-audit.sh --staged",
     "codex:audit:docs": "bash scripts/codex-docs-audit.sh",
     "codex:audit:repo": "bash scripts/codex-scheduled-audit.sh",
+    "claude:audit:repo": "bash scripts/claude-scheduled-audit.sh",
     "compat:check": "node scripts/check-compatibility.mjs",
     "sdk:readiness": "node scripts/check-sdk-readiness.mjs",
     "platform:readiness": "node scripts/check-platform-readiness.mjs",

@@ -57,6 +57,13 @@ Repository-level scheduled audit:
 ```bash
 npm run codex:audit:repo -- 7
 ```
+Claude scheduled ecosystem audit (path-based context):
+```bash
+npm run claude:audit:repo -- 7
+```
+Runtime controls:
+- `WS_CLAUDE_AUDIT_TIMEOUT_SEC` (default `900`)
+- `WS_CLAUDE_AUDIT_REPOS` (optional comma-separated override for targeted runs)
 Documentation drift audit:
 ```bash
 npm run codex:audit:docs
@@ -420,6 +427,7 @@ Script behavior:
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
 - `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
+- `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `WS_SKIP_CODEX_AUDIT=1` is a temporary emergency bypass only; run `npm run codex:audit:batch` manually before merge/push when using it.
 
