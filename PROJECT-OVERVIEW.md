@@ -86,6 +86,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, and OBR phase-1 migration landed for Builder sync flows (public character fetch + auth session/csrf + public upsert) through a shared adapter.
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
+- `ECO-008` in progress: codex subprocess audit scripts added in rules-api (`codex:audit:batch`, `codex:audit:repo`) with local gitignored audit/history files for non-contract documentation context.
 
 ### Backlog (Epics)
 | ID | Priority | Epic | Primary Owner | Supporting Repos | Status |
@@ -97,6 +98,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 | ECO-005 | P1 | Shared Whisperspace platform client package | `whisperspace-sdk` maintainer | `builder`, `obr`, `obr-gm` | In progress |
 | ECO-006 | P2 | Ecosystem observability + SLO baseline | `whisperspace-rules-api` maintainer | `obr`, `obr-gm`, `builder` | In progress |
 | ECO-007 | P2 | Documentation normalization and ownership | `whisperspace-rules-api` maintainer | all repos | Complete |
+| ECO-008 | P2 | Codex subprocess audit guardrails and drift detection | `whisperspace-rules-api` maintainer | all repos | In progress |
 
 ### Exit Criteria
 - Contract-breaking changes fail pre/post deploy gates.
@@ -173,6 +175,7 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - Per-repo README/CHANGELOG: detailed milestones, implementation history, local operational notes.
 - Security policies/findings: `PROJECT-SECURITY.md`.
 - MCP prerequisites: each active repo README includes a `Codex MCP Prerequisites` section and `scripts/check-mcp.sh`; keep those in sync when MCP requirements change.
+- Local verbose context (gitignored): `.codex/PROJECT-HISTORY.md`, `.codex/AUDIT-LOG.md`, `.codex/audits/*`.
 
 ## Review Cadence
 - Update this overview at least once per release batch that changes contracts or deployment workflow.

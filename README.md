@@ -49,6 +49,15 @@ It also writes structured observability artifacts:
 - `dist/ecosystem-observability.json` (step durations/status + failure signal)
 - `dist/telemetry/ecosystem-release.ndjson` (run/step events for ingestion)
 
+Batch guardrail audit (Codex CLI subprocess):
+```bash
+npm run codex:audit:batch
+```
+Repository-level scheduled audit:
+```bash
+npm run codex:audit:repo -- 7
+```
+
 Observability baseline config:
 - `compatibility/observability-baseline.json` defines initial SLO targets, alert thresholds, and standard log fields for ecosystem services.
 
@@ -382,29 +391,42 @@ Notes:
 - Skill IDs are defined by `https://rules-api.whisperspace.com/rules-api/latest/skills.json`.
 - Inventory item types: `item`, `cyberware`, `narcotics`, `hacker_gear`.
 
+## Codex Audit Guardrails
+
+Local operational files:
+- `.codex/PROJECT-HISTORY.md` (gitignored): verbose milestone/task history.
+- `.codex/AUDIT-LOG.md` (gitignored): local audit notes.
+- `.codex/audits/*` (gitignored): raw batch/scheduled audit reports.
+
+Workflow:
+1. Make a change batch.
+2. Stage changes.
+3. Run `npm run codex:audit:batch`.
+4. Resolve high/critical findings before commit.
+5. Commit once the batch passes gates.
+
+Script behavior:
+- `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
+- `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
+- `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
+
 ## Current Status (2026-03-05)
 
 Roadmap focus:
 - `P0` release hardening complete in this repo: compatibility gate, contract smoke checks, and single-command orchestrator.
 - `P1` cross-repo SDK/platform-client migration is active across builder/OBR/GM.
-- `P2` observability and docs normalization are in place and being iterated.
-
-Completed in this repo:
-- `ECO-001`: compatibility matrix/manifests + enforced `compat:check` gate.
-- `ECO-002`: contract smoke suite wired into publish flow (`contract:smoke`).
-- `ECO-003`: `ecosystem:release` orchestrator and release summary artifact.
-- `ECO-006`: baseline observability artifacts (`dist/ecosystem-observability.json`, telemetry NDJSON).
-- `ECO-007`: concise cross-repo dashboard format in `PROJECT-OVERVIEW.md`.
-- Character API/Calc stabilization from earlier phases (MySQL migration, CORS tightening, OAuth/session/CSRF, gameplayEffects support) remains in production.
+- `P2` observability/docs normalization and codex-driven audit automation are in place and being iterated.
 
 Progress on unfinished work:
 - `ECO-004` (SDK-first contracts): readiness scaffolding and shim-gate checks are live; remaining work is removing residual runtime shims in downstream repos.
 - `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; OBR-GM migration remains.
+- `ECO-008` (codex audit automation): batch and scheduled scripts are in place; next step is rolling the same agent/audit conventions to every repo.
 - Security audit coordination is in progress; high/critical findings from `PROJECT-SECURITY.md` should block promotion.
 
 Operational notes:
 - Google OAuth Redirect URI: `https://rules-api.whisperspace.com/character-api/auth/oauth/google`
 - Suggested JS origins (if used): `https://builder.whisperspace.com`, `https://obr.whisperspace.com` (plus any local/dev origins in use).
+- Use `.codex/PROJECT-HISTORY.md` for verbose local milestone history; keep this README integration-focused.
 
 ## Integration Checklist
 - Public entrypoints (URLs) and environment variables.
@@ -439,6 +461,9 @@ Priority order:
 5. `ECO-007` documentation normalization
    - Deliverables: concise `PROJECT-OVERVIEW.md` dashboard + per-repo detailed changelogs.
    - Acceptance: overview stays current, short, and operationally reliable.
+6. `ECO-008` codex guardrail automation
+   - Deliverables: per-batch codex subprocess audit + scheduled drift/security/docs audits.
+   - Acceptance: high/critical audit findings block commit/release batches and drift signals are visible in local audit logs.
 
 Coordination dependencies:
 - `ECO-004` SDK-first contract adoption (owned by `whisperspace-sdk`, consumed by rules-api/builder/OBR).

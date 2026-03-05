@@ -5,6 +5,8 @@
   "rulesVersion": "0.1.1",
   "type": "module",
   "scripts": {
+    "codex:audit:batch": "bash scripts/codex-batch-audit.sh --staged",
+    "codex:audit:repo": "bash scripts/codex-scheduled-audit.sh",
     "compat:check": "node scripts/check-compatibility.mjs",
     "sdk:readiness": "node scripts/check-sdk-readiness.mjs",
     "platform:readiness": "node scripts/check-platform-readiness.mjs",
