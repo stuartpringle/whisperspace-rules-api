@@ -86,7 +86,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, and OBR phase-1 migration landed for Builder sync flows (public character fetch + auth session/csrf + public upsert) through a shared adapter.
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
-- `ECO-008` in progress: codex subprocess audit scripts added in rules-api (`codex:audit:batch`, `codex:audit:repo`) with local gitignored audit/history files for non-contract documentation context.
+- `ECO-008` in progress: codex subprocess audit scripts + ecosystem hook installer added in rules-api (`codex:audit:batch`, `codex:audit:repo`, `codex:hooks:install`) with local gitignored audit/history files for non-contract documentation context.
 
 ### Backlog (Epics)
 | ID | Priority | Epic | Primary Owner | Supporting Repos | Status |

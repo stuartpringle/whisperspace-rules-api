@@ -5,6 +5,7 @@
   "rulesVersion": "0.1.1",
   "type": "module",
   "scripts": {
+    "codex:hooks:install": "bash scripts/install-codex-hooks-ecosystem.sh",
     "codex:audit:batch": "bash scripts/codex-batch-audit.sh --staged",
     "codex:audit:repo": "bash scripts/codex-scheduled-audit.sh",
     "compat:check": "node scripts/check-compatibility.mjs",
