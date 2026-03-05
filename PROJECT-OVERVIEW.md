@@ -253,6 +253,9 @@ Use this section to keep a single-source, cross-repo status summary.
   - GM-only permission guards on ownership mutation actions,
   - explicit confirmation dialog before owner-changing actions execute,
   - mismatch reconciliation helpers added (`Sync Tokens` and `Adopt Tokens`).
+- GM hosting operations follow-up (2026-03-05):
+  - `gm.whisperspace.com` is now served from the shared Apache config at `/etc/apache2/sites-available/whisperspace.conf` (not a standalone vhost file).
+  - Owlbear CORS compatibility for GM manifest/static responses is now explicitly configured (`Access-Control-Allow-Origin: https://www.owlbear.rodeo`, `GET, OPTIONS`, `Content-Type`).
 - GM extension performance pass:
   - tab-level lazy loading added for HUD/Effects/Adjudication/Ownership panels,
   - build chunk strategy updated to split heavy shared dependencies (MUI + OBR SDK),
