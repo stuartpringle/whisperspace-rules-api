@@ -249,6 +249,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - canonical owner map editing per character instance with apply action,
   - bulk assign-selected ownership action for current scene token selection,
   - lock-state visibility and owner-sync mismatch indicators for GM reconciliation.
+- Ownership Dashboard hardening follow-up:
+  - GM-only permission guards on ownership mutation actions,
+  - explicit confirmation dialog before owner-changing actions execute,
+  - mismatch reconciliation helpers added (`Sync Tokens` and `Adopt Tokens`).
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
 - Scaffold extension runtime/manifest and panel shell.
