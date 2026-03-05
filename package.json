@@ -14,6 +14,7 @@
     "codex:audit:autoresolve": "bash scripts/codex-audit-autoresolve.sh",
     "codex:audit:repo": "bash scripts/codex-scheduled-audit.sh",
     "claude:audit:repo": "bash scripts/claude-scheduled-audit.sh",
+    "claude:audit:cron:install": "bash scripts/install-claude-audit-cron.sh",
     "compat:check": "node scripts/check-compatibility.mjs",
     "sdk:readiness": "node scripts/check-sdk-readiness.mjs",
     "platform:readiness": "node scripts/check-platform-readiness.mjs",

@@ -8,6 +8,7 @@ Scripts:
 - `audit-status.sh`: unresolved high/critical status aggregator over `.codex/audits/*` + `.codex/AUDIT-LOG.md`.
 - `codex-scheduled-audit.sh`: scheduled drift/security/docs audit runner.
 - `claude-scheduled-audit.sh`: scheduled ecosystem audit using Claude CLI with file-path context.
+- `install-claude-audit-cron.sh`: installs/updates the user crontab entry for daily Claude scheduled audits.
 - `pre-commit-managed.sh`: managed pre-commit hook runtime used by all repos.
 - `risk-trigger.sh`: detects risk-sensitive path changes to decide when full subprocess audits are required.
 - `sync-agents-stubs.sh`: sync AGENTS stubs across all Whisperspace repos.
@@ -19,12 +20,16 @@ Used by:
 - `scripts/codex-audit-autoresolve.sh` (wrapper)
 - `scripts/codex-audit-status.sh` (wrapper)
 - `scripts/codex-scheduled-audit.sh` (wrapper)
+- `scripts/claude-scheduled-audit.sh` (wrapper)
+- `scripts/install-claude-audit-cron.sh` (wrapper)
 - `scripts/install-codex-hooks-ecosystem.sh` (installer writes hook wrappers to call `pre-commit-managed.sh`)
 - `scripts/sync-codex-ecosystem.sh` (ecosystem sync wrapper)
 
 Claude scheduled audit runtime env vars:
 - `WS_CLAUDE_AUDIT_TIMEOUT_SEC` (seconds, optional; unset means no timeout)
 - `WS_CLAUDE_AUDIT_REPOS` (optional comma-separated repo list override)
+- `WS_CLAUDE_AUDIT_CRON_SCHEDULE` (optional cron schedule override for installer; default `17 3 * * *`)
+- `WS_CLAUDE_AUDIT_DAYS` (optional default day window for cron installer when argument is omitted)
 
 Managed pre-commit fast-path env vars:
 - `WS_SKIP_CODEX_AUDIT=1` bypasses Codex subprocess audits in pre-commit (fast checks/status still run).
