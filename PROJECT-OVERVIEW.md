@@ -20,7 +20,7 @@ All project directories live in `/hdd/sites/stuartpringle` on an Ubuntu server a
   - URL: `https://obr.whisperspace.com`
 - `whisperspace-obr-gm`
   - GM-only Owlbear.rodeo extension for adjudication, ongoing-effect operations, and encounter oversight.
-  - URL: TBD
+  - URL: `https://gm.whisperspace.com`
 - `whisperspace-character-builder`
   - Main character builder application.
   - URL: `https://builder.whisperspace.com`
@@ -223,7 +223,7 @@ Use this section to keep a single-source, cross-repo status summary.
   - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
 
 ### whisperspace-obr-gm
-- Current status: New repo scaffolded at `/hdd/sites/stuartpringle/whisperspace-obr-gm` with initial README + AGENTS.
+- Current status: Live at `https://gm.whisperspace.com` with production manifest hosted from `/hdd/sites/stuartpringle/whisperspace-obr-gm/dist`; GM panel modules (HUD, Effects, Adjudication, Ownership) are deployed.
 - Recent milestones:
 - Defined GM-only scope split from player sheet extension:
   - Unified Ongoing Effects Manager
@@ -259,8 +259,8 @@ Use this section to keep a single-source, cross-repo status summary.
   - production output now ships small per-tab chunks and a reduced initial entry bundle.
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
-- Scaffold extension runtime/manifest and panel shell.
-- Implement read-only HUD against existing metadata first, then adjudication/effects management flows.
+- Continue feature expansion from deployed baseline (effect operations, adjudication actions, ownership audit enhancements).
+- Keep deployment contract documented in repo README (`npm run deploy:live`, manifest verification, Apache host notes).
 - OBR nanomancy targeting/outcome follow-up landed (2026-03-04):
   - Static Burst modal now uses dedicated chain-target UX end-to-end (selected target names shown in order, generic single-target controls hidden for this effect).
   - Static Burst selected targets now get temporary purple ring highlights on-map during selection, and those highlights clear on cast/cancel.
