@@ -253,6 +253,10 @@ Use this section to keep a single-source, cross-repo status summary.
   - GM-only permission guards on ownership mutation actions,
   - explicit confirmation dialog before owner-changing actions execute,
   - mismatch reconciliation helpers added (`Sync Tokens` and `Adopt Tokens`).
+- GM extension performance pass:
+  - tab-level lazy loading added for HUD/Effects/Adjudication/Ownership panels,
+  - build chunk strategy updated to split heavy shared dependencies (MUI + OBR SDK),
+  - production output now ships small per-tab chunks and a reduced initial entry bundle.
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
 - Scaffold extension runtime/manifest and panel shell.
