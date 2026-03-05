@@ -46,13 +46,9 @@ fi
 if [[ -f package.json ]] && has_pattern '"codex:audit:batch"' package.json; then
   echo "[pre-commit] running npm run codex:audit:batch"
   npm run codex:audit:batch
-  exit 0
+else
+  bash "${ROOT_SHARED}/codex-batch-audit.sh" --staged
 fi
 
-if ! command -v codex >/dev/null 2>&1; then
-  echo "[pre-commit] ERROR: codex CLI not found and no codex:audit:batch script is available."
-  echo "[pre-commit] Set WS_SKIP_CODEX_AUDIT=1 for an explicit temporary bypass."
-  exit 1
-fi
-
-bash "${ROOT_SHARED}/codex-batch-audit.sh" --staged
+echo "[pre-commit] running documentation audit"
+bash "${ROOT_SHARED}/codex-docs-audit.sh"

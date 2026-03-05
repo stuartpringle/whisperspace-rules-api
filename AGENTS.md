@@ -19,8 +19,9 @@ Workflow guardrails for each change batch:
 1. Run a codex guardrail audit before commit.
    - Preferred: `npm run codex:audit:batch` (shared implementation at `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/codex-batch-audit.sh`).
    - Fallback: `git diff --staged | codex exec "Audit this diff for security/workflow/docs drift. Return critical/high findings first."`
-2. Resolve critical/high findings before commit.
-3. Commit after each completed batch.
+2. Run documentation audit before commit (`npm run codex:audit:docs` or shared script path).
+3. Resolve critical/high findings before commit.
+4. Commit after each completed batch.
 
 Shared helper location (single source of truth):
 - `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/`

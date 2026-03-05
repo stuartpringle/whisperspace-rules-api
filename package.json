@@ -7,6 +7,7 @@
   "scripts": {
     "codex:hooks:install": "bash scripts/install-codex-hooks-ecosystem.sh",
     "codex:audit:batch": "bash scripts/codex-batch-audit.sh --staged",
+    "codex:audit:docs": "bash scripts/codex-docs-audit.sh",
     "codex:audit:repo": "bash scripts/codex-scheduled-audit.sh",
     "compat:check": "node scripts/check-compatibility.mjs",
     "sdk:readiness": "node scripts/check-sdk-readiness.mjs",
