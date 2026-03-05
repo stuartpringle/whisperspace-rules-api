@@ -14,7 +14,24 @@ fi
 
 mkdir -p .codex/audits
 
+recover_stale_lock() {
+  if [[ ! -d "${LOCK_DIR}" ]]; then
+    return 0
+  fi
+
+  if [[ -f "${PID_FILE}" ]]; then
+    lock_pid="$(cat "${PID_FILE}" 2>/dev/null || true)"
+    if [[ -n "${lock_pid}" ]] && kill -0 "${lock_pid}" 2>/dev/null; then
+      return 0
+    fi
+  fi
+
+  rm -f "${PID_FILE}" 2>/dev/null || true
+  rmdir "${LOCK_DIR}" 2>/dev/null || true
+}
+
 run_worker() {
+  recover_stale_lock
   if ! mkdir "${LOCK_DIR}" 2>/dev/null; then
     return 0
   fi

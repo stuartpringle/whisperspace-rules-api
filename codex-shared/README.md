@@ -37,6 +37,7 @@ Claude scheduled audit runtime env vars:
 - `WS_CLAUDE_AUDIT_REPOS` (optional comma-separated repo list override)
 - `WS_CLAUDE_AUDIT_CRON_SCHEDULE` (optional cron schedule override for installer; default `17 3 * * *`)
 - `WS_CLAUDE_AUDIT_DAYS` (optional default day window for cron installer when argument is omitted)
+- `WS_POST_COMMIT_AUDIT_TIMEOUT_SEC` (seconds, optional; defaults to `900` for async post-commit Codex review)
 
 Managed hook behavior:
 - Pre-commit now runs fast checks only (`git diff --cached --check` + `audit-status`).

@@ -30,6 +30,7 @@ TS="$(date -u +%Y%m%dT%H%M%SZ)"
 SHORT_COMMIT="$(git rev-parse --short "${commit_hash}")"
 REPORT_PATH=".codex/audits/post-commit-audit-${SHORT_COMMIT}-${TS}.txt"
 PROMPT_PATH=".codex/audits/post-commit-audit-${SHORT_COMMIT}-${TS}.prompt.txt"
+TIMEOUT_SEC="${WS_POST_COMMIT_AUDIT_TIMEOUT_SEC:-900}"
 
 changed_files="$(git show --pretty='' --name-only "${commit_hash}" | sed '/^$/d')"
 if [[ -z "${changed_files}" ]]; then
@@ -78,7 +79,27 @@ fi
   echo "COMMIT DIFF END"
 } > "${PROMPT_PATH}"
 
-cat "${PROMPT_PATH}" | codex exec - -o "${REPORT_PATH}"
+if [[ "${TIMEOUT_SEC}" =~ ^[0-9]+$ ]] && [[ "${TIMEOUT_SEC}" -gt 0 ]] && command -v timeout >/dev/null 2>&1; then
+  if ! cat "${PROMPT_PATH}" | timeout "${TIMEOUT_SEC}" codex exec - -o "${REPORT_PATH}"; then
+    cat > "${REPORT_PATH}" <<EOF
+AUDIT_STATUS: FAIL
+SEVERITY_COUNTS: critical=0 high=0 medium=1 low=0
+REQUIRES_DOC_UPDATES: no
+FINDINGS:
+- [medium][post-commit-review] codex post-commit review timed out or failed for commit ${commit_hash} | rerun: npm run codex:audit:post-commit -- ${commit_hash}
+EOF
+  fi
+else
+  if ! cat "${PROMPT_PATH}" | codex exec - -o "${REPORT_PATH}"; then
+    cat > "${REPORT_PATH}" <<EOF
+AUDIT_STATUS: FAIL
+SEVERITY_COUNTS: critical=0 high=0 medium=1 low=0
+REQUIRES_DOC_UPDATES: no
+FINDINGS:
+- [medium][post-commit-review] codex post-commit review failed for commit ${commit_hash} | rerun: npm run codex:audit:post-commit -- ${commit_hash}
+EOF
+  fi
+fi
 
 status_line="$(grep -E '^AUDIT_STATUS:' "${REPORT_PATH}" | tail -n 1 || true)"
 counts_line="$(grep -E '^SEVERITY_COUNTS:' "${REPORT_PATH}" | tail -n 1 || true)"

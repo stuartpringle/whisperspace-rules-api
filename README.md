@@ -82,6 +82,7 @@ Runtime controls:
 - `WS_CLAUDE_AUDIT_REPOS` (optional comma-separated override for targeted runs)
 - `WS_CLAUDE_AUDIT_CRON_SCHEDULE` (optional cron expression override for installer; default `17 3 * * *`)
 - `WS_CLAUDE_AUDIT_DAYS` (optional default day window for cron installer when CLI arg is omitted)
+- `WS_POST_COMMIT_AUDIT_TIMEOUT_SEC` (optional; timeout for async Codex post-commit review, default `900`)
 Documentation drift audit:
 ```bash
 npm run codex:audit:docs
