@@ -232,6 +232,11 @@ Use this section to keep a single-source, cross-repo status summary.
   - Ownership Dashboard
 - Added initial extension runtime scaffold (`package.json`, TS/Vite config, OBR manifest, and starter tabbed GM panel shell).
 - Verified scaffold compiles (`npm install` + `npm run build`) in `/hdd/sites/stuartpringle/whisperspace-obr-gm`.
+- Implemented Party/Encounter HUD v1 in GM extension:
+  - live character table (owner/initiative/stress-CUF/wounds/conditions),
+  - active-turn indicator,
+  - summary counters,
+  - event-driven refresh via OBR scene/room/party subscriptions.
 - Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
 - Next steps:
 - Scaffold extension runtime/manifest and panel shell.
