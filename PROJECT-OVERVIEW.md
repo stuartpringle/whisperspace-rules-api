@@ -256,6 +256,10 @@ Use this section to keep a single-source, cross-repo status summary.
 - GM hosting operations follow-up (2026-03-05):
   - `gm.whisperspace.com` is now served from the shared Apache config at `/etc/apache2/sites-available/whisperspace.conf` (not a standalone vhost file).
   - Owlbear CORS compatibility for GM manifest/static responses is now explicitly configured (`Access-Control-Allow-Origin: https://www.owlbear.rodeo`, `GET, OPTIONS`, `Content-Type`).
+- GM Party operations follow-up (2026-03-05):
+  - GM extension panel now uses a dark Whisperspace-style theme and wider popover (`width: 760`).
+  - `HUD` tab has been promoted to interactive `Party` operations with direct modals for initiative, stress/CUF, wounds, conditions, and token renaming.
+  - `View Sheet` action now opens the selected character in the existing sheet extension flow, and initiative modal includes a bridge into the sheet’s initiative roller.
 - GM extension performance pass:
   - tab-level lazy loading added for HUD/Effects/Adjudication/Ownership panels,
   - build chunk strategy updated to split heavy shared dependencies (MUI + OBR SDK),
