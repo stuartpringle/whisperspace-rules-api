@@ -52,3 +52,6 @@ fi
 
 echo "[pre-commit] running documentation audit"
 bash "${ROOT_SHARED}/codex-docs-audit.sh"
+
+echo "[pre-commit] checking unresolved audit findings"
+bash "${ROOT_SHARED}/audit-status.sh"

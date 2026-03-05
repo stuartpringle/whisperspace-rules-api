@@ -4,12 +4,14 @@ Canonical location for Whisperspace Codex automation helpers.
 
 Scripts:
 - `codex-batch-audit.sh`: per-batch staged/working-tree audit runner.
+- `audit-status.sh`: unresolved high/critical status aggregator over `.codex/audits/*` + `.codex/AUDIT-LOG.md`.
 - `codex-scheduled-audit.sh`: scheduled drift/security/docs audit runner.
 - `claude-scheduled-audit.sh`: scheduled ecosystem audit using Claude CLI with file-path context.
 - `pre-commit-managed.sh`: managed pre-commit hook runtime used by all repos.
 
 Used by:
 - `scripts/codex-batch-audit.sh` (wrapper)
+- `scripts/codex-audit-status.sh` (wrapper)
 - `scripts/codex-scheduled-audit.sh` (wrapper)
 - `scripts/install-codex-hooks-ecosystem.sh` (installer writes hook wrappers to call `pre-commit-managed.sh`)
 

@@ -417,21 +417,25 @@ Local operational files:
 
 Workflow:
 1. Make a change batch.
-2. Review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md` for unresolved issues.
+2. Review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status` for unresolved high/critical status.
 3. Stage changes.
 4. Run `npm run codex:audit:batch`.
 5. Resolve high/critical findings before commit.
 6. Commit once the batch passes gates.
-7. Re-check latest audit artifacts and log/report unresolved findings.
+7. Re-check with `npm run codex:audit:status` and log/report unresolved findings.
 
 Script behavior:
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
+- `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
 - `scripts/codex-batch-audit.sh --working-tree --soft-fail` audits uncommitted edits without blocking.
 - `scripts/codex-scheduled-audit.sh <days>` runs a periodic drift/security/docs audit over recent history.
 - `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `WS_SKIP_CODEX_AUDIT=1` is a temporary emergency bypass only; run `npm run codex:audit:batch` manually before merge/push when using it.
+
+Audit finding lifecycle note:
+- Add `RESOLVED: <severity|scope|issue>` entries in `.codex/AUDIT-LOG.md` when a previously reported high/critical finding is fixed, so `codex:audit:status` can treat it as resolved.
 
 ## Current Status (2026-03-05)
 
