@@ -1,703 +1,173 @@
 # Whisperspace Project Overview
 
 ## Scope
-Whisperspace is a multi-repo ecosystem for a TTRPG ruleset. The goal is to maintain a single source of truth for rules data and reuse it across apps and extensions (character builders, VTT integrations, docs, and developer tooling) without duplicating data.
+Whisperspace is a multi-repo TTRPG ecosystem. The objective is one canonical rules/data pipeline consumed by builder, VTT extensions, docs, and site surfaces with minimal contract drift.
 
-All project directories live in `/hdd/sites/stuartpringle` on an Ubuntu server and are served via Apache2 where applicable.
+All project directories live in `/hdd/sites/stuartpringle` on an Ubuntu host and are served via Apache where applicable.
 
 Security planning note:
-- Cross-project security policy and hardening guidance now lives in `PROJECT-SECURITY.md` (same directory as this file).
-- Maintain usability-first constraints there, especially for low-friction OBR extension usage.
+- Cross-project security policy and hardening guidance lives in `PROJECT-SECURITY.md`.
+- Active security audit findings should be logged there first, then summarized briefly here under risks.
 
 ## Repositories And Roles
 - `whisperspace`
-  - Public-facing website.
-  - Statamic site.
+  - Public website + shared top-level nav JSON.
   - URL: `https://whisperspace.com`
 - `whisperspace-rules-api`
-  - Rules API, character API, and calc endpoints for Whisperspace.
-  - Primary API surface for apps and VTT extensions.
+  - Rules API, calc API, and character API.
   - URL: `https://rules-api.whisperspace.com`
-  - Key entrypoints: `https://rules-api.whisperspace.com/rules-api/latest` and `https://rules-api.whisperspace.com/character-api/`
 - `whisperspace-obr-extension`
-  - Owlbear.rodeo VTT extension.
+  - Player-facing Owlbear extension.
   - URL: `https://obr.whisperspace.com`
 - `whisperspace-obr-gm`
-  - GM-only Owlbear.rodeo extension for adjudication, ongoing-effect operations, and encounter oversight.
+  - GM Owlbear extension.
   - URL: `https://gm.whisperspace.com`
 - `whisperspace-character-builder`
-  - Main character builder application.
+  - Main character builder app.
   - URL: `https://builder.whisperspace.com`
-- `whisperspace-developer`
-  - Developer documentation for the API and extension workflows.
-  - URL: `https://developer.whisperspace.com`
 - `whisperspace-docs`
-  - Public rules reference and search.
+  - Public rules reference app.
   - URL: `https://docs.whisperspace.com`
+- `whisperspace-developer`
+  - Developer docs site.
+  - URL: `https://developer.whisperspace.com`
 - `whisperspace-rules-parser`
-  - Internal pipeline that pulls the master rules document from Google Docs and outputs normalized YAML for downstream use.
-  - No public URL.
+  - Internal parser from source doc to normalized YAML.
 - `whisperspace-sdk`
-  - Shared schema and utilities used by multiple projects (API validation, character record types, shared data model).
-  - Consumed by the rules API and client apps to stay aligned on types and schema.
-  - No public URL.
+  - Shared schema/types/utilities boundary.
 
-## Overall Objective
-Create a modular ecosystem where rules data is authored once (in the master rules document) and propagated through a single pipeline to all apps, extensions, and documentation. This enables consistent updates and minimizes duplication.
-
-Planned progression:
-1. Launch the core character builder (`builder.whisperspace.com`).
-2. Extend the builder into VTT integrations for Owlbear.rodeo, Foundry, and Roll20, each with its own character builder UX.
-3. Embed rules reference directly inside each VTT.
-4. Add bi-directional linking so characters can move between the main builder and VTTs with minimal friction.
+## Integration Topology
+1. Authoring: master rules document -> `whisperspace-rules-parser`.
+2. Publication: parser output -> `whisperspace-rules-api` (`rules:publish` / `ecosystem:release`).
+3. Consumption: builder + OBR extensions + docs read rules/calc/character endpoints.
+4. Contract boundary: shared record/schema lives in `whisperspace-sdk`.
 
 ## Rules Data Workflow (This Repo)
-The canonical rules data is produced by the Rules Parser and published through this repo.
+1. Run parser and validate/diff.
+2. Sync parser output into this repo.
+3. Publish runtime artifacts (`rules-api`, `calc`, `character-api`) and run gates.
 
-Workflow:
-1. Run the parser to pull and normalize rules content.
-2. Sync output into this repo.
-3. Publish to the live API.
-
-Quick publish rules in this repo:
+Quick commands:
 ```bash
 npm run rules:publish
+npm run ecosystem:release
 ```
 
-## Hosting Notes
-All services run on an Ubuntu host and are served via Apache2. Public-facing endpoints are mapped to their corresponding subdomains listed above.
-
 ## Versioning And Compatibility Matrix
-Track cross-repo compatibility here (update on releases):
+Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json` in this repo.
 
-| Date | Rules API Version | SDK Version | Character Builder Version | OBR Extension Version | Notes |
-| --- | --- | --- | --- | --- | --- |
-| 2026-02-11 | | | | | Initial matrix placeholder |
-
-## Cross-Repo Release Checklist
-Use this when rules or schemas change:
-
-1. Update the master rules document.
-2. Run `whisperspace-rules-parser` to regenerate YAML.
-3. In `whisperspace-rules-api`, run `npm run rules:publish`.
-4. Update `whisperspace-sdk` schema/types if the data model changed.
-5. Update `whisperspace-character-builder` to align with new schema/fields.
-6. Update VTT extensions (Owlbear, Foundry, Roll20) to align with new schema/fields.
-7. Update `whisperspace-docs` and `whisperspace-developer` for any user-facing changes.
-8. Verify API endpoints and schema endpoints on `rules-api.whisperspace.com`.
+| Date | Active Release ID | Rules API | SDK | Builder | OBR | OBR GM | Docs | Notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| 2026-03-05 | `2026-03-05-baseline` | `0.1.0` | `1.1.0` | `1.0.0` | `1.0.0` | `1.0.0` | `1.0.0` | First enforced compatibility baseline |
 
 ## Shared Contracts Index
-Canonical contracts and where they live:
-
-- Rules data (JSON): `https://rules-api.whisperspace.com/rules-api/latest/`
+- Rules bundle: `https://rules-api.whisperspace.com/rules-api/latest/`
 - Rules metadata: `https://rules-api.whisperspace.com/rules-api/latest/meta.json`
 - Calc schemas: `https://rules-api.whisperspace.com/rules-api/calc/schemas/index.json`
-- Character record schema (source of truth): `/hdd/sites/stuartpringle/whisperspace-sdk/schema/character-record.v1.json`
 - Character schema endpoint: `https://rules-api.whisperspace.com/character-api/schema.json`
+- SDK schema source: `/hdd/sites/stuartpringle/whisperspace-sdk/schema/character-record.v1.json`
 
 ## Ecosystem Streamlining Backlog (2026-03-05)
-This is the prioritized execution plan for making the multi-repo system more manageable, maintainable, and efficient.
-
 ### Program Goals
-- Manageability: one reliable release path and one compatibility view across repos.
-- Maintainability: shared contracts and shared client/runtime code paths, fewer one-off adapters.
-- Efficiency: fewer regressions, less duplicate work, faster diagnosis/recovery when issues happen.
+- Manageability: one reliable release path and one compatibility view.
+- Maintainability: SDK-first shared contracts and fewer local adapters.
+- Efficiency: fewer regressions, faster detection and recovery.
 
 ### Delivery Sequence
-1. Foundation hardening (P0): compatibility matrix + contract checks + release orchestration.
-2. Shared runtime consolidation (P1): SDK-first contracts and shared platform client for builder/OBR/GM.
-3. Operational maturity (P2): observability/SLOs and overview-doc structure cleanup.
+1. Foundation hardening (P0): compatibility + contract checks + release orchestration.
+2. Shared runtime consolidation (P1): SDK-first adoption + shared platform client.
+3. Operational maturity (P2): observability/SLOs + docs normalization.
 
 ### Progress Snapshot
-- `ECO-001` in progress (2026-03-05): baseline manifests + matrix + validator landed in `whisperspace-rules-api`; `rules:publish` now runs `compat:check` as a pre-publish gate.
-- `ECO-002` in progress (2026-03-05): live endpoint contract smoke script landed (`npm run contract:smoke`) and is now wired as a post-publish verification gate in `rules:publish`.
-- `ECO-003` in progress (2026-03-05): single command orchestration (`npm run ecosystem:release`) now runs publish -> downstream ecosystem smoke -> compatibility check -> release summary artifact output.
-- `ECO-006` in progress (2026-03-05): observability baseline config + release telemetry artifacts landed (`compatibility/observability-baseline.json`, `dist/ecosystem-observability.json`, `dist/telemetry/ecosystem-release.ndjson`).
+- `ECO-001` in progress: compatibility matrix/manifests/validator enforced in publish flow.
+- `ECO-002` in progress: contract smoke checks wired into publish flow.
+- `ECO-003` in progress: `ecosystem:release` orchestrator live with summary artifact.
+- `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
+- `ECO-007` in progress: this overview normalized to dashboard format.
 
 ### Backlog (Epics)
-| ID | Priority | Epic | Primary Owner | Supporting Repos | Success Criteria |
+| ID | Priority | Epic | Primary Owner | Supporting Repos | Status |
 | --- | --- | --- | --- | --- | --- |
-| ECO-001 | P0 | Cross-repo compatibility matrix enforcement | `whisperspace-rules-api` maintainer | `whisperspace-sdk`, `whisperspace-character-builder`, `whisperspace-obr-extension`, `whisperspace-obr-gm`, `whisperspace-docs` | Matrix has real version rows per release; PR/publish checks fail when a repo declares incompatible contract version. |
-| ECO-002 | P0 | Contract smoke tests + post-deploy verification | `whisperspace-rules-api` maintainer | `whisperspace-character-builder`, `whisperspace-obr-extension`, `whisperspace-obr-gm`, `whisperspace-docs` | Automated checks verify key live endpoints/response shapes (rules/meta/calc/schema/auth/OBR instance) after publish; deploy is marked failed on mismatch. |
-| ECO-003 | P0 | Single release orchestrator workflow | `whisperspace-rules-api` maintainer | all repos | One command/workflow runs parser -> publish -> downstream smoke tests -> compatibility update; partial deploy states are blocked. |
-| ECO-004 | P1 | SDK-first contract adoption (remove production shims) | `whisperspace-sdk` maintainer | `whisperspace-obr-extension`, `whisperspace-character-builder`, `whisperspace-rules-api` | Builder/OBR/rules-api consume pinned SDK releases for shared models; no production local compatibility shim for core contracts. |
-| ECO-005 | P1 | Shared Whisperspace platform client package | `whisperspace-sdk` maintainer | `whisperspace-character-builder`, `whisperspace-obr-extension`, `whisperspace-obr-gm` | Shared auth/session/calc/character-api client used by all UI apps; duplicate network/retry/cooldown logic is removed from app repos. |
-| ECO-006 | P2 | Ecosystem observability + SLO baseline | `whisperspace-rules-api` maintainer | `whisperspace-obr-extension`, `whisperspace-obr-gm`, `whisperspace-character-builder` | Metrics/alerts exist for API errors, publish failures, 429 bursts, OBR sync retries; error budget/SLOs documented and reviewed monthly. |
-| ECO-007 | P2 | Documentation normalization and ownership | `whisperspace-rules-api` maintainer | all repos | `PROJECT-OVERVIEW.md` is concise dashboard-style; detailed changelogs move to per-repo docs; blank/stray status sections are removed. |
-
-### Implementation Tasks (First Pass)
-1. `ECO-001` compatibility matrix enforcement
-   - Add required columns: `rulesVersion`, `sdkVersion`, `character-api contract rev`, `builder release`, `OBR release`, `GM release`, `docs release`.
-   - Add repo-local `compatibility.json` manifests and a validator script in `whisperspace-rules-api`.
-   - Gate `rules:publish` on compatibility validation for declared dependent repos.
-2. `ECO-002` contract smoke tests
-   - Create a test script that checks live status/body contracts for:
-     - `GET /rules-api/latest/meta.json`
-     - `GET /rules-api/calc/schemas/index.json`
-     - `GET /character-api/schema.json`
-     - `GET /character-api/auth/csrf`
-     - `GET /character-api/obr-instance/:instanceId?roomId=:roomId` miss behavior
-   - Record expected status/body keys centrally and fail on drift.
-3. `ECO-003` release orchestrator
-   - Add `npm run ecosystem:release` in this repo to orchestrate parser/publish/verification.
-   - Include explicit rollback guidance and a "promotion complete" summary artifact.
-4. `ECO-004` SDK-first rollout
-   - Publish the pending SDK version with nanomancy/tags and document migration steps.
-   - Remove local compatibility adapter/shim usage from OBR where SDK already covers contract.
-5. `ECO-005` shared platform client
-   - Extract common API client logic into SDK package modules:
-     - session/bootstrap, csrf, character CRUD/public fetch, calc calls, retry/backoff.
-   - Migrate builder first, then OBR sheet, then OBR GM.
-6. `ECO-006` observability baseline
-   - Standardize client log fields (`requestId`, `endpoint`, `status`, `retryCount`, `context`).
-   - Add aggregated counters and alerts for publish failures and elevated API error rates.
-7. `ECO-007` docs normalization
-   - Keep `PROJECT-OVERVIEW.md` focused on architecture, roadmap, and live status.
-   - Move dense per-repo milestone logs to each repo's README/CHANGELOG.
+| ECO-001 | P0 | Cross-repo compatibility matrix enforcement | `whisperspace-rules-api` maintainer | `sdk`, `builder`, `obr`, `obr-gm`, `docs` | In progress |
+| ECO-002 | P0 | Contract smoke tests + post-deploy verification | `whisperspace-rules-api` maintainer | `builder`, `obr`, `obr-gm`, `docs` | In progress |
+| ECO-003 | P0 | Single release orchestrator workflow | `whisperspace-rules-api` maintainer | all repos | In progress |
+| ECO-004 | P1 | SDK-first contract adoption (remove production shims) | `whisperspace-sdk` maintainer | `obr`, `builder`, `rules-api` | Pending |
+| ECO-005 | P1 | Shared Whisperspace platform client package | `whisperspace-sdk` maintainer | `builder`, `obr`, `obr-gm` | Pending |
+| ECO-006 | P2 | Ecosystem observability + SLO baseline | `whisperspace-rules-api` maintainer | `obr`, `obr-gm`, `builder` | In progress |
+| ECO-007 | P2 | Documentation normalization and ownership | `whisperspace-rules-api` maintainer | all repos | In progress |
 
 ### Exit Criteria
-- No contract-breaking release reaches production without failing a pre-deploy gate.
-- No manual publish sequence is required for standard releases.
-- Builder + OBR + GM use shared SDK/platform client paths for core API interactions.
-- On-call/operator can identify root cause within 10 minutes using standardized checks and metrics.
+- Contract-breaking changes fail pre/post deploy gates.
+- Standard releases require one command (`ecosystem:release`).
+- Builder + OBR + GM converge on shared SDK/platform client paths.
+- Operators can identify likely root cause within 10 minutes from artifacts/metrics.
 
-## Status Rollup (Fill In)
-Use this section to keep a single-source, cross-repo status summary.
+## Project Dashboard
+This section is intentionally concise. Detailed changelogs belong in each repo's own README/CHANGELOG.
 
 ### whisperspace
-- Current status: Production Statamic site is live at `https://whisperspace.com`, with newsletter functionality and reCAPTCHA-protected forms.
-- Recent milestones:
-- Upgraded to `anakadote/statamic-recaptcha:^3.0`.
-- Added backward-compatible reCAPTCHA version mapping in `config/recaptcha.php` so legacy `RECAPTCHA_VERSION=3/2` env values continue to work with the addon’s new `enterprise|v3|v2` config expectations.
-- Captured runtime integration notes in this repo’s `README.md` for future addon upgrades (cache clear + vendor publish steps).
-- Applied frontend hardening pass: guarded hero-title animation script on templates that do not render `.animated-title`, aligned mobile/desktop nav CTA condition to `Get In Touch`, and removed stale JS references to legacy mobile menu IDs.
-- Added allowlist HTML sanitization for archetype descriptions before Alpine `x-html` rendering, preserving paragraph formatting while reducing DOM injection risk.
-- Updated repo hygiene to ignore Statamic `users/` and stop tracking committed user account file(s) containing credential hashes.
-- Improved frontend image delivery: compressed/width-bounded WebP Glide backgrounds, responsive archetype image `srcset`, lazy/async loading for below-the-fold images, and Apache cache headers for static assets.
-- Added a repeatable image optimization script (`scripts/optimize-image-formats.sh`) and generated AVIF/WebP variants for key website assets; above-the-fold hero background/ship now use static AVIF/WebP with PNG fallback.
-- Added AVIF transparency safeguards: skip AVIF generation for alpha-channel source images and use WebP+PNG fallback for the transparent hero ship asset.
-- Refreshed website Rules section presentation: transformed markdown rule items into grouped card-grid UI with hover animation for better readability/scanability.
-- Improved Archetypes section UX: preloaded carousel images for smoother transitions, stabilized image viewport sizing to reduce layout shift, and moved next/previous controls onto the image as overlay navigation buttons.
-- Further Archetypes polish: thumbnails now render above the main image, description area uses fixed-height shell for stability, image-shell fallback uses themed gradient (not flat black), and edge nav/hover zoom interactions were refined.
-- Archetypes interaction UX expanded: main image click now opens a framed modal view, edge nav controls were narrowed and intensified visually on hover, and description content width was increased for better visual alignment.
-- About section UX refreshed: lead copy, "At a glance" bullets, and author details now render with section-specific card/callout styling on `https://whisperspace.com` while preserving CMS-managed markdown editing.
-- Tuned website reCAPTCHA v3 to reduce false-positive bot flags across browser profiles by disabling page-load form gating and lowering threshold to `0.35`; cleared app caches after rollout.
-- Updated website starfield rendering so the animated stars now persist across full-page scroll (global fixed canvas) with scroll-driven parallax drift instead of clipping at hero section bounds.
-- Added shared navigation hosting on `whisperspace.com` via canonical JSON (`/nav/main-menu.v1.json`) with CORS headers so other Whisperspace subdomain apps can render the same top-level menu and compute active state consistently by host/path/hash.
-- Fixed production Vite manifest lookup for shared navigation by adding `resources/js/shared-nav.js` to the Vite input list so deploy builds include it.
-- Next steps:
-- Normalize `.env` to explicit string mode (`RECAPTCHA_VERSION=v3`) across environments during next deploy window.
-- Keep reCAPTCHA addon/config publish steps in release runbook whenever Statamic addons are upgraded.
+- Status: Production site stable.
+- Role in ecosystem: public brand/site + shared navigation source.
+- Key integration dependencies: shared nav JSON consumed by builder.
+- Next milestone: keep env/config standardization and release runbook hygiene.
 
 ### whisperspace-rules-api
-- Current status: Rules + calc + character APIs are live, with MySQL-backed character storage stable and calc contracts now supporting equipment/feat `gameplayEffects` deltas.
-- Recent milestones:
-- Added `gameplayEffects` field support across weapons/armour/items/feats contracts in this repo.
-- Updated calc derivation endpoints to apply gameplay deltas to attributes, derived stats, and skill modifiers (with floor-at-zero behavior for skill ranks).
-- Compact Backpack and similar gear now map gameplay effects via programmatic text parsing from source rules wording (with explicit field override support).
-- Published `skill_tooltips.json` in ID-keyed form (`skills.<skill_id>`, `attributes.<attribute_id>`) with label-keyed compatibility maps to unblock builder tooltip lookup.
-- Expanded gameplay effect key normalization in calc parsing (aliases like `cuf` and `carryingCapacity` now resolve to canonical keys).
-- README calc docs expanded with gameplay-effects contract and request/response examples.
-- Character API auth contract now returns CSRF token material to cross-origin clients: `GET /character-api/auth/session` includes `csrfToken` and new `GET /character-api/auth/csrf` endpoint exposes `{ csrfToken, authenticated }`, enabling OBR export flows to satisfy CSRF header requirements without relying on direct cookie reads.
-- Fixed character-api auth outage on 2026-03-02 by restoring rules-api-local env loading and explicit DB config.
-- Enforced cross-project DB boundary on 2026-03-02: character-api now reads env only from rules-api paths and is bound to `stuartpringle_whisperspace_character_builder`; `stuartpringle_whisperspace` is reserved for `whisperspace.com` (Statamic) only.
-- Cleanup completed on 2026-03-02: accidentally created character-api tables in the Statamic DB (`characters`, `user_sessions`, `password_resets`, `oauth_accounts`) were removed.
-- OBR export auth fix on 2026-03-02: character-api session/CSRF cookies now use `SameSite=None` (with HTTPS `Secure`) so embedded OBR export flows can send credential cookies and satisfy CSRF checks.
-- Added MySQL migration compatibility hardening for legacy installs by removing strict FK creation on auth tables (`user_sessions`, `password_resets`, `oauth_accounts`), preventing startup crashes from pre-existing incompatible column definitions.
-- Character API now surfaces OAuth configuration gaps explicitly (`{"error":"oauth_unconfigured"}`) after bootstrap recovery, replacing prior generic 500 behavior.
-- Added auth/OAuth schema compatibility for legacy Laravel `users` tables (`id` bigint + `password`) so Google callback no longer fatals when UUID/password_hash-specific inserts are not supported.
-- Added character-organization tags support in Character API contracts: `CharacterRecordV1.tags` is now schema-validated and `/character-api/characters` summaries now include `tags` arrays for synchronized cross-device list grouping.
-- Fixed local character-auth regression gate reliability: character-api cookie domain/samesite handling now avoids forcing `.whisperspace.com` on localhost test hosts, and ownership regression script runs with local cookie-domain override so `npm run test:character-auth` passes during full publish.
-- Publish pipeline hardening on 2026-03-04: `scripts/rules-publish.sh` now also deploys Character API runtime files into `dist/character-api` (`index.php`, `.htaccess`, `.env.example`), preventing route drift where rules data was published but new PHP endpoints (for example `/character-api/obr-instance/:instanceId`) were not.
-- ECO-001 compatibility enforcement scaffold landed on 2026-03-05: added `compatibility/matrix.json`, per-repo manifests, and validator script (`npm run compat:check`) gated by `rules:publish`.
-- ECO-002 contract smoke scaffold landed on 2026-03-05: added endpoint shape/status checks in `scripts/contract-smoke.mjs` and wired them into `rules:publish` (override via `WS_SKIP_CONTRACT_SMOKE=1`).
-- ECO-003 release orchestration scaffold landed on 2026-03-05: added `scripts/ecosystem-release.mjs` (single-command orchestrator), downstream checks in `scripts/ecosystem-smoke.mjs`, and summary artifact writer (`dist/ecosystem-release-summary.json`).
-- ECO-006 observability scaffold landed on 2026-03-05: `ecosystem:release` now emits machine-readable run/step telemetry and writes a structured observability report; baseline SLO/alert targets are defined in `compatibility/observability-baseline.json`.
-- Next steps:
-- Align builder + OBR payloads to always pass equipped gameplay effects into calc endpoints.
-- Backfill gameplay effects for additional gear/feat entries as rules content is formalized.
-- Clarify calc integration gotchas in downstream docs/clients (avoid double-counting gameplay effects from top-level lists + gear payloads).
-- Fixed inherited global Basic Auth prompt on `rules-api.whisperspace.com` root by adding a publish-root `.htaccess` override and wiring `rules:publish` to copy it into `dist/.htaccess`.
+- Status: Primary API surface live; publish gates active (`compat`, auth regression, contract smoke).
+- Role in ecosystem: canonical runtime boundary for rules/calc/character data.
+- Key integration dependencies: parser input; SDK schema contract; OBR/builder/docs clients.
+- Next milestone: finish ECO-001/002/003 as fully complete and start ECO-004 integration constraints.
 
 ### whisperspace-obr-extension
-- Current status: OBR sheet migration work is active in `/hdd/sites/stuartpringle/whisperspace-obr-extension`, and the project now builds successfully against current `@whisperspace/sdk` exports.
-- Recent milestones:
-- Unblocked TypeScript build by removing stale imports to legacy `packages/core/src/*` modules and replacing with current SDK exports/local helpers.
-- Switched combat/damage hook usage to `getHookBus` from `@whisperspace/sdk`.
-- Added local ammo helper (`src/rules/weapons.ts`) to preserve weapon ammo-max behavior after core-module decoupling.
-- Hardened initiative status parsing for inventory unions that include `hacker_gear` entries without `statusEffects`.
-- Restored strict typing in `SkillsPanel` by inlining a local learned-skill focus map helper and removing legacy core dependency.
-- Added a local compatibility `CharacterRecordV1` adapter type in `src/rules/schema.ts` because current SDK exports `CharacterSheetV1` only.
-- Verified end-to-end compile with `npm run build` in `whisperspace-obr-extension` on 2026-02-17.
-- Added backward-compatible `rules.html` route in `whisperspace-obr-extension/public/rules.html` that redirects to `https://docs.whisperspace.com/` (hash preserved), covering older same-origin rules links from legacy extension flows.
-- Added durable `/rules/manifest.json` hosting directly in `whisperspace-obr-extension/public/rules/manifest.json`, so normal `npm run build` deploys retain the OBR rules-extension manifest even when `dist/` is rebuilt.
-- Removed stale `packages/core/src` include from `whisperspace-obr-extension/tsconfig.json` so new migration work is constrained to repo-local `src/`.
-- Restored initiative token focus UX in OBR extension: clicking avatar entries now selects and centers the token via current OBR SDK APIs.
-- Fixed OBR calc CORS regression by aliasing `@whisperspace/sdk` in `whisperspace-obr-extension` to a local shim that targets `https://rules-api.whisperspace.com/rules-api/calc` (instead of `https://whisperspace.com/rules-api/calc`).
-- Documented explicit OBR extension deployment policy: after each change batch, run `npm run build` in `whisperspace-obr-extension` so hosted `dist/` is updated and validate manifest/calc endpoint behavior.
-- Added OBR extension import/sync UX: token sheet now supports `Import JSON` and `Sync Public Link` (builder copy-link URL or character id), backed by `GET /character-api/characters/:id` for public character pull-in.
-- Updated Character API CORS allowlist to include `https://obr.whisperspace.com` alongside builder origin so OBR can fetch public character records cross-origin.
-- Added OBR `Export JSON` and interoperability normalization so builder/OBR JSON exchange is cleaner (supports builder `armours`/`equippedArmourId` and gameplay-effects fallback during import).
-- OBR extension model alignment batch landed: canonical `gameplayEffects` usage, multi-armour (`armours[]` + `equippedArmourId`) support, equipped-weapon UX, and initiative/damage paths now resolving equipped gear instead of first-slot assumptions.
-- OBR inventory/effects parity follow-up landed: `hacker_gear` template/import/edit support is now in-panel, and gameplay-effects chip editors are now used across feats, inventory, weapons, and equipped armour.
-- OBR gameplay-effects parity now includes a builder-style guided composer in the shared editor (`category`/`target`/`amount` -> canonical `target+N` string) so effect-entry format is consistent across builder and OBR.
-- OBR tab/layout parity pass landed: removed standalone Combat tab, moved weapon/armour editors into Inventory tab, moved Combat Log into Initiative tab, and added a dedicated Settings tab for JSON sync/import/export + token binding actions.
-- OBR settings/status follow-up: save-state indicator (`Saving…` / `Synced`) moved from tab-row header to the bottom of the Settings tab.
-- OBR gameplay-effect editor controls are now toggle-revealed (`Gameplay Effects` / `Hide Gameplay Effects`) so chips stay visible while edit fields are opt-in.
-- OBR inventory/equipment UX parity follow-up landed: credits controls + `Acquire/Buy` mode are now inventory-tab-first, buy mode enforces credits and sell refunds, Gear add section is collapsible/grid-based, and armour editing now uses per-item card flow with explicit `Equip`/`Unequip`/`Remove`.
-- OBR follow-up UX pass landed: add flows are now button-gated (`Add Gear/Weapon/Armour` -> `Cancel`), inventory add-field layout was tightened (`bulk/qty/cost/uses` 2x2), initiative tab label now surfaces as `Combat`, and GM can directly edit initiative values with automatic re-sort.
-- OBR row-flow polish landed: gear-add controls now live directly in Inventory section (no separate Gear section), weapons/armour now use inventory-like collapsed row summaries, buy-mode remove actions expose sell intent in tooltips, and carried armour can remain fully unequipped.
-- OBR inventory add dialogs now auto-close after successful add operations for gear, weapon, and armour flows.
-- OBR -> Builder export compatibility fix landed: outbound inventory payloads now omit unsupported gameplayEffects fields so Character API validation passes during sync updates.
-- OBR settings copy/ux polish landed in Sync modal: renamed flow to `Sync with Whisperspace Builder`, simplified action labels (`Builder Login`, `Import from Link`), and added inline `?` help beside `Character Link`.
-- OBR dialog accessibility follow-up landed extension-wide: all dialog openers now blur active focus first to prevent Chrome `aria-hidden` focus-retention warnings on modal mount.
-- OBR navigation/tooling polish landed: removed `Test` tab, hid dedicated grenade-placement tool from standard OBR tool menus while keeping click-to-place flow active, and added status-strip visual meters for Bulk capacity and Stress with CUF threshold marker.
-- OBR Nanomancy tab gating tightened: tab visibility now depends on Nanomancy feat unlocks for all users (including GM view).
-- OBR stress meter follow-up landed: removed CUF text label, added explicit PTSD threshold marker (stress `6`, per stress rules `PTSD Range (6-8)`), and color zoning for below-CUF / CUF-to-PTSD / PTSD+ ranges.
-- OBR nanomancy AoE placement stabilization follow-up landed (2026-03-03):
-  - placement activation requests now use local-only broadcast scope,
-  - background activation handler now no-ops when placement mode is already active,
-  - background startup is singleton-guarded to avoid duplicate activation listeners and mode churn.
-- OBR nanomancy AoE placement reliability follow-up landed (2026-03-03):
-  - nanomancy cast start now calls direct placement activation from panel flow (matching grenade throw path) to avoid duplicated background broadcast handling during AoE activation.
-- OBR AoE activation compatibility fix landed (2026-03-03):
-  - shared placement activator now retries placement-mode activation through current/move tool contexts before tool-id fallback, restoring hidden-mode activation reliability for grenade and nanomancy AoE casts.
-- OBR AoE registration compatibility rollback landed (2026-03-03):
-  - placement tool/mode explicit icon registration was restored (`AoE Effects` / `Place AoE`) to align with the last known-working activation behavior in OBR.
-- OBR stress-threshold trigger unification landed (2026-03-03):
-  - Crucible/PTSD trigger checks now run from a shared stress-gain path that also covers sheet-sync stress updates (including nanomancy stress gains), not just manual core-panel stress changes.
-- OBR cross-scene token ownership continuity landed (2026-03-03):
-  - stable token-level `characterInstanceId` + player-level cached character instance id were added, and my-sheet load now rebinds scene-locally by owner+characterInstanceId when token-id pointers are stale after scene copy/paste.
-  - follow-up: scene-local rebinding now also supports unowned copied tokens with matching `characterInstanceId` and then reclaims ownership for the player.
-  - follow-up: scene-ready change listener now triggers immediate re-resolution on scene switch (`OBR.scene.onReadyChange`), so continuity works without full browser refresh.
-- OBR global character continuity landed (2026-03-03):
-  - canonical character sheet state is stored by `room + characterInstanceId`; token sheet data is treated as local cache, and load/save resolve via canonical-first behavior so edits propagate across scene copies of the same character instance.
-  - follow-up architecture change: canonical OBR instance sheets now persist via dedicated character-api storage (`obr_instance_sheets` keyed by `room_id + instance_id`), keeping room metadata small for owner/lock maps only; token/local caches remain fallback.
-  - OBR client follow-up: canonical instance writes now use CharacterRecord-compatible payloads and read conversion adapters, and remote 404/error lookup throttling was added to reduce repeated network-error console spam.
-  - API contract follow-up (2026-03-04): `GET /character-api/obr-instance/:instanceId?roomId=:roomId` now returns `200 { found:false, sheet:null }` on misses instead of `404 not_found`, removing browser “Failed to load resource” noise for expected first-read misses.
-  - OBR serializer follow-up (2026-03-04): canonical instance `PUT` payloads now strip local-only `gameplayEffects` fields from weapon/armour/feat objects before write, preventing `400 validation_failed` after scene transitions.
-  - Auth/CORS hardening follow-up (2026-03-04): OBR instance `PUT/DELETE` now require authenticated session or configured write key/api key, and character-api now enforces an explicit origin allowlist when `Origin` is present.
-  - Seamless auth follow-up (2026-03-04): added room-scoped guest auth bootstrap (`POST /character-api/auth/obr-guest`) that issues `ws_obr_guest` cookie sessions; OBR instance writes now accept this cookie, enabling no-manual-key continuity for extension users.
-  - Continuity durability follow-up (2026-03-04): OBR extension now queues failed canonical instance writes locally and replays them automatically on later access after auth/network recovery, reducing risk of stale cross-scene state after long gaps.
-  - API hygiene follow-up (2026-03-04): character-api now performs opportunistic cleanup of expired/revoked auth rows (`obr_guest_sessions`, `user_sessions`, `password_resets`) and normalizes/echoes requested CORS preflight headers for better cross-origin consistency.
-  - Observability follow-up (2026-03-04): character-api now tracks lightweight counters + sampled logs for OBR guest issuance and OBR instance write/delete outcomes; OBR extension adds throttled canonical sync summary logs and a manual `Force Sync Now` replay action.
-  - Continuity UX follow-up (2026-03-04): manual `Prepare Transfer` UI flow was removed; scene-ready auto-normalization now repairs token instance/sheet/owner continuity automatically for relevant tokens.
-  - Ownership UX follow-up (2026-03-04): owner modal bulk actions now rely on `Assign Selected` + `Release Selected`; releasing selected instances also clears matching player self-binding immediately to avoid stale token auto-open without page refresh.
-  - Ownership realtime follow-up (2026-03-04): non-GM sheets now subscribe to room owner-map metadata changes and immediately rebind/unbind local character selection when GM ownership reassignment/release occurs (no scene reload required).
-  - Ownership UX messaging follow-up (2026-03-04): non-GM sheets now show concise info toasts when GM ownership changes trigger immediate character rebind/unbind.
-  - Ownership binding parity follow-up (2026-03-04): persisted `my character` owner-validation now applies for all roles (including GM), so unassign/reassign-away clears stale self-binding immediately instead of reopening as `unowned`.
-  - Ownership race follow-up (2026-03-04): explicit self-unassign/reassign-away now clears open-token override and skips immediate post-owner-update reload to prevent brief rebind to the just-released token.
-  - Ownership consistency follow-up (2026-03-04): all GM owner-mutation actions now share one post-change binding enforcement routine, so `Release`, `Assign -> Unowned`, `Assign -> Other`, and per-instance assignment apply the same immediate unbind/rebind semantics.
-  - Ownership UX follow-up (2026-03-04): ownership-driven unbind now shows a persistent in-panel `Select token` reason banner (not just transient notifications), improving player clarity after GM ownership changes.
-- OBR ownership/identity management follow-up landed (2026-03-03):
-  - canonical owner mapping now exists at character-instance level, player claim checks use canonical owner first, and Settings exposes GM-only `Owner` assignment controls that synchronize current-scene token owner metadata for matching copies.
-  - ownership-load fix: sheet refresh no longer force-claims canonical ownership, so explicit `Unowned` owner assignments remain stable.
-- OBR GM ownership tooling follow-up landed (2026-03-03):
-  - Owner modal now supports player search/filtering and bulk actions for selected tokens (`Release Selected`, `Assign Selected`).
-  - Added a GM-only Ownership Audit modal listing scene character instances with owner labels, token counts, anonymized counts, and token-name snapshots.
+- Status: Live and heavily active; broad gameplay/ownership/nanomancy workflows deployed.
+- Role in ecosystem: player-side VTT runtime consuming rules/calc/character APIs.
+- Key integration dependencies: rules-api contracts + SDK types.
+- Current risk: residual local compatibility adapters/shims until ECO-004 is done.
+- Next milestone: remove production shim paths and align fully to SDK release versions.
 
 ### whisperspace-obr-gm
-- Current status: Live at `https://gm.whisperspace.com` with production manifest hosted from `/hdd/sites/stuartpringle/whisperspace-obr-gm/dist`; GM panel modules (HUD, Effects, Adjudication, Ownership) are deployed.
-- Recent milestones:
-- Defined GM-only scope split from player sheet extension:
-  - Unified Ongoing Effects Manager
-  - GM Adjudication Queue
-  - Party/Encounter HUD
-  - Ownership Dashboard
-- Added initial extension runtime scaffold (`package.json`, TS/Vite config, OBR manifest, and starter tabbed GM panel shell).
-- Verified scaffold compiles (`npm install` + `npm run build`) in `/hdd/sites/stuartpringle/whisperspace-obr-gm`.
-- Implemented Party/Encounter HUD v1 in GM extension:
-  - live character table (owner/initiative/stress-CUF/wounds/conditions),
-  - active-turn indicator,
-  - summary counters,
-  - event-driven refresh via OBR scene/room/party subscriptions.
-- Implemented Effects tab v1 in GM extension:
-  - live active-zone table driven by shared `activeNanomancyZones` metadata (caster, rounds, heal/turn, heal mode),
-  - condition-impact table derived from shared character sheet metadata across scene tokens,
-  - reused existing HUD data path to avoid duplicated parsing/state logic.
-- Implemented Adjudication Queue v1 in GM extension:
-  - live queue derived from shared global combat log metadata (`globalCombatLog`) with manual-resolution filtering,
-  - queue entries classified by reason/priority and summarized in-panel,
-  - local acknowledge/reset controls added without introducing parallel gameplay-state writes.
-- Implemented Ownership Dashboard v1 in GM extension:
-  - canonical owner map editing per character instance with apply action,
-  - bulk assign-selected ownership action for current scene token selection,
-  - lock-state visibility and owner-sync mismatch indicators for GM reconciliation.
-- Ownership Dashboard hardening follow-up:
-  - GM-only permission guards on ownership mutation actions,
-  - explicit confirmation dialog before owner-changing actions execute,
-  - mismatch reconciliation helpers added (`Sync Tokens` and `Adopt Tokens`).
-- GM hosting operations follow-up (2026-03-05):
-  - `gm.whisperspace.com` is now served from the shared Apache config at `/etc/apache2/sites-available/whisperspace.conf` (not a standalone vhost file).
-  - Owlbear CORS compatibility for GM manifest/static responses is now explicitly configured (`Access-Control-Allow-Origin: https://www.owlbear.rodeo`, `GET, OPTIONS`, `Content-Type`).
-- GM Party operations follow-up (2026-03-05):
-  - GM extension panel now uses a dark Whisperspace-style theme and wider popover (`width: 760`).
-  - `HUD` tab has been promoted to interactive `Party` operations with direct modals for initiative, stress/CUF, wounds, conditions, and token renaming.
-  - `View Sheet` action now opens the selected character in the existing sheet extension flow, and initiative modal includes a bridge into the sheet’s initiative roller.
-  - Party rows now include clickable token thumbnails that center/select the token on the map.
-  - Adjudication queue now removes acknowledged entries from shared combat-log metadata directly (no local reset-ack state).
-- GM extension performance pass:
-  - tab-level lazy loading added for HUD/Effects/Adjudication/Ownership panels,
-  - build chunk strategy updated to split heavy shared dependencies (MUI + OBR SDK),
-  - production output now ships small per-tab chunks and a reduced initial entry bundle.
-- Captured integration policy: consume shared metadata/contracts from existing OBR extension and rules-api; avoid parallel ownership/effect systems.
-- Next steps:
-- Continue feature expansion from deployed baseline (effect operations, adjudication actions, ownership audit enhancements).
-- Keep deployment contract documented in repo README (`npm run deploy:live`, manifest verification, Apache host notes).
-- OBR nanomancy targeting/outcome follow-up landed (2026-03-04):
-  - Static Burst modal now uses dedicated chain-target UX end-to-end (selected target names shown in order, generic single-target controls hidden for this effect).
-  - Static Burst selected targets now get temporary purple ring highlights on-map during selection, and those highlights clear on cast/cancel.
-  - Nanomancy extreme success now increments scene ND by `+1` (shared ND state), with explicit cast-log text showing the ND increase.
-  - Ownership Audit rows now include per-instance owner reassignment controls (owner selector + apply) to update canonical owner mappings directly.
-  - Added a GM token context-menu action (`Manage Owner`) that opens sheet Settings and launches the Owner modal for the selected token.
-  - Owner player list loading now subscribes to party changes and includes current-player fallback to avoid empty owner dropdowns.
-- OBR continuity hardening follow-up landed (2026-03-03):
-  - Added GM `Prepare Transfer` helper to normalize selected tokens before cross-scene copy/paste (ensure instance IDs + canonical owner sync).
-  - `Prepare Transfer` UI text now explicitly references scene copy flow and includes helper tooltip copy explaining the normalization/sync effect.
-  - Added duplicate-instance warnings when same-name tokens in scene map to different character instances (owner-compatible scope), highlighting potential accidental fork drift.
-  - Added optional character-instance lock flag; locked instances prevent non-GM claim/fork/owner reassignment operations.
-- OBR stress modal refinement landed (2026-03-03):
-  - Crucible/PTSD modals now include explicit rule snippets for trigger/roll/outcomes.
-  - Stress-trigger and resolution events now publish into combat history/effect log stream.
-  - Added GM override actions for pending Crucible/PTSD states for table adjudication.
-- OBR nanomancy follow-up landed (2026-03-03):
-  - Added manual nanomancy zone lifecycle controls (`Apply To Selected`, `Advance Round`, `Dismiss`) in Nanomancy tab, with active-zone listing and remaining-round visibility.
-  - Regenerative Cloud templates now show remaining-round labels and update across round advances.
-  - Nanomancy condition auto-application now resolves from summary-text outcome clauses (success/failure/extreme variants) in addition to base condition-bearing effect text.
-  - Nanomancy branch coverage follow-up (2026-03-04): non-AoE effect success branches now include concrete runtime handling for `Knit Together` healing, `Crush` Immobile-doubling damage rule, and `Static Burst` primary-target damage, with explicit manual-resolution guidance logs for chain/EMP details, `Push/Pull` collision handling, and `Nullify` cancellation adjudication.
-  - Nanomancy outcome visibility follow-up (2026-03-04): casts now emit explicit outcome-clause notes (`Success`/`Failure`/`Extreme ...`) into combat/effect log stream for clearer table adjudication.
-  - Static Burst targeting workflow follow-up (2026-03-04): cast modal now enforces selecting exactly `actions used` targets with Very-Near chain validation (each additional target connected to any prior selected target), and runtime resolves ordered chain damage (`ND` first, `half ND up` additional).
-  - Regenerative Cloud observability follow-up (2026-03-04): per-turn zone application now writes combat-log effect entries per affected token (healed amount or no-eligible-wounds), exposing lingering-effect ticks in shared log history.
-  - Combat-log UX follow-up (2026-03-04): effect entries now render their explicit text content in the sheet Combat Log, and global broadcast toasts now ignore `kind: "effect"` messages to avoid lingering-effect notification spam.
-  - Regenerative Cloud clarity follow-up (2026-03-04): cast flow now logs an immediate effect-summary line covering heal-per-turn amount, duration, and extreme-success moderate-wound capability for clearer player expectations.
-  - Regenerative Cloud timing follow-up (2026-03-04): initiative-driven zone ticking now decrements duration on caster turn-start cadence (after start-of-turn healing), replacing prior round-wrap decrement behavior.
-  - Nullify branch visibility follow-up (2026-03-04): failed/extreme-failed Nullify outcomes now log explicit guidance that the triggering nanomantic effect resolves normally.
-  - Canonical write-rate follow-up (2026-03-04): OBR extension now applies per-instance write cooldown after `429` responses (using `Retry-After` when available), queues pending writes locally during cooldown, and suppresses repeated endpoint hammering/noise.
-  - Pending-flush cooldown follow-up (2026-03-04): pending canonical write replay paths now skip instances currently in write cooldown (including force-flush), reducing repetitive `429`/flush-failed telemetry during cooldown windows.
-- OBR initiative context-menu parity landed (2026-03-03):
-  - right-click `Roll Initiative` now opens the sheet popover and the same Initiative roll-config modal used in-sheet (net dice + situational modifier), replacing direct background auto-roll behavior.
-- OBR initiative UX follow-up landed (2026-03-03):
-  - Added right-click `Remove From Initiative` shortcut for tokens in initiative tracker, backed by token metadata tracking flags.
-  - Initiative roll-config modal now persists per-player defaults (net dice and situational modifier) and reuses them across rolls.
-  - `Roll Initiative` context action is now hidden for tokens already marked initiative-tracked to prevent duplicate-entry roll attempts.
-- OBR debug cleanup landed (2026-03-03):
-  - temporary placement/nanomancy debug logging was removed from runtime extension code after AoE placement stabilization.
-- OBR roll-dialog follow-up landed: shared roll modal now includes a `Situational Modifier` field that applies direct +/- modifier adjustments in Core, Skills, and Initiative roll flows.
-- OBR inventory/equipment card follow-up landed: status warnings now sit directly under Stress/Bulk meters; Weapons and Armour now support drag-and-drop ordering like Gear; and all three card types now keep visible collapsed-card borders with reduced duplicate top-row control content in expanded views.
-- OBR typing-stability fix landed: feat rows now use stable keys (preventing `Feat Name` input remount/focus loss) and `Core > Name` now commits on blur so per-keystroke token sync does not interrupt text entry.
-- OBR nanomancy workflow redesign landed: primary-field selection now uses modal picker flow, nanomantic effects now use draggable/collapsible card UX parity with equipment, and each effect now resolves through a dedicated `Use` modal (net dice + situational modifier + target/distance + action cost/options) with AoE placement preserving situational modifiers through pending-cast metadata.
-- OBR ownership/permissions pass landed: claiming already-owned tokens is blocked, non-GM users are restricted to their own bound sheet, legacy back-to-my-sheet navigation was removed, and GM settings now support `Unset Character From <owner>` while viewing another player’s token sheet.
-- OBR character binding now uses click-to-pick flow: `Set Token as My Character` prompts for a token click after pressing the button.
-- OBR shared click-to-pick prompts now auto-dismiss when selection resolves (or times out), avoiding lingering `Dismiss` notices.
-- OBR combat/utility follow-up landed: top header token-id line removed, a new `Test` tab now supports token-to-token distance measuring, and initiative row combat actions now strictly use equipped gear semantics (`Attack` uses equipped weapon or unarmed fallback, `Reload` requires equipped weapon, PROT shows equipped armour only with `0` default when unequipped).
-- OBR range-band starter landed: shared ground-band mapping (`Melee` through `Extreme`) now derives from the current rules distance table, and `Test -> Measure` now shows both feet conversion (`1 unit = 5 ft`) and resolved range band labels.
-- OBR targeting/range-context pass landed: non-GM right-click sheet/initiative actions are now hidden on tokens not owned by that player, a new token `Target` action stores target metadata on the owner token, and `Test -> Attack Targeted` now enforces rules-api range logic (melee out-of-range auto-fail, ranged Very Near penalty die, +2 DC per farther band, 3+ farther bands auto-miss).
-- OBR target UX follow-up landed: target selection now renders a per-player red target-ring attachment on the targeted token, and `Attack Targeted` confirms equipped-weapon ammo decrement/persist behavior where ammo applies.
-- OBR targeting semantics were expanded: right-click now swaps between `Target`/`Untarget` per token state, target rings now encode ally/enemy (`player-owned non-GM` => teal, otherwise red), and ring padding was tightened for a closer fit.
-- OBR combat-tab attacks now conditionally inherit targeted/range-aware behavior: when a target exists they apply range-band penalties/DC adjustments and auto-miss constraints; when no target exists they retain legacy direct-roll behavior.
-- OBR combat UX now uses pre-roll config modals for grenade throws and weapon attacks, including rules-derived helper text (throwing, multiple attacks, cover), plus configurable attack-sequence/cover/DC adjustments before roll resolution.
-- OBR attack-config UX is now shared between combat panel and initiative-row attacks:
-  - both surfaces use the same modal component and execution helpers (reduced duplicated logic),
-  - attack-order control is now a `1st Attack` toggle switch,
-  - bonus/penalty dice controls use a shared Skills-style selector,
-  - modal now includes `Select Target` when no target is set (click-to-pick token flow).
-- OBR attack-config follow-up:
-  - modal now supports manual `Distance` range-band targeting when no token target is set (for non-token/manual adjudication attacks),
-  - attack preview now includes an explicit net-dice breakdown line (final net + capped bonus/penalty components),
-  - additional bonus/penalty controls in Skills/Core/Nanomancy/Inventory grenade-throw flows now reuse a shared selector component.
-  - modal target controls now include `Untarget`, and modal preview reacts live while open to context-menu target changes.
-  - zero-net dice messaging now displays as `Straight roll`.
-  - attack modal field pairs now stay in explicit two-column layout within OBR panel widths.
-  - attack-modal helper text now displays only when relevant (e.g. subsequent-attack rule only on subsequent attacks; cover help only for selected cover).
-  - attack modal now displays live range-effects math (weapon band vs target band, farther-band DC increase, and close-range penalty-die indicator when triggered).
-  - attack modal text order was adjusted so dice/range summaries appear above the main attack preview sentence.
-  - attack modal now closes immediately on `Attack` click before async roll resolution runs.
-  - close-range penalties were corrected to the ranged-weapon table (Light 0, Medium +1 PD, Heavy +2 PD, Exotic +1 PD at Very Near/Melee), with `Point Blank` keyword exemption.
-- OBR combat follow-up: targeted hits now auto-apply resulting damage/stress to the targeted token sheet and append effect entries to combat log, and manual Combat-panel `Apply Damage` flow was stabilized to avoid wound-state flicker from redundant stress callback writes.
-- OBR targeted-hit application now includes an ownership-safe fallback: if attacker-side cross-token writes fail due permissions, effect payloads carry `autoApplyToTarget` and the target owner client applies the hit locally to its own sheet.
-- OBR targeted-hit apply routing was tightened to avoid silent non-owner write attempts: attackers now choose direct apply only for owner/GM contexts, otherwise they always emit target-owner auto-apply payloads.
-- OBR combat-log persistence moved to a scene-global metadata model (`whisperspace.obr.sheet/globalCombatLog`), so sheet panels now render shared recent history (latest 4) regardless of which tabs were open when rolls occurred; Test tab now also surfaces live current-token position coordinates.
-- OBR combat-log apply flow was refactored to modal-based actions:
-  - single `Apply` button per eligible row opens apply options (`Damage`, `Stress`, `Both`),
-  - GM flow supports explicit target-token selection before applying,
-  - rows representing already auto-applied targeted hits no longer show manual apply actions.
-- OBR initiative/combat tab UX pass:
-  - removed top-level attack-roll dice controls (attack modal owns dice config),
-  - reload now supports multi-equipped weapon selection via modal when needed,
-  - GM-only row-settings modal now owns initiative edit/surprised/remove controls (replacing inline row controls),
-  - active-player row visibility increased (green name + enlarged avatar), and surprised state now renders as red in-row text.
-- OBR non-attack roll UX now uses shared roll-config modal flow:
-  - `Roll Initiative`, Skills `Roll with Dice+`, and Core attribute roll actions now open a common modal with shared bonus/penalty selector and net-dice summary.
-  - Initiative modal now surfaces stress-driven penalty context before roll.
-  - Roll modals close immediately on confirm, then execute the async Dice+ request.
-- OBR inventory/skills modal UX sweep:
-  - Inventory credits now use one `Add / Remove` modal action (amount + add/remove).
-  - Inventory `Add Gear` and equipment `Add Weapon` / `Add Armour` flows now share one standardized modal workflow (template optional + editable fields + footer `+ Add`).
-  - Removed standalone `Add Custom` weapon action; modal field editing now covers custom weapon/armour creation.
-  - Buy-mode add actions now render as `Buy (<credits>)` across gear/weapon/armour add modals; non-buy mode keeps plain `Add`.
-  - Skills point adjustment now uses modal add/remove controls, and Learning Focus now uses button-triggered modal selection (with `Select One` when unset).
-- OBR settings sync-link flow now uses a dedicated modal with persisted token-level link metadata and last edited timestamp.
-  - Import path now prompts overwrite confirmation before replacing the current token sheet.
-  - Export path performs session verification against `character-api/auth/session` before writing to `PUT /character-api/characters/:id?visibility=public`.
-- OBR settings auth UX follow-up: removed `Check Login` button; export auth/CSRF failures now show a simple login-required message (`Must be logged in on builder.whisperspace.com to export.`) while keeping `Open Builder Login`.
-- OBR settings sync export now supports first-time publish: if no link/id is set, `Export to Builder` creates a new public character and persists the new builder link on the token; if a link/id is set, export updates that existing character.
-- OBR inventory tab parity follow-up landed: `Equipment` now renders above `Inventory`, inventory uses the same collapsible section pattern and left-aligned add action as weapons/armour, and credits + acquire/buy controls are rendered in a single row when space allows.
-- OBR inventory/equipment polish follow-up: credits + acquire/buy now render directly beneath the `Equipment` header; section formerly labeled `Inventory` is now `Gear`; and collapsed headers for Weapons/Armour/Gear now show item count + total bulk summaries.
-- OBR sheet popover width increased (`520` -> `560`) to improve inventory/equipment row layout.
-- OBR initiative avatar focus behavior was corrected to center camera from live item bounds (`getItemBounds().center`) instead of stale cached token positions.
-- OBR initiative focus follow-up now reads clicked token live item position at click time (fallback to bounds center), tightening token-location source correctness for camera centering.
-- OBR camera-focus diagnostics are temporarily enabled in initiative-avatar focus flow, with viewport transform snapshots logged around center/zoom operations and a new center-then-restore-zoom attempt (animate to bounds, then reset previous scale).
-- OBR focus UX follow-up: temporary camera debug logging has been removed, header token thumbnail now supports click-to-center behavior, and my-sheet load now auto-centers once on the bound character token.
-- OBR distance/range follow-up now uses live scene grid scale (`OBR.scene.grid.getScale`) for measure/range checks, supports `ft`/`yd`/`m` conversions, and normalizes displayed distance values to cleaner increments.
-- OBR combat range-penalty parity fix landed: initiative-row `Attack` actions now apply the same targeted range logic as combat-panel attacks (ranged Melee/Very Near penalty die, +2 DC per farther band, 3+ farther bands auto-miss).
-- OBR targeted-attack reliability/dedupe follow-up landed: shared targeted-attack helper now drives both combat-panel and initiative-row attack actions, and initiative-row targeted hits now use the same target damage/stress apply + ownership-safe broadcast fallback path.
-- OBR dedupe pass expanded shared combat helpers: Test and initiative flows now reuse shared loadout/status/ammo utilities (`ui/combat/loadout.ts`) instead of duplicating status aggregation, unarmed fallback, and equipped-ammo persistence logic.
-- OBR non-combat dedupe sweep landed in `SheetApp`: token-ready state setup and import/sync parsing flows now use shared local helpers (`setReadyStateFromToken`, `importRawIntoCurrentToken`, `fetchPublicCharacter`) to reduce duplicated ownership/import/export logic.
-- OBR follow-up dedupe landed for map focus + status aggregation: both sheet-header and initiative-avatar camera centering now use shared `obr/focusToken.ts`, and repeated status-string aggregation moved to shared `rules/statuses.ts` consumed by background and SheetApp derivation flows.
-- OBR dedupe follow-up expanded initiative/attack prep sharing: context-menu and panel initiative rolls now use shared `ui/combat/initiativeRoll.ts`, and Test/Initiative attack prep now uses shared `ui/combat/attackActor.ts` for status/attrs/CUF/stress/mod/ammo derivation.
-- OBR final dedupe pass also centralized repeated combat text literals into `ui/combat/messages.ts` and removed remaining duplicated out-of-ammo/range-abort strings across panels/helpers.
-- OBR grenade/AoE rules integration pass landed with reusable helper architecture:
-  - shared grenade module (`ui/combat/grenade.ts`) now handles grenade item lookup, effect parsing, AoE target collection, and map AoE indicators;
-  - Combat panel now supports both grenade-launcher consumption/resolve flow and hand-thrown grenade flow (Very Near, DC8 baseline, PHYS/REF choice);
-  - frag-style AoE save resolution now uses a target checklist dialog (Evade half) and applies through the existing ownership-safe targeted-hit pipeline.
-- OBR combat-tab usability/rate-limit hardening follow-up:
-  - grenade throw UX has been moved to grenade item rows in Inventory (item-centric throw action), with combat-tab selector controls removed;
-  - grenade throws now use a click-to-place map workflow: item-row `Throw` activates cursor-follow AoE preview and click finalizes impact center;
-  - placement tool supports cancel (`Esc`) and restores previous active tool;
-  - combat-log fallback formatting was fixed for freeform thrown-grenade entries (avoids `0 vs DC 0` display when no structured outcome exists);
-  - AoE target inclusion now uses token bounds center coordinates for better parity with visual template placement;
-  - range-band penalty/impossible logic is now centralized in a shared OBR module (`ui/combat/rangeCheck.ts`) and consumed by both targeted attacks and thrown-grenade placement;
-- grenade placement preview now color-codes by throw viability (in-range, farther with penalties, impossible).
-  - grenade placement HUD text was removed (ring-only preview retained), and click flow now restores tool/placement UI before running roll and effect resolution.
-  - thrown grenades now bypass close-range penalty-die logic (farther-band penalties/impossible checks still apply via shared range-check module).
-  - OBR sheet UI now refreshes ready-state sheet data from live token metadata changes, fixing delayed visibility of background-driven inventory quantity updates (e.g. grenade stack decrement).
-  - grenade AoE affected-target selection now uses the exact rendered template pixel radius for hit inclusion, reducing visual discrepancy reports.
-  - Test tab now exposes a manual `Clear AoE Templates` action for immediate cleanup of lingering AoE indicators.
-  - grenade placement tool no longer force-switches users to Move when no previous tool id is captured.
-  - queue item P3 follow-up landed: Nanomancy tab is now fully functional in OBR (feat-gated for players, visible for GMs) with field/effect management and rules-aware check rolling.
-  - OBR token schema + record adapters now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) for builder/API interoperability.
-  - calc shim now coalesces + memoizes repeated derive/status requests and retries 429-class responses with backoff to reduce burst failures;
-  - UI derivation paths now fail soft under calc throttling so sheet views remain interactive during transient API limits.
-- OBR nanomancy AoE persistence follow-up landed:
-  - `Regenerative Cloud` now routes through AoE placement/template flow and creates a persistent zone template on cast success.
-  - Active cloud zones are stored in scene metadata and processed each wrapped initiative round, healing all tokens currently in-zone before duration decrement.
-  - Zone templates are removed automatically when their remaining round count expires.
-- OBR high-stress rules follow-up landed:
-  - stress remains clamped to max `8`,
-  - Crucible checks now run from modal flow when stress crosses above `5` (`DC = 8 + incoming stress`, CUF check without bonus/penalty dice),
-  - failed Crucible supports permanent CUF spend (`cufLoss +1`) to pass,
-  - PTSD reaction modal now supports rolling the `1d4` PTSD table and applies table effects (including `Fleeing (1)`).
-- OBR nanomancy follow-up landed:
-  - Nanomancy panel heading now reads `Nanomancy` (was `Nanomancy Controls`).
-  - Regenerative Cloud turn logic now heals on affected token turn-start (initiative advance), with round-duration decrement retained on wrap.
-  - AoE placement activation for nanomancy now validates tool activation and clears pending cast on failure instead of silently closing.
-  - Added background placement-activation fallback channel so nanomancy AoE `Use Effect` can force placement mode even when panel-context tool activation fails.
-  - Added placement-activation race protection (serialized activation + throttled panel requests) to prevent tool mode thrash between panel/background contexts.
-  - Removed move-tool fallback attempts in placement activation and panel-side reactivation loop to prevent placement mode from being canceled immediately after activation.
-  - Switched nanomancy AoE to background-owned placement activation requests with throttled retry while pending, avoiding panel-context activation failures.
-- Next steps:
-- Continue iterating directly in `whisperspace-obr-extension` as the primary/most up-to-date OBR sheet implementation.
-- Align any remaining record/adapter usage with final SDK character type naming once shared SDK contract is finalized.
-- Smoke test extension behavior in Owlbear Rodeo (initiative, combat rolls, damage apply, token save/load) after each migration batch.
+- Status: Live GM extension with party/effects/adjudication/ownership modules.
+- Role in ecosystem: GM control plane using shared OBR metadata/contracts.
+- Key integration dependencies: OBR sheet metadata model + rules-api/character-api.
+- Next milestone: continue feature expansion while preserving shared-contract discipline.
 
 ### whisperspace-character-builder
-- Builder preview modals now present cleaned field labels (no raw IDs, pretty skill names) with two-column detail layout and improved selector action-row wrapping for `Preview` + `Buy` controls.
-- Builder now includes a dedicated Nanomancy step (unlocked by the `Nanomancy` feat) with primary-field selection, known-effect tracking, ND planning, and a rules-driven check simulator.
-- Builder Nanomancy UX now mirrors OBR’s card flow: effects-known cap, add-effect modal with full descriptions, per-effect cards with `Use` actions, and shared bonus/penalty + range/action controls.
-- Builder Nanomancy follow-up now adds collapsed effect top rows with icon-only `Use`, calculated DC/range labels, per-effect target token + `Untarget` display, and a dedicated `Use <Effect>` modal with resolved numeric effect text plus roll/range context copy.
-- Character records now persist first-class Nanomancy payload (`nanomancy.primaryField`, `nanomancy.knownEffects[]`, `nanomancy.preferredND`) via SDK schema updates, enabling cloud save compatibility without metadata hacks.
-- Builder equipment selectors now expose `Preview` modals for weapons, armour, and gear entries so users can inspect full catalog detail before adding/buying.
-- Builder armour action buttons were normalized to the same padded sizing as other row action controls for consistent touch/click targets.
-- Builder credits adjustments are now handled via a dedicated modal flow (`Add/Remove`) launched from Equipment credits display, reducing control clutter in the gear summary row.
-- Current status: Production React/Vite builder is live at `https://builder.whisperspace.com` with rules-driven character creation, local drafts, and authenticated cloud save.
-- Recent milestones:
-- Added account UX polish in the Save dialog (clear login/signup/reset messaging and readable auth errors).
-- Clarified save permissions in UI copy: `private` (just you) vs `public` (anyone).
-- Save flow now uses staged modals (save menu -> auth when needed -> save options by target).
-- Save options are conditional by target (only show `New copy` when an existing local/cloud record exists).
-- Reset action now confirms and restores latest saved local/cloud copy when available.
-- Nanomancy cards now show computed DC/range in collapsed headers and use a dedicated modal with resolved numeric effect descriptions to match combat-style pre-roll context.
-- Began visual alignment with `whisperspace.com` (dark contact/footer treatment and starfield-inspired panel styling).
-- Skills UX refresh: grouped/collapsible trees, search-by-name, no slug labels, compact +/- rank controls, and tooltip hints.
-- Added inline SVG skill-group icons for attribute/focus trees.
-- Added authenticated account menu under username with `My Characters` top-level nav and a username dropdown (`Settings`, `Log out`).
-- Implemented Character List page (search/sort/capacity slots/name-link/copy-link/edit, right-aligned numeric columns) with unsaved-change guard when switching edits.
-- Polished account-submenu behavior on protected routes: `/characters` and `/settings` now keep the submenu expanded with proper active highlighting, `/characters` action copy now uses `New Character`, and character rows gained consistent hover-highlight affordances.
-- Updated builder navigation + budgeting UX: non-builder pages now present `Continue Building`, default landing preference fallback is `My Characters`, and `Skills & Attributes` now uses an `Add / Remove` skill-points modal with spent-point removal safeguards and warning feedback.
-- Refined `Skills & Attributes` layout by removing the direct total skill-points input, adding an explicit `Skill Points` budget heading, and relocating `Learning Focus` directly below that budget section.
-- Reworked builder account navigation presentation: submenu links now render inline as an indented tree under the user entry (not a detached floating dropdown), and the account menu group sits slightly higher in the header layout.
-- Simplified builder account menu structure by removing the separate user-name parent item and rendering `My Characters`, `Settings`, and `Log out` directly as indented entries in the same primary menu list.
-- Finalized builder account menu presentation as a flat normal menu list (no submenu indentation), while styling `Log out` with a lighter danger treatment for clearer action distinction.
-- Aligned builder header `Log out` styling to the shared destructive-action button pattern (`ghost danger`) used by inventory remove actions for consistent affordance.
-- Updated builder equipment-purchase UX labels: weapon/armour/item catalog dropdowns now include inline cost text (`Name (<cost> credits)`) in both `Buy` and `Acquire` modes, while `Buy` buttons no longer append per-item cost text.
-- Added builder sci-fi name generation for character naming (`Generate` action beside name in Origin) and refreshed Review tab presentation with richer summary metadata, skill-point budget pills, and equipped-armour-aware loadout display.
-- Refined builder UX edge cases: default landing redirect now triggers only after explicit login (not refresh/deep links), and roll dialogs for Motivation/Background/credits remain visible until closed so dice outcomes are clearly surfaced.
-- Corrected builder dice-modal render scope so roll dialogs mount in the main builder page (not only the characters page), restoring visible roll animation/results for Origin `Roll Motivation` and `Roll Background`.
-- Reworked builder roll presentation to non-modal overlays: 3D die animation now runs across the screen and result text appears in a bottom-right toast (`Rolled 1d12: <result>` + contextual detail like credits/background/motivation) before auto-dismiss.
-- Enhanced builder roll animation fidelity: toasts now pop more prominently and linger longer, die/toast lifetime increased by ~1s, die visuals now track roll type (`d10`/`d12`), launch vectors are randomized (force + direction + start face), and result numbers are hidden until motion ends.
-- Upgraded builder `d10`/`d12` roll visuals from ring approximations to polyhedron-style face constructions (kite faces for `d10`, pentagonal faces for `d12`) for closer geometric alignment with tabletop dice conventions.
-- Follow-up dice geometry pass kept face numbers visible during roll animation and adjusted d10/d12 orientation transforms to improve visible face-edge contact/alignment (notably d12 cap/band joins).
-- Rolled back builder visual dice overlays per UX direction: Origin roll actions now resolve via direct RNG without on-screen dice/toast, while retaining the modular dice abstraction in code for future optional dice-module restoration.
-- Updated builder Origin layout to place `Credits` directly above `Generate Starting Money`, and initiated Character View enhancements with a card-based summary layout (hero metadata, metrics, and detailed sections for attributes/skills/equipment/health/background/notes).
-- Expanded builder Character View semantics: page header now resolves to character name with focus/updated/motivation metadata, metrics now label `Cool Under Fire` explicitly and show equipped-armour `Protection` (with durability-aware zeroing), and Equipment now supports constrained weapon equip logic (max two equipped, two-handed exclusivity, and `Req` attribute validation with explicit failure messaging).
-- Builder UI consistency pass: weapon action-button spacing now matches armour controls, desktop header account nav remains right-aligned on Character View, and `CUF Loss` was removed from Health cards for cleaner summary surfaces.
-- Builder auth/session isolation hardening: character list state now clears on account identity change, stale in-flight list responses are ignored after user switches, and `/auth/session` is always server-validated (no trust-only cached authenticated session) to prevent cross-account character visibility.
-- Builder auth UX copy update: login now shows `Username or Password incorrect` for `invalid_credentials` responses instead of exposing raw API error codes.
-- Builder character-access UX updates: logout from `/character/:id` now routes back to the builder homepage, and `My Characters` rows now expose a persisted `Public`/`Private` visibility toggle next to `Copy Link`.
-- Builder auth-guard timing fix: refreshing protected pages (`/characters`, `/settings`) now waits for initial session verification before redirecting, preventing false redirects to builder while still unauthenticated users are blocked.
-- Builder visibility toggle update: `My Characters` now uses a true switch control for `Private/Public`, and visibility updates no longer send `If-Unmodified-Since` so browser preflight/CORS succeeds on cross-origin `PUT ...?visibility=...` requests.
-- Builder character-row action layout refinement: visibility switch now appears immediately left of `Copy Link` on `My Characters` rows.
-- Builder character-list organization update: list/tag row controls were replaced by shared `Groups` workflow (`Add Group` in toolbar, `All Groups` filter, and drag/drop assignment of character rows into group columns, including `Ungrouped` drop-to-clear), while persisting membership through Character API `tags`.
-- Builder character list now renders grouped sections directly in the main rows area (per-group headers + section drop targets), so drag/drop assignment and ungrouping occur within the primary list layout.
-- Builder group-management follow-up landed: group headers now include remove actions with confirmation, removing a group reassigns affected characters to ungrouped state, helper drag/drop copy is consolidated to one shared hint, and `Ungrouped` is fixed as the final non-removable section.
-- Builder list-view follow-up landed: `/characters` now has a flat `View all` mode for full-table sorting across all characters plus `View Grouped` toggle, with automatic fallback to flat mode (and hidden row group chips/toggle) when no custom groups exist.
-- Builder group-management UX follow-up: `/characters` toolbar now opens a dedicated `Groups` modal (instead of inline add controls), hides `All Groups` selector when no groups exist, and supports in-modal group add/remove plus drag-drop group ordering with per-group character counts.
-- Builder groups UX follow-up: adding a group now immediately switches the characters page into grouped-view mode, view-toggle label now uses `View All`, and grouped-helper text spacing was increased from the toggle control for clearer separation.
-- Builder characters-view URL sync follow-up: list mode is now link-shareable (`/characters?grouped=false` for flat view; grouped view clears the param), and grouped mode is correctly restored by default when groups exist unless query explicitly requests flat mode.
-- Builder generation UX milestone: added a `Random Character Wizard` modal in builder header that accepts skill-point budget + learning focus and generates a focus-weighted full draft character (combat focus is weighted most heavily in skill allocation).
-- Random wizard follow-up: corrected skill-budget accounting to prevent overspending and added focus-aware inherent-skill biasing (combat favors PHYS/REF inherent skills, education favors MENT, etc.) for more sensible generated builds.
-- Builder view-page ownership action: when a logged-in user is viewing their own character at `/character/:id`, the header action now reads `Edit` and loads that character directly into builder edit mode (instead of generic `Continue Building`).
-- Builder modal-dismiss reliability fix: backdrop dismissal now requires pointer-down and pointer-up both outside modal content, preventing accidental closure when click-dragging from inside a modal and releasing outside.
-- Character API ownership hardening: `GET /character-api/characters` is now authenticated and owner-scoped (admins excepted), preventing cross-account leaks even when records are public; added integration regression script `scripts/test-character-ownership.sh` (`npm run test:character-auth`).
-- Character API list endpoint now includes a second defense-in-depth owner check during response assembly, so non-owner rows are dropped even if upstream query behavior is changed/misconfigured.
-- Release gate hardening: `npm run rules:publish` now runs `npm run test:character-auth` before continuing, so character ownership isolation is validated on each publish (with explicit opt-out via `WS_SKIP_CHARACTER_AUTH_TEST=1` only when required).
-- Enforced character-limit checks before creating new cloud/local copies.
-- Added Settings page with account summary and persistent builder preferences.
-- Hid empty character slots while list search filtering is active.
-- Header/footer now use shared template rendering across builder/view/characters/settings pages.
-- Back-to-builder button now appears under page title on non-builder pages.
-- Added sort-direction indicators to Character List headers.
-- Synced favicon assets from `whisperspace.com` into the character builder.
-- Improved account menu hit-area sizing to resolve finicky hover/click behavior.
-- Prototyped `augmented-ui` styling on builder shells (cards, tabs, modal cards, gear cards, primary CTAs).
-- Increased augmented-ui prototype intensity for clearer visual comparison.
-- Fixed OAuth/session cache behavior so stale cached null sessions do not mask fresh authenticated state after redirect.
-- Added auth guard redirect from protected pages (`/characters`, `/settings`) to builder when logged out.
-- Moved Previous/Next controls into the builder content card.
-- Added drag-and-drop reordering for inventory and weapon cards.
-- Increased vertical padding on gear cards for readability.
-- Refactored gear step order and grouping: Weapons, Armour, then Items.
-- Added collapsed-by-default item/weapon rows with click-to-expand card details.
-- Added explicit drag handles to item/weapon rows to make reorder interactions discoverable.
-- Added compact item quantity controls and weapon ammo controls (minus/reload) in collapsed rows.
-- Added gameplay-effects editor/tag UX for items, weapons, and armour (typed target + signed amount, removable chips).
-- Updated catalog search so matching owned gear appears alongside rule-catalog results.
-- Unified cut-corner panel spacing to shared 25px top/bottom padding treatment and strengthened destructive-button hover contrast.
-- Added collapsed-row column headers for weapon/item readability and icon-based reload control.
-- Updated gear search behavior to filter both catalog options and current inventory/weapon rows.
-- Gameplay effect add forms now auto-close after creating an effect tag.
-- Improved drag/reorder reliability with explicit HTML5 drag payload handling.
-- Reordered builder step flow to mirror character-creation progression (`Origin`, `Archetype`, `Feats`, `Skills`, `Attributes`, `Equipment`, `Review`).
-- Consolidated builder progression by merging `Skills` + `Attributes` into one step (`Skills & Attributes`) with attributes displayed first.
-- Updated `Skills & Attributes` presentation with explicit section headers and metric cards (main attributes + CUF/Speed/Carrying Capacity).
-- Added hover/visual polish on attribute cards and skill rows; tooltip display now resolves from Rules API tooltip labels with safer fallback behavior.
-- Moved background controls into `Origin`; `Archetype` now renders narrative guidance text sourced from Rules API content.
-- Builder now sends normalized gameplay effects into calc derive endpoints so effects like `reflex+1` influence displayed derived attributes.
-- Builder now extracts narrative copy from direct `rules.json` text nodes and decouples tooltip fetch from skills fetch so missing tooltip payloads do not break skills UI.
-- Gear reorder handles now use stronger HTML5 drag payload/drop parsing semantics for better browser compatibility.
-- Character builder Review step now uses a polished dashboard-style layout aligned with the project’s updated visual language.
-- Builder calc calls were aligned to current API contracts by sending full equipment context and tolerating updated derive response field variants.
-- Builder now normalizes gameplay-effect tags into a top-level `gameplayEffects` array for derive endpoints and omits per-entity effect fields in derive payload objects for deployed calc compatibility.
-- Builder temporarily exposed an in-app calc debug panel during gameplay-effects rollout; this panel has now been removed from the user-facing UI after deployment validation.
-- Builder now displays gameplay-adjusted effective skill ranks (capped at rank 5) and adds cancel actions to gameplay-effect editors for gear.
-- Builder cloud-save pipeline now strips non-schema `gameplayEffects` fields from persistence payloads (while preserving gameplay tags in active editor state post-save) to avoid character API `validation_failed` responses.
-- Builder save-options copy now labels the checkbox `Save as new character`; the old tooltip-style `i` label was removed.
-- Builder now preserves `Review` as the active tab on refresh and uses `Save` (instead of `Next`) as the final-step primary nav action.
-- Builder gear reorder interactions now start from the weapon/item row area (drag anywhere) rather than requiring a dedicated drag handle.
-- Builder skills now render a 0-5 pip indicator beside rank controls for faster visual rank scanning.
-- Builder origin Motivation/Background dropdowns now sync default selection to current sheet values (including loaded sheets).
-- Builder weapon ammo controls now enforce catalog max ammo caps; melee weapons without explicit ammo now show `-` and disable/hide reload/decrement actions.
-- Builder drag/drop now includes drag-state polish and live hover reflow while dragging gear cards.
-- Builder drag/drop hover reordering now includes jitter guards (rate-limit + per-target dedupe) to reduce flicker during rapid dragover events.
-- Builder right-column account menu now includes `Save`/`Import`/`Reset` actions, uses full-email account labels, and no longer renders a menu container border.
-- Builder header now consumes cross-project nav JSON from `whisperspace.com/nav/main-menu.v1.json` so top-level site navigation updates can propagate without duplicating link config.
-- Builder derive polling now uses request-signature dedupe + in-flight guards to reduce calc rate-limit churn during debugging.
-- Builder derive triggers are now constrained to relevant state changes (skills + gameplay-effect fields + key step entry + save), with explicit 429 cooldown backoff.
-- Builder now pulls concept and starting-credits narrative lines directly from Rules API `rules.json` for the Origin step.
-- Added starting credits generator + manual override in Origin; equipment summary now shows current credits balance.
-- Inventory add now increments quantity when an equivalent gear entry already exists instead of creating duplicate rows.
-- Builder + SDK schema now support multiple carried armour entries (`armours`) with a single equipped selector (`equippedArmourId`) while maintaining legacy `armour` compatibility.
-- Builder now includes a modular dice-roller service with swappable providers (default CSS 3D roller), so roll UX can be replaced without changing character-sheet logic.
-- Builder equipment UX now supports carried-armour card management (equip-highlight workflow) and a `Buy` vs `Acquire` mode that can enforce credits and auto-deduct catalog costs on add actions.
-- Builder armour UX now matches weapon/item row patterns: each armour row expands for edits, and equip state only changes via explicit `Equip` action.
-- Builder armour purchases now always create separate carried-armour instances (no merge) so durability can be tracked independently per piece.
-- Builder equipment add controls now switch to `Buy ... (<cost> credits)` labels in buy mode and auto-disable when credits are insufficient (while `Acquire` mode retains standard add behavior).
-- Builder buy-mode economy now supports sell semantics on gear controls (remove and item quantity decrement), while item quantity increment in buy mode performs affordability-checked purchases with credit deductions.
-- Builder now persists the active tab across refresh; Back/Next controls moved near step tabs.
-- Supports post-save redirect to shareable character view URL (`/character/:id`).
-- Rules/skills/gear catalogs load from Rules API with local cache fallback messaging.
-- Gameplay-effect tags are now aggregated into a top-level `gameplayEffects` array for calc endpoints; gear payloads are omitted to avoid double-counting.
-- Next steps:
-- Expand character view page with fuller derived stats and gear totals.
-- Add manual rules-cache refresh control.
-- Keep gameplay-effects calc payload/response contract notes synced across repos as rules/calc evolves.
-- Ensure gear mapped from rules catalogs preserves `gameplayEffects` (or at least passes effect text) so calc endpoints can apply gameplay deltas consistently.
-
-### whisperspace-developer
-- Current status:
-- Recent milestones:
-- Next steps:
+- Status: Live and feature-rich; active parity work with OBR and rules contracts.
+- Role in ecosystem: canonical character authoring UX and share-link origin.
+- Key integration dependencies: rules-api rules/calc + character-api + SDK schema.
+- Next milestone: finalize SDK-first contract usage and reduce app-local integration logic.
 
 ### whisperspace-docs
-- Current status: Public rules docs frontend is a chapter-driven React/Vite rulebook at `https://docs.whisperspace.com`, consuming canonical `rules.json` chapter hierarchy with runtime version-aware caching and sanitized rich rendering.
-- Recent milestones:
-- Added visual parity pass with builder app styling (`builder.whisperspace.com`): docs now uses the shared dark-blue gradient/panel language, matching typography direction (`Space Grotesk` + `Unbounded`), and aligned interaction accents for navigation/inputs/cards.
-- Docs hierarchy polish: nested in-content sub-sections now render borderless while top-level section framing remains, and sidebar nested topic links now use slightly deeper indentation for clearer tree legibility.
-- Docs content styling simplification: nested sub-sections now also drop distinct background fills, preserving background emphasis only at the main/top-level section layer.
-- Docs container simplification: article-level wrappers (`<article>`) now render without border/background, with framing handled exclusively by parent sections.
-- Docs polish follow-up: removed hero subtitle copy, aligned background glow/gradient direction more closely to builder visual language, and made no-subtopic chapter clicks navigate with chapter anchors so the view still pulls to the selected chapter content.
-- Docs chapter-nav behavior refinement: clicking a chapter that has sub-topics now keeps the current viewport position instead of auto-scrolling to the top.
-- Docs responsive layout tweak: chapter menu remains a left sidebar at OBR-like widths (collapse breakpoint reduced to ~760px), so in-VTT usage keeps side navigation.
-- Docs default-route hardening: opening the rulebook now resolves `/` to whichever chapter is `Introduction` in live rules data (no hardcoded `/introduction` slug dependency), with legacy `/introduction` links retained as an alias.
-- Implemented searchable rulebook navigation with chapter routes and topic-level hash linking.
-- Added query-aware chapter/topic navigation counts with search-order sorting (DESC by matches) and scoped in-topic term highlighting when navigating to a matched topic.
-- Fixed docs search UX edge cases: chapter-click highlighting now scopes to the opened chapter by default, search mode hides `Rulebook Home`, and route normalization handles trailing-slash chapter URLs.
-- Hardened docs Apache SPA fallback by adding `FallbackResource /index.html` + `-MultiViews` in docs `.htaccess` and documenting required vhost overrides for deep-link refresh reliability.
-- Added docs URL query search contract (`?search=<term>`) so chapter routes can deep-link directly into active search context (e.g., `/stress?search=stress`).
-- Implemented parser-span link rendering in docs so internal rules references navigate to mapped chapter/topic routes instead of inert text.
-- Switched docs topic hashes to human-readable slug anchors (with legacy hash compatibility mapping) for clearer shareable links.
-- Improved docs table readability by compacting parser-expanded adjacent duplicate cells into merged display columns (`colSpan`), fixing repeated header/body labels on archetype/feat tables.
-- Updated docs sidebar navigation to nested chapter/topic tree behavior (indented sub-topic menu under active category), aligning docs UX with rulebook hierarchy.
-- Added variable-marker anchor normalization in docs (`(X)`/`(n)` references resolve to base anchors like `#bleeding`, `#emp`, `#agonized`) for consistent intra-rule linking.
-- Added parser-link contract fallback logic in docs: while parser contract is `#slug`/`file.yaml#slug`, current payload still includes some legacy `#h...` anchors, so docs resolves these via heading-text + singular/plural matching.
-- Added parser span-style rendering support in docs so inline formatting (`bold`, `italic`, `underline`, `strikethrough`, and linked combinations) is visible in chapter content.
-- Simplified docs reading surface by removing inner content card borders while retaining outer content container framing.
-- Added docs sidebar scrollspy behavior so active nested topic highlighting follows reader scroll position within a chapter.
-- Fixed docs scroll-lock regression by stabilizing location callbacks so hash auto-scroll does not re-trigger every render while manually scrolling.
-- Added docs search toggle (`Hide empty categories`, default enabled) so zero-match chapter categories can be hidden during query-driven navigation.
-- Extended the same toggle to nested chapter sub-topic trees so unchecking it reveals non-matching sub-topics for context while searching.
-- Reworked `whisperspace-docs/src/lib/rules.js` to normalize canonical chapter/topic nodes (`title`, `slug`, `content`, `sections`) instead of heuristic flat extraction.
-- Added recursive topic rendering in `whisperspace-docs/src/App.jsx` so rule text appears under its true parent topics.
-- Added chapter alias routes for high-intent entry points (`/skills`, `/weapons`, `/items`, `/armour`, `/cyberware`, `/hacking-gear`).
-- Enabled rich content rendering via markdown parse + sanitization (`marked` + `DOMPurify`) for paragraph/list text.
-- Added client-side cache orchestration in `whisperspace-docs/src/lib/rulesClient.js`: fetch `meta.json`, compare version against cached payload, serve cached rules on version match, and refresh cache when version changes.
-- Added automatic docs background version checks (interval-based) while runtime continues version-aware cache reuse.
-- Added Apache SPA hosting support (`public/.htaccess`) with rewrite fallback + static asset caching policy.
-- Expanded `whisperspace-docs/README.md` with concrete integration contracts: endpoint URLs, env var override (`VITE_RULES_URL`), auth/CORS expectations, build/deploy workflow, and known gotchas.
-- Next steps:
-- Validate production CORS + endpoint behavior for `https://docs.whisperspace.com` against `https://rules-api.whisperspace.com/rules-api/latest/rules.json` and `meta.json`.
-- Add a lightweight release smoke test (rules fetch + parse count threshold) to catch upstream payload regressions early.
+- Status: Live rules reader with version-aware caching and search.
+- Role in ecosystem: public rules consumption surface.
+- Key integration dependencies: rules-api `rules.json` + `meta.json`.
+- Next milestone: add release smoke checks and keep cache/version contract tight.
+
+### whisperspace-developer
+- Status: Needs explicit refresh.
+- Role in ecosystem: source of integration runbooks and API usage guides.
+- Next milestone: publish current API/auth/contracts/deploy docs synced to gates introduced in ECO-001/002/003.
 
 ### whisperspace-rules-parser
-- Current status:
-- Recent milestones:
-- Next steps:
+- Status: Active upstream parser for canonical rules extraction.
+- Role in ecosystem: single source-to-YAML transformation point.
+- Next milestone: document parser release cadence + quality gates in parser repo docs.
 
 ### whisperspace-sdk
-- Current status: Shared schema/types package is live and now includes first-class Nanomancy + character-organization tags support consumed by character-api validation.
-- Recent milestones:
-- Added `nanomancy` object contract to `CharacterRecordV1` (`primaryField`, `knownEffects`, `preferredND`) in both TS schema source and published JSON schema.
-- Added optional `tags: string[]` contract to `CharacterRecordV1` in TS types, validator, and published JSON schema for cross-device builder organization lists.
-- Next steps:
-- Bump/publish SDK package version so downstream apps can consume updated types via dependency update instead of local path coupling.
+- Status: Shared schema/types live; adopted by multiple repos.
+- Role in ecosystem: contract boundary package.
+- Current risk: downstream shim usage still exists in some clients.
+- Next milestone: publish/consume pinned SDK versions across builder + OBR + rules-api (ECO-004).
 
-- Builder header menu now nests `Save`/`Import`/`Reset` under `Character Builder`, removes the separate back-to-builder button, and fixes dropdown clipping/hit-area behavior.
-- Builder weapons now render Rules API keyword chips with tooltip definitions (`weapon_keywords.json`), and gear rows now include consistent hover/equipped highlight styling.
-- Builder header/actions were adjusted so `Save`/`Import`/`Reset` are larger horizontal controls under the page title, while account dropdown now contains `My Characters` above `Settings`; buy/sell action labels now use simplified text.
+## Cross-Repo Risks (Current)
+- SDK adoption is not fully enforced in all runtime paths (`ECO-004` pending).
+- Some repos still carry legacy/local compatibility code that can drift from released contracts.
+- Security audit is running in parallel; unresolved high/critical findings from `PROJECT-SECURITY.md` should block promotion.
 
-- Builder save-options modal now restores visibility from per-character preference history, and character list requests were hardened to cookie-session auth to stop cross-account character bleed-through.
-- Builder gear card hover treatment now applies on expanded and collapsed cards uniformly; obsolete `.equipped-row` row-highlight styling was removed.
+## Documentation Ownership Rules
+- This file (`PROJECT-OVERVIEW.md`): architecture map, roadmap/backlog, compatibility snapshot, concise per-repo status.
+- Per-repo README/CHANGELOG: detailed milestones, implementation history, local operational notes.
+- Security policies/findings: `PROJECT-SECURITY.md`.
 
-- Builder character-list UX now includes delete controls and copy-link confirmation feedback, and auth modal Enter key submits login while preserving save-flow intent (no unintended save menu on standard login).
-
-- Builder now enforces logout safety on the editor: when auth is lost, cloud-only drafts are removed from active editing unless that character was explicitly saved to local storage by the user.
+## Review Cadence
+- Update this overview at least once per release batch that changes contracts or deployment workflow.
+- Monthly: review ECO backlog status and observability/SLO effectiveness.
