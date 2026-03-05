@@ -50,8 +50,15 @@ append_bypass_log() {
   staged_files="$(git diff --cached --name-only | tr '\n' ';' | sed 's/;$//')"
 
   reason="${reason//$'\t'/ }"
+  reason="${reason//$'\n'/ }"
+  reason="${reason//$'\r'/ }"
+  reason="${reason//\\/\\\\}"
   staged_files="${staged_files//$'\t'/ }"
-  echo -e "${ts_epoch}\t${ts_iso}\t${branch}\t${head_short}\t${risk_mode}\t${reason}\t${staged_files}" >> "${BYPASS_LOG_PATH}"
+  staged_files="${staged_files//$'\n'/ }"
+  staged_files="${staged_files//$'\r'/ }"
+  staged_files="${staged_files//\\/\\\\}"
+  printf '%s\t%s\t%s\t%s\t%s\t%s\t%s\n' \
+    "${ts_epoch}" "${ts_iso}" "${branch}" "${head_short}" "${risk_mode}" "${reason}" "${staged_files}" >> "${BYPASS_LOG_PATH}"
   echo "[pre-commit] bypass logged: ${BYPASS_LOG_PATH}"
 }
 
