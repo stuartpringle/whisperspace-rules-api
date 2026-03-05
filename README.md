@@ -34,6 +34,17 @@ Contract smoke checks:
 npm run contract:smoke
 ```
 
+Ecosystem smoke checks:
+```bash
+npm run ecosystem:smoke
+```
+
+Single release orchestrator:
+```bash
+npm run ecosystem:release
+```
+On success this writes `dist/ecosystem-release-summary.json` with publish metadata and gate status.
+
 Related repos:
 - `whisperspace-obr-extension`
 - `whisperspace-obr-rules-extension`

@@ -7,6 +7,8 @@
   "scripts": {
     "compat:check": "node scripts/check-compatibility.mjs",
     "contract:smoke": "node scripts/contract-smoke.mjs",
+    "ecosystem:smoke": "node scripts/ecosystem-smoke.mjs",
+    "ecosystem:release": "bash scripts/ecosystem-release.sh",
     "generate:data": "node scripts/generate-data.mjs",
     "rules:gear": "node scripts/parse-gear.mjs",
     "rules:sync": "bash scripts/import-rules.sh",
