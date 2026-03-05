@@ -10,6 +10,9 @@ echo "[rules:publish] Running rules parser (validate + diff)..."
   PYTHONPATH="${PARSER_ROOT}/src" python3 -m whisperspace_rules_parser.cli --out "${PARSER_OUT}" --validate --diff
 )
 
+echo "[rules:publish] Running compatibility gate..."
+npm run compat:check
+
 if [[ "${WS_SKIP_CHARACTER_AUTH_TEST:-0}" == "1" ]]; then
   echo "[rules:publish] Skipping character ownership regression test (WS_SKIP_CHARACTER_AUTH_TEST=1)."
 else

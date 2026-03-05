@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "activeRelease": "2026-03-05-baseline",
+  "releases": [
+    {
+      "id": "2026-03-05-baseline",
+      "date": "2026-03-05",
+      "versions": {
+        "whisperspace-rules-api": "0.1.0",
+        "whisperspace-sdk": "1.1.0",
+        "whisperspace-character-builder": "1.0.0",
+        "whisperspace-obr-extension": "1.0.0",
+        "whisperspace-obr-gm": "1.0.0",
+        "whisperspace-docs": "1.0.0"
+      },
+      "contracts": {
+        "rules_contract": "0.1.1",
+        "calc_contract": "1.0.0",
+        "character_api_contract": "1.2.0",
+        "character_record_schema": "1.1.0",
+        "docs_rules_client_contract": "1.0.0"
+      },
+      "notes": "Initial enforced cross-repo compatibility baseline."
+    }
+  ]
+}

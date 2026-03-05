@@ -5,6 +5,7 @@
   "rulesVersion": "0.1.1",
   "type": "module",
   "scripts": {
+    "compat:check": "node scripts/check-compatibility.mjs",
     "generate:data": "node scripts/generate-data.mjs",
     "rules:gear": "node scripts/parse-gear.mjs",
     "rules:sync": "bash scripts/import-rules.sh",

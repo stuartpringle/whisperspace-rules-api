@@ -4669,8 +4669,38 @@
                       "spans": []
                     },
                     {
-                      "text": "You may attempt to help an ally in a course of action you expect them to take. You may not aid an attack action. Aiding an ally in this way gives them a Bonus die for a single roll.",
-                      "spans": []
+                      "text": "You prepare to assist an ally with a skill check.Choose a specific skill your ally is about to use.Restrictions:",
+                      "spans": [],
+                      "blocks": [
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "When they make the check, you may spend a Use Held Action reaction to assist them.",
+                              "spans": []
+                            },
+                            {
+                              "text": "If you do, they gain +1 bonus die on that roll.",
+                              "spans": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "list",
+                          "ordered": false,
+                          "items": [
+                            {
+                              "text": "You must have at least 1 rank in the skill being aided.",
+                              "spans": []
+                            },
+                            {
+                              "text": "Attack actions cannot be aided.",
+                              "spans": []
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ],
                   [
@@ -4924,6 +4954,34 @@
                       "spans": []
                     }
                   ]
+                ]
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "When they make the check, you may spend a Use Held Action reaction to assist them.",
+                    "spans": []
+                  },
+                  {
+                    "text": "If you do, they gain +1 bonus die on that roll.",
+                    "spans": []
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "You must have at least 1 rank in the skill being aided.",
+                    "spans": []
+                  },
+                  {
+                    "text": "Attack actions cannot be aided.",
+                    "spans": []
+                  }
                 ]
               },
               {
@@ -14990,7 +15048,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1772602980257104&usg=AOvVaw3Rsd_6VBhmpfDh_liaGM4j"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1772693080343017&usg=AOvVaw19L2Hn51Gi4Iu2DZGrsAJy"
               }
             ]
           }

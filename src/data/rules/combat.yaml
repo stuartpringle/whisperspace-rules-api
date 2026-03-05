@@ -599,10 +599,25 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: You may attempt to help an ally in a course of action you expect them
-            to take. You may not aid an attack action. Aiding an ally in this way
-            gives them a Bonus die for a single roll.
+        - text: 'You prepare to assist an ally with a skill check.Choose a specific
+            skill your ally is about to use.Restrictions:'
           spans: []
+          blocks:
+          - type: list
+            ordered: false
+            items:
+            - text: When they make the check, you may spend a Use Held Action reaction
+                to assist them.
+              spans: []
+            - text: If you do, they gain +1 bonus die on that roll.
+              spans: []
+          - type: list
+            ordered: false
+            items:
+            - text: You must have at least 1 rank in the skill being aided.
+              spans: []
+            - text: Attack actions cannot be aided.
+              spans: []
       - - text: Suppressing Fire
           spans: []
         - text: 1 action
@@ -742,6 +757,21 @@ sections:
           spans: []
         - text: ''
           spans: []
+    - type: list
+      ordered: false
+      items:
+      - text: When they make the check, you may spend a Use Held Action reaction to
+          assist them.
+        spans: []
+      - text: If you do, they gain +1 bonus die on that roll.
+        spans: []
+    - type: list
+      ordered: false
+      items:
+      - text: You must have at least 1 rank in the skill being aided.
+        spans: []
+      - text: Attack actions cannot be aided.
+        spans: []
     - type: list
       ordered: false
       items:

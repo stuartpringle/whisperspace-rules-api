@@ -1,0 +1,8 @@
+{
+  "repo": "whisperspace-sdk",
+  "version": "1.1.0",
+  "exports": {
+    "character_record_schema": "1.1.0"
+  },
+  "dependsOn": []
+}

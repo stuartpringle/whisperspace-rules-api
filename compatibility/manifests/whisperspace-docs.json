@@ -1,0 +1,15 @@
+{
+  "repo": "whisperspace-docs",
+  "version": "1.0.0",
+  "exports": {
+    "docs_rules_client_contract": "1.0.0"
+  },
+  "dependsOn": [
+    {
+      "repo": "whisperspace-rules-api",
+      "requires": {
+        "rules_contract": "^0.1.1"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "repo": "whisperspace-rules-api",
+  "version": "0.1.0",
+  "exports": {
+    "rules_contract": "0.1.1",
+    "calc_contract": "1.0.0",
+    "character_api_contract": "1.2.0"
+  },
+  "dependsOn": [
+    {
+      "repo": "whisperspace-sdk",
+      "requires": {
+        "character_record_schema": "^1.1.0"
+      }
+    }
+  ]
+}

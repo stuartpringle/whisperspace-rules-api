@@ -1,0 +1,22 @@
+{
+  "repo": "whisperspace-obr-gm",
+  "version": "1.0.0",
+  "exports": {
+    "obr_gm_contract": "1.0.0"
+  },
+  "dependsOn": [
+    {
+      "repo": "whisperspace-rules-api",
+      "requires": {
+        "rules_contract": "^0.1.1",
+        "character_api_contract": "^1.2.0"
+      }
+    },
+    {
+      "repo": "whisperspace-sdk",
+      "requires": {
+        "character_record_schema": "^1.1.0"
+      }
+    }
+  ]
+}
