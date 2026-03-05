@@ -83,7 +83,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - `ECO-002` complete (rules-api scope): contract smoke checks wired into publish flow.
 - `ECO-003` complete (rules-api scope): `ecosystem:release` orchestrator live with summary artifact.
 - `ECO-004` in progress: SDK readiness scaffold added (`compatibility/sdk-readiness.json`, `npm run sdk:readiness`) with shim-free gate enforcement for repos marked `complete`.
-- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, and builder phase-3 consumer migration landed (auth session + auth POST flows + character list/detail + save/delete paths).
+- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, and OBR phase-1 migration landed for Builder sync flows (public character fetch + auth session/csrf + public upsert) through a shared adapter.
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
 
@@ -124,6 +124,7 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - Role in ecosystem: player-side VTT runtime consuming rules/calc/character APIs.
 - Key integration dependencies: rules-api contracts + SDK types.
 - Current risk: residual local compatibility adapters/shims until ECO-004 is done.
+- Latest milestone: ECO-005 phase-1 Builder sync migration landed; sheet public import/export and session/CSRF calls now route through a shared platform-client adapter.
 - Next milestone: remove production shim paths and align fully to SDK release versions.
 
 ### whisperspace-obr-gm
@@ -160,7 +161,7 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - Role in ecosystem: contract boundary package.
 - Current risk: downstream shim usage still exists in some clients.
 - Latest milestone: initial shared platform-client module shipped (`createPlatformClient`, rules/calc/character/auth wrappers) and exported via `@whisperspace/sdk/platform-client`.
-- Next milestone: migrate builder first consumer path to `@whisperspace/sdk/platform-client`, then OBR sheet, then OBR GM.
+- Next milestone: complete OBR and OBR GM migrations from local shims/adapters to direct SDK platform-client consumption.
 
 ## Cross-Repo Risks (Current)
 - SDK adoption is not fully enforced in all runtime paths (`ECO-004` pending).

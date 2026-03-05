@@ -382,32 +382,25 @@ Notes:
 - Skill IDs are defined by `https://rules-api.whisperspace.com/rules-api/latest/skills.json`.
 - Inventory item types: `item`, `cyberware`, `narcotics`, `hacker_gear`.
 
-## Current Status (2026-02-12)
+## Current Status (2026-03-05)
 
-Goals worked on:
-- Switch character API storage from SQLite to MySQL (using main site credentials).
-- Remove dependency on `/hdd/sites/stuartpringle/whisperspace/.env`.
-- Fix CORS headers in Apache to avoid `*` with credentials.
-- Fix validation and MySQL compatibility issues encountered during rollout.
-- Stabilize OAuth insert/update for Google login.
+Roadmap focus:
+- `P0` release hardening complete in this repo: compatibility gate, contract smoke checks, and single-command orchestrator.
+- `P1` cross-repo SDK/platform-client migration is active across builder/OBR/GM.
+- `P2` observability and docs normalization are in place and being iterated.
 
-Completed:
-- Character API now loads only `/hdd/sites/stuartpringle/whisperspace-rules-api/.env`.
-- MySQL driver support added (with optional `DB_SOCKET`) and verified via PHP socket test.
-- MySQL-compatible table creation and column/index checks.
-- OAuth upsert uses MySQL `ON DUPLICATE KEY UPDATE`.
-- Character API CORS headers restricted to allowed origins via `.htaccess` (`https://builder.whisperspace.com`, `https://obr.whisperspace.com`).
-- Validation fix: empty object now allowed (avoids `skills must be an object` when `{}` decodes to `[]`).
-- Read-time normalization: if stored `skills` is an empty list, API returns `{}`.
-- Added `gameplayEffects` support for weapons/armour/items/feats contracts and calc endpoints.
-- Calc endpoints now apply gameplay deltas to attributes, derived values, and skill/stat modifiers, and return applied `gameplayDeltas`.
-- Added Compact Backpack gameplay effect support (`carrying_capacity+5`) in gear parsing/data flow.
+Completed in this repo:
+- `ECO-001`: compatibility matrix/manifests + enforced `compat:check` gate.
+- `ECO-002`: contract smoke suite wired into publish flow (`contract:smoke`).
+- `ECO-003`: `ecosystem:release` orchestrator and release summary artifact.
+- `ECO-006`: baseline observability artifacts (`dist/ecosystem-observability.json`, telemetry NDJSON).
+- `ECO-007`: concise cross-repo dashboard format in `PROJECT-OVERVIEW.md`.
+- Character API/Calc stabilization from earlier phases (MySQL migration, CORS tightening, OAuth/session/CSRF, gameplayEffects support) remains in production.
 
-In progress / remaining:
-- Data cleanup (optional): migrate or normalize any existing records that stored `skills: []`.
-- Confirm final DB name and migrate any legacy SQLite data if needed.
-- Re-test OAuth end-to-end after Google console setup (JS origins + redirect URI).
-- Expand downstream consumers (`whisperspace-character-builder`, OBR extension) to send equipped `gameplayEffects` consistently in calc payloads.
+Progress on unfinished work:
+- `ECO-004` (SDK-first contracts): readiness scaffolding and shim-gate checks are live; remaining work is removing residual runtime shims in downstream repos.
+- `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; OBR-GM migration remains.
+- Security audit coordination is in progress; high/critical findings from `PROJECT-SECURITY.md` should block promotion.
 
 Operational notes:
 - Google OAuth Redirect URI: `https://rules-api.whisperspace.com/character-api/auth/oauth/google`
