@@ -9,6 +9,8 @@ fi
 AUDIT_DIR=".codex/audits"
 AUDIT_LOG=".codex/AUDIT-LOG.md"
 BYPASS_LOG=".codex/BYPASS-LOG.tsv"
+STRICT_MODE="${WS_AUDIT_STATUS_STRICT:-0}"
+REPORT_SCOPE="${WS_AUDIT_STATUS_REPORT_SCOPE:-all}"
 
 HEAD_TS="$(git log -1 --format=%ct 2>/dev/null || echo 0)"
 PREV_TS="$(git log -1 --skip=1 --format=%ct 2>/dev/null || echo 0)"
@@ -73,6 +75,9 @@ fi
 for report in "${reports[@]}"; do
   base="$(basename "${report}")"
   if [[ "${base}" == *.prompt.txt ]]; then
+    continue
+  fi
+  if [[ "${REPORT_SCOPE}" == "post-commit" ]] && [[ "${base}" != post-commit-audit-* ]]; then
     continue
   fi
 
@@ -167,6 +172,8 @@ done < "${summary_tmp}"
 
 if [[ "${unresolved_older}" -gt 0 ]]; then
   echo "AUDIT_STATUS: FAIL"
+elif [[ "${STRICT_MODE}" == "1" && "${unresolved_total}" -gt 0 ]]; then
+  echo "AUDIT_STATUS: FAIL"
 elif [[ "${unresolved_total}" -gt 0 ]]; then
   echo "AUDIT_STATUS: WARN"
 elif [[ "${bypass_recent}" -gt 0 ]]; then
@@ -205,6 +212,11 @@ fi
 if [[ "${unresolved_older}" -gt 0 ]]; then
   echo "audit:status FAIL: unresolved high/critical findings older than one commit."
   exit 7
+fi
+
+if [[ "${STRICT_MODE}" == "1" && "${unresolved_total}" -gt 0 ]]; then
+  echo "audit:status FAIL: strict mode enabled and unresolved high/critical findings exist."
+  exit 8
 fi
 
 echo "audit:status OK"

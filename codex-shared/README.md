@@ -14,6 +14,7 @@ Scripts:
 - `post-commit-managed.sh`: managed post-commit hook runtime that queues async Codex commit reviews.
 - `post-commit-worker.sh`: single-worker queue processor for post-commit Codex reviews.
 - `post-commit-review.sh`: commit-scoped Codex review runner (security/workflow/docs/contracts).
+- `ci-post-commit-gate.sh`: strict merge-time gate (run post-commit review on `HEAD` + fail on unresolved high/critical post-commit findings).
 - `risk-trigger.sh`: detects risk-sensitive path changes to decide when full subprocess audits are required.
 - `sync-agents-stubs.sh`: sync AGENTS stubs across all Whisperspace repos.
 - `sync-ci-workflow.sh`: sync CI workflow (`codex-audit-status.yml`) across all repos.
@@ -26,6 +27,7 @@ Used by:
 - `scripts/codex-scheduled-audit.sh` (wrapper)
 - `scripts/codex-post-commit-review.sh` (wrapper)
 - `scripts/codex-post-commit-worker.sh` (wrapper)
+- `scripts/codex-ci-post-commit-gate.sh` (wrapper)
 - `scripts/claude-scheduled-audit.sh` (wrapper)
 - `scripts/install-claude-audit-cron.sh` (wrapper)
 - `scripts/check-claude-audit-cron.sh` (wrapper)
@@ -43,6 +45,7 @@ Managed hook behavior:
 - Pre-commit now runs fast checks only (`git diff --cached --check` + `audit-status`).
 - Codex subprocess review runs asynchronously after commit through the managed post-commit queue.
 - Emergency skip for post-commit queueing: `WS_SKIP_POST_COMMIT_CODEX_AUDIT=1`.
+- Merge-time CI should run `ci-post-commit-gate.sh` and be marked required.
 
 Emergency bypass telemetry:
 - `pre-commit-managed.sh` appends bypass events to `.codex/BYPASS-LOG.tsv`.

@@ -40,15 +40,18 @@ Mandatory controls for this repo (do not skip):
 4. Post-commit queues asynchronous commit-scoped Codex review:
    - Queue file: `.codex/audits/post-commit-queue.tsv`.
    - Manual run fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/post-commit-review.sh <commit>`.
-5. Run auto-resolution sweep for closed findings:
+5. Merge-time blocking gate is required:
+   - Preferred: `npm run codex:audit:ci:post-commit-gate` (if available).
+   - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/ci-post-commit-gate.sh`
+6. Run auto-resolution sweep for closed findings:
    - Preferred: `npm run codex:audit:autoresolve` (if available in this repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-autoresolve.sh`
-6. Resolve critical/high audit findings before merge.
-7. Keep ecosystem guardrails synchronized after helper/policy updates:
+7. Resolve critical/high audit findings before merge.
+8. Keep ecosystem guardrails synchronized after helper/policy updates:
    - Preferred: `npm run codex:ecosystem:sync` (from rules-api control repo).
    - Fallback: `/hdd/sites/stuartpringle/whisperspace-rules-api/scripts/sync-codex-ecosystem.sh`
-8. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
-9. Treat scheduled Claude ecosystem audit cron as set-once + verify:
+9. Keep this repo README integration-focused and update /hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md whenever contracts/auth/release workflow/shared behavior changes.
+10. Treat scheduled Claude ecosystem audit cron as set-once + verify:
    - Preferred check: `npm run claude:audit:cron:check` (from rules-api control repo).
    - Preferred install/update only when missing or drifted: `npm run claude:audit:cron:install -- 7`.
    - Fallback check: `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/check-claude-audit-cron.sh`

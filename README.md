@@ -57,6 +57,10 @@ Manual post-commit audit for a specific commit:
 ```bash
 npm run codex:audit:post-commit -- HEAD
 ```
+CI merge gate (strict unresolved high/critical check on post-commit reports):
+```bash
+npm run codex:audit:ci:post-commit-gate
+```
 Codex multi-agent orchestrator (fan-out task list, default max 4):
 ```bash
 npm run codex:orchestrate -- --tasks .codex/tasks.txt --max-agents 4
@@ -448,6 +452,7 @@ Script behavior:
 - `codex-shared/post-commit-managed.sh` queues asynchronous commit-scoped Codex audits after each commit.
 - `codex-shared/post-commit-worker.sh` processes `.codex/audits/post-commit-queue.tsv` with a single lock-protected worker.
 - `codex-shared/post-commit-review.sh <commit>` runs security/workflow/docs/contract review against a specific commit diff and writes report artifacts.
+- `codex-shared/ci-post-commit-gate.sh` runs `post-commit-review.sh HEAD` and then enforces strict unresolved high/critical blocking for post-commit reports.
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
 - `scripts/codex-docs-audit.sh` audits staged diff specifically for required documentation updates (README/API/schema/auth/build docs).
 - `scripts/codex-audit-status.sh` aggregates `.codex/audits/*` + `.codex/AUDIT-LOG.md` and fails when unresolved high/critical findings are older than one commit.
@@ -459,6 +464,7 @@ Script behavior:
 - `scripts/claude-scheduled-audit.sh <days>` runs a scheduled ecosystem audit using Claude CLI and direct file-path context (AGENTS/README/PROJECT-OVERVIEW/PROJECT-SECURITY).
 - `scripts/install-claude-audit-cron.sh <days>` installs/updates an idempotent user crontab entry for daily `claude:audit:repo` runs (logs to `.codex/audits/claude-scheduled-audit-cron.log`).
 - `scripts/check-claude-audit-cron.sh` verifies the managed Claude audit cron block is present and correctly configured.
+- `.github/workflows/codex-audit-status.yml` now runs the strict Codex post-commit gate in CI (required merge-time blocker when marked required).
 - `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
 - `scripts/sync-codex-ecosystem.sh` syncs AGENTS stubs + CI workflow + managed hooks across all Whisperspace repos, then verifies hook wiring.
 - `WS_SKIP_POST_COMMIT_CODEX_AUDIT=1` skips queueing asynchronous Codex commit review (emergency-only).

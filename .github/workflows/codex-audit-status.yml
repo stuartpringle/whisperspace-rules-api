@@ -16,5 +16,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Audit Status
-        run: bash /hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/audit-status.sh
+      - name: Codex Post-Commit Gate
+        run: bash /hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/ci-post-commit-gate.sh

@@ -23,12 +23,15 @@ Workflow guardrails for each change batch:
    - Queue file: `.codex/audits/post-commit-queue.tsv`
    - Worker log: `.codex/audits/post-commit-worker.log`
    - Manual run for a commit: `npm run codex:audit:post-commit -- <commit>`
-4. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path) when needed.
-5. Resolve critical/high findings before merge.
-6. Commit after each completed batch.
-7. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
-8. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
-9. Treat Claude scheduled audit cron as set-once + verify:
+4. Merge-time blocking gate is required:
+   - CI must run strict post-commit audit gate (`npm run codex:audit:ci:post-commit-gate` or shared script path).
+   - High/critical unresolved findings in post-commit reports must block merge.
+5. Run auto-resolution sweep for closed findings (`npm run codex:audit:autoresolve` or shared script path) when needed.
+6. Resolve critical/high findings before merge.
+7. Commit after each completed batch.
+8. After each commit, re-check latest audit artifacts with `npm run codex:audit:status` and report any unresolved findings (especially repeated or previously unfixed issues).
+9. Keep ecosystem guardrails synchronized (`npm run codex:ecosystem:sync`) when policy/helpers change.
+10. Treat Claude scheduled audit cron as set-once + verify:
    - Install/update only when missing or drifted: `npm run claude:audit:cron:install -- 7`
    - Routine check: `npm run claude:audit:cron:check`
    - Report recent scheduled findings when relevant.
