@@ -474,7 +474,7 @@ Audit finding lifecycle note:
 - Resolve explicitly with:
   - `bash scripts/codex-audit-autoresolve.sh --resolve-key '<severity|scope|issue>'`
 
-## Current Status (2026-03-05)
+## Current Status (2026-03-06)
 
 Roadmap focus:
 - `P0` release hardening complete in this repo: compatibility gate, contract smoke checks, and single-command orchestrator.
@@ -483,7 +483,7 @@ Roadmap focus:
 
 Progress on unfinished work:
 - `ECO-004` (SDK-first contracts): readiness scaffolding and shim-gate checks are live; remaining work is removing residual runtime shims in downstream repos.
-- `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; OBR-GM migration remains.
+- `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; readiness tracker (`compatibility/platform-client-readiness.json`) now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`.
 - `ECO-008` (codex/claude audit automation): batch guardrails, codex/claude scheduled scripts, cron installer, and cron verification checks are in place; remaining work is keeping ecosystem-wide policy sync current.
 - Security audit coordination is in progress; high/critical findings from `PROJECT-SECURITY.md` should block promotion.
 
@@ -501,7 +501,7 @@ Operational notes:
 - Local dev setup and dependencies.
 - Known integration pitfalls or gotchas.
 
-## Cross-Repo Improvement Backlog (2026-03-05)
+## Cross-Repo Improvement Backlog (2026-03-06)
 This repo is the orchestration point for ecosystem releases. The following backlog is the active plan for improving whole-system manageability, maintainability, and efficiency.
 
 Priority order:
@@ -546,7 +546,7 @@ npm run platform:readiness
 Uses `compatibility/platform-client-readiness.json` to track adoption status for `@whisperspace/sdk/platform-client`.
 
 Execution note:
-- Track progress in `PROJECT-OVERVIEW.md` under `Ecosystem Streamlining Backlog (2026-03-05)` and update status on every release batch.
+- Track progress in `PROJECT-OVERVIEW.md` under `Ecosystem Streamlining Backlog (2026-03-06)` and update status on every release batch.
 
 ## Codex MCP Prerequisites
 

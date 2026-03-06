@@ -1,25 +1,25 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-03-05",
+  "updatedAt": "2026-03-06",
   "targetPackage": "@whisperspace/sdk/platform-client",
   "repos": [
     {
       "repo": "whisperspace-character-builder",
-      "status": "pending",
-      "adopted": false,
-      "notes": "Planned first migration target for shared auth/session/calc/character-api calls."
+      "status": "complete",
+      "adopted": true,
+      "notes": "Phase-3 migration complete for auth/session flows plus character list/detail/save/delete through platform adapter."
     },
     {
       "repo": "whisperspace-obr-extension",
-      "status": "pending",
-      "adopted": false,
-      "notes": "Planned second migration target; currently has app-local network/retry logic."
+      "status": "in_progress",
+      "adopted": true,
+      "notes": "Phase-1 migration complete for builder-sync character fetch/session/csrf/public-upsert through shared adapter; remaining flows pending."
     },
     {
       "repo": "whisperspace-obr-gm",
       "status": "pending",
       "adopted": false,
-      "notes": "Planned third migration target."
+      "notes": "Next migration target for ECO-005; move GM auth/character-api flows to shared platform client."
     }
   ]
 }

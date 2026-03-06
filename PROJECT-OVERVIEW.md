@@ -67,7 +67,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - Character schema endpoint: `https://rules-api.whisperspace.com/character-api/schema.json`
 - SDK schema source: `/hdd/sites/stuartpringle/whisperspace-sdk/schema/character-record.v1.json`
 
-## Ecosystem Streamlining Backlog (2026-03-05)
+## Ecosystem Streamlining Backlog (2026-03-06)
 ### Program Goals
 - Manageability: one reliable release path and one compatibility view.
 - Maintainability: SDK-first shared contracts and fewer local adapters.
@@ -83,7 +83,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - `ECO-002` complete (rules-api scope): contract smoke checks wired into publish flow.
 - `ECO-003` complete (rules-api scope): `ecosystem:release` orchestrator live with summary artifact.
 - `ECO-004` in progress: SDK readiness scaffold added (`compatibility/sdk-readiness.json`, `npm run sdk:readiness`) with shim-free gate enforcement for repos marked `complete`.
-- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, and OBR phase-1 migration landed for Builder sync flows (public character fetch + auth session/csrf + public upsert) through a shared adapter.
+- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, OBR phase-1 migration landed for Builder sync flows (public character fetch + auth session/csrf + public upsert) through a shared adapter, and readiness tracker now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`.
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
 - `ECO-008` in progress: codex subprocess audit scripts + ecosystem hook installer added in rules-api (`codex:audit:batch`, `codex:audit:docs`, `codex:audit:status`, `codex:audit:autoresolve`, `codex:audit:repo`, `codex:audit:post-commit`, `codex:audit:ci:post-commit-gate`, `claude:audit:repo`, `claude:audit:cron:install`, `claude:audit:cron:check`, `codex:hooks:install`, `codex:ecosystem:sync`) and centralized under `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/` for cross-repo reuse; managed pre-commit now performs fast staged checks only while managed post-commit queues asynchronous commit-scoped Codex reviews, scheduled Claude audits are installable via centralized crontab helper and verifiable via centralized cron-check helper, CI workflow now enforces strict merge-time blocking on unresolved high/critical post-commit findings, and agent policy requires startup/post-commit status checks for unresolved findings.
