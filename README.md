@@ -475,7 +475,7 @@ Script behavior:
 - `scripts/install-claude-audit-cron.sh <days>` installs/updates an idempotent user crontab entry for daily `claude:audit:repo` runs (logs to `.codex/audits/claude-scheduled-audit-cron.log`).
 - `scripts/check-claude-audit-cron.sh` verifies the managed Claude audit cron block is present and correctly configured.
 - `.github/workflows/codex-audit-status.yml` now runs the strict Codex post-commit gate in CI (required merge-time blocker when marked required).
-- `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls central runtime `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh`.
+- `scripts/install-codex-hooks-ecosystem.sh` installs a managed `.git/hooks/pre-commit` in each Whisperspace repo, preserving/chaining any existing hook as `pre-commit.user`; each managed hook calls the trusted root shared runtime in `/hdd/sites/whisperspace/codex-shared/pre-commit-managed.sh`.
 - `scripts/sync-codex-ecosystem.sh` syncs AGENTS stubs + CI workflow + managed hooks across all Whisperspace repos, then verifies hook wiring.
 - `WS_SKIP_POST_COMMIT_CODEX_AUDIT=1` skips queueing asynchronous Codex commit review (emergency-only).
 
@@ -484,17 +484,17 @@ Audit finding lifecycle note:
 - Resolve explicitly with:
   - `bash scripts/codex-audit-autoresolve.sh --resolve-key '<severity|scope|issue>'`
 
-## Current Status (2026-03-06)
+## Current Status (2026-03-10)
 
 Roadmap focus:
 - `P0` release hardening complete in this repo: compatibility gate, contract smoke checks, and single-command orchestrator.
-- `P1` cross-repo SDK/platform-client migration is active across builder/OBR/GM.
-- `P2` observability/docs normalization and codex-driven audit automation are in place and being iterated.
+- `P1` shared-client convergence is complete for the primary active consumers; remaining work is normal maintenance to avoid reintroducing local shims.
+- `P2` observability/docs normalization and codex-driven audit automation are in place; ongoing work is operational refinement rather than migration.
 
 Progress on unfinished work:
-- `ECO-004` (SDK-first contracts): readiness scaffolding and shim-gate checks are live; remaining work is removing residual runtime shims in downstream repos.
-- `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; readiness tracker (`compatibility/platform-client-readiness.json`) now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`; inventory report is generated via `npm run eco:readiness:scan` to `compatibility/eco-readiness-report.json`.
-- `ECO-008` (codex/claude audit automation): batch guardrails, codex/claude scheduled scripts, cron installer, and cron verification checks are in place; remaining work is keeping ecosystem-wide policy sync current.
+- `ECO-004` (SDK-first contracts): complete at the ecosystem level; this repo now mainly needs to avoid reclaiming shared client behavior that belongs in `sdk`.
+- `ECO-005` (platform client rollout): complete at the ecosystem level; readiness trackers remain useful as regression detectors, not migration trackers.
+- `ECO-008` (codex/claude audit automation): complete at the ecosystem level; remaining work is operational polish and keeping ecosystem-wide policy sync current.
 - Security audit coordination is in progress; high/critical findings from `PROJECT-SECURITY.md` should block promotion.
 
 Operational notes:
