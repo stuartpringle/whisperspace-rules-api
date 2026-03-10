@@ -30,6 +30,7 @@
     "rules:gear": "node scripts/parse-gear.mjs",
     "rules:sync": "bash scripts/import-rules.sh",
     "core:build": "bash scripts/core-build.sh",
+    "publish:runtime": "bash scripts/publish-runtime.sh",
     "rules:publish": "bash scripts/rules-publish.sh",
     "test:character-auth": "bash scripts/test-character-ownership.sh",
     "build": "vite build",

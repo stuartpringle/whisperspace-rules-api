@@ -6,7 +6,7 @@ Quick publish:
 ```bash
 npm run rules:publish
 ```
-`rules:publish` now includes the character ownership regression gate (`npm run test:character-auth`) before publish steps continue.
+`rules:publish` now resolves through the root workspace publish flow when run inside the workspace, while `rules-api` keeps explicit repo-local internals such as `core:build`, `rules:sync`, and `publish:runtime`.
 It also publishes Character API runtime files (`public/character-api/index.php`, `.htaccess`, `.env.example`) into `dist/character-api`, so new Character API routes are deployed alongside rules/calc updates.
 It now also runs a compatibility gate (`npm run compat:check`) using `compatibility/matrix.json` + `compatibility/manifests/*.json` before publish continues.
 After publish, it runs contract smoke verification (`npm run contract:smoke`) against critical rules/calc/character-api endpoints.
@@ -22,6 +22,7 @@ WS_SKIP_CONTRACT_SMOKE=1 npm run rules:publish
 Character API ownership regression:
 ```bash
 npm run test:character-auth
+npm run publish:runtime
 ```
 
 Compatibility gate:
