@@ -28,6 +28,10 @@ Compatibility gate:
 ```bash
 npm run compat:check
 ```
+ECO readiness inventory scan:
+```bash
+npm run eco:readiness:scan
+```
 
 Contract smoke checks:
 ```bash
@@ -483,7 +487,7 @@ Roadmap focus:
 
 Progress on unfinished work:
 - `ECO-004` (SDK-first contracts): readiness scaffolding and shim-gate checks are live; remaining work is removing residual runtime shims in downstream repos.
-- `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; readiness tracker (`compatibility/platform-client-readiness.json`) now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`.
+- `ECO-005` (platform client rollout): SDK client shipped; builder phase-3 migration is complete; OBR phase-1 Builder sync/auth migration is complete; readiness tracker (`compatibility/platform-client-readiness.json`) now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`; inventory report is generated via `npm run eco:readiness:scan` to `compatibility/eco-readiness-report.json`.
 - `ECO-008` (codex/claude audit automation): batch guardrails, codex/claude scheduled scripts, cron installer, and cron verification checks are in place; remaining work is keeping ecosystem-wide policy sync current.
 - Security audit coordination is in progress; high/critical findings from `PROJECT-SECURITY.md` should block promotion.
 

@@ -22,6 +22,7 @@
     "compat:check": "node scripts/check-compatibility.mjs",
     "sdk:readiness": "node scripts/check-sdk-readiness.mjs",
     "platform:readiness": "node scripts/check-platform-readiness.mjs",
+    "eco:readiness:scan": "node scripts/scan-eco-readiness.mjs",
     "contract:smoke": "node scripts/contract-smoke.mjs",
     "ecosystem:smoke": "node scripts/ecosystem-smoke.mjs",
     "ecosystem:release": "node scripts/ecosystem-release.mjs",

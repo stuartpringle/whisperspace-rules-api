@@ -1,0 +1,86 @@
+{
+  "generatedAt": "2026-03-10T02:30:50.982Z",
+  "sdkTargetSchema": "1.1.0",
+  "platformTargetPackage": "@whisperspace/sdk/platform-client",
+  "sdk": [
+    {
+      "repo": "whisperspace-rules-api",
+      "status": "complete",
+      "shimFree": true,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-rules-api",
+      "exists": true,
+      "markerHits": 0,
+      "findings": []
+    },
+    {
+      "repo": "whisperspace-character-builder",
+      "status": "in_progress",
+      "shimFree": false,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-character-builder",
+      "exists": true,
+      "markerHits": 0,
+      "findings": []
+    },
+    {
+      "repo": "whisperspace-obr-extension",
+      "status": "in_progress",
+      "shimFree": false,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-extension",
+      "exists": true,
+      "markerHits": 0,
+      "findings": []
+    },
+    {
+      "repo": "whisperspace-obr-gm",
+      "status": "pending",
+      "shimFree": false,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-gm",
+      "exists": true,
+      "markerHits": 0,
+      "findings": []
+    }
+  ],
+  "platform": [
+    {
+      "repo": "whisperspace-character-builder",
+      "status": "complete",
+      "adopted": true,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-character-builder",
+      "exists": true,
+      "createPlatformClientRefs": 0,
+      "platformClientImportRefs": 1,
+      "examples": [
+        "/hdd/sites/stuartpringle/whisperspace-character-builder/src/platform/client.ts"
+      ]
+    },
+    {
+      "repo": "whisperspace-obr-extension",
+      "status": "in_progress",
+      "adopted": true,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-extension",
+      "exists": true,
+      "createPlatformClientRefs": 2,
+      "platformClientImportRefs": 14,
+      "examples": [
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/background.ts",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/SheetApp.tsx",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/panels/CombatPanel.tsx",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/panels/CorePanel.tsx",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/panels/SkillsPanel.tsx",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/diceplus/roll.ts",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/combat/applyDamage.ts",
+        "/hdd/sites/stuartpringle/whisperspace-obr-extension/src/ui/combat/attackActor.ts"
+      ]
+    },
+    {
+      "repo": "whisperspace-obr-gm",
+      "status": "pending",
+      "adopted": false,
+      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-gm",
+      "exists": true,
+      "createPlatformClientRefs": 0,
+      "platformClientImportRefs": 0,
+      "examples": []
+    }
+  ]
+}
