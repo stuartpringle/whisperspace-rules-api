@@ -7,7 +7,7 @@
       "repo": "whisperspace-character-builder",
       "status": "complete",
       "adopted": true,
-      "notes": "Phase-3 migration complete for auth/session flows plus character list/detail/save/delete through platform adapter."
+      "notes": "Auth/session and character list/detail/save/delete flows now route through the builder platform adapter; remaining work is SDK-shim cleanup tracked separately under sdk-readiness."
     },
     {
       "repo": "whisperspace-obr-extension",
@@ -17,9 +17,9 @@
     },
     {
       "repo": "whisperspace-obr-gm",
-      "status": "pending",
-      "adopted": false,
-      "notes": "Next migration target for ECO-005; move GM auth/character-api flows to shared platform client."
+      "status": "in_progress",
+      "adopted": true,
+      "notes": "Initial platform-client adoption landed in the workspace repo through shared schema/session connectivity; continue by moving GM auth/character-api flows onto the shared client."
     }
   ]
 }

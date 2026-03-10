@@ -8,7 +8,7 @@
       "repo": "whisperspace-rules-api",
       "status": "complete",
       "shimFree": true,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-rules-api",
+      "repoPath": "/hdd/sites/whisperspace/rules-api",
       "scanRoots": ["public", "src"],
       "forbiddenMarkers": [
         "local compatibility shim",
@@ -21,8 +21,8 @@
       "repo": "whisperspace-character-builder",
       "status": "in_progress",
       "shimFree": false,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-character-builder",
-      "notes": "core schema alignment is active; complete after explicit SDK pin/update and shim review."
+      "repoPath": "/hdd/sites/whisperspace/character-builder",
+      "notes": "core schema alignment is active in the workspace repo; complete after remaining direct app-level character API bypasses are removed and SDK dependency source is normalized."
     },
     {
       "repo": "whisperspace-obr-extension",
@@ -33,10 +33,10 @@
     },
     {
       "repo": "whisperspace-obr-gm",
-      "status": "pending",
+      "status": "in_progress",
       "shimFree": false,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-gm",
-      "notes": "awaiting shared platform-client + SDK-first rollout sequencing."
+      "repoPath": "/hdd/sites/whisperspace/obr/gm",
+      "notes": "workspace repo is in place and initial SDK adoption has started; complete after GM flows use shared SDK contracts broadly enough to retire local-only assumptions."
     }
   ]
 }

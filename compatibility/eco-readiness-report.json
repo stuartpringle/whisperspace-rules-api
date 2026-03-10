@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-10T02:30:50.982Z",
+  "generatedAt": "2026-03-10T17:27:46.180Z",
   "sdkTargetSchema": "1.1.0",
   "platformTargetPackage": "@whisperspace/sdk/platform-client",
   "sdk": [
@@ -7,7 +7,7 @@
       "repo": "whisperspace-rules-api",
       "status": "complete",
       "shimFree": true,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-rules-api",
+      "repoPath": "/hdd/sites/whisperspace/rules-api",
       "exists": true,
       "markerHits": 0,
       "findings": []
@@ -16,7 +16,7 @@
       "repo": "whisperspace-character-builder",
       "status": "in_progress",
       "shimFree": false,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-character-builder",
+      "repoPath": "/hdd/sites/whisperspace/character-builder",
       "exists": true,
       "markerHits": 0,
       "findings": []
@@ -32,9 +32,9 @@
     },
     {
       "repo": "whisperspace-obr-gm",
-      "status": "pending",
+      "status": "in_progress",
       "shimFree": false,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-gm",
+      "repoPath": "/hdd/sites/whisperspace/obr/gm",
       "exists": true,
       "markerHits": 0,
       "findings": []
@@ -45,12 +45,12 @@
       "repo": "whisperspace-character-builder",
       "status": "complete",
       "adopted": true,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-character-builder",
+      "repoPath": "/hdd/sites/whisperspace/character-builder",
       "exists": true,
       "createPlatformClientRefs": 0,
       "platformClientImportRefs": 1,
       "examples": [
-        "/hdd/sites/stuartpringle/whisperspace-character-builder/src/platform/client.ts"
+        "/hdd/sites/whisperspace/character-builder/src/platform/client.ts"
       ]
     },
     {
@@ -74,13 +74,15 @@
     },
     {
       "repo": "whisperspace-obr-gm",
-      "status": "pending",
-      "adopted": false,
-      "repoPath": "/hdd/sites/stuartpringle/whisperspace-obr-gm",
+      "status": "in_progress",
+      "adopted": true,
+      "repoPath": "/hdd/sites/whisperspace/obr/gm",
       "exists": true,
-      "createPlatformClientRefs": 0,
-      "platformClientImportRefs": 0,
-      "examples": []
+      "createPlatformClientRefs": 1,
+      "platformClientImportRefs": 1,
+      "examples": [
+        "/hdd/sites/whisperspace/obr/gm/src/platform/client.ts"
+      ]
     }
   ]
 }
