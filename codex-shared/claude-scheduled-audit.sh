@@ -1,27 +1,22 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+
 DAYS="${1:-7}"
-ROOT="/hdd/sites/stuartpringle"
-OUT_DIR="${ROOT}/whisperspace-rules-api/.codex/audits"
+ROOT="${WS_ECOSYSTEM_ROOT}"
+if [[ ! -d "${ROOT}" ]]; then
+  ROOT="${WS_LEGACY_ECOSYSTEM_ROOT}"
+fi
+OUT_DIR="${WS_AUDIT_ARTIFACTS_DIR}"
 TS="$(date -u +%Y%m%dT%H%M%SZ)"
 PROMPT_PATH="${OUT_DIR}/claude-scheduled-audit-${TS}.prompt.txt"
 REPORT_PATH="${OUT_DIR}/claude-scheduled-audit-${TS}.txt"
 TIMEOUT_SEC="${WS_CLAUDE_AUDIT_TIMEOUT_SEC:-}"
 
-DEFAULT_REPOS=(
-  "${ROOT}/whisperspace"
-  "${ROOT}/whisperspace-character-builder"
-  "${ROOT}/whisperspace-developer"
-  "${ROOT}/whisperspace-docs"
-  "${ROOT}/whisperspace-obr-extension"
-  "${ROOT}/whisperspace-obr-gm"
-  "${ROOT}/whisperspace-obr-rules-extension"
-  "${ROOT}/whisperspace-obr-sheet"
-  "${ROOT}/whisperspace-rules-parser"
-  "${ROOT}/whisperspace-sdk"
-  "${ROOT}/whisperspace-rules-api"
-)
+source "${WS_SHARED_ROOT}/ecosystem-repos.sh"
+DEFAULT_REPOS=("${WS_REPOS[@]}")
 
 REPOS=("${DEFAULT_REPOS[@]}")
 if [[ -n "${WS_CLAUDE_AUDIT_REPOS:-}" ]]; then
@@ -43,11 +38,11 @@ Use local file reads and git history only. Do not invent state.
 Audit window: last ${DAYS} days.
 
 Canonical policy/docs to review first:
-- ${ROOT}/whisperspace-rules-api/AGENTS.md
-- ${ROOT}/whisperspace-rules-api/README.md
-- ${ROOT}/whisperspace-rules-api/PROJECT-OVERVIEW.md
-- ${ROOT}/whisperspace-rules-api/PROJECT-SECURITY.md
-- ${ROOT}/whisperspace-rules-api/codex-shared/README.md
+- ${WS_AGENTS_PATH}
+- ${WS_CONTROL_ROOT}/README.md
+- ${WS_PROJECT_OVERVIEW_PATH}
+- ${WS_PROJECT_SECURITY_PATH}
+- ${WS_SHARED_ROOT}/README.md
 
 Then review these repos:
 EOF

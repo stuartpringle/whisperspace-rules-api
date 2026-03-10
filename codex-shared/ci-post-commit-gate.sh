@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+ROOT_SHARED="${WS_SHARED_ROOT}"
 
 if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   echo "ci:post-commit-gate ERROR: not in a git repository."

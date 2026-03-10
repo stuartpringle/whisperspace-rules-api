@@ -99,11 +99,16 @@ Install/update pre-commit audit hooks across Whisperspace repos:
 ```bash
 npm run codex:hooks:install
 ```
-Shared helper root (canonical):
-- `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/`
+Shared helper root (canonical target):
+- `/hdd/sites/whisperspace/codex-shared/`
+Migration note:
+- While the ecosystem-root move is in progress, scripts should resolve shared helpers through `WS_SHARED_ROOT` / `WS_ECOSYSTEM_ROOT` and fall back to the current repo-local `codex-shared/`.
 
 Observability baseline config:
 - `compatibility/observability-baseline.json` defines initial SLO targets, alert thresholds, and standard log fields for ecosystem services.
+
+Primary workspace:
+- Prefer opening Codex from `/hdd/sites/whisperspace` once the move is complete; that root will be the ecosystem control plane.
 
 Related repos:
 - `whisperspace-obr-extension`

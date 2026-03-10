@@ -17,4 +17,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Codex Post-Commit Gate
-        run: bash /hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/ci-post-commit-gate.sh
+        run: bash "${WS_SHARED_ROOT:-/hdd/sites/whisperspace/codex-shared}/ci-post-commit-gate.sh"

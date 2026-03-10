@@ -2,7 +2,9 @@
 # WS_CODEX_MANAGED_PRECOMMIT
 set -euo pipefail
 
-ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+ROOT_SHARED="${WS_SHARED_ROOT}"
 USER_HOOK_PATH="$(git rev-parse --git-path hooks)/pre-commit.user"
 
 has_pattern() {

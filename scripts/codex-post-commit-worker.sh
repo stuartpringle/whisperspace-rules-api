@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
-exec bash /hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/post-commit-worker.sh "$@"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec bash "${SCRIPT_DIR}/exec-shared-helper.sh" post-commit-worker.sh "$@"

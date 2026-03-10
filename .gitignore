@@ -3,6 +3,7 @@ node_modules
 dist
 .env
 .codex/PROJECT-HISTORY.md
+.codex/NEXT-STEPS.md
 .codex/AUDIT-LOG.md
 .codex/BYPASS-LOG.tsv
 .codex/audits/

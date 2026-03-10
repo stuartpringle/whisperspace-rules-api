@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+ROOT_SHARED="${WS_SHARED_ROOT}"
 source "${ROOT_SHARED}/ecosystem-repos.sh"
 
 fail=0
@@ -41,13 +43,13 @@ for repo in "${WS_REPOS[@]}"; do
     continue
   fi
 
-  if ! grep -q "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/pre-commit-managed.sh" "${pre_hook_path}" 2>/dev/null; then
+  if ! grep -q "pre-commit-managed.sh" "${pre_hook_path}" 2>/dev/null; then
     echo "FAIL: pre-commit hook does not target shared runtime: ${repo}"
     fail=1
     continue
   fi
 
-  if ! grep -q "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/post-commit-managed.sh" "${post_hook_path}" 2>/dev/null; then
+  if ! grep -q "post-commit-managed.sh" "${post_hook_path}" 2>/dev/null; then
     echo "FAIL: post-commit hook does not target shared runtime: ${repo}"
     fail=1
     continue

@@ -3,7 +3,7 @@
 ## Scope
 Whisperspace is a multi-repo TTRPG ecosystem. The objective is one canonical rules/data pipeline consumed by builder, VTT extensions, docs, and site surfaces with minimal contract drift.
 
-All project directories live in `/hdd/sites/stuartpringle` on an Ubuntu host and are served via Apache where applicable.
+Whisperspace is migrating from `/hdd/sites/stuartpringle/<repo>` to an ecosystem workspace rooted at `/hdd/sites/whisperspace`. The target layout is one shared control plane (`AGENTS.md`, `PROJECT-OVERVIEW.md`, `PROJECT-SECURITY.md`, `codex-shared/`) plus repo directories such as `rules-api`, `sdk`, `character-builder`, and `obr/<project>`. The legacy exception is `whisperspace-obr-extension`, which stays outside the new tree until retirement.
 
 Security planning note:
 - Cross-project security policy and hardening guidance lives in `PROJECT-SECURITY.md`.
@@ -13,28 +13,37 @@ Security planning note:
 - `whisperspace`
   - Public website + shared top-level nav JSON.
   - URL: `https://whisperspace.com`
+  - Target path: `/hdd/sites/whisperspace/site`
 - `whisperspace-rules-api`
   - Rules API, calc API, and character API.
   - URL: `https://rules-api.whisperspace.com`
+  - Target path: `/hdd/sites/whisperspace/rules-api`
 - `whisperspace-obr-extension`
-  - Player-facing Owlbear extension.
+  - Legacy player-facing Owlbear extension.
   - URL: `https://obr.whisperspace.com`
+  - Legacy path retained: `/hdd/sites/stuartpringle/whisperspace-obr-extension`
 - `whisperspace-obr-gm`
   - GM Owlbear extension.
   - URL: `https://gm.whisperspace.com`
+  - Target path: `/hdd/sites/whisperspace/obr/gm`
 - `whisperspace-character-builder`
   - Main character builder app.
   - URL: `https://builder.whisperspace.com`
+  - Target path: `/hdd/sites/whisperspace/character-builder`
 - `whisperspace-docs`
   - Public rules reference app.
   - URL: `https://docs.whisperspace.com`
+  - Target path: `/hdd/sites/whisperspace/docs`
 - `whisperspace-developer`
   - Developer docs site.
   - URL: `https://developer.whisperspace.com`
+  - Target path: `/hdd/sites/whisperspace/developer`
 - `whisperspace-rules-parser`
   - Internal parser from source doc to normalized YAML.
+  - Target path: `/hdd/sites/whisperspace/rules-parser`
 - `whisperspace-sdk`
   - Shared schema/types/utilities boundary.
+  - Target path: `/hdd/sites/whisperspace/sdk`
 
 ## Integration Topology
 1. Authoring: master rules document -> `whisperspace-rules-parser`.
@@ -87,7 +96,7 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - ECO tracking note: `npm run eco:readiness:scan` now generates `compatibility/eco-readiness-report.json` for current marker/usage inventory across ECO-004/005 repos.
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
-- `ECO-008` in progress: codex subprocess audit scripts + ecosystem hook installer added in rules-api (`codex:audit:batch`, `codex:audit:docs`, `codex:audit:status`, `codex:audit:autoresolve`, `codex:audit:repo`, `codex:audit:post-commit`, `codex:audit:ci:post-commit-gate`, `claude:audit:repo`, `claude:audit:cron:install`, `claude:audit:cron:check`, `codex:hooks:install`, `codex:ecosystem:sync`) and centralized under `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/` for cross-repo reuse; managed pre-commit now performs fast staged checks only while managed post-commit queues asynchronous commit-scoped Codex reviews, scheduled Claude audits are installable via centralized crontab helper and verifiable via centralized cron-check helper, post-commit worker stale-lock recovery now validates worker identity via PID plus `/proc` start-time checks to avoid dead queue blockage from PID reuse, CI workflow now enforces strict merge-time blocking on unresolved high/critical post-commit findings, and agent policy requires startup/post-commit `codex:audit:status` review of recent artifacts, explicit `codex:audit:autoresolve` sweeps when closing stale findings, and `codex:ecosystem:sync` whenever shared guardrails/helpers change.
+- `ECO-008` in progress: codex subprocess audit scripts + ecosystem hook installer now resolve through shared path helpers and are being lifted from a `rules-api`-centric control plane to the root Whisperspace workspace (`/hdd/sites/whisperspace`) with `codex-shared/` as the shared automation home; managed pre-commit now performs fast staged checks only while managed post-commit queues asynchronous commit-scoped Codex reviews, scheduled Claude audits are installable via centralized crontab helper and verifiable via centralized cron-check helper, post-commit worker stale-lock recovery now validates worker identity via PID plus `/proc` start-time checks to avoid dead queue blockage from PID reuse, CI workflow now enforces strict merge-time blocking on unresolved high/critical post-commit findings, and agent policy requires startup/post-commit `codex:audit:status` review of recent artifacts, explicit `codex:audit:autoresolve` sweeps when closing stale findings, `codex:ecosystem:sync` whenever shared guardrails/helpers change, and per-subproject `.codex/PROJECT-HISTORY.md` + `.codex/NEXT-STEPS.md` maintenance for local context.
 
 ### Backlog (Epics)
 | ID | Priority | Epic | Primary Owner | Supporting Repos | Status |

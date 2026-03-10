@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 set -euo pipefail
-
-exec bash /hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/ci-post-commit-gate.sh "$@"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+exec bash "${SCRIPT_DIR}/exec-shared-helper.sh" ci-post-commit-gate.sh "$@"

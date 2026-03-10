@@ -29,11 +29,32 @@ function load_env(string $path): void {
   }
 }
 
-// Load env from project root first, then fall back to public locations
-load_env("/hdd/sites/stuartpringle/whisperspace/.env");
-load_env("/hdd/sites/stuartpringle/whisperspace/public/.env");
-load_env("/hdd/sites/stuartpringle/whisperspace/public/rules-api/.env");
-load_env("/hdd/sites/stuartpringle/whisperspace/public/rules-api/calc/.env");
+// Load env from project root first, then fall back to workspace locations.
+$controlRoot = realpath(__DIR__ . "/../../..");
+if (!is_string($controlRoot) || $controlRoot === "") {
+  $controlRoot = dirname(__DIR__, 3);
+}
+$ecosystemRoot = getenv("WS_ECOSYSTEM_ROOT");
+if (!is_string($ecosystemRoot) || $ecosystemRoot === "") {
+  $ecosystemRoot = "/hdd/sites/whisperspace";
+}
+$legacyRoot = getenv("WS_LEGACY_ECOSYSTEM_ROOT");
+if (!is_string($legacyRoot) || $legacyRoot === "") {
+  $legacyRoot = "/hdd/sites/stuartpringle";
+}
+
+load_env($controlRoot . "/.env");
+load_env($controlRoot . "/public/.env");
+load_env($controlRoot . "/public/rules-api/.env");
+load_env($controlRoot . "/public/rules-api/calc/.env");
+load_env($ecosystemRoot . "/site/.env");
+load_env($ecosystemRoot . "/site/public/.env");
+load_env($ecosystemRoot . "/site/public/rules-api/.env");
+load_env($ecosystemRoot . "/site/public/rules-api/calc/.env");
+load_env($legacyRoot . "/whisperspace/.env");
+load_env($legacyRoot . "/whisperspace/public/.env");
+load_env($legacyRoot . "/whisperspace/public/rules-api/.env");
+load_env($legacyRoot . "/whisperspace/public/rules-api/calc/.env");
 
 $path = parse_url($_SERVER["REQUEST_URI"] ?? "", PHP_URL_PATH) ?? "";
 $path = preg_replace("#^/rules-api/calc#", "", $path);

@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-SRC_DIR="${1:-/hdd/sites/stuartpringle/whisperspace-rules-parser/out}"
+WS_ECOSYSTEM_ROOT="${WS_ECOSYSTEM_ROOT:-/hdd/sites/whisperspace}"
+WS_LEGACY_ECOSYSTEM_ROOT="${WS_LEGACY_ECOSYSTEM_ROOT:-/hdd/sites/stuartpringle}"
+DEFAULT_SRC_DIR="${WS_ECOSYSTEM_ROOT}/rules-parser/out"
+if [[ ! -d "${DEFAULT_SRC_DIR}" ]]; then
+  DEFAULT_SRC_DIR="${WS_LEGACY_ECOSYSTEM_ROOT}/whisperspace-rules-parser/out"
+fi
+SRC_DIR="${1:-${DEFAULT_SRC_DIR}}"
 DEST_DIR="src/data/rules"
 
 if [[ ! -d "$SRC_DIR" ]]; then

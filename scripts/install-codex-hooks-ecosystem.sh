@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ROOT_SHARED="$(cd "${SCRIPT_DIR}/../codex-shared" && pwd)"
+source "${ROOT_SHARED}/ecosystem-paths.sh"
 source "${ROOT_SHARED}/ecosystem-repos.sh"
 
 for repo in "${WS_REPOS[@]}"; do
@@ -50,18 +52,40 @@ for repo in "${WS_REPOS[@]}"; do
     fi
   fi
 
-  cat > "${pre_hook_path}" <<EOF
+  cat > "${pre_hook_path}" <<'EOF'
 #!/usr/bin/env bash
 # WS_CODEX_MANAGED_PRECOMMIT
 set -euo pipefail
-exec bash "${ROOT_SHARED}/pre-commit-managed.sh"
+for candidate in \
+  "${WS_SHARED_ROOT:-}" \
+  "${WS_ECOSYSTEM_ROOT:-/hdd/sites/whisperspace}/codex-shared" \
+  "/hdd/sites/whisperspace/codex-shared" \
+  "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+do
+  if [[ -n "${candidate}" && -f "${candidate}/pre-commit-managed.sh" ]]; then
+    exec bash "${candidate}/pre-commit-managed.sh"
+  fi
+done
+echo "[pre-commit] ERROR: unable to locate shared Codex runtime."
+exit 1
 EOF
 
-  cat > "${post_hook_path}" <<EOF
+  cat > "${post_hook_path}" <<'EOF'
 #!/usr/bin/env bash
 # WS_CODEX_MANAGED_POSTCOMMIT
 set -euo pipefail
-exec bash "${ROOT_SHARED}/post-commit-managed.sh"
+for candidate in \
+  "${WS_SHARED_ROOT:-}" \
+  "${WS_ECOSYSTEM_ROOT:-/hdd/sites/whisperspace}/codex-shared" \
+  "/hdd/sites/whisperspace/codex-shared" \
+  "/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+do
+  if [[ -n "${candidate}" && -f "${candidate}/post-commit-managed.sh" ]]; then
+    exec bash "${candidate}/post-commit-managed.sh"
+  fi
+done
+echo "[post-commit] ERROR: unable to locate shared Codex runtime."
+exit 1
 EOF
 
   chmod +x "${pre_hook_path}" "${post_hook_path}"

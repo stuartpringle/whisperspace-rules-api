@@ -3,7 +3,8 @@ set -euo pipefail
 
 BEGIN_MARKER="# WS_CLAUDE_AUDIT_CRON_BEGIN"
 END_MARKER="# WS_CLAUDE_AUDIT_CRON_END"
-EXPECTED_TOKEN="claude:audit:repo"
+EXPECTED_TOKEN_1="claude-scheduled-audit.sh"
+EXPECTED_TOKEN_2="claude:audit:repo"
 
 CURRENT_CRONTAB="$(crontab -l 2>/dev/null || true)"
 
@@ -28,7 +29,7 @@ if [[ -z "${BLOCK}" ]]; then
   exit 1
 fi
 
-if ! grep -Fq "${EXPECTED_TOKEN}" <<< "${BLOCK}"; then
+if ! grep -Fq "${EXPECTED_TOKEN_1}" <<< "${BLOCK}" && ! grep -Fq "${EXPECTED_TOKEN_2}" <<< "${BLOCK}"; then
   echo "CLAUDE_CRON_STATUS: FAIL"
   echo "REASON: managed Claude cron block found, but expected audit command token is missing."
   echo "REMEDIATION: npm run claude:audit:cron:install -- 7"

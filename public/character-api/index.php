@@ -90,10 +90,38 @@ function load_env(string $path): void {
   }
 }
 
+$controlRoot = realpath(__DIR__ . "/../..");
+if (!is_string($controlRoot) || $controlRoot === "") {
+  $controlRoot = dirname(__DIR__, 2);
+}
+$ecosystemRoot = getenv("WS_ECOSYSTEM_ROOT");
+if (!is_string($ecosystemRoot) || $ecosystemRoot === "") {
+  $ecosystemRoot = "/hdd/sites/whisperspace";
+}
+$legacyRoot = getenv("WS_LEGACY_ECOSYSTEM_ROOT");
+if (!is_string($legacyRoot) || $legacyRoot === "") {
+  $legacyRoot = "/hdd/sites/stuartpringle";
+}
+
+function first_existing_path(array $paths): ?string {
+  foreach ($paths as $path) {
+    if (is_string($path) && $path !== "" && file_exists($path)) {
+      return $path;
+    }
+  }
+  return null;
+}
+
 $envPaths = [
-  "/hdd/sites/stuartpringle/whisperspace-rules-api/.env",
-  "/hdd/sites/stuartpringle/whisperspace-rules-api/public/character-api/.env",
-  "/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api/.env",
+  $controlRoot . "/.env",
+  $controlRoot . "/public/character-api/.env",
+  $controlRoot . "/dist/character-api/.env",
+  $ecosystemRoot . "/rules-api/.env",
+  $ecosystemRoot . "/rules-api/public/character-api/.env",
+  $ecosystemRoot . "/rules-api/dist/character-api/.env",
+  $legacyRoot . "/whisperspace-rules-api/.env",
+  $legacyRoot . "/whisperspace-rules-api/public/character-api/.env",
+  $legacyRoot . "/whisperspace-rules-api/dist/character-api/.env",
 ];
 foreach ($envPaths as $envPath) {
   load_env($envPath);
@@ -259,7 +287,13 @@ function is_mysql_driver(string $driver): bool {
 function db_path(): string {
   $env = getenv("WS_CHARACTER_DB_PATH");
   if (is_string($env) && $env !== "") return $env;
-  return "/hdd/sites/stuartpringle/whisperspace-character-builder/db/characters.sqlite";
+  $path = first_existing_path([
+    $GLOBALS["ecosystemRoot"] . "/character-builder/db/characters.sqlite",
+    $GLOBALS["legacyRoot"] . "/whisperspace-character-builder/db/characters.sqlite",
+  ]);
+  return is_string($path) && $path !== ""
+    ? $path
+    : $GLOBALS["ecosystemRoot"] . "/character-builder/db/characters.sqlite";
 }
 
 function open_db(): PDO {
@@ -626,7 +660,13 @@ function parse_body(): array {
 function schema_path(): string {
   $env = getenv("WS_CHARACTER_SCHEMA_PATH");
   if (is_string($env) && $env !== "") return $env;
-  return "/hdd/sites/stuartpringle/whisperspace-sdk/schema/character-record.v1.json";
+  $path = first_existing_path([
+    $GLOBALS["ecosystemRoot"] . "/sdk/schema/character-record.v1.json",
+    $GLOBALS["legacyRoot"] . "/whisperspace-sdk/schema/character-record.v1.json",
+  ]);
+  return is_string($path) && $path !== ""
+    ? $path
+    : $GLOBALS["ecosystemRoot"] . "/sdk/schema/character-record.v1.json";
 }
 
 function load_schema(): array {

@@ -2,6 +2,13 @@
 
 Canonical location for Whisperspace Codex automation helpers.
 
+Target control-plane path:
+- `/hdd/sites/whisperspace/codex-shared/`
+
+Migration rule:
+- Shared helpers must resolve through `WS_SHARED_ROOT` / `WS_ECOSYSTEM_ROOT` and not assume `rules-api` is the permanent control-plane repo.
+- The preferred Codex working directory is the Whisperspace ecosystem root (`/hdd/sites/whisperspace`) once present.
+
 Scripts:
 - `codex-batch-audit.sh`: per-batch staged/working-tree audit runner.
 - `audit-autoresolve.sh`: auto-resolve logger for closed high/critical findings (`RESOLVED:` entries).
@@ -51,5 +58,6 @@ Emergency bypass telemetry:
 - `pre-commit-managed.sh` appends bypass events to `.codex/BYPASS-LOG.tsv`.
 - `audit-status.sh` reports bypass events since the previous commit via `BYPASS_EVENTS_*` output fields.
 
-All Whisperspace repo `AGENTS.md` files should point to this location via the canonical policy file:
-- `/hdd/sites/stuartpringle/whisperspace-rules-api/AGENTS.md`
+All Whisperspace repo `AGENTS.md` files should point to the canonical policy file in the ecosystem root once present:
+- `/hdd/sites/whisperspace/AGENTS.md`
+- Transitional bootstrap path while the move is in progress: this repo's `AGENTS.md`

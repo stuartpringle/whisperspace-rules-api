@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT="/hdd/sites/stuartpringle"
-RULES_API_REPO="${ROOT}/whisperspace-rules-api"
-LOG_PATH="${RULES_API_REPO}/.codex/audits/claude-scheduled-audit-cron.log"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+LOG_PATH="${WS_AUDIT_ARTIFACTS_DIR}/claude-scheduled-audit-cron.log"
 
 SCHEDULE="${WS_CLAUDE_AUDIT_CRON_SCHEDULE:-17 3 * * *}"
 DAYS="${1:-${WS_CLAUDE_AUDIT_DAYS:-7}}"
@@ -30,9 +30,9 @@ if ! command -v npm >/dev/null 2>&1; then
 fi
 NPM_BIN="$(command -v npm)"
 
-mkdir -p "${RULES_API_REPO}/.codex/audits"
+mkdir -p "${WS_AUDIT_ARTIFACTS_DIR}"
 
-CRON_CMD="cd ${RULES_API_REPO} && ${NPM_BIN} run claude:audit:repo -- ${DAYS} >> ${LOG_PATH} 2>&1"
+CRON_CMD="cd ${WS_POLICY_ROOT} && bash ${WS_SHARED_ROOT}/claude-scheduled-audit.sh ${DAYS} >> ${LOG_PATH} 2>&1"
 BEGIN_MARKER="# WS_CLAUDE_AUDIT_CRON_BEGIN"
 END_MARKER="# WS_CLAUDE_AUDIT_CRON_END"
 

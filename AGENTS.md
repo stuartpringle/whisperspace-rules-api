@@ -2,18 +2,32 @@
 
 Canonical policy file for all Whisperspace repos.
 
+Primary workspace model:
+- Prefer opening Codex from the Whisperspace ecosystem root: `/hdd/sites/whisperspace` when present.
+- Treat individual repos as subprojects within one shared workspace, not as isolated control planes.
+
 Read this repo's `README.md` for project status, roadmap snapshot, and integration contract details. Keep `README.md` current for other repos (APIs/endpoints/schemas, auth expectations, build/publish/run steps, integration gotchas).
 
-Read `/hdd/sites/stuartpringle/whisperspace-rules-api/AGENTS.md`, `/hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md`, and `/hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-SECURITY.md` for ecosystem context and security guardrails.
+Read the canonical ecosystem context files first:
+- `AGENTS.md`
+- `PROJECT-OVERVIEW.md`
+- `PROJECT-SECURITY.md`
+
+Path resolution note:
+- Shared scripts should resolve through `WS_ECOSYSTEM_ROOT` / `WS_SHARED_ROOT` rather than hardcoded `/hdd/sites/stuartpringle/...` paths.
+- Target ecosystem layout is `/hdd/sites/whisperspace/<project>` with OBR repos under `/hdd/sites/whisperspace/obr/<project>`.
+- Legacy exception: `whisperspace-obr-extension` remains outside the new tree until retired.
 
 If present, read local context files before substantial edits:
 - `.codex/PROJECT-HISTORY.md` (local verbose milestone/task history)
+- `.codex/NEXT-STEPS.md` (current local TODO/next actions)
 - `.codex/AUDIT-LOG.md` (local audit notes and prior findings)
 
 Documentation discipline:
 - Keep `README.md` concise and integration-focused.
 - Keep verbose implementation history out of `README.md`; use `.codex/PROJECT-HISTORY.md` (gitignored) for local deep history.
-- Update `/hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md` with this repo's latest status/milestones whenever contracts, release workflow, auth model, or shared integration behavior changes.
+- Keep `.codex/NEXT-STEPS.md` current with the next concrete actions for this subproject.
+- Update `PROJECT-OVERVIEW.md` with this repo's latest status/milestones whenever contracts, release workflow, auth model, or shared integration behavior changes.
 
 Workflow guardrails for each change batch:
 1. At startup, review recent audit artifacts in `.codex/audits/` and `.codex/AUDIT-LOG.md`, then run `npm run codex:audit:status`. Report unresolved high/critical findings (or explicitly state none).
@@ -37,9 +51,11 @@ Workflow guardrails for each change batch:
    - Report recent scheduled findings when relevant.
 
 Shared helper location (single source of truth):
-- `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/`
+- `WS_SHARED_ROOT` when set
+- target canonical path: `/hdd/sites/whisperspace/codex-shared/`
+- transitional bootstrap path while migration is in progress: this repo's `codex-shared/`
 
 Engineering rule:
 - Avoid duplicated logic. If behavior is needed in multiple flows, extract/reuse a shared helper/module instead of copying logic.
 
-You have permission to edit outside this repo when updating `/hdd/sites/stuartpringle/whisperspace-rules-api/PROJECT-OVERVIEW.md`.
+You have permission to edit outside this repo when updating the canonical `PROJECT-OVERVIEW.md` / `PROJECT-SECURITY.md` / root workspace notes during the ecosystem-root migration.

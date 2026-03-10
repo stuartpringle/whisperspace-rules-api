@@ -2,7 +2,7 @@
 set -euo pipefail
 
 REPO_OUT="public/rules-api/latest/core"
-PUBLISH_OUT="/hdd/sites/stuartpringle/whisperspace-rules-api/public/rules-api/latest/core"
+PUBLISH_OUT="${PWD}/public/rules-api/latest/core"
 REPO_OUT_ABS="$(realpath -m "$REPO_OUT")"
 PUBLISH_OUT_ABS="$(realpath -m "$PUBLISH_OUT")"
 

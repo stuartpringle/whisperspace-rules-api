@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PARSER_ROOT="/hdd/sites/stuartpringle/whisperspace-rules-parser"
+WS_ECOSYSTEM_ROOT="${WS_ECOSYSTEM_ROOT:-/hdd/sites/whisperspace}"
+WS_LEGACY_ECOSYSTEM_ROOT="${WS_LEGACY_ECOSYSTEM_ROOT:-/hdd/sites/stuartpringle}"
+PARSER_ROOT="${WS_ECOSYSTEM_ROOT}/rules-parser"
+if [[ ! -d "${PARSER_ROOT}" ]]; then
+  PARSER_ROOT="${WS_LEGACY_ECOSYSTEM_ROOT}/whisperspace-rules-parser"
+fi
 PARSER_OUT="${PARSER_ROOT}/out"
 
 echo "[rules:publish] Running rules parser (validate + diff)..."
@@ -30,7 +35,7 @@ echo "[rules:publish] Skipping SDK version sync (external repo)."
 
 echo "[rules:publish] Publishing calc endpoints..."
 CALC_SRC="public/rules-api/calc"
-CALC_DEST="/hdd/sites/stuartpringle/whisperspace-rules-api/public/rules-api/calc"
+CALC_DEST="${PWD}/public/rules-api/calc"
 if [[ "$(realpath -m "$CALC_SRC")" == "$(realpath -m "$CALC_DEST")" ]]; then
   echo "[rules:publish] Calc endpoints already in publish dir; skipping copy."
 else
@@ -43,7 +48,7 @@ fi
 
 echo "[rules:publish] Publishing character API endpoints..."
 CHAR_API_SRC="public/character-api"
-CHAR_API_DEST="/hdd/sites/stuartpringle/whisperspace-rules-api/dist/character-api"
+CHAR_API_DEST="${PWD}/dist/character-api"
 mkdir -p "$CHAR_API_DEST"
 cp "$CHAR_API_SRC/index.php" "$CHAR_API_DEST/index.php"
 cp "$CHAR_API_SRC/.htaccess" "$CHAR_API_DEST/.htaccess"

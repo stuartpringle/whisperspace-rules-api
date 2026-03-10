@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+ROOT_SHARED="${WS_SHARED_ROOT}"
 TEMPLATE="${ROOT_SHARED}/templates/codex-audit-status.workflow.yml"
 source "${ROOT_SHARED}/ecosystem-repos.sh"
 

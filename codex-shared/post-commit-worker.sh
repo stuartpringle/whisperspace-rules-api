@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-ROOT_SHARED="/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+source "${SCRIPT_DIR}/ecosystem-paths.sh"
+ROOT_SHARED="${WS_SHARED_ROOT}"
 LOCK_DIR=".codex/audits/post-commit-worker.lock"
 PID_FILE="${LOCK_DIR}/pid"
 START_FILE="${LOCK_DIR}/starttime"

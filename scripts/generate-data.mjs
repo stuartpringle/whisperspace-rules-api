@@ -12,7 +12,7 @@ const ROOT = process.cwd();
 const SRC = path.join(ROOT, "src", "data");
 const OUT = path.join(SRC, "generated");
 const RULES_API_DIR = path.join(ROOT, "public", "rules-api", "latest");
-const RULES_API_PUBLISH_DIR = "/hdd/sites/stuartpringle/whisperspace-rules-api/public/rules-api/latest";
+const RULES_API_PUBLISH_DIR = path.join(ROOT, "public", "rules-api", "latest");
 
 //enable/disable the TAR behaviour here
 const ENABLE_ARCHIVE = false;
