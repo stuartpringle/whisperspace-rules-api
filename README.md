@@ -454,7 +454,7 @@ Workflow:
 Script behavior:
 - `codex-shared/pre-commit-managed.sh` runs fast checks only (`git diff --cached --check` + `audit-status`).
 - `codex-shared/post-commit-managed.sh` queues asynchronous commit-scoped Codex audits after each commit.
-- `codex-shared/post-commit-worker.sh` processes `.codex/audits/post-commit-queue.tsv` with a single lock-protected worker.
+- `codex-shared/post-commit-worker.sh` processes `.codex/audits/post-commit-queue.tsv` with a single lock-protected worker and validates lock ownership via PID plus `/proc` start-time checks before honoring an existing lock.
 - `codex-shared/post-commit-review.sh <commit>` runs security/workflow/docs/contract review against a specific commit diff and writes report artifacts.
 - `codex-shared/ci-post-commit-gate.sh` runs `post-commit-review.sh HEAD` and then enforces strict unresolved high/critical blocking for post-commit reports.
 - `scripts/codex-batch-audit.sh --staged` audits staged diff and fails on high/critical findings.
