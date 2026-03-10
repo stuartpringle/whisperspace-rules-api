@@ -13,7 +13,7 @@
       "repo": "whisperspace-obr-extension",
       "status": "in_progress",
       "adopted": true,
-      "notes": "Phase-1 migration complete for builder-sync character fetch/session/csrf/public-upsert through shared adapter; remaining flows pending."
+      "notes": "Phase-2 migration complete for builder-sync and canonical OBR flows: public character fetch/session/csrf/public-upsert plus guest auth and canonical OBR-instance read/write now route through shared SDK platform-client wrappers; remaining direct adapter cleanup is pending."
     },
     {
       "repo": "whisperspace-obr-gm",

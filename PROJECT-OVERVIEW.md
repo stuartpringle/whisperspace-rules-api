@@ -83,11 +83,11 @@ Source of truth is `compatibility/matrix.json` + `compatibility/manifests/*.json
 - `ECO-002` complete (rules-api scope): contract smoke checks wired into publish flow.
 - `ECO-003` complete (rules-api scope): `ecosystem:release` orchestrator live with summary artifact.
 - `ECO-004` in progress: SDK readiness scaffold added (`compatibility/sdk-readiness.json`, `npm run sdk:readiness`) with shim-free gate enforcement for repos marked `complete`.
-- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, OBR phase-1 migration landed for Builder sync flows (public character fetch + auth session/csrf + public upsert) through a shared adapter, and readiness tracker now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`.
+- `ECO-005` in progress: platform-client readiness scaffold is wired into `ecosystem:release`, SDK module shipped at `@whisperspace/sdk/platform-client`, builder phase-3 consumer migration landed, OBR phase-2 migration landed for Builder sync plus canonical OBR flows (public character fetch + auth session/csrf + public upsert, plus guest auth and canonical OBR-instance read/write) through shared SDK-backed adapters, and readiness tracker now reflects builder `complete`, OBR `in_progress`, OBR-GM `pending`.
 - ECO tracking note: `npm run eco:readiness:scan` now generates `compatibility/eco-readiness-report.json` for current marker/usage inventory across ECO-004/005 repos.
 - `ECO-006` in progress: observability baseline + telemetry/report artifacts live.
 - `ECO-007` complete: overview normalized to dashboard format and ownership rules documented.
-- `ECO-008` in progress: codex subprocess audit scripts + ecosystem hook installer added in rules-api (`codex:audit:batch`, `codex:audit:docs`, `codex:audit:status`, `codex:audit:autoresolve`, `codex:audit:repo`, `codex:audit:post-commit`, `codex:audit:ci:post-commit-gate`, `claude:audit:repo`, `claude:audit:cron:install`, `claude:audit:cron:check`, `codex:hooks:install`, `codex:ecosystem:sync`) and centralized under `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/` for cross-repo reuse; managed pre-commit now performs fast staged checks only while managed post-commit queues asynchronous commit-scoped Codex reviews, scheduled Claude audits are installable via centralized crontab helper and verifiable via centralized cron-check helper, CI workflow now enforces strict merge-time blocking on unresolved high/critical post-commit findings, and agent policy requires startup/post-commit status checks for unresolved findings.
+- `ECO-008` in progress: codex subprocess audit scripts + ecosystem hook installer added in rules-api (`codex:audit:batch`, `codex:audit:docs`, `codex:audit:status`, `codex:audit:autoresolve`, `codex:audit:repo`, `codex:audit:post-commit`, `codex:audit:ci:post-commit-gate`, `claude:audit:repo`, `claude:audit:cron:install`, `claude:audit:cron:check`, `codex:hooks:install`, `codex:ecosystem:sync`) and centralized under `/hdd/sites/stuartpringle/whisperspace-rules-api/codex-shared/` for cross-repo reuse; managed pre-commit now performs fast staged checks only while managed post-commit queues asynchronous commit-scoped Codex reviews, scheduled Claude audits are installable via centralized crontab helper and verifiable via centralized cron-check helper, CI workflow now enforces strict merge-time blocking on unresolved high/critical post-commit findings, and agent policy requires startup/post-commit `codex:audit:status` review of recent artifacts, explicit `codex:audit:autoresolve` sweeps when closing stale findings, and `codex:ecosystem:sync` whenever shared guardrails/helpers change.
 
 ### Backlog (Epics)
 | ID | Priority | Epic | Primary Owner | Supporting Repos | Status |
@@ -163,8 +163,8 @@ This section is intentionally concise. Detailed changelogs belong in each repo's
 - Status: Shared schema/types live; adopted by multiple repos.
 - Role in ecosystem: contract boundary package.
 - Current risk: downstream shim usage still exists in some clients.
-- Latest milestone: initial shared platform-client module shipped (`createPlatformClient`, rules/calc/character/auth wrappers) and exported via `@whisperspace/sdk/platform-client`.
-- Next milestone: complete OBR and OBR GM migrations from local shims/adapters to direct SDK platform-client consumption.
+- Latest milestone: shared platform-client module now covers rules/calc/character/auth plus OBR guest auth and canonical OBR-instance read/write wrappers, exported via `@whisperspace/sdk/platform-client`.
+- Next milestone: complete OBR and OBR GM migrations from local shims/adapters to direct SDK platform-client consumption and remove remaining repo-local compatibility wrappers.
 
 ## Cross-Repo Risks (Current)
 - SDK adoption is not fully enforced in all runtime paths (`ECO-004` pending).
