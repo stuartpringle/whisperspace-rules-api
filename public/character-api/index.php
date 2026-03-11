@@ -31,6 +31,7 @@ function get_allowed_cors_headers_value(): string {
     "X-CSRF-Token",
     "If-Unmodified-Since",
     "X-WS-OBR-Write-Key",
+    "X-WS-OBR-Room-Capability",
   ];
   $requestedRaw = $_SERVER["HTTP_ACCESS_CONTROL_REQUEST_HEADERS"] ?? "";
   if (is_string($requestedRaw) && trim($requestedRaw) !== "") {
@@ -378,6 +379,7 @@ function apply_migrations(PDO $pdo): void {
   ensure_users_table($pdo);
   ensure_user_sessions_table($pdo);
   ensure_obr_guest_sessions_table($pdo);
+  ensure_obr_room_capabilities_table($pdo);
   ensure_password_resets_table($pdo);
   ensure_oauth_accounts_table($pdo);
 }
@@ -551,6 +553,46 @@ SQL
   create_index_if_missing($pdo, "obr_guest_sessions", "idx_obr_guest_sessions_room", "room_id");
 }
 
+function ensure_obr_room_capabilities_table(PDO $pdo): void {
+  $driver = db_driver();
+  if (is_mysql_driver($driver)) {
+    $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS `obr_room_capabilities` (
+  `id` VARCHAR(36) PRIMARY KEY,
+  `room_id` VARCHAR(160) NOT NULL,
+  `issued_by_user_id` VARCHAR(36) NOT NULL,
+  `token_hash` CHAR(64) NOT NULL,
+  `created_at` TEXT NOT NULL,
+  `expires_at` TEXT NOT NULL,
+  `revoked_at` TEXT,
+  `ip` VARCHAR(64),
+  `user_agent` TEXT
+)
+SQL
+);
+    create_index_if_missing($pdo, "obr_room_capabilities", "idx_obr_room_capabilities_token", "token_hash");
+    create_index_if_missing($pdo, "obr_room_capabilities", "idx_obr_room_capabilities_room", "room_id");
+    return;
+  }
+  $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS obr_room_capabilities (
+  id TEXT PRIMARY KEY,
+  room_id TEXT NOT NULL,
+  issued_by_user_id TEXT NOT NULL,
+  token_hash TEXT NOT NULL,
+  created_at TEXT NOT NULL,
+  expires_at TEXT NOT NULL,
+  revoked_at TEXT,
+  ip TEXT,
+  user_agent TEXT,
+  FOREIGN KEY(issued_by_user_id) REFERENCES users(id)
+)
+SQL
+);
+  create_index_if_missing($pdo, "obr_room_capabilities", "idx_obr_room_capabilities_token", "token_hash");
+  create_index_if_missing($pdo, "obr_room_capabilities", "idx_obr_room_capabilities_room", "room_id");
+}
+
 function cleanup_expired_auth_rows(PDO $pdo): void {
   static $done = false;
   if ($done) return;
@@ -566,6 +608,8 @@ function cleanup_expired_auth_rows(PDO $pdo): void {
   if (is_mysql_driver($driver)) {
     $pdo->prepare("DELETE FROM obr_guest_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
       ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+    $pdo->prepare("DELETE FROM obr_room_capabilities WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
+      ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
     $pdo->prepare("DELETE FROM user_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
       ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
     $pdo->prepare("DELETE FROM password_resets WHERE expires_at < :now OR (used_at IS NOT NULL AND used_at < :cutoff)")
@@ -573,6 +617,8 @@ function cleanup_expired_auth_rows(PDO $pdo): void {
     return;
   }
   $pdo->prepare("DELETE FROM obr_guest_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
+    ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
+  $pdo->prepare("DELETE FROM obr_room_capabilities WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
     ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
   $pdo->prepare("DELETE FROM user_sessions WHERE expires_at < :now OR (revoked_at IS NOT NULL AND revoked_at < :cutoff)")
     ->execute([":now" => $now, ":cutoff" => $revokedCutoff]);
@@ -772,8 +818,10 @@ const SESSION_COOKIE = "ws_session";
 const CSRF_COOKIE = "ws_csrf";
 const OBR_GUEST_COOKIE = "ws_obr_guest";
 const CSRF_HEADER = "X-CSRF-Token";
+const OBR_ROOM_CAPABILITY_HEADER = "X-WS-OBR-Room-Capability";
 const SESSION_TTL = 2592000;
 const OBR_GUEST_TTL = 43200;
+const OBR_ROOM_CAPABILITY_TTL = 3600;
 
 function is_secure_request(): bool {
   if (!empty($_SERVER["HTTPS"])) return strtolower($_SERVER["HTTPS"]) !== "off";
@@ -961,6 +1009,71 @@ SQL
   $expires = strtotime((string)($row["expires_at"] ?? ""));
   if ($expires && time() > $expires) return false;
   return true;
+}
+
+function get_obr_room_capability_token(): string {
+  $headers = function_exists("getallheaders") ? getallheaders() : [];
+  $provided = $headers[OBR_ROOM_CAPABILITY_HEADER] ?? $headers[strtolower(OBR_ROOM_CAPABILITY_HEADER)] ?? "";
+  return is_string($provided) ? trim($provided) : "";
+}
+
+function issue_obr_room_capability(PDO $pdo, string $roomId, string $userId): array {
+  $token = create_token(32);
+  $hash = hash_token($token);
+  $now = gmdate("c");
+  $expiresAt = gmdate("c", time() + OBR_ROOM_CAPABILITY_TTL);
+  $stmt = $pdo->prepare(<<<'SQL'
+INSERT INTO obr_room_capabilities (id, room_id, issued_by_user_id, token_hash, created_at, expires_at, ip, user_agent)
+VALUES (:id, :room_id, :issued_by_user_id, :token_hash, :created_at, :expires_at, :ip, :user_agent)
+SQL
+  );
+  $stmt->execute([
+    ":id" => uuid4(),
+    ":room_id" => $roomId,
+    ":issued_by_user_id" => $userId,
+    ":token_hash" => $hash,
+    ":created_at" => $now,
+    ":expires_at" => $expiresAt,
+    ":ip" => client_ip(),
+    ":user_agent" => $_SERVER["HTTP_USER_AGENT"] ?? "",
+  ]);
+  observability_increment("obr_room_capability_issued");
+  observability_log("obr_room_capability_issued", ["roomId" => $roomId, "userId" => $userId], 10);
+  return [
+    "token" => $token,
+    "roomId" => $roomId,
+    "expiresAt" => $expiresAt,
+  ];
+}
+
+function has_valid_obr_room_capability(PDO $pdo, string $roomId): bool {
+  $token = get_obr_room_capability_token();
+  if ($token === "") return false;
+  $hash = hash_token($token);
+  $stmt = $pdo->prepare(<<<'SQL'
+SELECT id, room_id, revoked_at, expires_at
+FROM obr_room_capabilities
+WHERE token_hash = :hash
+ORDER BY created_at DESC
+LIMIT 1
+SQL
+  );
+  $stmt->execute([":hash" => $hash]);
+  $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  if (!$row) return false;
+  if ((string)($row["room_id"] ?? "") !== $roomId) return false;
+  if ($row["revoked_at"] !== null) return false;
+  $expires = strtotime((string)($row["expires_at"] ?? ""));
+  if ($expires && time() > $expires) return false;
+  return true;
+}
+
+function require_obr_room_access(PDO $pdo, string $roomId, bool $hasValidApiKey): void {
+  if ($hasValidApiKey) return;
+  $user = current_user($pdo);
+  if ($user && !empty($user["is_admin"])) return;
+  if (has_valid_obr_room_capability($pdo, $roomId)) return;
+  respond_error(401, "unauthorized");
 }
 
 function require_auth(PDO $pdo): array {
@@ -1398,6 +1511,28 @@ function handle_auth_routes(PDO $pdo, array $tail): void {
         "ok" => true,
         "roomId" => $session["roomId"],
         "expiresAt" => $session["expiresAt"],
+        "deprecated" => true,
+      ]);
+      break;
+
+    case "obr-room-capability":
+      if ($method !== "POST") respond_error(405, "method_not_allowed");
+      require_csrf();
+      $user = require_auth($pdo);
+      $body = parse_body();
+      $roomId = trim((string)($body["roomId"] ?? ""));
+      if ($roomId === "") {
+        respond_error(400, "missing_room_id");
+      }
+      if (strlen($roomId) > 160) {
+        respond_error(400, "invalid_room_id");
+      }
+      $capability = issue_obr_room_capability($pdo, $roomId, $user["id"]);
+      respond(200, [
+        "ok" => true,
+        "roomId" => $capability["roomId"],
+        "expiresAt" => $capability["expiresAt"],
+        "capability" => $capability["token"],
       ]);
       break;
 
@@ -1657,7 +1792,7 @@ function get_obr_room_id(): string {
   return $roomId;
 }
 
-function handle_obr_instance_route(PDO $pdo, array $tail): void {
+function handle_obr_instance_route(PDO $pdo, array $tail, bool $hasValidApiKey): void {
   $method = $_SERVER["REQUEST_METHOD"];
   $instanceId = $tail[1] ?? "";
   if (!is_string($instanceId) || trim($instanceId) === "") {
@@ -1670,6 +1805,7 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
   }
 
   if ($method === "GET") {
+    require_obr_room_access($pdo, $roomId, $hasValidApiKey);
     $stmt = $pdo->prepare("SELECT data, updated_at FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
     $stmt->execute([
       ":room" => $roomId,
@@ -1698,13 +1834,7 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
 
   if ($method === "PUT") {
     observability_increment("obr_instance_put_attempt");
-    $user = current_user($pdo);
-    $hasGuestSession = has_valid_obr_guest_session_for_room($pdo, $roomId);
-    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key() && !$hasGuestSession) {
-      observability_increment("obr_instance_put_unauthorized");
-      observability_log("obr_instance_put_unauthorized", ["roomId" => $roomId, "instanceId" => $instanceId], 5);
-      respond_error(401, "unauthorized");
-    }
+    require_obr_room_access($pdo, $roomId, $hasValidApiKey);
     $body = parse_body();
     $sheet = $body["sheet"] ?? null;
     if (!is_array($sheet)) {
@@ -1756,13 +1886,7 @@ function handle_obr_instance_route(PDO $pdo, array $tail): void {
 
   if ($method === "DELETE") {
     observability_increment("obr_instance_delete_attempt");
-    $user = current_user($pdo);
-    $hasGuestSession = has_valid_obr_guest_session_for_room($pdo, $roomId);
-    if (!$hasValidApiKey && !$user && !has_valid_obr_write_key() && !$hasGuestSession) {
-      observability_increment("obr_instance_delete_unauthorized");
-      observability_log("obr_instance_delete_unauthorized", ["roomId" => $roomId, "instanceId" => $instanceId], 5);
-      respond_error(401, "unauthorized");
-    }
+    require_obr_room_access($pdo, $roomId, $hasValidApiKey);
     $stmt = $pdo->prepare("DELETE FROM obr_instance_sheets WHERE room_id = :room AND instance_id = :instance");
     $stmt->execute([
       ":room" => $roomId,
@@ -1802,6 +1926,7 @@ if (count($tail) === 0) {
       "POST /character-api/auth/password/request",
       "POST /character-api/auth/password/reset",
       "GET /character-api/auth/oauth/google",
+      "POST /character-api/auth/obr-room-capability",
       "GET /character-api/characters",
       "POST /character-api/characters",
       "GET /character-api/characters/:id",
@@ -1844,7 +1969,7 @@ if ($tail[0] === "characters") {
 }
 
 if ($tail[0] === "obr-instance") {
-  handle_obr_instance_route($pdo, $tail);
+  handle_obr_instance_route($pdo, $tail, $hasValidApiKey);
 }
 
 respond_error(404, "not_found");

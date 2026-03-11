@@ -320,6 +320,7 @@ Auth endpoints:
 - `GET /character-api/auth/session`
 - `GET /character-api/auth/csrf`
 - `POST /character-api/auth/obr-guest`
+- `POST /character-api/auth/obr-room-capability`
 - `POST /character-api/auth/password/request`
 - `POST /character-api/auth/password/reset`
 - `GET /character-api/auth/oauth/google`
@@ -330,7 +331,8 @@ Auth contract:
   - `POST /character-api/auth/logout`: no body; responds `200` with `{ "ok": true }` and clears `ws_session`/`ws_csrf` cookies. Requires `X-CSRF-Token` header matching the `ws_csrf` cookie.
   - `GET /character-api/auth/session`: returns `200` with `{ "user": null, "csrfToken": "<token>" }` when no session or `{ "user": { "id": "<uuid>", "email": "<email>" }, "csrfToken": "<token>" }` when authenticated.
   - `GET /character-api/auth/csrf`: returns `200` with `{ "csrfToken": "<token>", "authenticated": <boolean> }` for clients that need an explicit CSRF read endpoint.
-  - `POST /character-api/auth/obr-guest`: body `{ "roomId": "<obrRoomId>" }`; returns `200` with `{ "ok": true, "roomId": "...", "expiresAt": "..." }` and issues an http-only `ws_obr_guest` cookie scoped to that room for seamless OBR instance writes.
+  - `POST /character-api/auth/obr-guest`: body `{ "roomId": "<obrRoomId>" }`; returns `200` with `{ "ok": true, "roomId": "...", "expiresAt": "...", "deprecated": true }`. This endpoint is retained only for compatibility and no longer grants canonical OBR room write authority.
+  - `POST /character-api/auth/obr-room-capability`: body `{ "roomId": "<obrRoomId>" }`; requires authenticated session plus `X-CSRF-Token` and returns `200` with `{ "ok": true, "roomId": "...", "expiresAt": "...", "capability": "<token>" }`. The returned capability is the intended short-lived auth primitive for canonical OBR room sync.
   - `POST /character-api/auth/password/request`: body `{ "email": "..." }`; responds `200` with `{ "ok": true }` even if the email is not known (to avoid leaking accounts). Errors (e.g., `invalid_email`, `email_failure`) return `{ "error": "<code>" }`.
   - `POST /character-api/auth/password/reset`: body `{ "token": "...", "newPassword": "..." }`; on success responds `{ "ok": true }` and revokes existing sessions; errors include `missing_fields`, `invalid_token`, or `validation_failed`.
   - `GET /character-api/auth/oauth/google`: without query params, redirects to Google OAuth when configured; if OAuth env keys are missing it returns `500` with `{ "error": "oauth_unconfigured" }`. With `?code=...` (callback) it exchanges tokens, finds/creates the linked user, issues a session (sets cookies), and then redirects back to the `state` URL if it matches `WS_BUILDER_URL`, otherwise falls back to `WS_BUILDER_URL`.
@@ -368,21 +370,20 @@ Endpoints:
 
 OBR canonical instance endpoints (separate from Builder character records):
 - `GET /character-api/obr-instance/:instanceId?roomId=:roomId`
-  - Always returns `200` for a valid request.
+  - Requires `X-WS-OBR-Room-Capability: <token>` for the matching room, or stronger server-side admin authorization.
+  - Always returns `200` for a valid authorized request.
   - Returns `{ instanceId, roomId, updatedAt, found, sheet }`.
   - Misses return `{ found: false, updatedAt: null, sheet: null }` (no `404`), so OBR clients can treat missing canonical rows as normal cacheable misses without browser resource-error noise.
 - `PUT /character-api/obr-instance/:instanceId?roomId=:roomId`
   - Body: `{ "sheet": <CharacterRecordV1-compatible object> }`
   - Upserts canonical OBR instance sheet for the room+instance key.
   - Write auth required: one of
-    - valid user session cookie (`ws_session`) or
-    - valid room-scoped guest cookie (`ws_obr_guest`, issued by `POST /character-api/auth/obr-guest`) or
-    - `Authorization: Bearer <WS_CHARACTER_API_KEY>` or
-    - `X-WS-OBR-Write-Key: <WS_OBR_INSTANCE_WRITE_KEY>` (for OBR extension runtime).
+    - valid `X-WS-OBR-Room-Capability: <token>` for the matching room, or
+    - stronger server-side admin authorization.
 - `DELETE /character-api/obr-instance/:instanceId?roomId=:roomId`
   - Removes canonical OBR instance sheet for the room+instance key.
   - Returns `{ ok: true }`.
-  - Same write auth requirement as `PUT`.
+  - Same auth requirement as `PUT`.
 
 CORS for character-api:
 - Origin allowlist is enforced when `Origin` header is present.
@@ -391,8 +392,8 @@ CORS for character-api:
 - `Access-Control-Allow-Headers` now includes core headers plus requested preflight headers (normalized), so OBR-specific auth headers are consistently accepted when configured.
 
 Auth/session hygiene:
-- Expired/revoked `obr_guest_sessions`, `user_sessions`, and stale `password_resets` rows are opportunistically cleaned during normal API traffic.
-- Lightweight observability counters/logs are emitted for OBR guest issuance and OBR instance write/delete outcomes; counters persist in temp storage (`/tmp/whisperspace_character_api_observability.json`) and sampled events are logged with `[ws][character-api]`.
+- Expired/revoked `obr_guest_sessions`, `obr_room_capabilities`, `user_sessions`, and stale `password_resets` rows are opportunistically cleaned during normal API traffic.
+- Lightweight observability counters/logs are emitted for OBR guest issuance, room-capability issuance, and OBR instance write/delete outcomes; counters persist in temp storage (`/tmp/whisperspace_character_api_observability.json`) and sampled events are logged with `[ws][character-api]`.
 
 Admin endpoints:
 - `GET /character-api/admin/characters`
