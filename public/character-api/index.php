@@ -1013,7 +1013,10 @@ SQL
 
 function get_obr_room_capability_token(): string {
   $headers = function_exists("getallheaders") ? getallheaders() : [];
-  $provided = $headers[OBR_ROOM_CAPABILITY_HEADER] ?? $headers[strtolower(OBR_ROOM_CAPABILITY_HEADER)] ?? "";
+  $provided =
+    $headers[OBR_ROOM_CAPABILITY_HEADER] ??
+    $headers[strtolower(OBR_ROOM_CAPABILITY_HEADER)] ??
+    ($_SERVER["HTTP_X_WS_OBR_ROOM_CAPABILITY"] ?? "");
   return is_string($provided) ? trim($provided) : "";
 }
 
