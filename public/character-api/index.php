@@ -7,7 +7,7 @@ header("Content-Type: application/json");
 function get_allowed_origins(): array {
   $raw = getenv("WS_CHARACTER_ALLOWED_ORIGINS") ?: "";
   if (!is_string($raw) || trim($raw) === "") {
-    $raw = "https://builder.whisperspace.com,https://obr.whisperspace.com,https://www.owlbear.rodeo,https://owlbear.rodeo";
+    $raw = "https://whisperspace.com,https://www.whisperspace.com,https://builder.whisperspace.com,https://docs.whisperspace.com,https://developer.whisperspace.com,https://gm.whisperspace.com,https://obr.whisperspace.com,https://www.owlbear.rodeo,https://owlbear.rodeo";
   }
   $parts = array_map("trim", explode(",", $raw));
   $out = [];
