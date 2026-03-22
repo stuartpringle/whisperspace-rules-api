@@ -390,7 +390,7 @@ CREATE TABLE IF NOT EXISTS `obr_room_backups` (
 )
 SQL
     );
-    create_index_if_missing($pdo, "obr_room_backups", "idx_obr_room_backups_room_created", "room_id, created_at");
+    create_index_if_missing($pdo, "obr_room_backups", "idx_obr_room_backups_room", "room_id");
     return;
   }
   $pdo->exec(<<<'SQL'
@@ -407,7 +407,7 @@ CREATE TABLE IF NOT EXISTS obr_room_backups (
 )
 SQL
   );
-  create_index_if_missing($pdo, "obr_room_backups", "idx_obr_room_backups_room_created", "room_id, created_at");
+  create_index_if_missing($pdo, "obr_room_backups", "idx_obr_room_backups_room", "room_id");
 }
 
 function apply_migrations(PDO $pdo): void {
