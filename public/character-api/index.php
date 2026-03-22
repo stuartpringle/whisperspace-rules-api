@@ -1953,15 +1953,11 @@ function normalize_obr_room_backup_snapshot($snapshot): ?array {
     $characterInstanceId = trim((string)($sheetEntry["characterInstanceId"] ?? ""));
     $sheet = $sheetEntry["sheet"] ?? null;
     if ($tokenId === "" || !is_array($sheet)) return null;
-    $errors = validate_record($sheet);
-    if ($errors) {
-      respond_error(400, "validation_failed", $errors);
-    }
     $normalizedSheets[] = [
       "tokenId" => $tokenId,
       "label" => $label === "" ? "Unnamed" : $label,
       "characterInstanceId" => $characterInstanceId === "" ? null : $characterInstanceId,
-      "sheet" => normalize_record($sheet),
+      "sheet" => $sheet,
     ];
   }
   return [
