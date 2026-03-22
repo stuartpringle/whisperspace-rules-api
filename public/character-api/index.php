@@ -371,7 +371,43 @@ CREATE TABLE IF NOT EXISTS obr_instance_sheets (
   PRIMARY KEY (room_id, instance_id)
 )
 SQL
-);
+  );
+}
+
+function ensure_obr_room_backups_table(PDO $pdo): void {
+  $driver = db_driver();
+  if (is_mysql_driver($driver)) {
+    $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS `obr_room_backups` (
+  `id` VARCHAR(36) PRIMARY KEY,
+  `room_id` VARCHAR(160) NOT NULL,
+  `created_by_user_id` VARCHAR(36) NOT NULL,
+  `source` VARCHAR(16) NOT NULL,
+  `data` LONGTEXT NOT NULL,
+  `entry_count` INT NOT NULL DEFAULT 0,
+  `total_bytes` INT NOT NULL DEFAULT 0,
+  `created_at` TEXT NOT NULL
+)
+SQL
+    );
+    create_index_if_missing($pdo, "obr_room_backups", "idx_obr_room_backups_room_created", "room_id, created_at");
+    return;
+  }
+  $pdo->exec(<<<'SQL'
+CREATE TABLE IF NOT EXISTS obr_room_backups (
+  id TEXT PRIMARY KEY,
+  room_id TEXT NOT NULL,
+  created_by_user_id TEXT NOT NULL,
+  source TEXT NOT NULL,
+  data TEXT NOT NULL,
+  entry_count INTEGER NOT NULL DEFAULT 0,
+  total_bytes INTEGER NOT NULL DEFAULT 0,
+  created_at TEXT NOT NULL,
+  FOREIGN KEY(created_by_user_id) REFERENCES users(id)
+)
+SQL
+  );
+  create_index_if_missing($pdo, "obr_room_backups", "idx_obr_room_backups_room_created", "room_id, created_at");
 }
 
 function apply_migrations(PDO $pdo): void {
@@ -380,6 +416,7 @@ function apply_migrations(PDO $pdo): void {
   ensure_user_sessions_table($pdo);
   ensure_obr_guest_sessions_table($pdo);
   ensure_obr_room_capabilities_table($pdo);
+  ensure_obr_room_backups_table($pdo);
   ensure_password_resets_table($pdo);
   ensure_oauth_accounts_table($pdo);
 }
@@ -1902,6 +1939,154 @@ function handle_obr_instance_route(PDO $pdo, array $tail, bool $hasValidApiKey):
   respond_error(405, "method_not_allowed");
 }
 
+function normalize_obr_room_backup_snapshot($snapshot): ?array {
+  if (!is_array($snapshot)) return null;
+  $createdAt = (int)($snapshot["createdAt"] ?? 0);
+  $source = ($snapshot["source"] ?? "manual") === "auto" ? "auto" : "manual";
+  $sheets = $snapshot["sheets"] ?? null;
+  if ($createdAt <= 0 || !is_array($sheets)) return null;
+  $normalizedSheets = [];
+  foreach ($sheets as $sheetEntry) {
+    if (!is_array($sheetEntry)) return null;
+    $tokenId = trim((string)($sheetEntry["tokenId"] ?? ""));
+    $label = trim((string)($sheetEntry["label"] ?? ""));
+    $characterInstanceId = trim((string)($sheetEntry["characterInstanceId"] ?? ""));
+    $sheet = $sheetEntry["sheet"] ?? null;
+    if ($tokenId === "" || !is_array($sheet)) return null;
+    $errors = validate_record($sheet);
+    if ($errors) {
+      respond_error(400, "validation_failed", $errors);
+    }
+    $normalizedSheets[] = [
+      "tokenId" => $tokenId,
+      "label" => $label === "" ? "Unnamed" : $label,
+      "characterInstanceId" => $characterInstanceId === "" ? null : $characterInstanceId,
+      "sheet" => normalize_record($sheet),
+    ];
+  }
+  return [
+    "createdAt" => $createdAt,
+    "source" => $source,
+    "sheets" => $normalizedSheets,
+  ];
+}
+
+function list_obr_room_backups(PDO $pdo, string $roomId, int $limit = 2): array {
+  $limit = $limit > 0 ? $limit : 2;
+  $stmt = $pdo->prepare("SELECT id, room_id, source, entry_count, total_bytes, created_at FROM obr_room_backups WHERE room_id = :room ORDER BY created_at DESC LIMIT " . (int)$limit);
+  $stmt->execute([":room" => $roomId]);
+  return $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+}
+
+function get_latest_obr_room_backup(PDO $pdo, string $roomId): ?array {
+  $stmt = $pdo->prepare("SELECT id, room_id, source, entry_count, total_bytes, created_at, data FROM obr_room_backups WHERE room_id = :room ORDER BY created_at DESC LIMIT 1");
+  $stmt->execute([":room" => $roomId]);
+  $row = $stmt->fetch(PDO::FETCH_ASSOC);
+  return $row ?: null;
+}
+
+function trim_obr_room_backups(PDO $pdo, string $roomId, int $keep = 2): void {
+  $rows = list_obr_room_backups($pdo, $roomId, 50);
+  if (count($rows) <= $keep) return;
+  $deleteIds = array_map(fn($row) => $row["id"], array_slice($rows, $keep));
+  if (!$deleteIds) return;
+  $placeholders = implode(",", array_fill(0, count($deleteIds), "?"));
+  $stmt = $pdo->prepare("DELETE FROM obr_room_backups WHERE id IN ($placeholders)");
+  $stmt->execute($deleteIds);
+}
+
+function handle_obr_room_backups_route(PDO $pdo, array $tail, bool $hasValidApiKey): void {
+  $roomId = get_obr_room_id();
+  if ($roomId === "") {
+    respond_error(400, "missing_room_id");
+  }
+  require_obr_room_access($pdo, $roomId, $hasValidApiKey);
+  $method = $_SERVER["REQUEST_METHOD"];
+  $mode = $tail[1] ?? "";
+
+  if ($method === "GET" && $mode === "latest") {
+    $row = get_latest_obr_room_backup($pdo, $roomId);
+    if (!$row) {
+      respond(200, ["found" => false, "roomId" => $roomId, "backup" => null]);
+    }
+    $decoded = json_decode($row["data"] ?? "", true);
+    $snapshot = normalize_obr_room_backup_snapshot($decoded);
+    if (!$snapshot) {
+      respond_error(500, "backup_corrupt");
+    }
+    respond(200, [
+      "found" => true,
+      "roomId" => $roomId,
+      "backup" => [
+        "id" => $row["id"],
+        "roomId" => $row["room_id"],
+        "source" => $row["source"],
+        "entryCount" => (int)($row["entry_count"] ?? 0),
+        "totalBytes" => (int)($row["total_bytes"] ?? 0),
+        "createdAt" => $row["created_at"],
+        "snapshot" => $snapshot,
+      ],
+    ]);
+  }
+
+  if ($method === "GET" && ($mode === "" || $mode === null)) {
+    $rows = list_obr_room_backups($pdo, $roomId);
+    $items = array_map(function ($row) {
+      return [
+        "id" => $row["id"],
+        "roomId" => $row["room_id"],
+        "source" => $row["source"],
+        "entryCount" => (int)($row["entry_count"] ?? 0),
+        "totalBytes" => (int)($row["total_bytes"] ?? 0),
+        "createdAt" => $row["created_at"],
+      ];
+    }, $rows);
+    respond(200, $items);
+  }
+
+  if ($method === "POST" && ($mode === "" || $mode === null)) {
+    require_csrf();
+    $user = require_auth($pdo);
+    $body = parse_body();
+    $source = ($body["source"] ?? "manual") === "auto" ? "auto" : "manual";
+    $snapshot = normalize_obr_room_backup_snapshot($body["snapshot"] ?? null);
+    if (!$snapshot) {
+      respond_error(400, "invalid_snapshot");
+    }
+    $snapshot["source"] = $source;
+    $serialized = json_encode($snapshot, JSON_UNESCAPED_SLASHES);
+    $totalBytes = strlen($serialized);
+    $entryCount = count($snapshot["sheets"] ?? []);
+    $id = uuid4();
+    $createdAt = gmdate("c");
+    $stmt = $pdo->prepare("INSERT INTO obr_room_backups (id, room_id, created_by_user_id, source, data, entry_count, total_bytes, created_at) VALUES (:id, :room, :user, :source, :data, :entry_count, :total_bytes, :created_at)");
+    $stmt->execute([
+      ":id" => $id,
+      ":room" => $roomId,
+      ":user" => $user["id"],
+      ":source" => $source,
+      ":data" => $serialized,
+      ":entry_count" => $entryCount,
+      ":total_bytes" => $totalBytes,
+      ":created_at" => $createdAt,
+    ]);
+    trim_obr_room_backups($pdo, $roomId, 2);
+    respond(200, [
+      "ok" => true,
+      "backup" => [
+        "id" => $id,
+        "roomId" => $roomId,
+        "source" => $source,
+        "entryCount" => $entryCount,
+        "totalBytes" => $totalBytes,
+        "createdAt" => $createdAt,
+      ],
+    ]);
+  }
+
+  respond_error(405, "method_not_allowed");
+}
+
 function get_if_unmodified_since(): ?string {
   $headers = function_exists("getallheaders") ? getallheaders() : [];
   $val = $headers["If-Unmodified-Since"] ?? $headers["if-unmodified-since"] ?? null;
@@ -1938,6 +2123,9 @@ if (count($tail) === 0) {
       "GET /character-api/obr-instance/:instanceId?roomId=:roomId",
       "PUT /character-api/obr-instance/:instanceId?roomId=:roomId",
       "DELETE /character-api/obr-instance/:instanceId?roomId=:roomId",
+      "GET /character-api/obr-room-backups?roomId=:roomId",
+      "GET /character-api/obr-room-backups/latest?roomId=:roomId",
+      "POST /character-api/obr-room-backups?roomId=:roomId",
       "GET /character-api/admin/characters",
       "DELETE /character-api/admin/characters?confirm=1",
     ],
@@ -1973,6 +2161,10 @@ if ($tail[0] === "characters") {
 
 if ($tail[0] === "obr-instance") {
   handle_obr_instance_route($pdo, $tail, $hasValidApiKey);
+}
+
+if ($tail[0] === "obr-room-backups") {
+  handle_obr_room_backups_route($pdo, $tail, $hasValidApiKey);
 }
 
 respond_error(404, "not_found");
