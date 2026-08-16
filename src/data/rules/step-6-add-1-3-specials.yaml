@@ -11,9 +11,13 @@ content:
 - type: table
   rows:
   - - text: d6
-      spans: []
+      spans:
+      - style: bold
+        text: d6
     - text: Special
-      spans: []
+      spans:
+      - style: bold
+        text: Special
   - - text: '1'
       spans: []
     - text: Gains 1 Bonus Die when outnumbering

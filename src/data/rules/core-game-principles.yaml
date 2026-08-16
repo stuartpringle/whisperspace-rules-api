@@ -19,7 +19,11 @@ sections:
       a Called Shot gives you a penalty die, but an archetype feature says you can
       ignore that penalty die, then the specific rule from your archetype will apply,
       overruling the general rule of combat actions.
-    spans: []
+    spans:
+    - style: bold
+      text: specific
+    - style: bold
+      text: general
   sections:
   - title: GM Trumps All
     slug: gm-trumps-all
@@ -41,14 +45,18 @@ sections:
   - type: paragraph
     text: In Whisperspace, the dice you roll — and what you add to them — reflect
       your character’s knowledge, training, and decisions.
-    spans: []
+    spans:
+    - style: bold
+      text: your character’s knowledge, training, and decisions
   - type: paragraph
     text: External conditions — like cover, lighting, distance, or equipment quality
       — affect the Difficulty Class (DC) you’re rolling against.
     spans:
-    - style: link_underline
+    - style: bold
+      text: the
+    - style: link_bold_underline
       text: Difficulty Class (DC)
-      href: '#h.s9t0v7gc8t07'
+      href: core-mechanics.yaml#difficulty-class
   - type: paragraph
     text: 'Here’s how it breaks down:'
     spans: []
@@ -56,7 +64,9 @@ sections:
     ordered: false
     items:
     - text: 'You modify the roll:'
-      spans: []
+      spans:
+      - style: bold
+        text: You
   - type: list
     ordered: false
     items:
@@ -64,16 +74,18 @@ sections:
       spans: []
     - text: Tactical choices may grant Bonus Dice
       spans:
-      - style: link_underline
+      - style: link_bold_underline
         text: Bonus Dice
-        href: '#h.60k6r7lbapjp'
+        href: core-mechanics.yaml#bonus-dice-and-penalty-dice
     - text: Traits, archetype features, or cybernetic boosts also apply here
       spans: []
   - type: list
     ordered: false
     items:
     - text: 'The world modifies the DC:'
-      spans: []
+      spans:
+      - style: bold
+        text: The world
   - type: list
     ordered: false
     items:
@@ -93,7 +105,13 @@ sections:
       The GM sets the DC higher than normal because of the target’s cover. You can’t
       control your enemy’s cover; that’s the world making things more difficult for
       you.'
-    spans: []
+    spans:
+    - style: bold
+      text: Aim
+    - style: bold
+      text: Rifle skill adds +3
+    - style: bold
+      text: cover
   - type: paragraph
     text: 'This division is fundamental to the Whisperspace system:'
     spans: []
@@ -101,7 +119,11 @@ sections:
     ordered: false
     items:
     - text: What comes from your character adds to your roll.
-      spans: []
+      spans:
+      - style: bold
+        text: What comes from your character adds to your roll.
     - text: Everything else modifies the DC.
-      spans: []
+      spans:
+      - style: bold
+        text: Everything else modifies the DC.
   sections: []

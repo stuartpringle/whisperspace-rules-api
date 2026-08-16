@@ -23,16 +23,22 @@ sections:
     items:
     - text: Ship Size - how physically large the vessel is (0–6). The bigger the ship,
         the more capabilities it likely has, but the worse it is at maneuvering.
-      spans: []
+      spans:
+      - style: bold
+        text: Ship Size
     - text: Drive Rating - how powerful the engines are (1–5). This affects both cruise
         speed (how quickly you can get places at sublight) and maneuverability.
-      spans: []
+      spans:
+      - style: bold
+        text: Drive Rating
     - text: Maneuverability - how agile the ship feels in motion (derived from Drive,
         thrusters, and Size; see Building Your Own Ships).
       spans:
+      - style: bold
+        text: Maneuverability
       - style: link_underline
         text: Building Your Own Ships
-        href: '#h.70rde87pnwkx'
+        href: '#building-your-own-ships'
   sections:
   - title: High G-forces
     slug: high-g-forces
@@ -59,10 +65,14 @@ sections:
         items:
         - text: 'Evasive Maneuvers: sudden, violent course changes to avoid incoming
             fire or collisions.'
-          spans: []
+          spans:
+          - style: bold
+            text: Evasive Maneuvers
         - text: 'Hard Burn: extreme acceleration intended to rapidly close distance,
             escape pursuit, or reposition.'
-          spans: []
+          spans:
+          - style: bold
+            text: Hard Burn
       sections: []
     - title: Declaring a High-G Maneuver
       slug: declaring-a-high-g-maneuver
@@ -71,15 +81,23 @@ sections:
       - type: paragraph
         text: When a pilot initiates a High-G Maneuver, they must declare a G-Level,
           representing how extreme the maneuver will be.
-        spans: []
+        spans:
+        - style: bold
+          text: G-Level
       - type: list
         ordered: false
         items:
         - text: A pilot may choose any G-Level up to the ship’s Maneuver rating.
-          spans: []
+          spans:
+          - style: bold
+            text: any G-Level up to the ship’s Maneuver rating
         - text: A pilot may not choose a G-Level higher than their Piloting skill
             rank.
-          spans: []
+          spans:
+          - style: bold
+            text: not
+          - style: bold
+            text: Piloting skill rank
         - text: Higher G-Levels provide greater benefits, but dramatically increase
             risk to the crew and the ship.
           spans: []
@@ -92,7 +110,9 @@ sections:
       text: When a ship attempts evasive maneuvers in combat, the GM will call for
         a Piloting check against the ship’s Evasive DC, which is based on its Size
         and Maneuverability.
-      spans: []
+      spans:
+      - style: bold
+        text: Evasive DC
     sections: []
   - title: Travel Time
     slug: travel-time
@@ -101,7 +121,9 @@ sections:
     - type: paragraph
       text: For gameplay pacing, travel distances within a star system are divided
         into travel segments (legs).
-      spans: []
+      spans:
+      - style: bold
+        text: travel segments
     - type: paragraph
       text: 'A typical leg could represent distances such as:'
       spans: []
@@ -129,11 +151,17 @@ sections:
     - type: table
       rows:
       - - text: Drive Rating
-          spans: []
+          spans:
+          - style: bold
+            text: Drive Rating
         - text: Assessment
-          spans: []
+          spans:
+          - style: bold
+            text: Assessment
         - text: Time per Leg
-          spans: []
+          spans:
+          - style: bold
+            text: Time per Leg
       - - text: '1'
           spans: []
         - text: Slow
@@ -192,7 +220,9 @@ sections:
     text: These systems do not require module slots. A starship without them is no
       longer a starship. Note that a Whisper Drive is not part of a ship’s basic systems;
       it must be installed as a module to enable travel between systems.
-    spans: []
+    spans:
+    - style: bold
+      text: not
   sections: []
 - title: Stock Ship Models
   slug: stock-ship-models
@@ -208,7 +238,7 @@ sections:
     spans:
     - style: link_underline
       text: Whisperspace Prebuilt Ships
-      href: https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1772693080343017&usg=AOvVaw19L2Hn51Gi4Iu2DZGrsAJy
+      href: https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1786828583407915&usg=AOvVaw1Ra6_SvXnc1Wy1gXmJazOi
   sections: []
 - title: Building Your Own Ships
   slug: building-your-own-ships
@@ -221,7 +251,7 @@ sections:
     spans:
     - style: link_underline
       text: modules
-      href: '#h.1xtbbe21985c'
+      href: '#modules'
   sections:
   - title: 1. Choose a Ship Size (0-6)
     slug: 1-choose-a-ship-size-0-6
@@ -253,19 +283,33 @@ sections:
         - *id001
         - *id001
       - - text: Size
-          spans: []
+          spans:
+          - style: bold
+            text: Size
         - text: Example
-          spans: []
+          spans:
+          - style: bold
+            text: Example
         - text: Crew
-          spans: []
+          spans:
+          - style: bold
+            text: Crew
         - text: Power
-          spans: []
+          spans:
+          - style: bold
+            text: Power
         - text: Module Slots
-          spans: []
+          spans:
+          - style: bold
+            text: Module Slots
         - text: Hull
-          spans: []
+          spans:
+          - style: bold
+            text: Hull
         - text: Base Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Base Cost
       - - text: '0'
           spans: []
         - text: Pod
@@ -385,24 +429,30 @@ sections:
     - type: paragraph
       text: If you run out of slots, you must remove or swap modules. A ship cannot
         physically support more slots than listed.
-      spans: []
+      spans:
+      - style: bold
+        text: If you run out of slots
     - type: paragraph
       text: If you run out of power, some modules simply will not function. Characters
         may choose to power off some modules and power on others, but the functional
         modules’ power requirements may never exceed the ship’s total power resource
         (including installed power modules).
-      spans: []
+      spans:
+      - style: bold
+        text: If you run out of power
     - type: paragraph
       text: If you run out of money, sadly, this ship build isn’t for you; you’ll
         need to make it cheaper by removing modules or choosing a lower size. Alternatively,
         you could try obtaining more money.
-      spans: []
+      spans:
+      - style: bold
+        text: If you run out of money
     - type: paragraph
       text: A full list of Modules may be found below, under Modules.
       spans:
       - style: link_underline
         text: Modules
-        href: '#h.1xtbbe21985c'
+        href: '#modules'
     sections: []
   - title: 3. Calculate Drive Rating, Power, Maneuverability, and Evasive DC
     slug: 3-calculate-drive-rating-power-maneuverability-and-evasive-dc
@@ -410,7 +460,9 @@ sections:
     content:
     - type: paragraph
       text: Drive Rating = 1 + Drive Rating modifiers from installed modules
-      spans: []
+      spans:
+      - style: bold
+        text: Drive Rating = 1 + Drive Rating modifiers from installed modules
     - type: paragraph
       text: A ship of any size with an installed Burner Mk. I would have a Drive Rating
         of 2. Drive Rating determines how fast your ship travels over large distances,
@@ -419,7 +471,10 @@ sections:
     - type: paragraph
       text: Power = Power Capacity (from ship sizes table) + Power modifiers from
         installed modules.
-      spans: []
+      spans:
+      - style: bold
+        text: Power = Power Capacity (from ship sizes table) + Power modifiers from
+          installed modules.
     - type: paragraph
       text: A ship of size 3 with an installed Fusion Core would have 13 Power. Remember
         that your ship’s power usage cannot be exceeded, so now’s a good time to make
@@ -428,14 +483,21 @@ sections:
     - type: paragraph
       text: Maneuverability = Drive Rating + Thruster bonuses (from modules) - Ship
         Size
-      spans: []
+      spans:
+      - style: bold
+        text: Maneuverability = Drive Rating + Thruster bonuses (from modules) - Ship
+          Size
     - type: paragraph
       text: Maneuverability can never go below 0. So a size 1 ship with a Drive Rating
         of 2 and no thruster bonuses would have maneuverability of 1.
-      spans: []
+      spans:
+      - style: bold
+        text: Maneuverability can never go below 0
     - type: paragraph
       text: Evasive DC = 8 + Ship Size - Maneuverability
-      spans: []
+      spans:
+      - style: bold
+        text: Evasive DC = 8 + Ship Size - Maneuverability
     - type: paragraph
       text: A ship of size 1 with Maneuverability of 3 would have Evasive DC of 6.
       spans: []
@@ -487,32 +549,26 @@ sections:
         spans:
         - style: italic
           text: 'Propulsion:'
-          href: null
       - text: 'Weapons:'
         spans:
         - style: italic
           text: 'Weapons:'
-          href: null
       - text: 'Defense:'
         spans:
         - style: italic
           text: 'Defense:'
-          href: null
       - text: 'Utility:'
         spans:
         - style: italic
           text: 'Utility:'
-          href: null
       - text: 'Command / Navigation:'
         spans:
         - style: italic
           text: 'Command / Navigation:'
-          href: null
       - text: 'Cargo:'
         spans:
         - style: italic
           text: 'Cargo:'
-          href: null
     sections: []
   - title: 5. Add Character (optional)
     slug: 5-add-character-optional
@@ -550,17 +606,29 @@ sections:
       - *id002
       - *id002
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Drive Rating
-        spans: []
+        spans:
+        - style: bold
+          text: Drive Rating
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Burner Mk. I
         spans: []
       - text: '1'
@@ -646,15 +714,25 @@ sections:
       - *id003
       - *id003
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Auxiliary Batteries
         spans: []
       - text: '1'
@@ -708,21 +786,37 @@ sections:
       - *id004
       - *id004
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Use DC
-        spans: []
+        spans:
+        - style: bold
+          text: Use DC
       - text: Damage
-        spans: []
+        spans:
+        - style: bold
+          text: Damage
       - text: Range
-        spans: []
+        spans:
+        - style: bold
+          text: Range
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Light Railgun
         spans: []
       - text: '1'
@@ -906,9 +1000,13 @@ sections:
         spans: []
       - *id005
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Effect
-        spans: []
+        spans:
+        - style: bold
+          text: Effect
     - - text: Reload X
         spans: []
       - text: After firing, weapon requires X turns to reload before firing again.
@@ -964,15 +1062,25 @@ sections:
       - *id006
       - *id006
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Reinforced Plating
         spans: []
       - text: '2'
@@ -1023,15 +1131,25 @@ sections:
       - *id007
       - *id007
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Advanced Sensors
         spans: []
       - text: '1'
@@ -1083,15 +1201,25 @@ sections:
       - *id008
       - *id008
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Cargo Bay
         spans: []
       - text: '2'
@@ -1173,15 +1301,25 @@ sections:
       - *id009
       - *id009
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Slots
-        spans: []
+        spans:
+        - style: bold
+          text: Slots
       - text: Boost
-        spans: []
+        spans:
+        - style: bold
+          text: Boost
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Navigation AI
         spans: []
       - text: '1'

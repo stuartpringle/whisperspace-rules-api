@@ -10,9 +10,13 @@ sections:
   - type: table
     rows:
     - - text: Tier
-        spans: []
+        spans:
+        - style: bold
+          text: Tier
       - text: Typical Damage
-        spans: []
+        spans:
+        - style: bold
+          text: Typical Damage
     - - text: '0'
         spans: []
       - text: '1'
@@ -54,9 +58,13 @@ sections:
     - type: table
       rows:
       - - text: Tier
-          spans: []
+          spans:
+          - style: bold
+            text: Tier
         - text: Protection
-          spans: []
+          spans:
+          - style: bold
+            text: Protection
       - - text: '0'
           spans: []
         - text: '0'

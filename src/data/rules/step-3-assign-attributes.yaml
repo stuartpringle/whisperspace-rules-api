@@ -8,13 +8,21 @@ content:
 - type: table
   rows:
   - - text: Tier
-      spans: []
+      spans:
+      - style: bold
+        text: Tier
     - text: Primary
-      spans: []
+      spans:
+      - style: bold
+        text: Primary
     - text: Secondary
-      spans: []
+      spans:
+      - style: bold
+        text: Secondary
     - text: Others
-      spans: []
+      spans:
+      - style: bold
+        text: Others
   - - text: '0'
       spans: []
     - text: '1'

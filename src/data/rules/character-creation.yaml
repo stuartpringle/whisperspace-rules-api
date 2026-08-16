@@ -33,7 +33,11 @@ sections:
       wants to do. These are narrative devices you can use to give depth and personality
       to your character. They can double as great story hooks for your GM to use as
       well.
-    spans: []
+    spans:
+    - style: bold
+      text: where he comes from
+    - style: bold
+      text: wants to do
   - type: table
     rows:
     - - &id001
@@ -42,11 +46,17 @@ sections:
       - *id001
       - *id001
     - - text: D10 roll
-        spans: []
+        spans:
+        - style: bold
+          text: D10 roll
       - text: Background
-        spans: []
+        spans:
+        - style: bold
+          text: Background
       - text: Description
-        spans: []
+        spans:
+        - style: bold
+          text: Description
     - - text: '1'
         spans: []
       - text: Station Rat
@@ -125,9 +135,13 @@ sections:
         spans: []
       - *id002
     - - text: D12 roll
-        spans: []
+        spans:
+        - style: bold
+          text: D12 roll
       - text: Motivation
-        spans: []
+        spans:
+        - style: bold
+          text: Motivation
     - - text: '1'
         spans: []
       - text: Redemption
@@ -195,7 +209,7 @@ sections:
     spans:
     - style: link_underline
       text: Archetypes and Feats
-      href: '#h.s7nodu1xbbh2'
+      href: archetypes-and-feats.yaml#archetypes-and-feats
   sections: []
 - title: 4. Choose a Learning Focus
   slug: 4-choose-a-learning-focus
@@ -208,16 +222,21 @@ sections:
     spans:
     - style: italic
       text: learned skills
-      href: null
   - type: list
     ordered: true
     items:
     - text: Combat Weapons, fighting styles, use of explosives, etc.
-      spans: []
+      spans:
+      - style: bold
+        text: Combat
     - text: Education Science, tech, hacking, medicine, etc.
-      spans: []
+      spans:
+      - style: bold
+        text: Education
     - text: Vehicles Piloting, gunnery, navigation, etc.
-      spans: []
+      spans:
+      - style: bold
+        text: Vehicles
   - type: paragraph
     text: You may raise skills in your chosen focus up to rank 5 (their maximum).
       In the two other focuses, you may not raise skills above rank 2.
@@ -228,7 +247,7 @@ sections:
     spans:
     - style: link_underline
       text: Attributes and Skills
-      href: '#h.b0ee9ei2egsx'
+      href: attributes-and-skills.yaml#attributes-and-skills
   sections: []
 - title: 5. Spend Skill Points (SP)
   slug: 5-spend-skill-points-sp
@@ -244,9 +263,13 @@ sections:
   - type: table
     rows:
     - - text: Skill Level
-        spans: []
+        spans:
+        - style: bold
+          text: Skill Level
       - text: Proficiency
-        spans: []
+        spans:
+        - style: bold
+          text: Proficiency
     - - text: 0-1
         spans: []
       - text: Untrained
@@ -272,9 +295,13 @@ sections:
   - type: table
     rows:
     - - text: Skill Level
-        spans: []
+        spans:
+        - style: bold
+          text: Skill Level
       - text: Total Skill Point cost (cumulative)
-        spans: []
+        spans:
+        - style: bold
+          text: Total Skill Point cost (cumulative)
     - - text: '1'
         spans: []
       - text: '1'
@@ -305,7 +332,7 @@ sections:
     spans:
     - style: link_underline
       text: Attributes and Skills
-      href: '#h.b0ee9ei2egsx'
+      href: attributes-and-skills.yaml#attributes-and-skills
   sections: []
 - title: 6. Attribute Calculation
   slug: 6-attribute-calculation
@@ -317,7 +344,9 @@ sections:
     spans: []
   - type: paragraph
     text: Attribute = Number of ranks of attribute skills / 4 (rounded up)
-    spans: []
+    spans:
+    - style: bold
+      text: Attribute = Number of ranks of attribute skills / 4 (rounded up)
   - type: paragraph
     text: 'So if your character has 8 ranks of PHYS skills (let’s say 4 in Powerlift
       and 4 in Athletics), their PHYS would work out to 2, because: 2 = 8 / 4'
@@ -334,14 +363,16 @@ sections:
   - type: paragraph
     text: Your character begins with credits (standard currency) equal to 1d12 × 50
       + 800. Thus, your starting credits will be somewhere between 850c and 1400c.
-    spans: []
+    spans:
+    - style: bold
+      text: 1d12 × 50 + 800
   - type: paragraph
     text: You may use your credits to purchase items before play begins, at your GM’s
       discretion. You may find a list of items under the Equipment & Gear section
     spans:
     - style: link_underline
       text: Equipment & Gear
-      href: '#h.eimfcd6soqs3'
+      href: equipment-gear.yaml#equipment-gear
   sections: []
 - title: 8 . Final Steps
   slug: 8-final-steps
@@ -354,14 +385,20 @@ sections:
     content:
     - type: paragraph
       text: Each character has a carry capacity defined by inventory slots.
-      spans: []
+      spans:
+      - style: bold
+        text: inventory slots
     - type: list
       ordered: false
       items:
       - text: Carrying Capacity = 5 + (Physique * 5) slots
-        spans: []
+        spans:
+        - style: bold
+          text: 5 + (Physique * 5) slots
       - text: Each slot ≈ 5 lbs
-        spans: []
+        spans:
+        - style: bold
+          text: 5 lbs
     sections:
     - title: Movement Speed
       slug: movement-speed
@@ -372,7 +409,9 @@ sections:
         spans: []
       - type: paragraph
         text: Movement Speed = 30 + (PHYS * 5) feet
-        spans: []
+        spans:
+        - style: bold
+          text: Movement Speed = 30 + (PHYS * 5) feet
       - type: paragraph
         text: Thus, a character with PHYS 2 would be able to move 40 feet during any
           movement action.
@@ -388,7 +427,10 @@ sections:
       - type: paragraph
         text: Cool Under Fire = 1 + (Instinct + Willpower + Bearing + Toughness +
           Tactics ÷ 5) (rounded up)
-        spans: []
+        spans:
+        - style: bold
+          text: Cool Under Fire = 1 + (Instinct + Willpower + Bearing + Toughness
+            + Tactics ÷ 5) (rounded up)
       - type: paragraph
         text: Don’t worry, this is the most mathematically complex step in the entire
           game.
@@ -413,22 +455,22 @@ sections:
       spans:
       - style: link_underline
         text: Core Mechanics
-        href: '#h.7dr5iojxah68'
+        href: core-mechanics.yaml#core-mechanics
     - text: Stress
       spans:
       - style: link_underline
         text: Stress
-        href: '#h.6tobyshwmdj4'
+        href: stress.yaml#stress
     - text: Wounds
       spans:
       - style: link_underline
         text: Wounds
-        href: '#h.7xpn2fplrs1y'
+        href: health-wounds.yaml#health-wounds
     - text: Combat
       spans:
       - style: link_underline
         text: Combat
-        href: '#h.ke0ii91zruax'
+        href: combat.yaml#combat
   - type: paragraph
     text: These cover the very basics of playing Whisperspace.
     spans: []

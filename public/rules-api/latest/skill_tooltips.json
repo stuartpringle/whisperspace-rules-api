@@ -21,7 +21,7 @@
   "skills": {
     "melee_weapons": "Proficiency with melee weapons (bar stools, katanas)",
     "melee_unarmed": "Unarmed fighting",
-    "weapons_light": "Pistols, SMGs",
+    "weapons_light": "Pistols",
     "weapons_medium": "Shotguns, rifles",
     "weapons_heavy": "Autocannons, mortars",
     "weapons_exotic": "Experimental weapons, high-tech weaponry",
@@ -69,7 +69,7 @@
   "skillsById": {
     "melee_weapons": "Proficiency with melee weapons (bar stools, katanas)",
     "melee_unarmed": "Unarmed fighting",
-    "weapons_light": "Pistols, SMGs",
+    "weapons_light": "Pistols",
     "weapons_medium": "Shotguns, rifles",
     "weapons_heavy": "Autocannons, mortars",
     "weapons_exotic": "Experimental weapons, high-tech weaponry",
@@ -117,7 +117,7 @@
   "skillsByLabel": {
     "Melee (weapons)": "Proficiency with melee weapons (bar stools, katanas)",
     "Melee (unarmed)": "Unarmed fighting",
-    "Weapons (light)": "Pistols, SMGs",
+    "Weapons (light)": "Pistols",
     "Weapons (medium)": "Shotguns, rifles",
     "Weapons (heavy)": "Autocannons, mortars",
     "Weapons (exotic)": "Experimental weapons, high-tech weaponry",

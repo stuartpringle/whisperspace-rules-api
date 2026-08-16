@@ -9,7 +9,7 @@ content:
   spans:
   - style: link_underline
     text: Nanomancy
-    href: '#h.12ggy18kfvcd'
+    href: the-world.yaml#nanites-sensitives-and-nanomancy
 - type: paragraph
   text: 'It is the deliberate manipulation of nearly-omnipresent nanites; microscopic
     machines left behind by a dead empire and now woven into the fabric of countless
@@ -34,7 +34,9 @@ sections:
       while some Nanomancers take to bringing nanites with them wherever they go.
       Nanomantic Effects cannot be used when Nanite density is 0. Nanite density is
       abbreviated ND for the remainder of this section.
-    spans: []
+    spans:
+    - style: bold
+      text: Nanite density is abbreviated ND for the remainder of this section
   - type: paragraph
     text: A GM may choose the ND of a location or area as they see fit, remembering
       that most places are 2 ND, while space (and many other hostile environments)
@@ -44,9 +46,13 @@ sections:
   - type: table
     rows:
     - - text: D12 roll
-        spans: []
+        spans:
+        - style: bold
+          text: D12 roll
       - text: Nanite Density
-        spans: []
+        spans:
+        - style: bold
+          text: Nanite Density
     - - text: '1'
         spans: []
       - text: None (0)
@@ -99,8 +105,8 @@ sections:
         actions and impose stress gain.
       spans: []
     sections: []
-- title: Using Nanomancy
-  slug: using-nanomancy
+- title: Nanomantic Effects
+  slug: nanomantic-effects
   level: 2
   content:
   - type: paragraph
@@ -108,7 +114,9 @@ sections:
     spans: []
   - type: paragraph
     text: Roll 1d12 + MENT + Stress (DC determined by the Nanomantic Effect)
-    spans: []
+    spans:
+    - style: bold
+      text: Roll 1d12 + MENT + Stress (DC determined by the Nanomantic Effect)
   - type: paragraph
     text: For example, a character with a MENT of 1 and 2 stress would roll 1d12 and
       add 3. Compare your result to the DC of the Nanomantic Effect.
@@ -119,19 +127,27 @@ sections:
     - text: 'Extreme success: effect heightened; use the critical hit table. Instead
         of applying extra damage, raise the ND for the effect by that much.'
       spans:
+      - style: bold
+        text: Extreme success
       - style: link_underline
         text: critical hit
-        href: '#h.roym21kdsxwk'
+        href: combat.yaml#critical-hits
   - type: list
     ordered: false
     items:
     - text: 'Success: effect occurs as normal.'
-      spans: []
+      spans:
+      - style: bold
+        text: Success
     - text: 'Failure: effect fails; no result.'
-      spans: []
+      spans:
+      - style: bold
+        text: Failure
     - text: 'Extreme Failure: effect fails; no result. Gain +1 stress. If this would
         raise your stress above 4, instead take 1 unmitigated damage.'
-      spans: []
+      spans:
+      - style: bold
+        text: Extreme Failure
   - type: paragraph
     text: Some Nanomantic Effects specify what happens on various levels of success
       or failure. Those effects do not replace these; instead, they occur simultaneously
@@ -154,7 +170,14 @@ sections:
         chooses a field (burner, physic, kinetic) as their primary field. When using
         a Nanomantic Effect from a different field, rolls are made with +1 penalty
         die.
-      spans: []
+      spans:
+      - style: bold
+        text: When they first gain access to Nanomantic Effects, each Nanomancer chooses
+          a field
+      - style: bold
+        text: primary field
+      - style: bold
+        text: +1 penalty die
     sections:
     - title: Burner
       slug: burner
@@ -191,7 +214,6 @@ sections:
         spans:
         - style: italic
           text: Do No Harm
-          href: null
       - type: paragraph
         text: 'If a Nanomancer’s primary field is Physic, they gain:'
         spans: []
@@ -235,17 +257,29 @@ sections:
         - *id001
         - *id001
       - - text: Name
-          spans: []
+          spans:
+          - style: bold
+            text: Name
         - text: DC
-          spans: []
+          spans:
+          - style: bold
+            text: DC
         - text: Range
-          spans: []
+          spans:
+          - style: bold
+            text: Range
         - text: Stress Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Stress Cost
         - text: Action cost
-          spans: []
+          spans:
+          - style: bold
+            text: Action cost
         - text: Effect
-          spans: []
+          spans:
+          - style: bold
+            text: Effect
       - - text: Thermal Bloom
           spans: []
         - text: '8'
@@ -258,7 +292,9 @@ sections:
           spans: []
         - text: Burst of heat energy at target location; deal half ND (rounded up)
             damage to anything within Very Near range of target.
-          spans: []
+          spans:
+          - style: bold
+            text: half ND (rounded up) damage
       - - text: Absolute Zero
           spans: []
         - text: '9'
@@ -271,7 +307,9 @@ sections:
           spans: []
         - text: Removal of all heat at target location; deal 2 * ND damage to anything
             within melee range of target.
-          spans: []
+          spans:
+          - style: bold
+            text: 2 * ND damage
       - - text: Static Burst
           spans: []
         - text: '7'
@@ -290,9 +328,15 @@ sections:
             addition, apply EMP (0 + ND) to anything within melee range of any of
             the target.
           spans:
-          - style: link_underline
+          - style: bold
+            text: Deal ND damage
+          - style: bold
+            text: half ND (rounded up)
+          - style: bold
+            text: damage
+          - style: link_bold_underline
             text: EMP (0 + ND)
-            href: '#h.pr5v7porf3q1'
+            href: conditions.yaml#emp-x
       - - text: Nullify
           spans: []
         - text: '-'
@@ -304,16 +348,22 @@ sections:
         - text: 1 reaction
           spans: []
         - text: Counter a Nanomantic Effect. DC = the effect’s Nanomancy roll.
-          spans: []
+          spans:
+          - style: bold
+            text: DC = the effect’s Nanomancy roll
           blocks:
           - type: list
             ordered: false
             items:
             - text: 'Extreme success: negate the effect. In addition, that effect
                 cannot be attempted again for 1 * ND minute(s).'
-              spans: []
+              spans:
+              - style: bold
+                text: Extreme success
             - text: 'Success: negate the effect.'
-              spans: []
+              spans:
+              - style: bold
+                text: Success
       - - text: ''
           spans: []
         - text: ''
@@ -326,14 +376,6 @@ sections:
           spans: []
         - text: ''
           spans: []
-    - type: list
-      ordered: false
-      items:
-      - text: 'Extreme success: negate the effect. In addition, that effect cannot
-          be attempted again for 1 * ND minute(s).'
-        spans: []
-      - text: 'Success: negate the effect.'
-        spans: []
     - type: table
       rows:
       - - &id002
@@ -345,17 +387,29 @@ sections:
         - *id002
         - *id002
       - - text: Name
-          spans: []
+          spans:
+          - style: bold
+            text: Name
         - text: DC
-          spans: []
+          spans:
+          - style: bold
+            text: DC
         - text: Range
-          spans: []
+          spans:
+          - style: bold
+            text: Range
         - text: Stress Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Stress Cost
         - text: Action Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Action Cost
         - text: Effect
-          spans: []
+          spans:
+          - style: bold
+            text: Effect
       - - text: Regenerative Cloud
           spans: []
         - text: '11'
@@ -370,14 +424,18 @@ sections:
             Very Near range of that location heal at a rate of half ND (rounded up)
             light wounds at the start of each of their turns. This effect lasts 1
             round for each action used.
-          spans: []
+          spans:
+          - style: bold
+            text: half ND (rounded up)
           blocks:
           - type: list
             ordered: false
             items:
             - text: 'Extreme success: this effect may heal (and will prioritize) moderate
                 wounds.'
-              spans: []
+              spans:
+              - style: bold
+                text: Extreme success
       - - text: Knit Together
           spans: []
         - text: 9 - ND
@@ -390,24 +448,34 @@ sections:
           spans: []
         - text: Heal up to 1 + half ND (rounded up) light or moderate wounds on target
             creature.
-          spans: []
+          spans:
+          - style: bold
+            text: 1 + half ND
+          - style: bold
+            text: (rounded up)
           blocks:
           - type: list
             ordered: false
             items:
             - text: 'Extreme success: you may heal heavy wounds with this effect as
                 well.'
-              spans: []
+              spans:
+              - style: bold
+                text: Extreme success
             - text: 'Failure: give target Bleeding (1)'
               spans:
-              - style: link_underline
+              - style: bold
+                text: Failure
+              - style: link_bold_underline
                 text: Bleeding (1)
-                href: '#h.bxuyd85drjou'
+                href: conditions.yaml#bleeding-x
             - text: 'Extreme failure: give target Bleeding (2).'
               spans:
-              - style: link_underline
+              - style: bold
+                text: Extreme failure
+              - style: link_bold_underline
                 text: Bleeding (2)
-                href: '#h.bxuyd85drjou'
+                href: conditions.yaml#bleeding-x
       - - text: Exsanguinate
           spans: []
         - text: '7'
@@ -420,9 +488,12 @@ sections:
           spans: []
         - text: Give target Bleeding (1 + ND).
           spans:
-          - style: link_underline
-            text: Bleeding (1 + ND)
-            href: '#h.bxuyd85drjou'
+          - style: link_bold_underline
+            text: Bleeding
+            href: conditions.yaml#bleeding-x
+          - style: link_bold_underline
+            text: (1 + ND)
+            href: conditions.yaml#bleeding-x
       - - text: Horrifying Hallucinations
           spans: []
         - text: '9'
@@ -433,21 +504,25 @@ sections:
           spans: []
         - text: '2'
           spans: []
-        - text: Impose Blinded on target creature for rounds equal to ND. While affected,
-            target gains +1 stress at the end of each of their turns.Target may attempt
-            a Willpower or Composure (DC6 + ND) check at the end of each of their
-            turns to end the effect early.
+        - text: Impose Blinded on target creature for rounds equal to ND + 1. While
+            affected, target gains +1 stress at the end of each of their turns.Target
+            may attempt a Willpower or Composure (DC6 + ND) check at the end of each
+            of their turns to end the effect early.
           spans:
-          - style: link_underline
+          - style: link_bold_underline
             text: Blinded
-            href: '#h.ydl52popm3kj'
+            href: conditions.yaml#blinded
+          - style: bold
+            text: Willpower or Composure (DC6 + ND)
           blocks:
           - type: list
             ordered: false
             items:
             - text: 'Extreme success: target gains +2 stress at the end of each of
                 their turns instead.'
-              spans: []
+              spans:
+              - style: bold
+                text: Extreme success
       - - text: Macabre Puppeteering
           spans: []
         - text: '12'
@@ -462,34 +537,9 @@ sections:
             rounds. On each of that creature’s turns, you may use 1 reaction to dictate
             their actions. Target may attempt a Willpower (DC4 + ND) check at the
             end of each of their turns to end the effect early.
-          spans: []
-    - type: list
-      ordered: false
-      items:
-      - text: 'Extreme success: this effect may heal (and will prioritize) moderate
-          wounds.'
-        spans: []
-    - type: list
-      ordered: false
-      items:
-      - text: 'Extreme success: you may heal heavy wounds with this effect as well.'
-        spans: []
-      - text: 'Failure: give target Bleeding (1)'
-        spans:
-        - style: link_underline
-          text: Bleeding (1)
-          href: '#h.bxuyd85drjou'
-      - text: 'Extreme failure: give target Bleeding (2).'
-        spans:
-        - style: link_underline
-          text: Bleeding (2)
-          href: '#h.bxuyd85drjou'
-    - type: list
-      ordered: false
-      items:
-      - text: 'Extreme success: target gains +2 stress at the end of each of their
-          turns instead.'
-        spans: []
+          spans:
+          - style: bold
+            text: Willpower (DC4 + ND)
     - type: table
       rows:
       - - &id003
@@ -501,17 +551,29 @@ sections:
         - *id003
         - *id003
       - - text: Name
-          spans: []
+          spans:
+          - style: bold
+            text: Name
         - text: DC
-          spans: []
+          spans:
+          - style: bold
+            text: DC
         - text: Range
-          spans: []
+          spans:
+          - style: bold
+            text: Range
         - text: Stress Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Stress Cost
         - text: Action Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Action Cost
         - text: Effect
-          spans: []
+          spans:
+          - style: bold
+            text: Effect
       - - text: Push/Pull
           spans: []
         - text: '5'
@@ -539,9 +601,11 @@ sections:
           spans: []
         - text: Deal 1 + ND damage. If target is Immobile, double the damage dealt.
           spans:
+          - style: bold
+            text: 1 + ND damage
           - style: link_underline
             text: Immobile
-            href: '#h.i4ndc4959ij'
+            href: conditions.yaml#immobile
       - - text: Hold
           spans: []
         - text: '7'
@@ -558,7 +622,11 @@ sections:
           spans:
           - style: link_underline
             text: Immobile
-            href: '#h.i4ndc4959ij'
+            href: conditions.yaml#immobile
+          - style: bold
+            text: Endurance
+          - style: bold
+            text: Athletics (DC6 + ND)
       - - text: Shrapnel
           spans: []
         - text: '8'
@@ -571,8 +639,10 @@ sections:
           spans: []
         - text: Deal 1 + ND damage to anything within melee range of target. Increase
             the range of this effect by 1 range band for each action used beyond 1.
-          spans: []
-      - - text: Scrap Shield
+          spans:
+          - style: bold
+            text: 1 + ND damage
+      - - text: ''
           spans: []
         - text: ''
           spans: []
@@ -610,7 +680,9 @@ sections:
         1 for each range band beyond its normal range. For example, on a planet with
         ND 3, using Thermal Bloom (range of Near) at Long range (2 range bands above
         the effect’s normal range) would deal 1 damage (effect is 1 * ND).
-      spans: []
+      spans:
+      - style: bold
+        text: Nanomantic Effects lose power rapidly outside their normal ranges
     sections: []
 - title: Stress is Both Cost and Fuel
   slug: stress-is-both-cost-and-fuel
@@ -631,9 +703,13 @@ sections:
     text: 'Once your stress reaches PTSD range (6+), Nanomancy becomes impossible
       to exert fine control over:'
     spans:
-    - style: link_underline
+    - style: bold
+      text: Once your stress reaches
+    - style: link_bold_underline
       text: PTSD range
-      href: '#h.rwq11029f7qx'
+      href: stress.yaml#ptsd-range-stress-levels-6-8
+    - style: bold
+      text: (6+)
   - type: list
     ordered: false
     items:

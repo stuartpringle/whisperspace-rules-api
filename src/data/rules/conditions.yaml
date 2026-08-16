@@ -38,13 +38,21 @@ sections:
       - text: Cannot make any skill checks, move, take any actions, or do anything.
           Completely incapacitated.
         spans: []
-      - text: When a character becomes unconscious, they immediately fall prone.
+      - text: Immediately falls prone.
         spans: []
       - text: May be revived with a successful First Aid (DC8) check
-        spans: []
+        spans:
+        - style: bold
+          text: First Aid (DC8)
       - text: Once after every hour, may attempt to regain consciousness with either
           a Willpower check or a Toughness check (DC6)
-        spans: []
+        spans:
+        - style: bold
+          text: Willpower
+        - style: bold
+          text: Toughness
+        - style: bold
+          text: DC6
       - text: Attacks made against an unconscious character gain +1 bonus die.
         spans: []
     sections: []
@@ -58,12 +66,18 @@ sections:
       - text: You are slowly dying due to lack of oxygen.
         spans: []
       - text: Roll an Endurance (DC 6, +2 per round) asphyxiation check.
-        spans: []
+        spans:
+        - style: bold
+          text: Endurance (DC 6, +2 per round)
+        - style: bold
+          text: asphyxiation
     - type: list
       ordered: false
       items:
       - text: 'Failure: suffer 1 wound.'
-        spans: []
+        spans:
+        - style: bold
+          text: Failure
     - type: list
       ordered: false
       items:
@@ -84,31 +98,52 @@ sections:
       items:
       - text: At the end of each of your turns, you must roll a Toughness (DC7) dying
           check.
-        spans: []
+        spans:
+        - style: bold
+          text: Toughness (DC7)
     - type: list
       ordered: false
       items:
       - text: 'Extreme success: remove up to 1 penalty die from dying checks'
-        spans: []
+        spans:
+        - style: bold
+          text: Extreme success
       - text: 'Success: no change'
-        spans: []
+        spans:
+        - style: bold
+          text: Success
       - text: 'Failure: gain +1 penalty die to dying checks and remove 1 rank of your
           Toughness skill. When no longer dying, regain lost ranks of Toughness at
           a rate of 1 per day and remove all penalty dice from dying checks.'
-        spans: []
+        spans:
+        - style: bold
+          text: Failure
+        - style: bold
+          text: Toughness
+        - style: bold
+          text: Toughness
       - text: 'Extreme failure: you die'
-        spans: []
+        spans:
+        - style: bold
+          text: Extreme failure
     - type: list
       ordered: false
       items:
-      - text: When a character becomes dying, they immediately fall prone.
-        spans: []
+      - text: When a character becomes dying, they immediately become unconscious
+          if they aren’t already.
+        spans:
+        - style: bold
+          text: unconscious
       - text: Any time you take damage, gain +1 penalty die to dying checks, then
           immediately roll a dying check.
-        spans: []
+        spans:
+        - style: bold
+          text: dying check.
       - text: Receiving medical aid (successful First Aid (DC10) check) removes the
           Dying condition, replacing it with the Unconscious condition.
-        spans: []
+        spans:
+        - style: bold
+          text: First Aid (DC10)
       - text: Attacks made against dying characters gain +1 bonus die.
         spans: []
     sections: []
@@ -139,7 +174,15 @@ sections:
       - text: A Floating character cannot move as normal. Instead, they may make an
           Athletics, Balance, or Finesse check (DC6) to try to maneuver their way
           using arm and leg motions, as though they are swimming through the air.
-        spans: []
+        spans:
+        - style: bold
+          text: Athletics
+        - style: bold
+          text: Balance
+        - style: bold
+          text: Finesse
+        - style: bold
+          text: (DC6)
       - text: Moving this way applies a 5x movement penalty (moving 5 feet requires
           25 feet of movement)
         spans: []
@@ -183,16 +226,26 @@ sections:
           to you instead increases your Bleeding level. Thus, an effect that would
           give Bleeding (2) while you are already Bleeding (1) would bump you from
           light bleeding to heavy bleeding (1 + 2 = 3).'
-        spans: []
+        spans:
+        - style: bold
+          text: First Aid (DC4 + current bleed level)
       - text: 'Light: take 1 damage at the end of your turn.'
-        spans: []
+        spans:
+        - style: bold
+          text: Light
       - text: 'Moderate: take 2 damage at the end of your turn.'
-        spans: []
+        spans:
+        - style: bold
+          text: Moderate
       - text: 'Heavy: take 3 damage at the end of your turn.'
-        spans: []
+        spans:
+        - style: bold
+          text: Heavy
       - text: 'Extreme: take 2 damage at the start of your turn and 4 damage at the
           end of your turn.'
-        spans: []
+        spans:
+        - style: bold
+          text: Extreme
     sections: []
 - title: Mental Conditions
   slug: mental-conditions

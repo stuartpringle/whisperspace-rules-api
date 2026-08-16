@@ -14,16 +14,22 @@ sections:
       transplant. Similarly, a medkit is the right tool for the job for treating a
       character’s wounds, while a ship’s well-stocked medbay may be considered the
       right tool for the job for performing surgery.
-    spans: []
+    spans:
+    - style: bold
+      text: right tool for the job
   - type: paragraph
     text: When performing a skill check with the right tool for the job, gain +1 bonus
       die.
-    spans: []
+    spans:
+    - style: bold
+      text: skill check with the right tool for the job, gain +1 bonus die
   - type: paragraph
     text: In cases where a tool is required but the right tool for the job is unavailable,
       it may be possible to improvise with another tool (GM’s discretion), however
       using improvised tools imposes +1 penalty die on the check.
-    spans: []
+    spans:
+    - style: bold
+      text: using improvised tools imposes +1 penalty die
   - type: paragraph
     text: Sometimes items may specify what jobs they are the right tool for, however
       most often they will not. Whether or not something is the right tool for any
@@ -58,7 +64,9 @@ sections:
     spans: []
   - type: paragraph
     text: Repair DC = 6 + durability lost.
-    spans: []
+    spans:
+    - style: bold
+      text: Repair DC = 6 + durability lost.
   - type: paragraph
     text: For example, a Streetweave Jacket normally has 5 durability. To repair one
       with only 1 point of durability remaining, the DC would be 10 (6 + 4) as the
@@ -66,37 +74,55 @@ sections:
     spans: []
   - type: paragraph
     text: On Extreme Success, restore up to 2 points of durability.
-    spans: []
+    spans:
+    - style: bold
+      text: On Extreme Success
   - type: paragraph
     text: On Success, restore 1 point of durability.
-    spans: []
+    spans:
+    - style: bold
+      text: On Success
   - type: paragraph
     text: On Failure, increase the next repair check DC by +1.
-    spans: []
+    spans:
+    - style: bold
+      text: On Failure
   - type: paragraph
     text: On Extreme Failure, the item suffers 1 damage.
-    spans: []
+    spans:
+    - style: bold
+      text: On Extreme Failure
   - type: paragraph
     text: Each repair check takes 1 hour and consumes 1 material (or one use of the
       repair kit) whether the repair was successful or not. You cannot repair equipment
       above its base durability.
-    spans: []
+    spans:
+    - style: bold
+      text: Each repair check takes 1 hour and consumes 1 material
   - type: paragraph
     text: An item with 0 remaining durability cannot be repaired; it is broken. It
       may possibly be used as parts for other repairs (GM discretion). Items which
       have no listed durability can still break or require repairs; these are assumed
       to have a base durability of 4.
-    spans: []
+    spans:
+    - style: bold
+      text: An item with 0 remaining durability cannot be repaired
+    - style: bold
+      text: Items which have no listed durability
   - type: paragraph
     text: Modifying equipment works the same way as repairing equipment, but does
       not require materials other than the modification you wish to install. Only
       advanced and expert modifications require an Engineering check or take longer
       than one action to enact; simple modifications may be done (or undone) mid-combat
       and require no roll, only the use of an action.
-    spans: []
+    spans:
+    - style: bold
+      text: Modifying equipment
   - type: paragraph
     text: 'Modification DC: 8 (advanced, 2 hours), 10 (expert, 4 hours)'
-    spans: []
+    spans:
+    - style: bold
+      text: 'Modification DC:'
   - type: paragraph
     text: Unless otherwise specified, a modification is considered simple.
     spans: []
@@ -150,25 +176,45 @@ sections:
       - *id001
       - *id001
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: Type
-        spans: []
+        spans:
+        - style: bold
+          text: Type
       - text: DC
-        spans: []
+        spans:
+        - style: bold
+          text: DC
       - text: Dmg
-        spans: []
+        spans:
+        - style: bold
+          text: Dmg
       - text: Rng
-        spans: []
+        spans:
+        - style: bold
+          text: Rng
       - text: Ammo
-        spans: []
+        spans:
+        - style: bold
+          text: Ammo
       - text: Blk
-        spans: []
+        spans:
+        - style: bold
+          text: Blk
       - text: Req.
-        spans: []
+        spans:
+        - style: bold
+          text: Req.
       - text: Special
-        spans: []
+        spans:
+        - style: bold
+          text: Special
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: Pistol
         spans: []
       - text: Light
@@ -508,7 +554,9 @@ sections:
           spans: []
         - text: Deals no damage, but forces target to roll Toughness (DC 6 + X) or
             be Stunned for X rounds
-          spans: []
+          spans:
+          - style: bold
+            text: Toughness (DC 6 + X)
       - - text: Two-Handed
           spans: []
         - text: Requires both hands to use
@@ -520,7 +568,11 @@ sections:
             a single attack roll and compare it against the DC of each target in the
             spray zone (including cover bonuses, etc).Each hit deals -1 damage (compared
             to a standard single-target shot).
-          spans: []
+          spans:
+          - style: bold
+            text: each target
+          - style: bold
+            text: Each hit deals -1 damage
       - - text: Shredding X
           spans: []
         - text: If damage exceeds armour’s protection value, reduce armour’s durability
@@ -548,7 +600,7 @@ sections:
           spans:
           - style: link_underline
             text: toxin
-            href: '#h.oaq0qtef2p1'
+            href: health-wounds.yaml#poisons-and-toxins
     sections:
     - title: Weapon keywords
       slug: weapon-keywords
@@ -566,19 +618,33 @@ sections:
           - *id003
           - *id003
         - - text: Name
-            spans: []
+            spans:
+            - style: bold
+              text: Name
           - text: Prot
-            spans: []
+            spans:
+            - style: bold
+              text: Prot
           - text: Durability
-            spans: []
+            spans:
+            - style: bold
+              text: Durability
           - text: Blk
-            spans: []
+            spans:
+            - style: bold
+              text: Blk
           - text: Req.
-            spans: []
+            spans:
+            - style: bold
+              text: Req.
           - text: Special
-            spans: []
+            spans:
+            - style: bold
+              text: Special
           - text: Cost
-            spans: []
+            spans:
+            - style: bold
+              text: Cost
         - - text: Scrap Armour
             spans: []
           - text: '1'
@@ -709,15 +775,25 @@ sections:
         - *id004
         - *id004
       - - text: Item Name
-          spans: []
+          spans:
+          - style: bold
+            text: Item Name
         - text: Effect
-          spans: []
+          spans:
+          - style: bold
+            text: Effect
         - text: Uses
-          spans: []
+          spans:
+          - style: bold
+            text: Uses
         - text: Bulk
-          spans: []
+          spans:
+          - style: bold
+            text: Bulk
         - text: Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Cost
       - - text: Flashbang Grenade
           spans: []
         - text: Applies Stun 1 to everyone within Very Near range, Thrown
@@ -898,19 +974,33 @@ sections:
         - *id005
         - *id005
       - - text: Name
-          spans: []
+          spans:
+          - style: bold
+            text: Name
         - text: Tier
-          spans: []
+          spans:
+          - style: bold
+            text: Tier
         - text: Effect
-          spans: []
+          spans:
+          - style: bold
+            text: Effect
         - text: Installation Difficulty
-          spans: []
+          spans:
+          - style: bold
+            text: Installation Difficulty
         - text: Req.
-          spans: []
+          spans:
+          - style: bold
+            text: Req.
         - text: Physical Impact
-          spans: []
+          spans:
+          - style: bold
+            text: Physical Impact
         - text: Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Cost
       - - text: Reflex Booster
           spans: []
         - text: '1'
@@ -1190,7 +1280,9 @@ sections:
           spans: []
         - text: When you would take a Medium or Heavy wound, roll Cybernetics (DC8).This
             effect may only trigger once per instance of damage.
-          spans: []
+          spans:
+          - style: bold
+            text: Cybernetics (DC8)
           blocks:
           - type: list
             ordered: false
@@ -1215,18 +1307,7 @@ sections:
   - title: Cyberware
     slug: cyberware
     level: 3
-    content:
-    - type: list
-      ordered: false
-      items:
-      - text: 'Extreme success: ignore the wound.'
-        spans: []
-      - text: 'Success: ignore the wound; this cyberware effect cannot be used for
-          1 day.'
-        spans: []
-      - text: 'Failure: suffer the wound as normal; this cyberware effect cannot be
-          used for 1 day.'
-        spans: []
+    content: []
     sections:
     - title: Installing and Removing Cyberware
       slug: installing-and-removing-cyberware
@@ -1249,13 +1330,19 @@ sections:
         ordered: false
         items:
         - text: Success, the cyberware is installed properly.
-          spans: []
+          spans:
+          - style: bold
+            text: Success
         - text: Failure, the process fails and the subject takes 1 damage.
-          spans: []
+          spans:
+          - style: bold
+            text: Failure
         - text: Extreme failure, the process fails, the cyberware takes 1d4 damage
             (base durability is 4 unless otherwise specified), and the subject takes
             2 damage.
-          spans: []
+          spans:
+          - style: bold
+            text: Extreme failure
       - type: paragraph
         text: After the First Aid roll, an Engineering roll is required if installing
           new cyberware (DC 8 + cyberware Tier).
@@ -1264,10 +1351,14 @@ sections:
         ordered: false
         items:
         - text: Success, the cyberware functions properly.
-          spans: []
+          spans:
+          - style: bold
+            text: Success
         - text: Failure, the cyberware is glitchy; requires a Cybernetics check (DC
             4 + cyberware Tier) each time it’s used for its effect.
-          spans: []
+          spans:
+          - style: bold
+            text: Failure
       - type: paragraph
         text: Attempting to repair damaged cyberware may be done after the First Aid
           roll as well; the process for this is the same as repairing other equipment
@@ -1275,7 +1366,7 @@ sections:
         spans:
         - style: link_underline
           text: Repair and Modification
-          href: '#h.abk2uesvorh9'
+          href: '#repair-and-modification'
       - type: paragraph
         text: Cyberware removal is physically traumatic; removing and reinstalling
           cyberware must be done as two separate procedures. Removing cyberware does
@@ -1319,22 +1410,32 @@ sections:
       - type: table
         rows:
         - - text: Cyberware Physical Impact
-            spans: []
+            spans:
+            - style: bold
+              text: Cyberware Physical Impact
           - text: How to spot it
-            spans: []
+            spans:
+            - style: bold
+              text: How to spot it
         - - text: None
             spans: []
           - text: Impossible without First Aid (DC4 + cyberware tier) check. Target
               must be incapacitated or willing for this check.
-            spans: []
+            spans:
+            - style: bold
+              text: First Aid (DC4 + cyberware tier)
         - - text: Minor
             spans: []
           - text: Observe (DC8) check
-            spans: []
+            spans:
+            - style: bold
+              text: Observe (DC8)
         - - text: Medium
             spans: []
           - text: Observe (DC6) check
-            spans: []
+            spans:
+            - style: bold
+              text: Observe (DC6)
         - - text: Obvious
             spans: []
           - text: No check required
@@ -1354,18 +1455,28 @@ sections:
           to install additional cyberware over this limit automatically fails and
           prompts the character to roll a Cybernetics (DC6 + their total cyberwear
           value) check.
-        spans: []
+        spans:
+        - style: bold
+          text: Cybernetics (DC6 + their total cyberwear value)
       - type: list
         ordered: false
         items:
         - text: 'Extreme success: no effect'
-          spans: []
+          spans:
+          - style: bold
+            text: Extreme success
         - text: 'Success: gain +1 stress'
-          spans: []
+          spans:
+          - style: bold
+            text: Success
         - text: 'Failure: gain +2 stress'
-          spans: []
+          spans:
+          - style: bold
+            text: Failure
         - text: 'Extreme failure: gain +4 stress'
-          spans: []
+          spans:
+          - style: bold
+            text: Extreme failure
       - type: table
         rows:
         - - &id006
@@ -1377,17 +1488,29 @@ sections:
           - *id006
           - *id006
         - - text: Name
-            spans: []
+            spans:
+            - style: bold
+              text: Name
           - text: Effect
-            spans: []
+            spans:
+            - style: bold
+              text: Effect
           - text: Uses
-            spans: []
+            spans:
+            - style: bold
+              text: Uses
           - text: Addiction Score
-            spans: []
+            spans:
+            - style: bold
+              text: Addiction Score
           - text: Legality
-            spans: []
+            spans:
+            - style: bold
+              text: Legality
           - text: Cost
-            spans: []
+            spans:
+            - style: bold
+              text: Cost
         - - text: Space Dust
             spans: []
           - text: Grants +1 bonus die to Observe and Piloting checks for 6 hours
@@ -1457,7 +1580,10 @@ sections:
       - type: paragraph
         text: 'Addiction roll: character must roll a Willpower (DC 6 + narcotic’s
           Addiction Score) check.'
-        spans: []
+        spans:
+        - style: bold
+          text: 'Addiction roll: character must roll a Willpower (DC 6 + narcotic’s
+            Addiction Score) check.'
       - type: paragraph
         text: On a failed Addiction roll, the character becomes addicted to the narcotic
           and must progress through the Addiction table below, beginning with Onset.
@@ -1469,9 +1595,13 @@ sections:
             spans: []
           - *id007
         - - text: Stage
-            spans: []
+            spans:
+            - style: bold
+              text: Stage
           - text: Effect
-            spans: []
+            spans:
+            - style: bold
+              text: Effect
         - - text: Onset
             spans: []
           - text: Character desires the substance. Each week without it, roll Addiction.
@@ -1524,11 +1654,17 @@ sections:
       - type: table
         rows:
         - - text: Addiction Stage
-            spans: []
+            spans:
+            - style: bold
+              text: Addiction Stage
           - text: Time
-            spans: []
+            spans:
+            - style: bold
+              text: Time
           - text: Supply Cost
-            spans: []
+            spans:
+            - style: bold
+              text: Supply Cost
         - - text: Onset
             spans: []
           - text: 2 days
@@ -1550,35 +1686,59 @@ sections:
       - type: paragraph
         text: At the end of the detox period, the character may make a Toughness or
           Willpower check.
-        spans: []
+        spans:
+        - style: bold
+          text: Toughness
+        - style: bold
+          text: Willpower
       - type: paragraph
         text: Detox DC = 6 + Addiction Score
-        spans: []
+        spans:
+        - style: bold
+          text: Detox DC = 6 + Addiction Score
       - type: list
         ordered: false
         items:
         - text: 'Extreme success: reduce addiction by two stages (from Addiction to
             Onset, or from Dependence to no addiction, for example)'
-          spans: []
+          spans:
+          - style: bold
+            text: Extreme success
         - text: 'Success: reduce addiction by one stage'
-          spans: []
+          spans:
+          - style: bold
+            text: Success
         - text: 'Failure: no change to addiction stage; suffer +1 stress'
-          spans: []
+          spans:
+          - style: bold
+            text: Failure
         - text: 'Extreme failure: suffer + 1d4 stress and gain the Agonized 1 condition
             for 1 day'
-          spans: []
+          spans:
+          - style: bold
+            text: Extreme failure
       - type: paragraph
         text: Other characters may attempt to aid in this check. To do so, they may
           make a First Aid (DC 6 + addiction stage; 1 for Onset, 2 for Dependence,
           3 for Addiction) check.
-        spans: []
+        spans:
+        - style: bold
+          text: Other characters may attempt to aid in this check
+        - style: bold
+          text: First Aid
+        - style: bold
+          text: DC 6 + addiction stage
       - type: list
         ordered: false
         items:
         - text: 'Extreme success: grant +2 bonus dice to the Detox check.'
-          spans: []
+          spans:
+          - style: bold
+            text: Extreme success
         - text: 'Success: grant +1 bonus die to the Detox check.'
-          spans: []
+          spans:
+          - style: bold
+            text: Success
       sections: []
 - title: Hacking Equipment
   slug: hacking-equipment
@@ -1594,15 +1754,25 @@ sections:
       - *id008
       - *id008
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: System Tier Access
-        spans: []
+        spans:
+        - style: bold
+          text: System Tier Access
       - text: Max Software Tier
-        spans: []
+        spans:
+        - style: bold
+          text: Max Software Tier
       - text: Bulk
-        spans: []
+        spans:
+        - style: bold
+          text: Bulk
       - text: Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Cost
     - - text: MonoTap
         spans: []
       - text: '1'
@@ -1641,7 +1811,9 @@ sections:
     - type: paragraph
       text: Software modules are loaded into rigs and used to perform specific tasks.
         Rigs must support the software’s tier to use it.
-      spans: []
+      spans:
+      - style: bold
+        text: software’s tier
     - type: table
       rows:
       - - &id009
@@ -1651,13 +1823,21 @@ sections:
         - *id009
         - *id009
       - - text: Software
-          spans: []
+          spans:
+          - style: bold
+            text: Software
         - text: Tier
-          spans: []
+          spans:
+          - style: bold
+            text: Tier
         - text: Notes
-          spans: []
+          spans:
+          - style: bold
+            text: Notes
         - text: Cost
-          spans: []
+          spans:
+          - style: bold
+            text: Cost
       - - text: EchoScan
           spans: []
         - text: '1'

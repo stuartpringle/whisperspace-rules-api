@@ -7,5 +7,5 @@ content:
   spans:
   - style: link_underline
     text: Downtime
-    href: '#h.wz1xm5eohrx'
+    href: downtime.yaml#downtime
 sections: []

@@ -1,0 +1,23 @@
+title: Skippable Intro
+slug: skippable-intro
+level: 1
+content:
+- type: paragraph
+  text: Whisperspace is a tabletop roleplaying game system created by Stuart Pringle.
+    In this book you will find the core rules of play as well as suggestions on how
+    to make the most of them. This book does not include a setting, however it is
+    loosely based on a modern or near-future setting and can be adapted for use as
+    required.
+  spans: []
+- type: paragraph
+  text: 'Whisperspace began as an extremely simple system of rules I put together
+    when creating one-shot adventures. I wanted the adventures to be system-agnostic
+    and I didn’t want to have to put a lot of thought into how to alter existing systems
+    to allow me to put together the character archetypes I wanted to include. This
+    had the advantage of being useful for players who were unfamiliar with existing
+    roleplaying game rulesets to play a new setting easily and quickly. I’ve since
+    rebuilt the system from the ground up but I’ve kept the core identity of what
+    Whisperspace is: an easy-to-play, simple rule system designed to promote fun,
+    quick-paced gameplay and minimize dead time during your gaming sessions.'
+  spans: []
+sections: []

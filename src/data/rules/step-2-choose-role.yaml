@@ -8,11 +8,17 @@ content:
 - type: table
   rows:
   - - text: Role
-      spans: []
+      spans:
+      - style: bold
+        text: Role
     - text: Primary Attribute
-      spans: []
+      spans:
+      - style: bold
+        text: Primary Attribute
     - text: Typical Skills
-      spans: []
+      spans:
+      - style: bold
+        text: Typical Skills
   - - text: Brute
       spans: []
     - text: PHYS

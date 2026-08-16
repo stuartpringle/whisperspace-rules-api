@@ -22,34 +22,40 @@ sections:
       of wound that the incoming damage creates. You do not add multiple severities
       together (moderate + heavy, for example). Only the highest severity is applied.
       For example:'
-    spans: []
+    spans:
+    - style: bold
+      text: highest severity of wound
   - type: list
     ordered: false
     items:
     - text: If you take 3 damage while uninjured, you fill 3 light wound boxes. Light
-        wounds give +1 stress, so you gain 1 stress total.
+        wounds give 0 stress, so you gain 0 stress total.
       spans: []
     - text: If you take 5 damage while uninjured, you fill all 4 light wound boxes
         and 1 moderate wound box. Because the highest severity filled was moderate,
-        you can +2 stress total.
+        you gain +2 stress total.
       spans: []
   - type: table
     rows:
     - - text: Wound Severity
-        spans: []
+        spans:
+        - style: bold
+          text: Wound Severity
       - text: Stress Increase
-        spans: []
+        spans:
+        - style: bold
+          text: Stress Increase
     - - text: Light
         spans: []
-      - text: '+1'
+      - text: '0'
         spans: []
     - - text: Moderate
         spans: []
-      - text: '+2'
+      - text: '+1'
         spans: []
     - - text: Heavy
         spans: []
-      - text: '+4'
+      - text: '+3'
         spans: []
   sections: []
 - title: Stress Penalties
@@ -62,7 +68,9 @@ sections:
     spans: []
   - type: paragraph
     text: Stress Penalty = ½ stress (rounded up) - Cool Under Fire
-    spans: []
+    spans:
+    - style: bold
+      text: Stress Penalty = ½ stress (rounded up) - Cool Under Fire
   - type: paragraph
     text: Thus, a character with Cool Under Fire 1 and 3 stress would suffer a -1.
       This effect only applies to the first roll you make to use an action or reaction
@@ -80,21 +88,28 @@ sections:
       example, if a character is at 4 stress and would suffer an additional 4 stress,
       she must roll a Cool Under Fire check and meet or exceed 12 (8 base + 4 from
       incoming stress amount).
-    spans: []
+    spans:
+    - style: bold
+      text: Cool Under Fire
+    - style: bold
+      text: 8 + incoming stress
   - type: list
     ordered: false
     items:
     - text: 'Success: her stress is reduced to 5 and she may apply an Indomitable
         effect to herself (see below).'
       spans:
+      - style: bold
+        text: Success
       - style: italic
         text: Indomitable
-        href: null
     - text: 'Failure: she suffers the stress as normal and enters into PTSD range.'
       spans:
+      - style: bold
+        text: Failure
       - style: link_underline
         text: PTSD range
-        href: '#h.rwq11029f7qx'
+        href: '#ptsd-range-stress-levels-6-8'
   - type: paragraph
     text: If a character fails a Crucible Test, she may choose to spend one point
       of her Cool Under Fire attribute (reducing that attribute’s level by 1 permanently)
@@ -130,17 +145,25 @@ sections:
   - type: list
     ordered: false
     items:
-    - text: Is considered extremely psychologically fragile
-      spans: []
     - text: Must roll on the PTSD Reaction Table (below) upon receiving any additional
         stress or failing a roll (if failing a roll grants stress, only roll once).
-      spans: []
+      spans:
+      - style: bold
+        text: roll on the PTSD Reaction Table
+      - style: bold
+        text: any additional stress
+      - style: bold
+        text: failing a roll
     - text: Suffers the Stress Penalty to all rolls, instead of only the first roll
         each round.
-      spans: []
+      spans:
+      - style: bold
+        text: Stress Penalty to all rolls
     - text: Succeeds with an Extreme Success only when roll exceeds DC by 6+ (rather
         than 4+)
-      spans: []
+      spans:
+      - style: bold
+        text: Extreme Success only when roll exceeds DC by 6+
   - type: table
     rows:
     - - &id001
@@ -158,11 +181,11 @@ sections:
         spans: []
     - - text: '2'
         spans: []
-      - text: Cower (receive Fleeing (1) condition)
+      - text: Cower (receive Fleeing (2) condition)
         spans:
-        - style: link_underline
-          text: Fleeing (1)
-          href: '#h.ju3pufy1twg8'
+        - style: link_bold_underline
+          text: Fleeing (2)
+          href: conditions.yaml#fleeing-x
     - - text: '3'
         spans: []
       - text: Push Through (no effect)
@@ -189,11 +212,17 @@ sections:
       - *id002
       - *id002
     - - text: Roll (1d4)
-        spans: []
+        spans:
+        - style: bold
+          text: Roll (1d4)
       - text: Effect
-        spans: []
+        spans:
+        - style: bold
+          text: Effect
       - text: Description
-        spans: []
+        spans:
+        - style: bold
+          text: Description
     - - text: '1'
         spans: []
       - text: Freeze up
@@ -207,8 +236,7 @@ sections:
       - text: Falls unconscious from strain
         spans:
         - style: italic
-          text: 'unconscious '
-          href: null
+          text: unconscious
     - - text: '3'
         spans: []
       - text: Panic
@@ -216,13 +244,120 @@ sections:
       - text: Flee for 1d6 rounds
         spans:
         - style: italic
-          text: 'Flee '
-          href: null
+          text: Flee
     - - text: '4'
         spans: []
       - text: Mental Scar
         spans: []
-      - text: Gain a permanent fear or phobia (GM’s discretion)
+      - text: Gain a permanent Mental Scar
+        spans:
+        - style: link_bold_underline
+          text: Mental Scar
+          href: '#mental-scars'
+  sections: []
+- title: Mental Scars
+  slug: mental-scars
+  level: 2
+  content:
+  - type: paragraph
+    text: When a character suffers a Mental Scar, The GM may choose to roll randomly
+      on the Mental Scars table, choose an option from that table he feels best suits
+      the character or moment, or come up with his own option for a Mental Scar. Players
+      are encouraged to work with the GM to come up with a custom option if they so
+      choose, and to lean into the effects of Mental Scars upon their characters.
+    spans: []
+  - type: paragraph
+    text: After choosing a Mental Scar, the GM rolls 1d4 to determine the severity,
+      with 1 being mild and 4 being severe.
+    spans: []
+  - type: table
+    rows:
+    - - &id003
+        text: Random Mental Scar Table
+        spans: []
+      - *id003
+      - *id003
+    - - text: D12 roll
+        spans:
+        - style: bold
+          text: D12 roll
+      - text: Mental Scar
+        spans:
+        - style: bold
+          text: Mental Scar
+      - text: ''
+        spans: []
+    - - text: '1'
+        spans: []
+      - text: Panic attacks whenever stress increases or reaches a certain threshold.
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '2'
+        spans: []
+      - text: Claustrophobia.
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '3'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '4'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '5'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '6'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '7'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '8'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '9'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '10'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '11'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
+        spans: []
+    - - text: '12'
+        spans: []
+      - text: ''
+        spans: []
+      - text: ''
         spans: []
   sections: []
 - title: Reducing Stress
@@ -258,7 +393,9 @@ sections:
         extreme cases). After each week of a character’s therapy, the GM rolls a d12
         check based on the therapist’s skill level; three successful checks reduce
         the character’s stress below PTSD range.
-      spans: []
+      spans:
+      - style: bold
+        text: Therapy
     - type: paragraph
       text: 'Unskilled Therapist (DC10, 1500 credits per week)
 
@@ -272,15 +409,19 @@ sections:
         charlatans after big paydays. An empath may work only for favours, or may
         charge upwards of 10000 credits to bear the burden of another’s emotional
         trauma.
-      spans: []
+      spans:
+      - style: bold
+        text: Empaths
     - type: paragraph
       text: Medication may help some come down from PTSD range, however there are
         always side effects. Stress-reducing medication may be found in the Equipment
         & Gear section.
       spans:
+      - style: bold
+        text: Medication
       - style: link_underline
         text: Equipment & Gear
-        href: '#h.eimfcd6soqs3'
+        href: equipment-gear.yaml#equipment-gear
     sections: []
   - title: Pep Talk
     slug: pep-talk
@@ -297,10 +438,18 @@ sections:
       items:
       - text: If done as a single action, giving a pep talk requires a SOC (DC8 +
           stress level) empathy check.
-        spans: []
+        spans:
+        - style: bold
+          text: If done as a single action
+        - style: bold
+          text: SOC (DC8 + stress level)
       - text: If done over the course of 10 minutes, giving a pep talk requires a
           SOC (DC4 + stress level) empathy check.
-        spans: []
+        spans:
+        - style: bold
+          text: If done over the course of 10 minutes
+        - style: bold
+          text: SOC (DC4 + stress level)
     - type: paragraph
       text: A success or extreme success reduces the target’s stress by 1. Extreme
         failure increases the target's stress by 1.
@@ -318,5 +467,13 @@ sections:
       text: There’s something unsettling about travel through the starless void; while
         in Whisperspace, a character cannot reduce stress via passive recovery, therapy,
         or medication and the DC for giving a pep talk is increased by +2.
-      spans: []
+      spans:
+      - style: bold
+        text: passive recovery
+      - style: bold
+        text: therapy
+      - style: bold
+        text: medication
+      - style: bold
+        text: pep talk
     sections: []

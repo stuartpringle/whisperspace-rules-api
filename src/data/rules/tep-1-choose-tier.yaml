@@ -8,15 +8,25 @@ content:
 - type: table
   rows:
   - - text: Tier
-      spans: []
+      spans:
+      - style: bold
+        text: Tier
     - text: Use For
-      spans: []
+      spans:
+      - style: bold
+        text: Use For
     - text: Elite Skill
-      spans: []
+      spans:
+      - style: bold
+        text: Elite Skill
     - text: Wounds
-      spans: []
+      spans:
+      - style: bold
+        text: Wounds
     - text: Morale
-      spans: []
+      spans:
+      - style: bold
+        text: Morale
   - - text: '0'
       spans: []
     - text: Fodder / swarm

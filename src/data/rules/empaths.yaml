@@ -10,7 +10,6 @@ content:
   spans:
   - style: italic
     text: feeling
-    href: null
 - type: paragraph
   text: Some Empaths go insane. The constant weight of others’ feelings is too much
     and they cannot handle the strain. Others seclude themselves, hiding away from
@@ -41,7 +40,9 @@ sections:
     spans: []
   - type: paragraph
     text: Roll 1d12 + SOC (DC determined by the Empathic Ability being used)
-    spans: []
+    spans:
+    - style: bold
+      text: Roll 1d12 + SOC (DC determined by the Empathic Ability being used)
   - type: paragraph
     text: 'Results:'
     spans: []
@@ -49,21 +50,41 @@ sections:
     ordered: false
     items:
     - text: 'Extreme success: ability resolves and is Heightened.'
-      spans: []
+      spans:
+      - style: bold
+        text: Extreme success
     - text: 'Success: ability resolves'
-      spans: []
+      spans:
+      - style: bold
+        text: Success
     - text: 'Failure: ability does not resolve.'
-      spans: []
+      spans:
+      - style: bold
+        text: Failure
     - text: 'Extreme failure: ability does not resolve; suffer +1 stress.'
-      spans: []
+      spans:
+      - style: bold
+        text: Extreme failure
   - type: paragraph
     text: All Empathic Abilities must target a living creature.
-    spans: []
+    spans:
+    - style: bold
+      text: target a living creature.
   - type: paragraph
     text: When targeting an unwilling creature, increase the Empathy check DC by the
       creature’s Composure rank. Conversely, when targeting a willing creature, gain
       +1 bonus die on all Empathic Ability checks.
-    spans: []
+    spans:
+    - style: bold
+      text: unwilling creature
+    - style: bold
+      text: Empathy check DC
+    - style: bold
+      text: Composure
+    - style: bold
+      text: willing creature,
+    - style: bold
+      text: +1 bonus die
   sections: []
 - title: Empathic Paths
   slug: empathic-paths
@@ -86,7 +107,9 @@ sections:
       spans: []
     - type: paragraph
       text: 'Using a Reader empathic ability requires the Empath: Reader feat.'
-      spans: []
+      spans:
+      - style: bold
+        text: 'Empath: Reader'
     sections: []
   - title: Pushers
     slug: pushers
@@ -99,7 +122,9 @@ sections:
       spans: []
     - type: paragraph
       text: 'Using a Pusher empathic ability requires the Empath: Pusher feat.'
-      spans: []
+      spans:
+      - style: bold
+        text: 'Empath: Pusher'
     sections: []
   - title: Vessels
     slug: vessels
@@ -115,7 +140,9 @@ sections:
       spans: []
     - type: paragraph
       text: 'Using a Vessel empathic ability requires the Empath: Vessel feat.'
-      spans: []
+      spans:
+      - style: bold
+        text: 'Empath: Vessel'
     sections: []
 - title: Empathic Abilities
   slug: empathic-abilities
@@ -131,15 +158,25 @@ sections:
       - *id001
       - *id001
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: DC
-        spans: []
+        spans:
+        - style: bold
+          text: DC
       - text: Range
-        spans: []
+        spans:
+        - style: bold
+          text: Range
       - text: Action Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Action Cost
       - text: Effect
-        spans: []
+        spans:
+        - style: bold
+          text: Effect
     - - text: Emotional Attunement
         spans: []
       - text: 8 + stress
@@ -151,7 +188,9 @@ sections:
       - text: Form an Empathic Bond with target. When you have an Empathic Bond:You
           may have no more than one Empathic Bond at a time. You may dismiss an Empathic
           Bond by using 1 action. This ability cannot be Heightened.
-        spans: []
+        spans:
+        - style: bold
+          text: Empathic Bond
         blocks:
         - type: list
           ordered: false
@@ -159,13 +198,27 @@ sections:
           - text: All your other Empathic Abilities targeting bonded creature are
               bumped up one level of success. So an extreme failure becomes a failure,
               a failure becomes a success, etc.
-            spans: []
+            spans:
+            - style: bold
+              text: Empathic Abilities
+            - style: bold
+              text: bumped up one level of success
           - text: Once per round, you may use 1 reaction to reduce stress gained by
               bonded creature by 1 (minimum 1).
-            spans: []
+            spans:
+            - style: bold
+              text: use 1 reaction
+            - style: bold
+              text: reduce stress gained
           - text: Whenever bonded creature suffers stress, you take half of that stress
               (rounded up) while it takes the remainder.
-            spans: []
+            spans:
+            - style: bold
+              text: suffers stress
+            - style: bold
+              text: half of that stress (rounded up)
+            - style: bold
+              text: it takes the remainder.
     - - text: Sense Violence
         spans: []
       - text: '-'
@@ -183,16 +236,26 @@ sections:
           ordered: false
           items:
           - text: You cannot be Surprised by living creatures.
-            spans: []
+            spans:
+            - style: bold
+              text: Surprised
           - text: You gain +1 bonus die on Initiative rolls against living creatures.
-            spans: []
+            spans:
+            - style: bold
+              text: +1 bonus die
+            - style: bold
+              text: Initiative
         - type: list
           ordered: false
           items:
           - text: 'Heightened: you know the exact origin of these emotions. Additionally,
               the first attack by a living creature against you each combat suffers
               +1 penalty die.'
-            spans: []
+            spans:
+            - style: bold
+              text: Heightened
+            - style: bold
+              text: +1 penalty die
     - - text: Read Motive
         spans: []
       - text: '10'
@@ -210,40 +273,9 @@ sections:
           items:
           - text: 'Heightened: you gain knowledge of target’s greatest emotional lever:
               their greatest fear, desire, or hope.'
-            spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: All your other Empathic Abilities targeting bonded creature are bumped
-        up one level of success. So an extreme failure becomes a failure, a failure
-        becomes a success, etc.
-      spans: []
-    - text: Once per round, you may use 1 reaction to reduce stress gained by bonded
-        creature by 1 (minimum 1).
-      spans: []
-    - text: Whenever bonded creature suffers stress, you take half of that stress
-        (rounded up) while it takes the remainder.
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: You cannot be Surprised by living creatures.
-      spans: []
-    - text: You gain +1 bonus die on Initiative rolls against living creatures.
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: you know the exact origin of these emotions. Additionally,
-        the first attack by a living creature against you each combat suffers +1 penalty
-        die.'
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: you gain knowledge of target’s greatest emotional lever:
-        their greatest fear, desire, or hope.'
-      spans: []
+            spans:
+            - style: bold
+              text: Heightened
   - type: table
     rows:
     - - &id002
@@ -254,15 +286,25 @@ sections:
       - *id002
       - *id002
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: DC
-        spans: []
+        spans:
+        - style: bold
+          text: DC
       - text: Range
-        spans: []
+        spans:
+        - style: bold
+          text: Range
       - text: Action Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Action Cost
       - text: Effect
-        spans: []
+        spans:
+        - style: bold
+          text: Effect
     - - text: Sow Chaos
         spans: []
       - text: '8'
@@ -279,7 +321,9 @@ sections:
           ordered: false
           items:
           - text: 'Heightened: transfer twice as much stress to target instead.'
-            spans: []
+            spans:
+            - style: bold
+              text: Heightened
     - - text: Reap Carnage
         spans: []
       - text: 12 - target’s stress
@@ -291,16 +335,22 @@ sections:
       - text: Impose the Frenzied condition on target. At the end of the target’s
           turns, they may roll a Composure or Willpower (DC8) check to end this condition.
         spans:
-        - style: link_underline
+        - style: link_bold_underline
           text: Frenzied
-          href: '#h.rm8belmo8fy3'
+          href: conditions.yaml#frenzied-x
+        - style: bold
+          text: Composure
+        - style: bold
+          text: Willpower (DC8)
         blocks:
         - type: list
           ordered: false
           items:
           - text: 'Heightened: target creature ignores all penalty dice for the duration
               of Frenzied.'
-            spans: []
+            spans:
+            - style: bold
+              text: Heightened
     - - text: Lash Out
         spans: []
       - text: '9'
@@ -315,33 +365,22 @@ sections:
           stress inflicted (rounded up). Creatures who receive stress this way must
           immediately roll Composure (DC8) or gain the Demoralized condition.
         spans:
-        - style: link_underline
+        - style: bold
+          text: gains 1 stress for every 2 stress you currently have (minimum 1)
+        - style: bold
+          text: Composure (DC8)
+        - style: link_bold_underline
           text: Demoralized
-          href: '#h.p7xo9pm49k9v'
+          href: conditions.yaml#demoralized-x
         blocks:
         - type: list
           ordered: false
           items:
           - text: 'Heightened: you may exclude yourself and any bonded creature from
               the distribution.'
-            spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: transfer twice as much stress to target instead.'
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: target creature ignores all penalty dice for the duration
-        of Frenzied.'
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: you may exclude yourself and any bonded creature from the
-        distribution.'
-      spans: []
+            spans:
+            - style: bold
+              text: Heightened
   - type: table
     rows:
     - - &id003
@@ -352,15 +391,25 @@ sections:
       - *id003
       - *id003
     - - text: Name
-        spans: []
+        spans:
+        - style: bold
+          text: Name
       - text: DC
-        spans: []
+        spans:
+        - style: bold
+          text: DC
       - text: Range
-        spans: []
+        spans:
+        - style: bold
+          text: Range
       - text: Action Cost
-        spans: []
+        spans:
+        - style: bold
+          text: Action Cost
       - text: Effect
-        spans: []
+        spans:
+        - style: bold
+          text: Effect
     - - text: Siphon Tumult
         spans: []
       - text: 6 + target’s stress
@@ -378,7 +427,9 @@ sections:
           ordered: false
           items:
           - text: 'Heightened: remove up to 4 stress instead.'
-            spans: []
+            spans:
+            - style: bold
+              text: Heightened
     - - text: Take the Burden
         spans: []
       - text: '10'
@@ -395,7 +446,9 @@ sections:
           items:
           - text: 'Heightened: while you are affected by this condition, the target
               cannot regain it again from the same source.'
-            spans: []
+            spans:
+            - style: bold
+              text: Heightened
     - - text: Emotional Grounding
         spans: []
       - text: '8'
@@ -412,37 +465,20 @@ sections:
           ordered: false
           items:
           - text: Target reduces all stress gain by 1.
-            spans: []
+            spans:
+            - style: bold
+              text: all stress gain by 1
           - text: Target gains +1 bonus die on Composure checks
-            spans: []
+            spans:
+            - style: bold
+              text: Composure
         - type: list
           ordered: false
           items:
           - text: 'Heightened: you may apply this effect to yourself as well.'
-            spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: remove up to 4 stress instead.'
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: while you are affected by this condition, the target cannot
-        regain it again from the same source.'
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: Target reduces all stress gain by 1.
-      spans: []
-    - text: Target gains +1 bonus die on Composure checks
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: 'Heightened: you may apply this effect to yourself as well.'
-      spans: []
+            spans:
+            - style: bold
+              text: Heightened
   sections: []
 - title: Empaths and Machines
   slug: empaths-and-machines

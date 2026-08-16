@@ -2,7 +2,7 @@
   "repo": "whisperspace-rules-api",
   "version": "0.1.0",
   "exports": {
-    "rules_contract": "0.1.1",
+    "rules_contract": "0.2.0",
     "calc_contract": "1.0.0",
     "character_api_contract": "1.2.0"
   },

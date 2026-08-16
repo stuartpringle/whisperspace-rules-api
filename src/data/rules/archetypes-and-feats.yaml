@@ -10,32 +10,41 @@ content:
     with definition thematically and an additional set of skills to gain levels in.'
   spans:
   - style: italic
-    text: 'Alien, '
-    href: null
+    text: Alien,
   - style: italic
     text: 'Stargate: Atlantis'
-    href: null
   - style: italic
     text: The Expanse
-    href: null
 - type: paragraph
   text: A character may have no archetype and choose feats freely. Pick one feat :O
-  spans: []
+  spans:
+  - style: bold
+    text: Pick one feat :O
 - type: table
   rows:
   - - text: Category
-      spans: []
+      spans:
+      - style: bold
+        text: Category
     - text: Feat name
-      spans: []
+      spans:
+      - style: bold
+        text: Feat name
     - text: Req.
-      spans: []
+      spans:
+      - style: bold
+        text: Req.
     - &id001
       text: Description
-      spans: []
+      spans:
+      - style: bold
+        text: Description
     - *id001
     - *id001
   - - text: Assassin
-      spans: []
+      spans:
+      - style: bold
+        text: Assassin
     - text: Path Through Shadow
       spans: []
     - text: ''
@@ -76,7 +85,9 @@ content:
     - *id004
     - *id004
   - - text: Battlefield
-      spans: []
+      spans:
+      - style: bold
+        text: Battlefield
     - text: Dual Wielding
       spans: []
     - text: ''
@@ -120,7 +131,9 @@ content:
     - *id007
     - *id007
   - - text: Close Quarters
-      spans: []
+      spans:
+      - style: bold
+        text: Close Quarters
     - text: Way of the Readied Blade
       spans: []
     - text: ''
@@ -173,7 +186,9 @@ content:
     - *id011
     - *id011
   - - text: Defence
-      spans: []
+      spans:
+      - style: bold
+        text: Defence
     - text: Indomitable Spirit / Mind of Steel
       spans: []
     - text: ''
@@ -207,16 +222,18 @@ content:
       text: Increase Cool Under Fire by +1. Additionally, once per turn you may ignore
         penalty dice from Suppressing Fire.
       spans:
-      - style: link_underline
+      - style: link_bold_underline
         text: Cool Under Fire
-        href: '#h.ik4eu1atnfyb'
-      - style: link_underline
+        href: attributes-and-skills.yaml#cool-under-fire
+      - style: link_bold_underline
         text: Suppressing Fire
-        href: '#h.h1vxsml5cxvo'
+        href: combat.yaml#combat-actions
     - *id014
     - *id014
   - - text: Conviction
-      spans: []
+      spans:
+      - style: bold
+        text: Conviction
     - text: Imperial Bearing
       spans: []
     - text: ''
@@ -238,18 +255,24 @@ content:
     - &id016
       text: When moving toward an enemy (Very Near range or closer), you may use an
         action to make a Bearing (DC8 + target’s Willpower) check with +1 bonus die.
-      spans: []
+      spans:
+      - style: bold
+        text: Bearing (DC8 + target’s Willpower)
       blocks:
       - type: list
         ordered: false
         items:
         - text: 'Success: the target suffers +2 stress.'
-          spans: []
+          spans:
+          - style: bold
+            text: Success
         - text: 'Extreme success: the target also gains the Fleeing condition.'
           spans:
-          - style: link_underline
+          - style: bold
+            text: Extreme success
+          - style: link_bold_underline
             text: Fleeing
-            href: '#h.ju3pufy1twg8'
+            href: conditions.yaml#fleeing-x
     - *id016
     - *id016
   - - text: ''
@@ -262,9 +285,9 @@ content:
       text: Attempts to intimidate or scare you are made with +1 penalty die; additionally,
         you are immune to being Demoralized.
       spans:
-      - style: link_underline
+      - style: link_bold_underline
         text: Demoralized
-        href: '#h.p7xo9pm49k9v'
+        href: conditions.yaml#demoralized-x
     - *id017
     - *id017
   - - text: ''
@@ -275,11 +298,15 @@ content:
       spans: []
     - &id018
       text: This one is descript
-      spans: []
+      spans:
+      - style: bold
+        text: This one is descript
     - *id018
     - *id018
   - - text: Cyberware
-      spans: []
+      spans:
+      - style: bold
+        text: Cyberware
     - text: Way of the Machine Fist
       spans: []
     - text: ''
@@ -318,7 +345,9 @@ content:
     - *id021
     - *id021
   - - text: Empathy
-      spans: []
+      spans:
+      - style: bold
+        text: Empathy
     - text: Reader
       spans: []
     - text: ''
@@ -326,9 +355,11 @@ content:
     - &id022
       text: Gain access to all Reader Empathic Abilities
       spans:
+      - style: bold
+        text: Reader
       - style: link_underline
         text: Empathic Abilities
-        href: '#h.6y40cli9uz99'
+        href: empaths.yaml#empathic-abilities
     - *id022
     - *id022
   - - text: ''
@@ -340,9 +371,11 @@ content:
     - &id023
       text: Gain access to all Pusher Empathic Abilities
       spans:
+      - style: bold
+        text: Pusher
       - style: link_underline
         text: Empathic Abilities
-        href: '#h.6y40cli9uz99'
+        href: empaths.yaml#empathic-abilities
     - *id023
     - *id023
   - - text: ''
@@ -354,13 +387,17 @@ content:
     - &id024
       text: Gain access to all Vessel Empathic Abilities
       spans:
+      - style: bold
+        text: Vessel
       - style: link_underline
         text: Empathic Abilities
-        href: '#h.6y40cli9uz99'
+        href: empaths.yaml#empathic-abilities
     - *id024
     - *id024
   - - text: Firearms
-      spans: []
+      spans:
+      - style: bold
+        text: Firearms
     - text: Quick Draw
       spans: []
     - text: ''
@@ -398,7 +435,9 @@ content:
     - *id027
     - *id027
   - - text: Leadership
-      spans: []
+      spans:
+      - style: bold
+        text: Leadership
     - text: Commanding Voice
       spans: []
     - text: ''
@@ -408,7 +447,9 @@ content:
         (DC6) check. On success, your target may immediately move up to half their
         movement speed. On an extreme success, your target also gains +1 bonus die
         to all rolls until the end of their next turn.
-      spans: []
+      spans:
+      - style: bold
+        text: Tactics (DC6)
     - *id028
     - *id028
   - - text: ''
@@ -435,11 +476,15 @@ content:
         to roll a Bearing (DC5 + stress amount) check. On success, your ally ignores
         1 incoming stress. On extreme success, your ally instead ignores half the
         incoming stress (rounded up). On failure, you suffer +1 stress.
-      spans: []
+      spans:
+      - style: bold
+        text: Bearing (DC5 + stress amount)
     - *id030
     - *id030
   - - text: Mechanical
-      spans: []
+      spans:
+      - style: bold
+        text: Mechanical
     - text: Duct Tape & Hope
       spans: []
     - text: ''
@@ -448,9 +493,9 @@ content:
       text: Use 1 action to attempt a repair check (ignoring normal time constraints);
         imposes +1 penalty die on the check and uses double materials.
       spans:
-      - style: link_underline
+      - style: link_bold_underline
         text: repair check
-        href: '#h.abk2uesvorh9'
+        href: equipment-gear.yaml#repair-and-modification
     - *id031
     - *id031
   - - text: ''
@@ -462,7 +507,9 @@ content:
     - &id032
       text: Create an item from the Items gear list with a cost no more than 500 credits.
         Requires an Engineering (DC8) check and takes 1 hour.
-      spans: []
+      spans:
+      - style: bold
+        text: Engineering (DC8)
     - *id032
     - *id032
   - - text: ''
@@ -477,14 +524,18 @@ content:
     - *id033
     - *id033
   - - text: Medical
-      spans: []
+      spans:
+      - style: bold
+        text: Medical
     - text: Steady Hands
       spans: []
     - text: ''
       spans: []
     - &id034
       text: Spend 1 reaction to reroll a failed First Aid check (once per round).
-      spans: []
+      spans:
+      - style: bold
+        text: First Aid
     - *id034
     - *id034
   - - text: ''
@@ -496,7 +547,9 @@ content:
     - &id035
       text: You may attempt to use First Aid checks to remove Heavy wounds. Doing
         so takes 1 hour and requires a difficult First Aid (DC12) check.
-      spans: []
+      spans:
+      - style: bold
+        text: First Aid (DC12)
     - *id035
     - *id035
   - - text: ''
@@ -509,11 +562,15 @@ content:
       text: When you succeed on a First Aid check, remove up to 1 stress from the
         target. If you rolled an extreme success on the check, remove up to 2 stress
         instead.
-      spans: []
+      spans:
+      - style: bold
+        text: First Aid
     - *id036
     - *id036
   - - text: Momentum
-      spans: []
+      spans:
+      - style: bold
+        text: Momentum
     - text: Run and Gun
       spans: []
     - text: ''
@@ -545,11 +602,15 @@ content:
     - &id039
       text: Use 1 reaction to make an Evade (DC7 + attacker’s weapon skill) check
         in order to avoid a gunshot.
-      spans: []
+      spans:
+      - style: bold
+        text: Evade (DC7 + attacker’s weapon skill)
     - *id039
     - *id039
   - - text: Mercantile
-      spans: []
+      spans:
+      - style: bold
+        text: Mercantile
     - text: Underworld Contacts
       spans: []
     - text: ''
@@ -571,7 +632,9 @@ content:
       spans: []
     - &id041
       text: When buying/selling, gain +1 bonus die to Negotiation checks.
-      spans: []
+      spans:
+      - style: bold
+        text: Negotiation
     - *id041
     - *id041
   - - text: ''
@@ -586,7 +649,9 @@ content:
     - *id042
     - *id042
   - - text: Nanomancy
-      spans: []
+      spans:
+      - style: bold
+        text: Nanomancy
     - text: Nanite Sensitivity
       spans: []
     - text: MENT 1
@@ -598,7 +663,7 @@ content:
       spans:
       - style: link_underline
         text: nanite density
-        href: '#h.pmttk177ept2'
+        href: nanomancy.yaml#nanite-density
     - *id043
     - *id043
   - - text: ''
@@ -614,7 +679,7 @@ content:
       spans:
       - style: link_underline
         text: Nanomancy Field
-        href: '#h.vqto8knm87g4'
+        href: nanomancy.yaml#nanomancy-fields
     - *id044
     - *id044
   - - text: ''
@@ -630,18 +695,22 @@ content:
       spans:
       - style: link_underline
         text: Nanite density
-        href: '#h.pmttk177ept2'
+        href: nanomancy.yaml#nanite-density
     - *id045
     - *id045
   - - text: Social
-      spans: []
+      spans:
+      - style: bold
+        text: Social
     - text: ''
       spans: []
     - text: ''
       spans: []
     - &id046
       text: This one is descript
-      spans: []
+      spans:
+      - style: bold
+        text: This one is descript
     - *id046
     - *id046
   - - text: ''
@@ -652,7 +721,9 @@ content:
       spans: []
     - &id047
       text: This one is descript
-      spans: []
+      spans:
+      - style: bold
+        text: This one is descript
     - *id047
     - *id047
   - - text: ''
@@ -663,11 +734,15 @@ content:
       spans: []
     - &id048
       text: This one is descript
-      spans: []
+      spans:
+      - style: bold
+        text: This one is descript
     - *id048
     - *id048
   - - text: Survival
-      spans: []
+      spans:
+      - style: bold
+        text: Survival
     - text: Scavenger
       spans: []
     - text: ''
@@ -709,14 +784,18 @@ content:
     - *id051
     - *id051
   - - text: Systems
-      spans: []
+      spans:
+      - style: bold
+        text: Systems
     - text: ''
       spans: []
     - text: ''
       spans: []
     - &id052
       text: This one is descript
-      spans: []
+      spans:
+      - style: bold
+        text: This one is descript
     - *id052
     - *id052
   - - text: ''
@@ -742,7 +821,9 @@ content:
     - *id054
     - *id054
   - - text: Vehicles
-      spans: []
+      spans:
+      - style: bold
+        text: Vehicles
     - text: ''
       spans: []
     - text: ''
@@ -785,14 +866,4 @@ content:
       spans: []
     - *id058
     - *id058
-- type: list
-  ordered: false
-  items:
-  - text: 'Success: the target suffers +2 stress.'
-    spans: []
-  - text: 'Extreme success: the target also gains the Fleeing condition.'
-    spans:
-    - style: link_underline
-      text: Fleeing
-      href: '#h.ju3pufy1twg8'
 sections: []

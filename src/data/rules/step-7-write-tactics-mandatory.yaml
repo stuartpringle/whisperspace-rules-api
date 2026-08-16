@@ -21,16 +21,26 @@ content:
   spans: []
 - type: paragraph
   text: "Name\n Tier X | Role | Faction"
-  spans: []
+  spans:
+  - style: bold
+    text: Name
 - type: paragraph
   text: "Wounds: X Light, Y Moderate, Z Heavy\n Morale: X"
-  spans: []
+  spans:
+  - style: bold
+    text: 'Wounds:'
+  - style: bold
+    text: 'Morale:'
 - type: paragraph
   text: "Attributes:\n PHYS X | REF X | MENT X | SOC X"
-  spans: []
+  spans:
+  - style: bold
+    text: 'Attributes:'
 - type: paragraph
   text: 'Skills:'
-  spans: []
+  spans:
+  - style: bold
+    text: 'Skills:'
 - type: list
   ordered: false
   items:
@@ -42,7 +52,9 @@ content:
     spans: []
 - type: paragraph
   text: 'Weapons:'
-  spans: []
+  spans:
+  - style: bold
+    text: 'Weapons:'
 - type: list
   ordered: false
   items:
@@ -50,7 +62,9 @@ content:
     spans: []
 - type: paragraph
   text: 'Armor:'
-  spans: []
+  spans:
+  - style: bold
+    text: 'Armor:'
 - type: list
   ordered: false
   items:
@@ -58,7 +72,9 @@ content:
     spans: []
 - type: paragraph
   text: 'Special:'
-  spans: []
+  spans:
+  - style: bold
+    text: 'Special:'
 - type: list
   ordered: false
   items:
@@ -68,7 +84,9 @@ content:
     spans: []
 - type: paragraph
   text: 'Tactics:'
-  spans: []
+  spans:
+  - style: bold
+    text: 'Tactics:'
 - type: list
   ordered: false
   items:
@@ -123,5 +141,11 @@ sections:
           dying condition…. Also add cyberware to interact with dying, maybe by rolling
           cybernetics? Or using the cybernetics rank as a modifier, like rounds you
           can auto-succeed a dying check or something.'
-        spans: []
+        spans:
+        - style: bold
+          text: 'Todo: bring back empathy somehow to tie into empaths, feats, and
+            execute action, look over execute action, new nanomancer field updates
+            to burner, dying condition…. Also add cyberware to interact with dying,
+            maybe by rolling cybernetics? Or using the cybernetics rank as a modifier,
+            like rounds you can auto-succeed a dying check or something.'
       sections: []

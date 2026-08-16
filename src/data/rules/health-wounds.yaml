@@ -37,21 +37,26 @@ sections:
   - type: paragraph
     text: Light wounds do not cause any adverse effects mechanically (besides being
       that much closer to more severe wounds or death).
-    spans: []
+    spans:
+    - style: bold
+      text: Light wounds
   - type: paragraph
-    text: Moderate wounds reduce a character’s movement speed by 10 feet each (so
-      with two moderate wounds, movement speed is reduced by 20 feet)
-    spans: []
+    text: Moderate wounds slow a character down. Each Moderate wound imposes +1 movement
+      penalty to that character’s movement until the Moderate wound is removed.
+    spans:
+    - style: bold
+      text: Moderate wounds
   - type: paragraph
     text: A heavy wound incapacitates a character entirely. He is unconscious. A character
       with a heavy wound is in desperate need of medical aid and gains the Dying condition.
     spans:
+    - style: bold
+      text: heavy wound
     - style: italic
       text: unconscious
-      href: null
-    - style: link_underline
+    - style: link_bold_underline
       text: Dying
-      href: '#h.kih2cwvp5weu'
+      href: conditions.yaml#dying
   sections: []
 - title: Healing
   slug: healing
@@ -69,14 +74,20 @@ sections:
   - type: paragraph
     text: Light wounds may be healed on the battlefield in 10 minutes with a successful
       First Aid check (DC8).
-    spans: []
+    spans:
+    - style: bold
+      text: Light wounds
   - type: paragraph
     text: Moderate wounds may be patched on the battlefield as well, but they require
       a much more difficult First Aid (DC12) check and take 1 hour to patch up. The
       movement impairment effect from a moderate wound remains until the character
       has spent time resting/healing in down time (in a hospital for a day, or convalescing
       for a week).
-    spans: []
+    spans:
+    - style: bold
+      text: Moderate wounds
+    - style: bold
+      text: First Aid (DC12)
   - type: paragraph
     text: Heavy wounds cannot be treated on the battlefield at all, aside from stopping
       the character from bleeding out. A character with a heavy wound may not receive
@@ -84,7 +95,9 @@ sections:
       takes weeks or months with constant medical attention (preferably in a hospital).
       A character with a heavy wound (even if it’s been healed) may not receive battlefield
       healing for light wounds.
-    spans: []
+    spans:
+    - style: bold
+      text: Heavy wounds
   - type: paragraph
     text: Outside of combat, characters passively heal up to 1 Light wound per day.
       Characters do not heal Moderate or Heavy wounds this way.

@@ -1,6 +1,6 @@
 {
-  "version": "0.1.1",
-  "generatedAt": "2026-03-10T18:13:03.605Z",
+  "version": "0.2.0",
+  "generatedAt": "2026-08-16T01:15:29.348Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
@@ -35,12 +35,12 @@
       "bytes": 1086
     },
     "rules.json": {
-      "sha256": "727febe0527297f3215c8f5646876da878a95fc3e79dd566cbec6a18358a1d79",
-      "bytes": 635064
+      "sha256": "77cad66b7595aff16c655898f78a9f8dddf69cbb61ff1447714dd6cbcbd29c67",
+      "bytes": 725056
     },
     "skill_tooltips.json": {
-      "sha256": "b3258dc5703043e34d49fee51ada6302700c9aaa77b49c1484be65b54dc27014",
-      "bytes": 16847
+      "sha256": "f7e637b2dad956827264229a0a76260a4b61397790a9f60d09bfc783d4754243",
+      "bytes": 16829
     },
     "core/combat.js": {
       "sha256": "4b8d4c01b283fc119fd1b71a32f7f5ab06f948a541af1f44074a00a0e81c1dd7",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "activeRelease": "2026-03-05-baseline",
+  "activeRelease": "2026-08-15-toc-split",
   "releases": [
     {
       "id": "2026-03-05-baseline",
@@ -21,6 +21,26 @@
         "docs_rules_client_contract": "1.0.0"
       },
       "notes": "Initial enforced cross-repo compatibility baseline."
+    },
+    {
+      "id": "2026-08-15-toc-split",
+      "date": "2026-08-15",
+      "versions": {
+        "whisperspace-rules-api": "0.1.0",
+        "whisperspace-sdk": "1.1.0",
+        "whisperspace-character-builder": "1.0.0",
+        "whisperspace-obr-extension": "1.0.0",
+        "whisperspace-obr-gm": "1.0.0",
+        "whisperspace-docs": "1.1.0"
+      },
+      "contracts": {
+        "rules_contract": "0.2.0",
+        "calc_contract": "1.0.0",
+        "character_api_contract": "1.2.0",
+        "character_record_schema": "1.1.0",
+        "docs_rules_client_contract": "1.0.0"
+      },
+      "notes": "rules_contract breaking (minor) bump: the public 'document' chapter slug is removed, replaced by 'skippable-intro' and 'table-of-contents'. Two unrelated kinds of change are bundled in this release: (1) parser-level bug fixes (rules-parser 613ca2e, e6fd71b, and the h.<id> regex fix before it) resolving internal Google Docs link resolution and heading-inference - the removed 'document' slug is a direct consequence, since heading-inference was silently flattening two real top-level sections into it that now correctly split out; and (2) the document author's own independent, already-finished game content edits, pulled in because the parser CLI auto-redownloaded the previously-stale local doc export as part of this same run - notably reworked Stress-from-wound values (stress.yaml), a restructured Moderate-wound movement penalty (health-wounds.yaml), and multiple DC/action-economy changes (combat.yaml). The content edits are unrelated to the parser fixes but are confirmed intentional and ready to publish. whisperspace-docs required real code changes to adapt (removed manual link-alias/TOC-parsing patches now that the source data resolves correctly on its own; changed which chapter is treated as the landing page) and its manifest version bumps accordingly. character-builder, obr-extension, and obr-gm were reviewed against this release (grepped for any dependency on chapter-level narrative slugs) and confirmed unaffected - they only consume specific stable sub-topic slugs within Combat and the separate gear/stat tables, none of which changed - so their manifests are bumped to require ^0.2.0 without any code changes."
     }
   ]
 }

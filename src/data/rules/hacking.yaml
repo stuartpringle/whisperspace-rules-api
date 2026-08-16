@@ -16,11 +16,17 @@ content:
     - *id001
     - *id001
   - - text: Tier
-      spans: []
+      spans:
+      - style: bold
+        text: Tier
     - text: System Type
-      spans: []
+      spans:
+      - style: bold
+        text: System Type
     - text: Hacking DC
-      spans: []
+      spans:
+      - style: bold
+        text: Hacking DC
   - - text: '0'
       spans: []
     - text: Public terminals, info kiosks

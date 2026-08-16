@@ -10,7 +10,11 @@ sections:
   - type: paragraph
     text: 'Simply put, the core mechanic is: roll 1d12 and add a modifier to it. This
       d12 is called the base die.'
-    spans: []
+    spans:
+    - style: bold
+      text: roll 1d12 and add a modifier to it.
+    - style: bold
+      text: base die
   - type: paragraph
     text: If you think of player action as a desire and a question (‘I want to climb
       the wall. Do I succeed?’), then you can think of this core mechanic as the GM’s
@@ -19,10 +23,8 @@ sections:
     spans:
     - style: italic
       text: desire
-      href: null
     - style: italic
       text: question
-      href: null
   - type: paragraph
     text: Want to fly a spaceship? Negotiate with terrorists? Shoot someone with a
       photon rifle? You’ll be rolling D12s and adding your skill modifiers for each
@@ -37,7 +39,9 @@ sections:
     text: Difficulty Class (usually referred to as DC) is a target number a roll must
       meet or exceed in order to succeed. In the example above, the GM decided that
       a DC of 8 was required to successfully climb a wall.
-    spans: []
+    spans:
+    - style: bold
+      text: target number a roll must meet or exceed in order to succeed
   - type: paragraph
     text: DC can be mechanically decided in some contexts (such as combat; an attack
       roll must meet or exceed a DC determined by the weapon used, whether the target
@@ -51,11 +55,17 @@ sections:
   - type: table
     rows:
     - - text: Task Difficulty
-        spans: []
+        spans:
+        - style: bold
+          text: Task Difficulty
       - text: Difficulty Class (DC)
-        spans: []
+        spans:
+        - style: bold
+          text: Difficulty Class (DC)
       - text: Description
-        spans: []
+        spans:
+        - style: bold
+          text: Description
     - - text: Trivial
         spans: []
       - text: '4'
@@ -105,7 +115,11 @@ sections:
         the GM’s discretion) or mechanically in systems such as combat. Conversely,
         extreme failures may bring about negative consequences in addition to the
         action’s failure.
-      spans: []
+      spans:
+      - style: bold
+        text: Extreme
+      - style: bold
+        text: extreme
     - type: paragraph
       text: In the wall-climbing example given above, the DC was 8. If a character
         rolls a 14 (6 over) they’re in extreme success territory; maybe they climb
@@ -113,13 +127,21 @@ sections:
         If the roll is a 4, however, they’re in extreme failure territory - maybe
         they climb partway, then fall and take damage, or an enemy is alerted to their
         presence.
-      spans: []
+      spans:
+      - style: bold
+        text: extreme success
+      - style: bold
+        text: extreme failure
     - type: table
       rows:
       - - text: Result vs DC
-          spans: []
+          spans:
+          - style: bold
+            text: Result vs DC
         - text: Outcome
-          spans: []
+          spans:
+          - style: bold
+            text: Outcome
       - - text: Success by 0-3
           spans: []
         - text: Success
@@ -151,11 +173,15 @@ sections:
   - type: paragraph
     text: 'Bonus die: roll your skill check plus another d12. Choose the highest die
       rolled, then add your skill modifier to it.'
-    spans: []
+    spans:
+    - style: bold
+      text: Bonus die
   - type: paragraph
     text: 'Penalty die: roll your skill check plus another d12. Choose the lowest
       die rolled, then add your modifier to it.'
-    spans: []
+    spans:
+    - style: bold
+      text: Penalty die
   sections:
   - title: Stacking Bonuses and Penalties
     slug: stacking-bonuses-and-penalties

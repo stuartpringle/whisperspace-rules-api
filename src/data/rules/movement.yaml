@@ -45,7 +45,7 @@ sections:
       spans:
       - style: link_underline
         text: Immobile
-        href: '#h.i4ndc4959ij'
+        href: conditions.yaml#immobile
     sections: []
 - title: Types of Movement
   slug: types-of-movement
@@ -54,9 +54,13 @@ sections:
   - type: table
     rows:
     - - text: Type of Movement
-        spans: []
+        spans:
+        - style: bold
+          text: Type of Movement
       - text: Penalty
-        spans: []
+        spans:
+        - style: bold
+          text: Penalty
     - - text: Walking or running
         spans: []
       - text: None
@@ -71,14 +75,14 @@ sections:
         spans:
         - style: link_underline
           text: Swimming
-          href: '#h.95rit9r9dylz'
+          href: '#swimming'
     - - text: Climbing
         spans: []
       - text: +2 movement penalties (while climbing; see Climbing)
         spans:
         - style: link_underline
           text: Climbing
-          href: '#h.lfg5zzxrnf0j'
+          href: '#climbing'
   sections: []
 - title: Standing from prone
   slug: standing-from-prone
@@ -96,18 +100,26 @@ sections:
     text: In difficult water, a dangerous situation, or after prolonged swimming,
       the GM may call for a swimming check. To do so, roll Athletics (DC6) swimming
       check. Depending on conditions, the GM may raise or lower this DC.
-    spans: []
+    spans:
+    - style: bold
+      text: Athletics (DC6)
   - type: list
     ordered: false
     items:
     - text: Encumbrance increases the DC by +2.
-      spans: []
+      spans:
+      - style: bold
+        text: Encumbrance
     - text: Heavy encumbrance increases the DC by +6.
-      spans: []
+      spans:
+      - style: bold
+        text: Heavy encumbrance
     - text: While a character is swimming, regular encumbrance checks do not apply.
       spans: []
     - text: Dragging something is impossible while swimming.
-      spans: []
+      spans:
+      - style: bold
+        text: Dragging
   sections:
   - title: 'Swimming check results:'
     slug: swimming-check-results
@@ -118,16 +130,24 @@ sections:
       items:
       - text: 'Extreme Success: navigate the water well; reduce movement penalty by
           -1.'
-        spans: []
+        spans:
+        - style: bold
+          text: Extreme Success
       - text: 'Success: swim at normal speed without issue.'
-        spans: []
+        spans:
+        - style: bold
+          text: Success
       - text: 'Failure: swim is more draining than expected; receive +1 movement penalty.'
-        spans: []
+        spans:
+        - style: bold
+          text: Failure
       - text: 'Extreme Failure: gain the Asphyxiating condition.'
         spans:
+        - style: bold
+          text: Extreme Failure
         - style: link_underline
           text: Asphyxiating
-          href: '#h.dbbxz8i2mood'
+          href: conditions.yaml#asphyxiating
     - type: list
       ordered: false
       items:
@@ -145,16 +165,24 @@ sections:
     text: When climbing under time pressure, in difficult circumstances, or a tall
       surface, the GM may call for an Athletics (DC6) climbing check. The GM may raise
       or lower this DC based on the climbing surface and conditions.
-    spans: []
+    spans:
+    - style: bold
+      text: Athletics (DC6)
   - type: list
     ordered: false
     items:
     - text: Encumbrance increases the DC by +2.
-      spans: []
+      spans:
+      - style: bold
+        text: Encumbrance
     - text: Heavy encumbrance increases the DC by +6.
-      spans: []
+      spans:
+      - style: bold
+        text: Heavy encumbrance
     - text: Dragging objects or characters while climbing is impossible.
-      spans: []
+      spans:
+      - style: bold
+        text: Dragging
   sections:
   - title: 'Climbing check results:'
     slug: climbing-check-results
@@ -165,17 +193,25 @@ sections:
       items:
       - text: 'Extreme success: handholds are easier to find than expected; reduce
           movement penalty by -1.'
-        spans: []
+        spans:
+        - style: bold
+          text: Extreme success
       - text: 'Success: climb succeeds as normal.'
-        spans: []
+        spans:
+        - style: bold
+          text: Success
       - text: 'Failure: climb takes longer than expected; receive +1 movement penalty.'
-        spans: []
+        spans:
+        - style: bold
+          text: Failure
       - text: 'Extreme failure: climb results in a fall (GM determines distance; see
           Falling below)'
         spans:
+        - style: bold
+          text: Extreme failure
         - style: link_underline
           text: Falling
-          href: '#h.tshorzmqqxvs'
+          href: '#falling'
     sections: []
   - title: Falling
     slug: falling
@@ -191,13 +227,17 @@ sections:
       spans:
       - style: link_underline
         text: Ranges
-        href: '#h.hg05e3xl0jld'
+        href: combat.yaml#ranges
     - type: table
       rows:
       - - text: Distance fallen
-          spans: []
+          spans:
+          - style: bold
+            text: Distance fallen
         - text: Fall Severity roll
-          spans: []
+          spans:
+          - style: bold
+            text: Fall Severity roll
       - - text: Melee
           spans: []
         - text: 1d12 -2
@@ -229,7 +269,9 @@ sections:
     - type: paragraph
       text: Once you’ve made the Fall Severity roll, compare the result to the Fall
         Severity table. All damage from falling is unmitigated damage.
-      spans: []
+      spans:
+      - style: bold
+        text: All damage from falling is unmitigated damage.
     - type: table
       rows:
       - - &id001
@@ -237,9 +279,13 @@ sections:
           spans: []
         - *id001
       - - text: Fall Severity roll result
-          spans: []
+          spans:
+          - style: bold
+            text: Fall Severity roll result
         - text: Outcome
-          spans: []
+          spans:
+          - style: bold
+            text: Outcome
       - - text: 1-3
           spans: []
         - text: No damage.
@@ -285,15 +331,21 @@ sections:
     spans:
     - style: link_underline
       text: Character Creation
-      href: '#h.22nk2cro67ys'
+      href: character-creation.yaml#8-final-steps
   - type: table
     rows:
     - - text: Item Type
-        spans: []
+        spans:
+        - style: bold
+          text: Item Type
       - text: Bulk
-        spans: []
+        spans:
+        - style: bold
+          text: Bulk
       - text: Approximate Weight
-        spans: []
+        spans:
+        - style: bold
+          text: Approximate Weight
     - - text: Light gear
         spans: []
       - text: '1'
@@ -332,20 +384,34 @@ sections:
     - type: paragraph
       text: Attempting to carry gear beyond a character’s carrying capacity encumbers
         the character. This imposes +1 movement penalty.
-      spans: []
+      spans:
+      - style: bold
+        text: encumbers
     - type: paragraph
       text: If a character is encumbered for an hour or more, they must roll an Endurance
         (DC6) encumbrance check.
-      spans: []
+      spans:
+      - style: bold
+        text: encumbered
+      - style: bold
+        text: Endurance (DC6)
     - type: list
       ordered: false
       items:
       - text: 'Success: they continue normally for another hour'
-        spans: []
+        spans:
+        - style: bold
+          text: Success
       - text: 'Failure: the extra weight takes a toll. The character moves from being
           encumbered to being heavily encumbered. A ten minute rest (without any encumbrance)
           resets this.'
-        spans: []
+        spans:
+        - style: bold
+          text: Failure
+        - style: bold
+          text: encumbered
+        - style: bold
+          text: heavily encumbered
     sections: []
   - title: Heavy Encumbrance
     slug: heavy-encumbrance
@@ -354,7 +420,11 @@ sections:
     - type: paragraph
       text: Attempting to carry more than double your carrying capacity or failing
         an encumbrance check heavily encumbers you.
-      spans: []
+      spans:
+      - style: bold
+        text: double
+      - style: bold
+        text: heavily encumbers
     - type: paragraph
       text: 'While heavily encumbered:'
       spans: []
@@ -364,28 +434,48 @@ sections:
       - text: Gain +2 movement penalties.
         spans: []
       - text: You suffer +1 penalty die to all REF-based skill checks.
-        spans: []
+        spans:
+        - style: bold
+          text: +1 penalty die to all REF-based skill checks.
       - text: You cannot Fully Commit.
         spans: []
     - type: paragraph
       text: "At the start of each of your turns while heavily encumbered, roll an\
         \ Endurance (DC6) encumbrance check.\n Each consecutive turn you remain heavily\
         \ encumbered increases the DC by +1."
-      spans: []
+      spans:
+      - style: bold
+        text: Endurance (DC6)
+      - style: bold
+        text: '+1'
     - type: list
       ordered: false
       items:
       - text: 'Success: you may act normally this turn.'
-        spans: []
+        spans:
+        - style: bold
+          text: 'Success:'
       - text: 'Failure: you must either drop the load or suffer 1 Stress.'
-        spans: []
+        spans:
+        - style: bold
+          text: 'Failure:'
+        - style: bold
+          text: 1 Stress
       - text: 'Extreme Failure: you suffer 1 damage and must either drop the load
           or fall prone.'
-        spans: []
+        spans:
+        - style: bold
+          text: 'Extreme Failure:'
+        - style: bold
+          text: 1 damage
     - type: paragraph
       text: The DC resets to 6 once you drop below heavy encumbrance or rest for at
         least ten minutes.
-      spans: []
+      spans:
+      - style: bold
+        text: '6'
+      - style: bold
+        text: heavy encumbrance
     sections: []
   - title: Too Much Weight
     slug: too-much-weight
@@ -398,7 +488,7 @@ sections:
       spans:
       - style: link_underline
         text: Immobile
-        href: '#h.i4ndc4959ij'
+        href: conditions.yaml#immobile
     sections: []
   - title: Dragging Objects and Characters
     slug: dragging-objects-and-characters
@@ -409,5 +499,7 @@ sections:
         GM may rule that it does (depending on the weight or type of the object).
         Dragging an object or character requires at least one hand free and imposes
         +1 movement penalty.
-      spans: []
+      spans:
+      - style: bold
+        text: +1 movement penalty
     sections: []

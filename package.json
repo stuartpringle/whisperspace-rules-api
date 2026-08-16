@@ -2,7 +2,7 @@
   "name": "whisperspace-obr-sheet",
   "private": true,
   "version": "0.1.0",
-  "rulesVersion": "0.1.1",
+  "rulesVersion": "0.2.0",
   "type": "module",
   "scripts": {
     "codex:hooks:install": "bash scripts/install-codex-hooks-ecosystem.sh",

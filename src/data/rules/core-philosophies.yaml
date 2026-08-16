@@ -12,15 +12,21 @@ content:
       causes massive trauma whether the person who shot you is a level 1 character
       or a level 100 character. Your character won’t typically become inherently harder
       to kill simply by gaining skills (though better armour can always be worn).
-    spans: []
+    spans:
+    - style: bold
+      text: Player characters (PCs) are fragile humans
   - text: Being in combat takes a toll on even the bravest. To reflect this, Whisperspace
       has a Stress system that can permanently impact characters.
-    spans: []
+    spans:
+    - style: bold
+      text: Being in combat takes a toll on even the bravest
   - text: 'Movement and positioning matters in combat. Are you hiding behind a spaceship
       so the bad guy can’t shoot you? Good: that means they can’t shoot you. Hollywood
       gunfights are fun to watch, but in Whisperspace, you rarely want to be standing
       out in the open, presenting yourself as an easy target.'
-    spans: []
+    spans:
+    - style: bold
+      text: Movement and positioning matters in combat
 - type: paragraph
   text: Whisperspace is a gritty, cinematic sci-fi TTRPG about survival, control,
     and consequence in a fractured galaxy. You’re not a superhero. You’re a specialist

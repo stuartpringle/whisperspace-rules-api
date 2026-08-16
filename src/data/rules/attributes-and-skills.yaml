@@ -17,7 +17,9 @@ sections:
       of attribute rolls (such as rolling a reflex check to determine your initiative
       order in combat), and also as a baseline for all skills related to them. No
       skill check can have a result lower than its related attribute.
-    spans: []
+    spans:
+    - style: bold
+      text: No skill check can have a result lower than its related attribute.
   - type: paragraph
     text: For example, if your character has a PHYS attribute of 2 but a Powerlift
       of 0, every Powerlift check you roll will have a result of 2 or higher (even
@@ -29,11 +31,17 @@ sections:
   - type: table
     rows:
     - - text: Attribute
-        spans: []
+        spans:
+        - style: bold
+          text: Attribute
       - text: Short Form
-        spans: []
+        spans:
+        - style: bold
+          text: Short Form
       - text: Description
-        spans: []
+        spans:
+        - style: bold
+          text: Description
     - - text: Physique
         spans: []
       - text: PHYS
@@ -89,32 +97,6 @@ sections:
           items:
           - text: Scientists, mechanics, and hackers are likely to want high MENT
             spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: Each point in Physique increases your carrying capacity
-      spans: []
-    - text: Every point in Physique increases your movement speed by 5ft
-      spans: []
-    - text: Soldiers and brawlers typically have high PHYS
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: Reflex is rolled to determine initiative order in combat
-      spans: []
-    - text: Pilots, Martial Artists, and Spiderman are all known for high REF
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: Diplomats and empaths typically have high SOC
-      spans: []
-  - type: list
-    ordered: false
-    items:
-    - text: Scientists, mechanics, and hackers are likely to want high MENT
-      spans: []
   sections:
   - title: Cool Under Fire
     slug: cool-under-fire
@@ -128,7 +110,10 @@ sections:
     - type: paragraph
       text: Cool Under Fire = 1 + (Instinct + Willpower + Bearing + Toughness + Tactics
         ÷ 5) rounded up to the next whole number.
-      spans: []
+      spans:
+      - style: bold
+        text: Cool Under Fire = 1 + (Instinct + Willpower + Bearing + Toughness +
+          Tactics ÷ 5) rounded up to the next whole number.
     - type: paragraph
       text: This means if you round 2.1, it will become 3. 2.9 will also become 3.
         1.9 will become 2, and so on.
@@ -153,15 +138,18 @@ sections:
         rank as a modifier to all checks for that skill. For example, a Melee (weapons)
         skill check would entail rolling 1d12 and adding your Melee (weapons) skill
         rank to it.
-      spans: []
+      spans:
+      - style: bold
+        text: add your skill rank as a modifier to all checks for that skill
     sections:
     - title: Skill Ranks
       slug: skill-ranks
       level: 4
       content:
       - type: paragraph
-        text: Your skill rank is simply how many points you’ve put into a skill. So
-          if you’ve put 3 points into your Balance skill, it has a skill rank of 3.
+        text: Your skill rank is simply how many levels you’ve put into a skill. So
+          if you’ve put 3 levels into your Balance skill (using 6 skill points to
+          do so), it has a skill rank of 3.
         spans: []
       sections: []
     - title: Untrained Rolls
@@ -190,7 +178,9 @@ sections:
       spans: []
     - type: paragraph
       text: 'Example:'
-      spans: []
+      spans:
+      - style: bold
+        text: Example
     - type: paragraph
       text: Your Learning Focus is Education.
       spans: []
@@ -209,9 +199,13 @@ sections:
       - type: table
         rows:
         - - text: Combat Learning Focus Skills
-            spans: []
+            spans:
+            - style: bold
+              text: Combat Learning Focus Skills
           - text: Description
-            spans: []
+            spans:
+            - style: bold
+              text: Description
         - - text: Melee (weapons)
             spans: []
           - text: Proficiency with melee weapons (bar stools, katanas)
@@ -222,7 +216,7 @@ sections:
             spans: []
         - - text: Weapons (light)
             spans: []
-          - text: Pistols, SMGs
+          - text: Pistols
             spans: []
         - - text: Weapons (medium)
             spans: []
@@ -258,9 +252,13 @@ sections:
       - type: table
         rows:
         - - text: Education Learning Focus Skills
-            spans: []
+            spans:
+            - style: bold
+              text: Education Learning Focus Skills
           - text: Description
-            spans: []
+            spans:
+            - style: bold
+              text: Description
         - - text: Material Sciences
             spans: []
           - text: Chemistry and geology
@@ -316,9 +314,13 @@ sections:
       - type: table
         rows:
         - - text: Vehicles Learning Focus Skills
-            spans: []
+            spans:
+            - style: bold
+              text: Vehicles Learning Focus Skills
           - text: Description
-            spans: []
+            spans:
+            - style: bold
+              text: Description
         - - text: Gunnery
             spans: []
           - text: Shooting things from ships
@@ -369,11 +371,17 @@ sections:
         - *id001
         - *id001
       - - text: Physique Skills
-          spans: []
+          spans:
+          - style: bold
+            text: Physique Skills
         - text: Max rank
-          spans: []
+          spans:
+          - style: bold
+            text: Max rank
         - text: Description
-          spans: []
+          spans:
+          - style: bold
+            text: Description
       - - text: Athletics
           spans: []
         - text: '5'
@@ -417,11 +425,17 @@ sections:
         - *id002
         - *id002
       - - text: Reflex Skills
-          spans: []
+          spans:
+          - style: bold
+            text: Reflex Skills
         - text: Max rank
-          spans: []
+          spans:
+          - style: bold
+            text: Max rank
         - text: Description
-          spans: []
+          spans:
+          - style: bold
+            text: Description
       - - text: Balance
           spans: []
         - text: '5'
@@ -466,11 +480,17 @@ sections:
         - *id003
         - *id003
       - - text: Social Skills
-          spans: []
+          spans:
+          - style: bold
+            text: Social Skills
         - text: Max rank
-          spans: []
+          spans:
+          - style: bold
+            text: Max rank
         - text: Description
-          spans: []
+          spans:
+          - style: bold
+            text: Description
       - - text: Subterfuge
           spans: []
         - text: '5'
@@ -514,7 +534,9 @@ sections:
             spotting a con artist in a crowd, sensing an ambush in a quiet alley,
             or reading the performative lies of a smooth-talking diplomat, Streetwise
             lets you interpret what’s going on beneath the surface.
-          spans: []
+          spans:
+          - style: bold
+            text: .
     - type: table
       rows:
       - - &id004
@@ -523,11 +545,17 @@ sections:
         - *id004
         - *id004
       - - text: Mental Skills
-          spans: []
+          spans:
+          - style: bold
+            text: Mental Skills
         - text: Max rank
-          spans: []
+          spans:
+          - style: bold
+            text: Max rank
         - text: Description
-          spans: []
+          spans:
+          - style: bold
+            text: Description
       - - text: Composure
           spans: []
         - text: '5'

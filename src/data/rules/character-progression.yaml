@@ -11,9 +11,13 @@ content:
 - type: table
   rows:
   - - text: Progression Rate
-      spans: []
+      spans:
+      - style: bold
+        text: Progression Rate
     - text: SP after session
-      spans: []
+      spans:
+      - style: bold
+        text: SP after session
   - - text: Quick
       spans: []
     - text: 5-10
