@@ -12,20 +12,6 @@
       "cost": 500
     },
     {
-      "id": "smart_pistol",
-      "name": "SMART Pistol",
-      "skillId": "weapons_light",
-      "useDC": 9,
-      "damage": 4,
-      "range": "Med",
-      "ammo": 6,
-      "bulk": 1,
-      "cost": 900,
-      "keywords": [
-        "Smart-Linked"
-      ]
-    },
-    {
       "id": "toxic_spike",
       "name": "Toxic Spike",
       "skillId": "weapons_light",
@@ -36,22 +22,49 @@
       "bulk": 1,
       "cost": 750,
       "keywords": [
-        "Toxin (Prax)",
-        "Concealable"
+        "Toxin (Prax)"
+      ]
+    },
+    {
+      "id": "boom_stick",
+      "name": "Boom Stick",
+      "skillId": "weapons_light",
+      "useDC": 8,
+      "damage": 1,
+      "range": "Near",
+      "ammo": 2,
+      "bulk": 2,
+      "cost": 600,
+      "keywords": [
+        "Point Blank (3)"
+      ]
+    },
+    {
+      "id": "compact_smg",
+      "name": "Compact SMG",
+      "skillId": "weapons_light",
+      "useDC": 7,
+      "damage": 2,
+      "range": "Near",
+      "ammo": 6,
+      "bulk": 2,
+      "cost": 800,
+      "keywords": [
+        "Automatic"
       ]
     },
     {
       "id": "smg",
       "name": "SMG",
       "skillId": "weapons_medium",
-      "useDC": 6,
+      "useDC": 7,
       "damage": 3,
       "range": "Med",
-      "ammo": 8,
+      "ammo": 9,
       "bulk": 2,
-      "cost": 600,
+      "cost": 1000,
       "keywords": [
-        "Bullet Spray"
+        "Automatic"
       ]
     },
     {
@@ -59,7 +72,7 @@
       "name": "Photon Rifle",
       "skillId": "weapons_medium",
       "useDC": 8,
-      "damage": 6,
+      "damage": 5,
       "range": "Long",
       "ammo": 6,
       "bulk": 3,
@@ -80,7 +93,7 @@
       "cost": 1000,
       "keywords": [
         "Two-Handed",
-        "Piercing 1"
+        "Piercing (1)"
       ]
     },
     {
@@ -88,16 +101,16 @@
       "name": "Shotgun",
       "skillId": "weapons_medium",
       "useDC": 8,
-      "damage": 4,
+      "damage": 3,
       "range": "Near",
       "ammo": 4,
       "bulk": 3,
       "cost": 800,
-      "req": "PHYS 1",
       "keywords": [
         "Two-Handed",
-        "Point Blank",
-        "Shredding 1"
+        "Point Blank (2)",
+        "Shredding (1)",
+        "(Req. PHYS 1)"
       ]
     },
     {
@@ -109,11 +122,12 @@
       "range": "Med",
       "ammo": 20,
       "bulk": 4,
-      "cost": 900,
-      "req": "PHYS 3",
+      "cost": 2500,
       "keywords": [
         "Two-Handed",
-        "Bullet Spray"
+        "Slow Load",
+        "Automatic",
+        "Req. (PHYS 3)"
       ]
     },
     {
@@ -125,13 +139,13 @@
       "range": "Med",
       "ammo": 1,
       "bulk": 3,
-      "cost": 2000,
-      "req": "PHYS 2",
+      "cost": 3000,
       "keywords": [
         "Area (Very Near)",
         "Two-Handed",
         "Slow Load",
-        "Grenade"
+        "Grenade",
+        "Req. (PHYS 2)"
       ]
     },
     {
@@ -144,12 +158,12 @@
       "ammo": 5,
       "bulk": 2,
       "cost": 8000,
-      "req": "PHYS 1",
       "keywords": [
         "Area (melee)",
         "Two-Handed",
         "Slow Load",
-        "Shredding 3"
+        "Shredding (3)",
+        "Req. (PHYS 1)"
       ]
     },
     {
@@ -164,7 +178,8 @@
       "cost": 6000,
       "keywords": [
         "Two-Handed",
-        "Stun 2"
+        "Stun (2)",
+        "Crit (Stun (1))"
       ]
     },
     {
@@ -178,7 +193,8 @@
       "bulk": 1,
       "cost": 450,
       "keywords": [
-        "Stun 1"
+        "Stun (1)",
+        "Crit (Stun (1))"
       ]
     },
     {
@@ -192,7 +208,6 @@
       "bulk": 1,
       "cost": 150,
       "keywords": [
-        "Concealable",
         "Thrown"
       ]
     },
@@ -206,9 +221,9 @@
       "ammo": 0,
       "bulk": 2,
       "cost": 1200,
-      "req": "REF 2",
       "keywords": [
-        "Piercing 2"
+        "Piercing (2)",
+        "Req. (REF 2)"
       ]
     },
     {
@@ -221,9 +236,9 @@
       "ammo": 2,
       "bulk": 3,
       "cost": 2500,
-      "req": "PHYS 3",
       "keywords": [
-        "Two-Handed"
+        "Two-Handed",
+        "Req. PHYS 3"
       ]
     }
   ]

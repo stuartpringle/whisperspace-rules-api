@@ -517,7 +517,7 @@ content:
   spans:
   - style: link_underline
     text: Gear List 56
-    href: equipment-gear.yaml#gear-list
+    href: '#h.naqfz3pqitdo'
 - type: paragraph
   text: Hacking Equipment 68
   spans:

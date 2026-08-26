@@ -533,8 +533,9 @@ sections:
     - type: paragraph
       text: A Character performs a reaction in response to external stimuli (called
         the trigger; this is described by the reaction). A reaction may be performed
-        at any time, not just on his turn. To use a reaction, a character must use
-        an action (if he has no remaining actions this round, he cannot use a reaction).
+        at any time, not just on his turn. To use a reaction (for example, Dive for
+        Cover), a character must use one reaction, unless otherwise specified. If
+        he has no remaining reactions this round, he cannot use a reaction at all.
       spans:
       - style: bold
         text: trigger
@@ -599,15 +600,17 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: A character may change stance (prone, crouching, standing) and move
+        - text: 'A character may change stance (prone, crouching, standing) and move
             up to his allotted movement distance. This movement may be split around
             other actions. For example, a character may choose to move slightly, attack
             an enemy, then move again. Both those movements may be part of the same
             Move action. When split in this way, the total distance a character moves
-            can never exceed his Movement Speed.If you use more than one move action
-            during your turn, each successive move action imposes +1 movement penalty
-            (cumulative). So a third movement action would be made with +2 movement
-            penalties.
+            can never exceed his Movement Speed.
+
+
+            If you use more than one move action during your turn, each successive
+            move action imposes +1 movement penalty (cumulative). So a third movement
+            action would be made with +2 movement penalties.'
           spans: []
       - - text: Draw weapon
           spans: []
@@ -658,8 +661,11 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: 'You prepare to assist an ally with a skill check.Choose a specific
-            skill your ally is about to use.Restrictions:'
+        - text: 'You prepare to assist an ally with a skill check.
+
+            Choose a specific skill your ally is about to use.
+
+            Restrictions:'
           spans: []
           blocks:
           - type: list
@@ -689,12 +695,14 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: Choose a direction or a location within your weapon’s range, then
+        - text: 'Choose a direction or a location within your weapon’s range, then
             spend 1-3 ammo. Until the start of your next turn, the first time each
             enemy you can see enters or moves from that direction or location, they
             must make a Cool Under Fire (DC4 + ammo used) check. This effect occurs
-            once per ammo spent, up to a maximum of three times.Suppressing fire may
-            only be used with a ranged weapon.
+            once per ammo spent, up to a maximum of three times.
+
+
+            Suppressing fire may only be used with a ranged weapon.'
           spans:
           - style: bold
             text: Cool Under Fire (DC4 + ammo used)
@@ -783,9 +791,10 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: Co-ordinate with teammates. Choose any number of allies within Near
-            range; roll Tactics (DC4 + 3 per ally).Teamwork may be used no more than
-            once per ally per turn.
+        - text: 'Co-ordinate with teammates. Choose any number of allies within Near
+            range; roll Tactics (DC4 + 3 per ally).
+
+            A character may benefit from Teamwork no more than once per round.'
           spans:
           - style: bold
             text: Tactics (DC4 + 3 per ally)
@@ -821,9 +830,11 @@ sections:
           spans: []
         - text: 2 actions
           spans: []
-        - text: Make an attack as normal against a character within Melee range who
-            is Dying, Unconscious, or otherwise completely helpless (GM discretion).After
-            a successful Execute action, make a Composure (DC6 + your Empathy) check.
+        - text: 'Make an attack as normal against a character within Melee range who
+            is Dying, Unconscious, or otherwise completely helpless (GM discretion).
+
+            After a successful Execute action, make a Composure (DC6 + your Empathy)
+            check.'
           spans:
           - style: bold
             text: Dying

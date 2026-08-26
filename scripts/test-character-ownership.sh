@@ -32,7 +32,7 @@ start_server() {
       WS_CHARACTER_DB_DRIVER=sqlite \
         WS_CHARACTER_DB_PATH="${TMP_DB}" \
         WS_COOKIE_DOMAIN= \
-        php -S "127.0.0.1:${PORT}" -t public
+        php8.4 -S "127.0.0.1:${PORT}" -t public
     ) >"${SERVER_LOG}" 2>&1 &
     SERVER_PID="$!"
     sleep 0.15
@@ -71,16 +71,16 @@ wait_for_server() {
 
 json_get() {
   local path="$1"
-  php -r '$p=$argv[1]; $j=json_decode(stream_get_contents(STDIN), true); if(!is_array($j)){fwrite(STDERR, "invalid_json\n"); exit(1);} $cur=$j; foreach(explode(".", $p) as $k){ if(!is_array($cur) || !array_key_exists($k, $cur)){fwrite(STDERR, "missing_json_path\n"); exit(1);} $cur=$cur[$k]; } if(is_array($cur)){echo json_encode($cur);} else {echo $cur;}' "${path}"
+  php8.4 -r '$p=$argv[1]; $j=json_decode(stream_get_contents(STDIN), true); if(!is_array($j)){fwrite(STDERR, "invalid_json\n"); exit(1);} $cur=$j; foreach(explode(".", $p) as $k){ if(!is_array($cur) || !array_key_exists($k, $cur)){fwrite(STDERR, "missing_json_path\n"); exit(1);} $cur=$cur[$k]; } if(is_array($cur)){echo json_encode($cur);} else {echo $cur;}' "${path}"
 }
 
 json_count() {
-  php -r '$j=json_decode(stream_get_contents(STDIN), true); if(!is_array($j)){fwrite(STDERR, "invalid_json_array\n"); exit(1);} echo count($j);'
+  php8.4 -r '$j=json_decode(stream_get_contents(STDIN), true); if(!is_array($j)){fwrite(STDERR, "invalid_json_array\n"); exit(1);} echo count($j);'
 }
 
 json_has_name() {
   local expected="$1"
-  php -r '$needle=$argv[1]; $j=json_decode(stream_get_contents(STDIN), true); if(!is_array($j)){fwrite(STDERR, "invalid_json_array\n"); exit(1);} foreach($j as $row){ if(is_array($row) && ($row["name"] ?? "") === $needle){ echo "1"; exit(0);} } echo "0";' "${expected}"
+  php8.4 -r '$needle=$argv[1]; $j=json_decode(stream_get_contents(STDIN), true); if(!is_array($j)){fwrite(STDERR, "invalid_json_array\n"); exit(1);} foreach($j as $row){ if(is_array($row) && ($row["name"] ?? "") === $needle){ echo "1"; exit(0);} } echo "0";' "${expected}"
 }
 
 assert_eq() {
@@ -102,7 +102,7 @@ owner_id="$(printf '%s' "${signup_one}" | json_get "user.id")"
 signup_two="$(curl -sS -X POST "${BASE_URL}/auth/signup" -H "Content-Type: application/json" -c "${JAR_TWO}" -b "${JAR_TWO}" --data '{"email":"other@example.com","password":"Passw0rd!123"}')"
 other_id="$(printf '%s' "${signup_two}" | json_get "user.id")"
 
-php -r '
+php8.4 -r '
 $db = new PDO("sqlite:" . $argv[1]);
 $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 $stmt = $db->prepare("INSERT INTO characters (id, name, data, created_at, updated_at, owner_user_id, visibility) VALUES (:id, :name, :data, :created, :updated, :owner, :visibility)");

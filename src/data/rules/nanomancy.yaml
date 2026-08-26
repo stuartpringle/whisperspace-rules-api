@@ -504,10 +504,11 @@ sections:
           spans: []
         - text: '2'
           spans: []
-        - text: Impose Blinded on target creature for rounds equal to ND + 1. While
-            affected, target gains +1 stress at the end of each of their turns.Target
-            may attempt a Willpower or Composure (DC6 + ND) check at the end of each
-            of their turns to end the effect early.
+        - text: 'Impose Blinded on target creature for rounds equal to ND + 1. While
+            affected, target gains +1 stress at the end of each of their turns.
+
+            Target may attempt a Willpower or Composure (DC6 + ND) check at the end
+            of each of their turns to end the effect early.'
           spans:
           - style: link_bold_underline
             text: Blinded

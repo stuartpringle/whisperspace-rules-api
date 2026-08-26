@@ -170,7 +170,7 @@ function parseWeapons(tableRows) {
     const ammo = parseNumber(getCell(row, map, "ammo"));
     const bulk = parseNumber(getCell(row, map, "blk"));
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
-    const special = getCell(row, map, "special");
+    const special = getCell(row, map, "special") || getCell(row, map, "traits");
     const cost = parseNumber(getCell(row, map, "cost"));
     const gameplayEffects = getGameplayEffects(row, map, special, name);
 
@@ -206,7 +206,7 @@ function parseArmor(tableRows) {
     const durability = parseNumber(getCell(row, map, "durability"));
     const bulk = parseNumber(getCell(row, map, "blk"));
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
-    const special = getCell(row, map, "special");
+    const special = getCell(row, map, "special") || getCell(row, map, "traits");
     const cost = parseNumber(getCell(row, map, "cost"));
     const gameplayEffects = getGameplayEffects(row, map, special, name);
 

@@ -183,7 +183,7 @@
     {
       "name": "Bio-Stabilizer",
       "tier": 3,
-      "effect": "When you would take a Medium or Heavy wound, roll Cybernetics (DC8).This effect may only trigger once per instance of damage.",
+      "effect": "When you would take a Medium or Heavy wound, roll Cybernetics (DC8).\nThis effect may only trigger once per instance of damage.",
       "installationDifficulty": 4,
       "requirements": "-",
       "physicalImpact": "Medium; chest and back",

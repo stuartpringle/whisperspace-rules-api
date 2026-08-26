@@ -157,6 +157,33 @@ sections:
         suffer +1 penalty die to your Engineering check.
       spans: []
     sections: []
+- title: Concealing Gear
+  slug: concealing-gear
+  level: 2
+  content:
+  - type: paragraph
+    text: Civilized space stations, settlements, or space ships usually do not allow
+      openly carrying weaponry or wearing armour, except for security personnel or
+      special exceptions. Some of these locations may have highly advanced automated
+      scanners to detect the presence of weapons, armour, or other banned equipment,
+      while others may rely on a guard watching all newcomers to make sure they’re
+      not obviously packing heat.
+    spans: []
+  - type: paragraph
+    text: Either way, characters wishing to carry a weapon or other item in a no-carry
+      zone may attempt to conceal it on their persons. Doing so requires a Subterfuge
+      check to see how well the item is concealed on their person. Concealing any
+      item of more than 2 bulk imposes +1 penalty die on this roll; concealing an
+      item of 5 or more bulk imposes +2 penalty dice to this roll. Concealing an item
+      of 1 bulk grants +1 bonus die to this roll. It is impossible to conceal an item
+      of 10 bulk or more.
+    spans: []
+  - type: paragraph
+    text: Characters attempting to suss out if another character is carrying something
+      concealed on their person must roll Observe (DC = result of other character’s
+      Subterfuge roll).
+    spans: []
+  sections: []
 - title: Gear List
   slug: gear-list
   level: 2
@@ -166,7 +193,6 @@ sections:
     - - &id001
         text: Weapons
         spans: []
-      - *id001
       - *id001
       - *id001
       - *id001
@@ -203,14 +229,10 @@ sections:
         spans:
         - style: bold
           text: Blk
-      - text: Req.
+      - text: Traits
         spans:
         - style: bold
-          text: Req.
-      - text: Special
-        spans:
-        - style: bold
-          text: Special
+          text: Traits
       - text: Cost
         spans:
         - style: bold
@@ -231,29 +253,7 @@ sections:
         spans: []
       - text: '-'
         spans: []
-      - text: '-'
-        spans: []
       - text: '500'
-        spans: []
-    - - text: SMART Pistol
-        spans: []
-      - text: Light
-        spans: []
-      - text: '9'
-        spans: []
-      - text: '4'
-        spans: []
-      - text: Med
-        spans: []
-      - text: '6'
-        spans: []
-      - text: '1'
-        spans: []
-      - text: '-'
-        spans: []
-      - text: Smart-Linked
-        spans: []
-      - text: '900'
         spans: []
     - - text: Toxic Spike
         spans: []
@@ -269,31 +269,63 @@ sections:
         spans: []
       - text: '1'
         spans: []
-      - text: '-'
-        spans: []
-      - text: Toxin (Prax), Concealable
+      - text: Toxin (Prax)
         spans: []
       - text: '750'
+        spans: []
+    - - text: Boom Stick
+        spans: []
+      - text: Light
+        spans: []
+      - text: '8'
+        spans: []
+      - text: '1'
+        spans: []
+      - text: Near
+        spans: []
+      - text: '2'
+        spans: []
+      - text: '2'
+        spans: []
+      - text: Point Blank (3)
+        spans: []
+      - text: '600'
+        spans: []
+    - - text: Compact SMG
+        spans: []
+      - text: Light
+        spans: []
+      - text: '7'
+        spans: []
+      - text: '2'
+        spans: []
+      - text: Near
+        spans: []
+      - text: '6'
+        spans: []
+      - text: '2'
+        spans: []
+      - text: Automatic
+        spans: []
+      - text: '800'
         spans: []
     - - text: SMG
         spans: []
       - text: Med
         spans: []
-      - text: '6'
+      - text: '7'
         spans: []
       - text: '3'
         spans: []
       - text: Med
         spans: []
-      - text: '8'
+      - text: '9'
         spans: []
       - text: '2'
         spans: []
-      - text: '-'
+      - text: Automatic
         spans: []
-      - text: Bullet Spray
-        spans: []
-      - text: '600'
+      - text: '1000'
         spans: []
     - - text: Photon Rifle
         spans: []
@@ -301,15 +333,13 @@ sections:
         spans: []
       - text: '8'
         spans: []
-      - text: '6'
+      - text: '5'
         spans: []
       - text: Long
         spans: []
       - text: '6'
         spans: []
       - text: '3'
-        spans: []
-      - text: '-'
         spans: []
       - text: Two-Handed
         spans: []
@@ -329,9 +359,7 @@ sections:
         spans: []
       - text: '2'
         spans: []
-      - text: '-'
-        spans: []
-      - text: Two-Handed, Piercing 1
+      - text: Two-Handed, Piercing (1)
         spans: []
       - text: '1000'
         spans: []
@@ -341,7 +369,7 @@ sections:
         spans: []
       - text: '8'
         spans: []
-      - text: '4'
+      - text: '3'
         spans: []
       - text: Near
         spans: []
@@ -349,9 +377,7 @@ sections:
         spans: []
       - text: '3'
         spans: []
-      - text: PHYS 1
-        spans: []
-      - text: Two-Handed, Point Blank, Shredding 1
+      - text: Two-Handed, Point Blank (2), Shredding (1), (Req. PHYS 1)
         spans: []
       - text: '800'
         spans: []
@@ -369,11 +395,9 @@ sections:
         spans: []
       - text: '4'
         spans: []
-      - text: PHYS 3
+      - text: Two-Handed, Slow Load, Automatic, Req. (PHYS 3)
         spans: []
-      - text: Two-Handed, Bullet Spray
-        spans: []
-      - text: '900'
+      - text: '2500'
         spans: []
     - - text: Grenade Launcher
         spans: []
@@ -389,11 +413,9 @@ sections:
         spans: []
       - text: '3'
         spans: []
-      - text: PHYS 2
+      - text: Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)
         spans: []
-      - text: Area (Very Near), Two-Handed, Slow Load, Grenade
-        spans: []
-      - text: '2000'
+      - text: '3000'
         spans: []
     - - text: Magneton Cannon
         spans: []
@@ -409,9 +431,7 @@ sections:
         spans: []
       - text: '2'
         spans: []
-      - text: PHYS 1
-        spans: []
-      - text: Area (melee), Two-Handed, Slow Load, Shredding 3
+      - text: Area (melee), Two-Handed, Slow Load, Shredding (3), Req. (PHYS 1)
         spans: []
       - text: '8000'
         spans: []
@@ -429,9 +449,7 @@ sections:
         spans: []
       - text: '2'
         spans: []
-      - text: '-'
-        spans: []
-      - text: Two-Handed, Stun 2
+      - text: Two-Handed, Stun (2), Crit (Stun (1))
         spans: []
       - text: '6000'
         spans: []
@@ -449,9 +467,7 @@ sections:
         spans: []
       - text: '1'
         spans: []
-      - text: '-'
-        spans: []
-      - text: Stun 1
+      - text: Stun (1), Crit (Stun (1))
         spans: []
       - text: '450'
         spans: []
@@ -469,9 +485,7 @@ sections:
         spans: []
       - text: '1'
         spans: []
-      - text: '-'
-        spans: []
-      - text: Concealable, Thrown
+      - text: Thrown
         spans: []
       - text: '150'
         spans: []
@@ -489,9 +503,7 @@ sections:
         spans: []
       - text: '2'
         spans: []
-      - text: REF 2
-        spans: []
-      - text: Piercing 2
+      - text: Piercing (2), Req. (REF 2)
         spans: []
       - text: '1200'
         spans: []
@@ -509,9 +521,7 @@ sections:
         spans: []
       - text: '3'
         spans: []
-      - text: PHYS 3
-        spans: []
-      - text: Two-Handed
+      - text: Two-Handed, Req. PHYS 3
         spans: []
       - text: '2500'
         spans: []
@@ -526,34 +536,25 @@ sections:
           text: Weapon keywords
           spans: []
         - *id002
-      - - text: Concealable
-          spans: []
-        - text: May be hidden easily. +1 bonus die to subterfuge if trying to conceal
-            this weapon.
-          spans: []
-      - - text: Piercing X
+      - - text: Piercing (X)
           spans: []
         - text: Ignores X points of armor protection.
           spans: []
-      - - text: Point Blank
+      - - text: Point Blank (X)
           spans: []
-        - text: Ignore penalty die from shooting at Melee or Very Near range. At melee
-            range, gain Piercing 2.
+        - text: Ignore penalty die imposed by the weapon’s Type when attacking at
+            Melee or Very Near range. At these ranges, it deals X additional damage.
+            Beyond its listed range, reduce its damage by 1 for each additional range
+            band. In addition, it cannot critically hit beyond its listed Range.
           spans: []
       - - text: Slow Load
           spans: []
         - text: Takes 2 actions to reload
           spans: []
-      - - text: Smart-Linked
+      - - text: Stun (X)
           spans: []
-        - text: Requires Ammo (SMART); negate one level of cover (Full Cover becomes
-            Partial Cover; Partial Cover is negated entirely). Target must be visible
-            and bullets must have a path to reach the target.
-          spans: []
-      - - text: Stun X
-          spans: []
-        - text: Deals no damage, but forces target to roll Toughness (DC 6 + X) or
-            be Stunned for X rounds
+        - text: On a hit, target must roll Toughness (DC 6 + X) or be Stunned for
+            X rounds
           spans:
           - style: bold
             text: Toughness (DC 6 + X)
@@ -561,19 +562,14 @@ sections:
           spans: []
         - text: Requires both hands to use
           spans: []
-      - - text: Bullet Spray
+      - - text: Automatic
           spans: []
-        - text: Requires at least half ammo available. Targets multiple enemies in
-            a cone; depletes remaining ammo; deals reduced damage; does friendly fire.Make
-            a single attack roll and compare it against the DC of each target in the
-            spray zone (including cover bonuses, etc).Each hit deals -1 damage (compared
-            to a standard single-target shot).
-          spans:
-          - style: bold
-            text: each target
-          - style: bold
-            text: Each hit deals -1 damage
-      - - text: Shredding X
+        - text: When attacking with this weapon, you may choose to spend 3 or 6 ammo
+            instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage
+            on a hit. An attack this way cannot be a Called Shot or deal critical
+            hit damage (though other critical hit effects may apply).
+          spans: []
+      - - text: Shredding (X)
           spans: []
         - text: If damage exceeds armour’s protection value, reduce armour’s durability
             by X.
@@ -601,6 +597,25 @@ sections:
           - style: link_underline
             text: toxin
             href: health-wounds.yaml#poisons-and-toxins
+      - - text: Req. (X)
+          spans: []
+        - text: Using this weapon requires at least the specified rank of the specified
+            attribute or skill. For example, Req. (PHYS 1) means you must have at
+            least 1 rank in your Physique attribute to use the weapon. Attempting
+            to use a weapon with a requirement you do not meet imposes +2 penalty
+            dice on attack rolls.
+          spans: []
+      - - text: Crit (Effect)
+          spans: []
+        - text: 'This weapon applies a specific effect in addition to normal critical
+            effects. For example, a weapon with Crit: Prone knocks the target prone
+            on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2) to
+            the attack (which stacks with all other Piercing from the weapon or ammunition
+            used).'
+          spans:
+          - style: link_underline
+            text: critical effects
+            href: combat.yaml#critical-hits
     sections:
     - title: Weapon keywords
       slug: weapon-keywords
@@ -611,7 +626,6 @@ sections:
         - - &id003
             text: Armour
             spans: []
-          - *id003
           - *id003
           - *id003
           - *id003
@@ -633,14 +647,10 @@ sections:
             spans:
             - style: bold
               text: Blk
-          - text: Req.
+          - text: Traits
             spans:
             - style: bold
-              text: Req.
-          - text: Special
-            spans:
-            - style: bold
-              text: Special
+              text: Traits
           - text: Cost
             spans:
             - style: bold
@@ -653,8 +663,6 @@ sections:
             spans: []
           - text: '2'
             spans: []
-          - text: '-'
-            spans: []
           - text: Cannot be repaired
             spans: []
           - text: '500'
@@ -665,9 +673,7 @@ sections:
             spans: []
           - text: '4'
             spans: []
-          - text: '1'
-            spans: []
-          - text: '-'
+          - text: '2'
             spans: []
           - text: '-'
             spans: []
@@ -681,8 +687,6 @@ sections:
             spans: []
           - text: '1'
             spans: []
-          - text: '-'
-            spans: []
           - text: Appears to be normal clothing
             spans: []
           - text: '1500'
@@ -693,9 +697,7 @@ sections:
             spans: []
           - text: '5'
             spans: []
-          - text: '1'
-            spans: []
-          - text: '-'
+          - text: '2'
             spans: []
           - text: +1 to Stealth
             spans: []
@@ -711,8 +713,6 @@ sections:
             spans: []
           - text: '-'
             spans: []
-          - text: '-'
-            spans: []
           - text: '5000'
             spans: []
         - - text: Breaching plate
@@ -723,9 +723,7 @@ sections:
             spans: []
           - text: '3'
             spans: []
-          - text: PHYS 2
-            spans: []
-          - text: Frontal Shielding 1
+          - text: Frontal Shielding 1, Req. (PHYS 2)
             spans: []
           - text: '8500'
             spans: []
@@ -737,9 +735,7 @@ sections:
             spans: []
           - text: '4'
             spans: []
-          - text: PHYS 3
-            spans: []
-          - text: +1 penalty die to Stealth
+          - text: +1 penalty die to Stealth, Req. (PHYS 3)
             spans: []
           - text: '10000'
             spans: []
@@ -751,12 +747,7 @@ sections:
             spans: []
           - text: '10'
             spans: []
-          - text: Power Armour 1
-            spans: []
-          - text: 'Requires Power Armour (DC5) check to activate. Failure: become
-              Immobile; gain +1 penalty die to all PHYS and REF based checks. When
-              activated, reduces its own bulk to 1 and grants +1 bonus die to all
-              PHYS based checks.'
+          - text: Req. (Power Armour 1), Powered (3)
             spans: []
           - text: '40000'
             spans: []
@@ -768,211 +759,257 @@ sections:
     - type: table
       rows:
       - - &id004
-          text: Items
+          text: Armour keywords
           spans: []
         - *id004
-        - *id004
-        - *id004
-        - *id004
-      - - text: Item Name
-          spans:
-          - style: bold
-            text: Item Name
-        - text: Effect
-          spans:
-          - style: bold
-            text: Effect
-        - text: Uses
-          spans:
-          - style: bold
-            text: Uses
-        - text: Bulk
-          spans:
-          - style: bold
-            text: Bulk
-        - text: Cost
-          spans:
-          - style: bold
-            text: Cost
-      - - text: Flashbang Grenade
-          spans: []
-        - text: Applies Stun 1 to everyone within Very Near range, Thrown
-          spans: []
-        - text: 1 use
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '200'
-          spans: []
-      - - text: Frag Grenade
-          spans: []
-        - text: Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown
-          spans: []
-        - text: 1 use
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '250'
-          spans: []
-      - - text: EMP Grenade
-          spans: []
-        - text: Applies EMP 2 to everything within range, Thrown
-          spans: []
-        - text: 1 use
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '300'
-          spans: []
-      - - text: Combat Stim Injector
-          spans: []
-        - text: Gain +1 action & -1 Stress; take 1 wound after effect ends
-          spans: []
-        - text: 1 use
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '200'
-          spans: []
-      - - text: Basic Medkit
-          spans: []
-        - text: 'Right tool for the job: First Aid checks'
-          spans: []
-        - text: 3 uses
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '350'
-          spans: []
-      - - text: Multitool
-          spans: []
-        - text: Allows engineering checks to repair, bypass, scrap, etc.
-          spans: []
-        - text: Permanent
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '750'
-          spans: []
-      - - text: Repair Kit
-          spans: []
-        - text: Provides materials and tools for repairs
-          spans: []
-        - text: 10 uses
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '500'
-          spans: []
-      - - text: Tracker
-          spans: []
-        - text: While within 10km, always know location of this device
-          spans: []
-        - text: 1 use
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '250'
-          spans: []
-      - - text: Portable Scanner
-          spans: []
-        - text: 'Right tool for the job: Observe (tech, lifeforms)'
-          spans: []
-        - text: Permanent
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '400'
-          spans: []
-      - - text: Weapon Scope
-          spans: []
-        - text: Simple Modification. Grants +1 bonus die to called shots at medium
-            range and farther; inflicts +1 penalty die to attacks at Near range or
-            nearer
-          spans: []
-        - text: Permanent
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '750'
-          spans: []
-      - - text: Weapon Silencer
-          spans: []
-        - text: Simple Modification. Weapon makes reduced sound when fired; deals
-            -1 damage
-          spans: []
-        - text: Permanent
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '500'
-          spans: []
-      - - text: Compact Backpack
-          spans: []
-        - text: +5 Inventory Slots when worn
-          spans: []
-        - text: Permanent
-          spans: []
-        - text: '-'
-          spans: []
-        - text: '150'
-          spans: []
-      - - text: Ammo (Flechette)
-          spans: []
-        - text: Deals +2 damage to unarmoured targets.
-          spans: []
-        - text: 10 rounds
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '500'
-          spans: []
-      - - text: Ammo (SMART)
-          spans: []
-        - text: Required for Smart-Linked weapons.
-          spans: []
-        - text: '10'
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '1250'
-          spans: []
-      - - text: Ammo (Armour Piercing)
-          spans: []
-        - text: Adds Piercing 1 to attacks.
-          spans: []
-        - text: '10'
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '750'
-          spans: []
-      - - text: Ammo (Explosive)
-          spans: []
-        - text: Adds Shredding 1 to attacks.
-          spans: []
-        - text: '10'
-          spans: []
-        - text: '1'
-          spans: []
-        - text: '750'
-          spans: []
-    sections: []
+      - - text: Req. (X)
+          spans: []
+        - text: Wearing this armour requires at least the specified rank of the specified
+            attribute or skill. For example, Req. (PHYS 1) means you must have at
+            least 1 rank in your Physique attribute to wear the armour effectively.
+            Attempting to wear armour without meeting the requirements for it imposes
+            +1 penalty die to all attack rolls, Reflex, and Physique skill checks.
+          spans: []
+      - - text: Powered (X)
+          spans: []
+        - text: 'Requires Power Armour (DC = 6 + X) check to activate. Failure: become
+            Immobile; gain +1 penalty die to all PHYS and REF based checks.
+
+
+            When successfully activated, reduces its own bulk by X and grants +1 bonus
+            die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons)
+            damage deals an additional X damage to the target.
+
+
+            Powered armour may remain powered for X * 4 rounds before requiring a
+            charge to be powered again.'
+          spans: []
+    sections:
+    - title: Armour keywords
+      slug: armour-keywords
+      level: 4
+      content:
+      - type: table
+        rows:
+        - - &id005
+            text: Items
+            spans: []
+          - *id005
+          - *id005
+          - *id005
+          - *id005
+        - - text: Item Name
+            spans:
+            - style: bold
+              text: Item Name
+          - text: Effect
+            spans:
+            - style: bold
+              text: Effect
+          - text: Uses
+            spans:
+            - style: bold
+              text: Uses
+          - text: Bulk
+            spans:
+            - style: bold
+              text: Bulk
+          - text: Cost
+            spans:
+            - style: bold
+              text: Cost
+        - - text: Flashbang Grenade
+            spans: []
+          - text: Applies Stun 1 to everyone within Very Near range, Thrown
+            spans: []
+          - text: 1 use
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '200'
+            spans: []
+        - - text: Frag Grenade
+            spans: []
+          - text: Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown
+            spans: []
+          - text: 1 use
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '250'
+            spans: []
+        - - text: EMP Grenade
+            spans: []
+          - text: Applies EMP 2 to everything within range, Thrown
+            spans: []
+          - text: 1 use
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '300'
+            spans: []
+        - - text: Combat Stim Injector
+            spans: []
+          - text: Gain +1 action & -1 Stress; take 1 wound after effect ends
+            spans: []
+          - text: 1 use
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '200'
+            spans: []
+        - - text: Basic Medkit
+            spans: []
+          - text: 'Right tool for the job: First Aid checks'
+            spans: []
+          - text: 3 uses
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '350'
+            spans: []
+        - - text: Multitool
+            spans: []
+          - text: Allows engineering checks to repair, bypass, scrap, etc.
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '750'
+            spans: []
+        - - text: Repair Kit
+            spans: []
+          - text: Provides materials and tools for repairs
+            spans: []
+          - text: 10 uses
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '500'
+            spans: []
+        - - text: Tracker
+            spans: []
+          - text: While within 10km, always know location of this device
+            spans: []
+          - text: 1 use
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '250'
+            spans: []
+        - - text: Portable Scanner
+            spans: []
+          - text: 'Right tool for the job: Observe (tech, lifeforms)'
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '400'
+            spans: []
+        - - text: Weapon Scope
+            spans: []
+          - text: Simple Modification. Grants +1 bonus die to called shots at medium
+              range and farther; inflicts +1 penalty die to attacks at Near range
+              or nearer
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '750'
+            spans: []
+        - - text: Weapon Silencer
+            spans: []
+          - text: Simple Modification. Weapon makes reduced sound when fired; deals
+              -1 damage
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '500'
+            spans: []
+        - - text: Weapon SMART-link
+            spans: []
+          - text: Grants weapon ability to use SMART ammo.
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '2'
+            spans: []
+          - text: '3000'
+            spans: []
+        - - text: Compact Backpack
+            spans: []
+          - text: +5 Inventory Slots when worn
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '-'
+            spans: []
+          - text: '150'
+            spans: []
+        - - text: Ammo (Flechette)
+            spans: []
+          - text: Deals +2 damage to unarmoured targets.
+            spans: []
+          - text: 10 ammo
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '500'
+            spans: []
+        - - text: Ammo (SMART)
+            spans: []
+          - text: Requires weapon fit with SMART-link. Negates one level of cover
+              (Full Cover becomes Partial Cover; Partial Cover is negated entirely).
+              Target must be visible and bullets must have a path to reach the target
+              (not necessarily a straight line).
+            spans: []
+          - text: 1 reload
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '1250'
+            spans: []
+        - - text: Ammo (Armour Piercing)
+            spans: []
+          - text: Adds Piercing 1 to attacks.
+            spans: []
+          - text: 1 reload
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '750'
+            spans: []
+        - - text: Ammo (Explosive)
+            spans: []
+          - text: Adds Shredding 1 to attacks.
+            spans: []
+          - text: 1 reload
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '750'
+            spans: []
+      sections: []
   - title: Items
     slug: items
     level: 3
     content:
     - type: table
       rows:
-      - - &id005
+      - - &id006
           text: Cyberware
           spans: []
-        - *id005
-        - *id005
-        - *id005
-        - *id005
-        - *id005
-        - *id005
+        - *id006
+        - *id006
+        - *id006
+        - *id006
+        - *id006
+        - *id006
       - - text: Name
           spans:
           - style: bold
@@ -1278,8 +1315,9 @@ sections:
           spans: []
         - text: '3'
           spans: []
-        - text: When you would take a Medium or Heavy wound, roll Cybernetics (DC8).This
-            effect may only trigger once per instance of damage.
+        - text: 'When you would take a Medium or Heavy wound, roll Cybernetics (DC8).
+
+            This effect may only trigger once per instance of damage.'
           spans:
           - style: bold
             text: Cybernetics (DC8)
@@ -1479,14 +1517,14 @@ sections:
             text: Extreme failure
       - type: table
         rows:
-        - - &id006
+        - - &id007
             text: Narcotics
             spans: []
-          - *id006
-          - *id006
-          - *id006
-          - *id006
-          - *id006
+          - *id007
+          - *id007
+          - *id007
+          - *id007
+          - *id007
         - - text: Name
             spans:
             - style: bold
@@ -1590,10 +1628,10 @@ sections:
         spans: []
       - type: table
         rows:
-        - - &id007
+        - - &id008
             text: Addiction Effects
             spans: []
-          - *id007
+          - *id008
         - - text: Stage
             spans:
             - style: bold
@@ -1746,13 +1784,13 @@ sections:
   content:
   - type: table
     rows:
-    - - &id008
+    - - &id009
         text: Rigs
         spans: []
-      - *id008
-      - *id008
-      - *id008
-      - *id008
+      - *id009
+      - *id009
+      - *id009
+      - *id009
     - - text: Name
         spans:
         - style: bold
@@ -1816,12 +1854,12 @@ sections:
         text: software’s tier
     - type: table
       rows:
-      - - &id009
+      - - &id010
           text: Software
           spans: []
-        - *id009
-        - *id009
-        - *id009
+        - *id010
+        - *id010
+        - *id010
       - - text: Software
           spans:
           - style: bold

@@ -7,3 +7,4 @@ dist
 .codex/AUDIT-LOG.md
 .codex/BYPASS-LOG.tsv
 .codex/audits/
+.codex/*.log

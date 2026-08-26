@@ -55,6 +55,11 @@ items:
     uses: Permanent
     bulk: 1
     cost: 500
+  - name: Weapon SMART-link
+    effect: Grants weapon ability to use SMART ammo.
+    uses: Permanent
+    bulk: 2
+    cost: 3000
   - name: Compact Backpack
     effect: +5 Inventory Slots when worn
     uses: Permanent
@@ -63,23 +68,26 @@ items:
     gameplayEffects: carrying_capacity+5
   - name: Ammo (Flechette)
     effect: Deals +2 damage to unarmoured targets.
-    uses: 10 rounds
+    uses: 10 ammo
     bulk: 1
     cost: 500
   - name: Ammo (SMART)
-    effect: Required for Smart-Linked weapons.
-    uses: "10"
+    effect: Requires weapon fit with SMART-link. Negates one level of cover (Full
+      Cover becomes Partial Cover; Partial Cover is negated entirely). Target
+      must be visible and bullets must have a path to reach the target (not
+      necessarily a straight line).
+    uses: 1 reload
     bulk: 1
     cost: 1250
   - name: Ammo (Armour Piercing)
     effect: Adds Piercing 1 to attacks.
-    uses: "10"
+    uses: 1 reload
     bulk: 1
     cost: 750
     gameplayEffects: piercing+1
   - name: Ammo (Explosive)
     effect: Adds Shredding 1 to attacks.
-    uses: "10"
+    uses: 1 reload
     bulk: 1
     cost: 750
     gameplayEffects: shredding+1
