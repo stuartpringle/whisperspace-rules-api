@@ -1468,7 +1468,7 @@ sections:
           spans: []
         - text: '3'
           spans: []
-        - text: 'When you would take a Medium or Heavy wound, roll Cybernetics (DC8).
+        - text: 'When you would take a Moderate or Heavy wound, roll Cybernetics (DC8).
 
             This effect may only trigger once per instance of damage.'
           spans:
@@ -1495,6 +1495,62 @@ sections:
         - text: '15000'
           spans: []
     sections:
+    - title: Using Cyberware
+      slug: using-cyberware
+      level: 4
+      content:
+      - type: paragraph
+        text: Cyberware may provide a passive benefit (such as “Become immune to nanites
+          targeting your body”), or it may provide an active benefit with a trigger
+          and duration (like “Activate to ignore stress penalties for 1 round”). You
+          must be conscious to use active benefits, but passive benefits occur whenever
+          they are triggered.
+        spans: []
+      - type: paragraph
+        text: 'Unless otherwise specified by specific cyberware wording:'
+        spans: []
+      - type: list
+        ordered: false
+        items:
+        - text: Activating or benefitting from the bonus a piece of Cyberware gives
+            you does not cost any actions.
+          spans: []
+        - text: You may not have more than one Cyberware of any type installed at
+            one time.
+          spans: []
+        - text: Having Cyberware installed does not increase your bulk.
+          spans: []
+      sections: []
+    - title: Enabling and Disabling Cyberware
+      slug: enabling-and-disabling-cyberware
+      level: 4
+      content:
+      - type: paragraph
+        text: 'Enabling cyberware requires 1 action per tier of the cyberware you’re
+          enabling. Thus, enabling a Tier 3 cyberware implant costs 3 actions. These
+          actions may be spread across more than one round: for example, you may spend
+          1 action per round for 3 rounds, 2 actions on 1 round, then 1 action several
+          rounds later, or 3 actions on a single round to enable a Tier 3 implant.'
+        spans: []
+      - type: paragraph
+        text: Disabling cyberware requires 1 action regardless of the tier.
+        spans: []
+      sections: []
+    - title: EMP and Cyberware
+      slug: emp-and-cyberware
+      level: 4
+      content:
+      - type: paragraph
+        text: If a character with installed cyberware is hit by EMP, the EMP disables
+          a number of cyberware implants up to its effect (for example, getting hit
+          by EMP (2) would disable 2 implants). Which implants are disabled in this
+          way may be chosen randomly or the GM may decide.
+        spans: []
+      - type: paragraph
+        text: Cyberware disabled by EMP receives durability damage equal to the EMP’s
+          effect.
+        spans: []
+      sections: []
     - title: Installing and Removing Cyberware
       slug: installing-and-removing-cyberware
       level: 4

@@ -1,6 +1,6 @@
 {
   "version": "0.2.0",
-  "generatedAt": "2026-09-04T05:22:43.061Z",
+  "generatedAt": "2026-09-04T05:55:50.452Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
@@ -23,8 +23,8 @@
       "bytes": 3690
     },
     "cyberware.json": {
-      "sha256": "5b26f27058ea2c6e24f4884ff1f47f7c1eeb1d255d1afcad37281333921daeef",
-      "bytes": 6799
+      "sha256": "e19157d895bc010e21de10f6139ce8934e302e010ec58cf6162aaf2bc735e9bb",
+      "bytes": 6801
     },
     "narcotics.json": {
       "sha256": "d49b29b43297c8e0628f7bf4fd41ce544bddb1578a1e4b68dab9ebd278d37e40",
@@ -35,8 +35,8 @@
       "bytes": 1086
     },
     "rules.json": {
-      "sha256": "09ac7074c97bc108517f4c238e66717c578659a5e2ff9b6b22c3ac22f96d5805",
-      "bytes": 747697
+      "sha256": "0b0ec7fda29e5f5e0b161769c86c7213f42a15049b35a65321652f9c58b76126",
+      "bytes": 751218
     },
     "skill_tooltips.json": {
       "sha256": "f7e637b2dad956827264229a0a76260a4b61397790a9f60d09bfc783d4754243",
