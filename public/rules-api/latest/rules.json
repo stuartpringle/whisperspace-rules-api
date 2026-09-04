@@ -4728,7 +4728,15 @@
                     }
                   ]
                 ]
-              },
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Ranged weapons attacking within Very Near range",
+            "slug": "ranged-weapons-attacking-within-very-near-range",
+            "level": 3,
+            "content": [
               {
                 "type": "table",
                 "rows": [
@@ -4805,13 +4813,6 @@
                 ]
               }
             ],
-            "sections": []
-          },
-          {
-            "title": "Ranged weapons attacking within Very Near range",
-            "slug": "ranged-weapons-attacking-within-very-near-range",
-            "level": 3,
-            "content": [],
             "sections": []
           }
         ]
@@ -4974,11 +4975,68 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "Attacking without a weapon uses the Melee (unarmed) skill and deals damage equal to half your character’s PHYS or REF, rounded up.",
+                "text": "When making an unarmed attack, you may choose whether to use your PHYS attribute or your REF attribute.",
                 "spans": []
               }
             ],
-            "sections": []
+            "sections": [
+              {
+                "title": "Unarmed attacking using REF",
+                "slug": "unarmed-attacking-using-ref",
+                "level": 4,
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "text": "Use DC = 9 - REF",
+                    "spans": [
+                      {
+                        "style": "bold",
+                        "text": "Use DC = 9 - REF"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Damage = 1",
+                    "spans": []
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Ignore the penalty die for making a Called Shot for this attack.",
+                    "spans": []
+                  }
+                ],
+                "sections": []
+              },
+              {
+                "title": "Unarmed attacking using PHYS",
+                "slug": "unarmed-attacking-using-phys",
+                "level": 4,
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "text": "Use DC = 11 - PHYS",
+                    "spans": [
+                      {
+                        "style": "bold",
+                        "text": "Use DC = 11 - PHYS"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Damage = PHYS",
+                    "spans": []
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "On an extreme success, you may take the Grapple combat action without spending an action to do so.",
+                    "spans": []
+                  }
+                ],
+                "sections": []
+              }
+            ]
           },
           {
             "title": "Improvised Weapons",
@@ -5159,6 +5217,13 @@
         "title": "Damage Types",
         "slug": "damage-types",
         "level": 2,
+        "content": [],
+        "sections": []
+      },
+      {
+        "title": "Damage Types",
+        "slug": "damage-types",
+        "level": 2,
         "content": [
           {
             "type": "table",
@@ -5293,13 +5358,6 @@
             ]
           }
         ],
-        "sections": []
-      },
-      {
-        "title": "Damage Types",
-        "slug": "damage-types",
-        "level": 2,
-        "content": [],
         "sections": []
       },
       {
@@ -9174,819 +9232,7 @@
         "title": "Gear List",
         "slug": "gear-list",
         "level": 2,
-        "content": [
-          {
-            "type": "table",
-            "rows": [
-              [
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                },
-                {
-                  "text": "Weapons",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Name",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Name"
-                    }
-                  ]
-                },
-                {
-                  "text": "Type",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Type"
-                    }
-                  ]
-                },
-                {
-                  "text": "DC",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "DC"
-                    }
-                  ]
-                },
-                {
-                  "text": "Dmg",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Dmg"
-                    }
-                  ]
-                },
-                {
-                  "text": "Rng",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Rng"
-                    }
-                  ]
-                },
-                {
-                  "text": "Ammo",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Ammo"
-                    }
-                  ]
-                },
-                {
-                  "text": "Blk",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Blk"
-                    }
-                  ]
-                },
-                {
-                  "text": "Traits",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Traits"
-                    }
-                  ]
-                },
-                {
-                  "text": "Damage Type",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Damage Type"
-                    }
-                  ]
-                },
-                {
-                  "text": "Cost",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Cost"
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "text": "Pistol",
-                  "spans": []
-                },
-                {
-                  "text": "Light",
-                  "spans": []
-                },
-                {
-                  "text": "7",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "10",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "-",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "500",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Toxic Spike",
-                  "spans": []
-                },
-                {
-                  "text": "Light",
-                  "spans": []
-                },
-                {
-                  "text": "10",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Near",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "Toxin (Prax)",
-                  "spans": []
-                },
-                {
-                  "text": "Blade",
-                  "spans": []
-                },
-                {
-                  "text": "750",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Boom Stick",
-                  "spans": []
-                },
-                {
-                  "text": "Light",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "Near",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Point Blank (3)",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "600",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Compact SMG",
-                  "spans": []
-                },
-                {
-                  "text": "Light",
-                  "spans": []
-                },
-                {
-                  "text": "7",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Near",
-                  "spans": []
-                },
-                {
-                  "text": "6",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Automatic",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "800",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "SMG",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "7",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "9",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Automatic",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "1000",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Photon Rifle",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "5",
-                  "spans": []
-                },
-                {
-                  "text": "Long",
-                  "spans": []
-                },
-                {
-                  "text": "6",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Two-Handed",
-                  "spans": []
-                },
-                {
-                  "text": "Energy",
-                  "spans": []
-                },
-                {
-                  "text": "5000",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Rifle",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "4",
-                  "spans": []
-                },
-                {
-                  "text": "Long",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Two-Handed, Piercing (1)",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "1000",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Shotgun",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Near",
-                  "spans": []
-                },
-                {
-                  "text": "4",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Two-Handed, Point Blank (2), Shredding (1), Req. (PHYS 1)",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "800",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Gauss Cannon",
-                  "spans": []
-                },
-                {
-                  "text": "Heavy",
-                  "spans": []
-                },
-                {
-                  "text": "7",
-                  "spans": []
-                },
-                {
-                  "text": "4",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "20",
-                  "spans": []
-                },
-                {
-                  "text": "4",
-                  "spans": []
-                },
-                {
-                  "text": "Two-Handed, Slow Load, Automatic, Req. (PHYS 3)",
-                  "spans": []
-                },
-                {
-                  "text": "Ballistic",
-                  "spans": []
-                },
-                {
-                  "text": "2500",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Grenade Launcher",
-                  "spans": []
-                },
-                {
-                  "text": "Heavy",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)",
-                  "spans": []
-                },
-                {
-                  "text": "-",
-                  "spans": []
-                },
-                {
-                  "text": "3000",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Magneton Cannon",
-                  "spans": []
-                },
-                {
-                  "text": "Exotic",
-                  "spans": []
-                },
-                {
-                  "text": "5",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Near",
-                  "spans": []
-                },
-                {
-                  "text": "5",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Area (melee), Two-Handed, Slow Load, Shredding (3), Req. (PHYS 1)",
-                  "spans": []
-                },
-                {
-                  "text": "Energy",
-                  "spans": []
-                },
-                {
-                  "text": "8000",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Tesla Rifle",
-                  "spans": []
-                },
-                {
-                  "text": "Exotic",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "5",
-                  "spans": []
-                },
-                {
-                  "text": "Med",
-                  "spans": []
-                },
-                {
-                  "text": "6",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Two-Handed, Stun (2), Crit (Stun (1))",
-                  "spans": []
-                },
-                {
-                  "text": "Energy",
-                  "spans": []
-                },
-                {
-                  "text": "6000",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Stun Baton",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "6",
-                  "spans": []
-                },
-                {
-                  "text": "-",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "-",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "Stun (1), Crit (Stun (1))",
-                  "spans": []
-                },
-                {
-                  "text": "Energy",
-                  "spans": []
-                },
-                {
-                  "text": "450",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Switchblade",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "9",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "-",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "Thrown, Type (Blade)",
-                  "spans": []
-                },
-                {
-                  "text": "Blade",
-                  "spans": []
-                },
-                {
-                  "text": "150",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Fusion Blade",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "8",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "-",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Piercing (2), Req. (REF 2), Type (Blade)",
-                  "spans": []
-                },
-                {
-                  "text": "Blade",
-                  "spans": []
-                },
-                {
-                  "text": "1200",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Rocket Maul",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "10",
-                  "spans": []
-                },
-                {
-                  "text": "6",
-                  "spans": []
-                },
-                {
-                  "text": "Melee",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "3",
-                  "spans": []
-                },
-                {
-                  "text": "Two-Handed, Req. (PHYS 3)",
-                  "spans": []
-                },
-                {
-                  "text": "Explosive",
-                  "spans": []
-                },
-                {
-                  "text": "2500",
-                  "spans": []
-                }
-              ]
-            ]
-          }
-        ],
+        "content": [],
         "sections": [
           {
             "title": "Weapons",
@@ -9998,168 +9244,807 @@
                 "rows": [
                   [
                     {
-                      "text": "Weapon keywords",
+                      "text": "Weapons",
                       "spans": []
                     },
                     {
-                      "text": "Weapon keywords",
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
+                      "spans": []
+                    },
+                    {
+                      "text": "Weapons",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Piercing (X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "Ignores X points of armor protection.",
-                      "spans": []
-                    }
-                  ],
-                  [
-                    {
-                      "text": "Point Blank (X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "Ignore penalty die imposed by the weapon’s Type when attacking at Melee or Very Near range. At these ranges, it deals X additional damage. Beyond its listed range, reduce its damage by 1 for each additional range band. In addition, it cannot critically hit beyond its listed Range.",
-                      "spans": []
-                    }
-                  ],
-                  [
-                    {
-                      "text": "Slow Load",
-                      "spans": []
-                    },
-                    {
-                      "text": "Takes 2 actions to reload.",
-                      "spans": []
-                    }
-                  ],
-                  [
-                    {
-                      "text": "Stun (X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "On a hit, target must roll Toughness (DC 6 + X) or be Stunned for X rounds.",
+                      "text": "Name",
                       "spans": [
                         {
                           "style": "bold",
-                          "text": "Toughness (DC 6 + X)"
+                          "text": "Name"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Type",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Type"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "DC",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "DC"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Dmg",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Dmg"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Rng",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Rng"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Ammo",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Ammo"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Blk",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Blk"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Traits",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Traits"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Damage Type",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Damage Type"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Cost",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Cost"
                         }
                       ]
                     }
                   ],
                   [
                     {
-                      "text": "Two-Handed",
+                      "text": "Pistol",
                       "spans": []
                     },
                     {
-                      "text": "Requires both hands to use.",
+                      "text": "Light",
+                      "spans": []
+                    },
+                    {
+                      "text": "7",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "10",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "500",
                       "spans": []
                     }
                   ],
                   [
+                    {
+                      "text": "Toxic Spike",
+                      "spans": []
+                    },
+                    {
+                      "text": "Light",
+                      "spans": []
+                    },
+                    {
+                      "text": "10",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Near",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "Toxin (Prax)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Blade",
+                      "spans": []
+                    },
+                    {
+                      "text": "750",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Boom Stick",
+                      "spans": []
+                    },
+                    {
+                      "text": "Light",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "Near",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Point Blank (3)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "600",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Compact SMG",
+                      "spans": []
+                    },
+                    {
+                      "text": "Light",
+                      "spans": []
+                    },
+                    {
+                      "text": "7",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Near",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
                     {
                       "text": "Automatic",
                       "spans": []
                     },
                     {
-                      "text": "When attacking with this weapon, you may choose to spend 3 or 6 ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage on a hit. An attack this way cannot be a Called Shot or deal critical hit damage (though other critical hit effects may apply).",
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "800",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Shredding (X)",
+                      "text": "SMG",
                       "spans": []
                     },
                     {
-                      "text": "If damage exceeds armour’s protection value, reduce armour’s durability by X.",
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "7",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "9",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Automatic",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "1000",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Area (X)",
+                      "text": "Photon Rifle",
                       "spans": []
                     },
                     {
-                      "text": "Deals damage to all targets at X distance or closer.",
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "Long",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed",
+                      "spans": []
+                    },
+                    {
+                      "text": "Energy",
+                      "spans": []
+                    },
+                    {
+                      "text": "5000",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Thrown",
+                      "text": "Rifle",
                       "spans": []
                     },
                     {
-                      "text": "Weapon may be thrown without suffering a penalty die.",
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "Long",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed, Piercing (1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "1000",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Grenade",
+                      "text": "Shotgun",
                       "spans": []
                     },
                     {
-                      "text": "Requires (and uses up) a grenade item, applying the effects and any damage the grenade deals upon a hit. Additionally, deals this weapon’s damage to the target from the impact. A failure to hit by 3 or less still grants the effect of the grenade used, but does not deal this weapon’s damage to the target.",
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Near",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed, Point Blank (2), Shredding (1), Req. (PHYS 1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "800",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Toxin (X)",
+                      "text": "Gauss Cannon",
                       "spans": []
                     },
                     {
-                      "text": "Apply 1 level of X toxin upon successful attack.",
-                      "spans": [
-                        {
-                          "style": "link_underline",
-                          "text": "toxin",
-                          "href": "health-wounds.yaml#poisons-and-toxins"
-                        }
-                      ]
+                      "text": "Heavy",
+                      "spans": []
+                    },
+                    {
+                      "text": "7",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "20",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed, Slow Load, Automatic, Req. (PHYS 3)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "2500",
+                      "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Req. (X)",
+                      "text": "Grenade Launcher",
                       "spans": []
                     },
                     {
-                      "text": "Using this weapon requires at least the specified rank of the specified attribute or skill. For example, Req. (PHYS 1) means you must have at least 1 rank in your Physique attribute to use the weapon. Attempting to use a weapon with a requirement you do not meet imposes +2 penalty dice on attack rolls.",
+                      "text": "Heavy",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "3000",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Crit (Effect)",
+                      "text": "Magneton Cannon",
                       "spans": []
                     },
                     {
-                      "text": "This weapon applies a specific effect in addition to normal critical effects. For example, a weapon with Crit: Prone knocks the target prone on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2) to the attack (which stacks with all other Piercing from the weapon or ammunition used).",
-                      "spans": [
-                        {
-                          "style": "link_underline",
-                          "text": "critical effects",
-                          "href": "combat.yaml#critical-hits"
-                        }
-                      ]
+                      "text": "Exotic",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Near",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Area (melee), Two-Handed, Slow Load, Shredding (3), Req. (PHYS 1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Energy",
+                      "spans": []
+                    },
+                    {
+                      "text": "8000",
+                      "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Type (Type)",
+                      "text": "Tesla Rifle",
                       "spans": []
                     },
                     {
-                      "text": "This weapon’s damage is of the listed type. For example, Type (Energy) would mean that this weapon deals Energy damage, whereas Type (Explosive) would deal Explosive damage",
+                      "text": "Exotic",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "Med",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed, Stun (2), Crit (Stun (1))",
+                      "spans": []
+                    },
+                    {
+                      "text": "Energy",
+                      "spans": []
+                    },
+                    {
+                      "text": "6000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Stun Baton",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "Stun (1), Crit (Stun (1))",
+                      "spans": []
+                    },
+                    {
+                      "text": "Energy",
+                      "spans": []
+                    },
+                    {
+                      "text": "450",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Switchblade",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "9",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "Thrown, Type (Blade)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Blade",
+                      "spans": []
+                    },
+                    {
+                      "text": "150",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Fusion Blade",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Piercing (2), Req. (REF 2), Type (Blade)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Blade",
+                      "spans": []
+                    },
+                    {
+                      "text": "1200",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Rocket Maul",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "10",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "Melee",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed, Req. (PHYS 3)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Explosive",
+                      "spans": []
+                    },
+                    {
+                      "text": "2500",
                       "spans": []
                     }
                   ]
@@ -10177,344 +10062,175 @@
                     "rows": [
                       [
                         {
-                          "text": "Armour",
+                          "text": "Weapon keywords",
                           "spans": []
                         },
                         {
-                          "text": "Armour",
-                          "spans": []
-                        },
-                        {
-                          "text": "Armour",
-                          "spans": []
-                        },
-                        {
-                          "text": "Armour",
-                          "spans": []
-                        },
-                        {
-                          "text": "Armour",
-                          "spans": []
-                        },
-                        {
-                          "text": "Armour",
+                          "text": "Weapon keywords",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Name",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Name"
-                            }
-                          ]
+                          "text": "Piercing (X)",
+                          "spans": []
                         },
                         {
-                          "text": "Prot",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Prot"
-                            }
-                          ]
+                          "text": "Ignores X points of armor protection.",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Point Blank (X)",
+                          "spans": []
                         },
                         {
-                          "text": "Durability",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Durability"
-                            }
-                          ]
+                          "text": "Ignore penalty die imposed by the weapon’s Type when attacking at Melee or Very Near range. At these ranges, it deals X additional damage. Beyond its listed range, reduce its damage by 1 for each additional range band. In addition, it cannot critically hit beyond its listed Range.",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Slow Load",
+                          "spans": []
                         },
                         {
-                          "text": "Blk",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Blk"
-                            }
-                          ]
+                          "text": "Takes 2 actions to reload.",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Stun (X)",
+                          "spans": []
                         },
                         {
-                          "text": "Traits",
+                          "text": "On a hit, target must roll Toughness (DC 6 + X) or be Stunned for X rounds.",
                           "spans": [
                             {
                               "style": "bold",
-                              "text": "Traits"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Cost",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Cost"
+                              "text": "Toughness (DC 6 + X)"
                             }
                           ]
                         }
                       ],
                       [
                         {
-                          "text": "EVA Suit",
+                          "text": "Two-Handed",
                           "spans": []
                         },
                         {
-                          "text": "-",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "3",
-                          "spans": []
-                        },
-                        {
-                          "text": "Allows survival in space. May be worn with armour of Bulk 1.",
-                          "spans": []
-                        },
-                        {
-                          "text": "500",
+                          "text": "Requires both hands to use.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "EVA Suit (Advanced)",
+                          "text": "Automatic",
                           "spans": []
                         },
                         {
-                          "text": "-",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "3",
-                          "spans": []
-                        },
-                        {
-                          "text": "Allows survival in space. May be worn with armour of Bulk 2 or less.",
-                          "spans": []
-                        },
-                        {
-                          "text": "2500",
+                          "text": "When attacking with this weapon, you may choose to spend 3 or 6 ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage on a hit. An attack this way cannot be a Called Shot or deal critical hit damage (though other critical hit effects may apply).",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Scrap Armour",
+                          "text": "Shredding (X)",
                           "spans": []
                         },
                         {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "Flimsy",
-                          "spans": []
-                        },
-                        {
-                          "text": "500",
+                          "text": "If damage exceeds armour’s protection value, reduce armour’s durability by X.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Flak Jacket",
+                          "text": "Area (X)",
                           "spans": []
                         },
                         {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "4",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "-",
-                          "spans": []
-                        },
-                        {
-                          "text": "1250",
+                          "text": "Deals damage to all targets at X distance or closer.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Kevlar Clothing",
+                          "text": "Thrown",
                           "spans": []
                         },
                         {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "3",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "Incognito",
-                          "spans": []
-                        },
-                        {
-                          "text": "1500",
+                          "text": "Weapon may be thrown without suffering a penalty die.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Streetweave Jacket",
+                          "text": "Grenade",
                           "spans": []
                         },
                         {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "5",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "Vulnerable (Blade 1)",
-                          "spans": []
-                        },
-                        {
-                          "text": "2500",
+                          "text": "Requires (and uses up) a grenade item, applying the effects and any damage the grenade deals upon a hit. Additionally, deals this weapon’s damage to the target from the impact. A failure to hit by 3 or less still grants the effect of the grenade used, but does not deal this weapon’s damage to the target.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "MilSec Bodyplate",
+                          "text": "Toxin (X)",
                           "spans": []
                         },
                         {
-                          "text": "2",
+                          "text": "Apply 1 level of X toxin upon successful attack.",
+                          "spans": [
+                            {
+                              "style": "link_underline",
+                              "text": "toxin",
+                              "href": "health-wounds.yaml#poisons-and-toxins"
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Req. (X)",
                           "spans": []
                         },
                         {
-                          "text": "6",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "Vulnerable (Energy 1)",
-                          "spans": []
-                        },
-                        {
-                          "text": "5000",
+                          "text": "Using this weapon requires at least the specified rank of the specified attribute or skill. For example, Req. (PHYS 1) means you must have at least 1 rank in your Physique attribute to use the weapon. Attempting to use a weapon with a requirement you do not meet imposes +2 penalty dice on attack rolls.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Breaching plate",
+                          "text": "Crit (Effect)",
                           "spans": []
                         },
                         {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "4",
-                          "spans": []
-                        },
-                        {
-                          "text": "3",
-                          "spans": []
-                        },
-                        {
-                          "text": "Frontal Shielding (1), Req. (PHYS 2), Resist (Ballistic 1)",
-                          "spans": []
-                        },
-                        {
-                          "text": "8500",
-                          "spans": []
+                          "text": "This weapon applies a specific effect in addition to normal critical effects. For example, a weapon with Crit: Prone knocks the target prone on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2) to the attack (which stacks with all other Piercing from the weapon or ammunition used).",
+                          "spans": [
+                            {
+                              "style": "link_underline",
+                              "text": "critical effects",
+                              "href": "combat.yaml#critical-hits"
+                            }
+                          ]
                         }
                       ],
                       [
                         {
-                          "text": "Heavy Bodyplate",
+                          "text": "Type (Type)",
                           "spans": []
                         },
                         {
-                          "text": "3",
-                          "spans": []
-                        },
-                        {
-                          "text": "8",
-                          "spans": []
-                        },
-                        {
-                          "text": "4",
-                          "spans": []
-                        },
-                        {
-                          "text": "+1 penalty die to Stealth, Req. (PHYS 3)",
-                          "spans": []
-                        },
-                        {
-                          "text": "10000",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Basic Power Armour",
-                          "spans": []
-                        },
-                        {
-                          "text": "4",
-                          "spans": []
-                        },
-                        {
-                          "text": "14",
-                          "spans": []
-                        },
-                        {
-                          "text": "10",
-                          "spans": []
-                        },
-                        {
-                          "text": "Req. (Power Armour 1), Powered (3), Vulnerable (Energy 1)",
-                          "spans": []
-                        },
-                        {
-                          "text": "40000",
-                          "spans": []
+                          "text": "This weapon’s damage is of the listed damage type. For example, Type (Energy) would mean that this weapon deals Energy damage, whereas Type (Explosive) would deal Explosive damage",
+                          "spans": [
+                            {
+                              "style": "link_underline",
+                              "text": "damage type",
+                              "href": "combat.yaml#damage-types"
+                            }
+                          ]
                         }
                       ]
                     ]
@@ -10534,93 +10250,343 @@
                 "rows": [
                   [
                     {
-                      "text": "Armour keywords",
+                      "text": "Armour",
                       "spans": []
                     },
                     {
-                      "text": "Armour keywords",
+                      "text": "Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour",
                       "spans": []
                     }
                   ],
                   [
                     {
-                      "text": "Req. (X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "Wearing this armour requires at least the specified rank of the specified attribute or skill. For example, Req. (PHYS 1) means you must have at least 1 rank in your Physique attribute to wear the armour effectively. Attempting to wear armour without meeting the requirements for it imposes +1 penalty die to all attack rolls, Reflex, and Physique skill checks.",
-                      "spans": []
-                    }
-                  ],
-                  [
-                    {
-                      "text": "Powered (X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "Requires Power Armour (DC = 6 + X) check to activate. Failure: become Immobile; gain +1 penalty die to all PHYS and REF based checks.\n\nWhen successfully activated, reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before requiring a charge to be powered again.",
-                      "spans": []
-                    }
-                  ],
-                  [
-                    {
-                      "text": "Frontal Shielding (X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "Armour gains +X Protection against attacks that hit the front of the armour.",
-                      "spans": []
-                    }
-                  ],
-                  [
-                    {
-                      "text": "Resist (Type X)",
-                      "spans": []
-                    },
-                    {
-                      "text": "Armour gains +X Protection against damage of listed Type. For example, armour tagged with Resist (EMP 1) would gain +1 Protection against EMP damage. See Damage Types.",
+                      "text": "Name",
                       "spans": [
                         {
-                          "style": "link_underline",
-                          "text": "Damage Types",
-                          "href": "combat.yaml#damage-types"
+                          "style": "bold",
+                          "text": "Name"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Prot",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Prot"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Durability",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Durability"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Blk",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Blk"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Traits",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Traits"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Cost",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Cost"
                         }
                       ]
                     }
                   ],
                   [
                     {
-                      "text": "Vulnerable (Type X)",
+                      "text": "EVA Suit",
                       "spans": []
                     },
                     {
-                      "text": "Armour reduces its Protection against damage of listed Type by -X amount. For example, armour tagged with Vulnerable (EMP 1) would lose 1 Protection against EMP damage. Armour’s Protection rating cannot go below 0. See Damage Types.",
-                      "spans": [
-                        {
-                          "style": "link_underline",
-                          "text": "Damage Types",
-                          "href": "combat.yaml#damage-types"
-                        }
-                      ]
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Allows survival in space. May be worn with armour of Bulk 1.",
+                      "spans": []
+                    },
+                    {
+                      "text": "500",
+                      "spans": []
                     }
                   ],
                   [
+                    {
+                      "text": "EVA Suit (Advanced)",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Allows survival in space. May be worn with armour of Bulk 2 or less.",
+                      "spans": []
+                    },
+                    {
+                      "text": "2500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Scrap Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
                     {
                       "text": "Flimsy",
                       "spans": []
                     },
                     {
-                      "text": "This armour cannot be repaired.",
+                      "text": "500",
                       "spans": []
                     }
                   ],
                   [
                     {
+                      "text": "Flak Jacket",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "1250",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Kevlar Clothing",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
                       "text": "Incognito",
                       "spans": []
                     },
                     {
-                      "text": "Appears to be normal clothing.",
+                      "text": "1500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Streetweave Jacket",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Vulnerable (Blade 1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "2500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "MilSec Bodyplate",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Vulnerable (Energy 1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "5000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Breaching plate",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Frontal Shielding (1), Req. (PHYS 2), Resist (Ballistic 1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "8500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Heavy Bodyplate",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "Req. (PHYS 3)",
+                      "spans": []
+                    },
+                    {
+                      "text": "10000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Basic Power Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "14",
+                      "spans": []
+                    },
+                    {
+                      "text": "10",
+                      "spans": []
+                    },
+                    {
+                      "text": "Req. (Power Armour 1), Powered (3), Vulnerable (Energy 1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "40000",
                       "spans": []
                     }
                   ]
@@ -10638,488 +10604,93 @@
                     "rows": [
                       [
                         {
-                          "text": "Items",
+                          "text": "Armour keywords",
                           "spans": []
                         },
                         {
-                          "text": "Items",
-                          "spans": []
-                        },
-                        {
-                          "text": "Items",
-                          "spans": []
-                        },
-                        {
-                          "text": "Items",
-                          "spans": []
-                        },
-                        {
-                          "text": "Items",
+                          "text": "Armour keywords",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Item Name",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Item Name"
-                            }
-                          ]
+                          "text": "Req. (X)",
+                          "spans": []
                         },
                         {
-                          "text": "Effect",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Effect"
-                            }
-                          ]
+                          "text": "Wearing this armour requires at least the specified rank of the specified attribute or skill. For example, Req. (PHYS 1) means you must have at least 1 rank in your Physique attribute to wear the armour effectively. Attempting to wear armour without meeting the requirements for it imposes +1 penalty die to all attack rolls, Reflex, and Physique skill checks.",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Powered (X)",
+                          "spans": []
                         },
                         {
-                          "text": "Uses",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Uses"
-                            }
-                          ]
+                          "text": "Requires Power Armour (DC = 6 + X) check to activate. Failure: become Immobile; gain +1 penalty die to all PHYS and REF based checks.\n\nWhen successfully activated, reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before requiring a charge to be powered again.",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Frontal Shielding (X)",
+                          "spans": []
                         },
                         {
-                          "text": "Bulk",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Bulk"
-                            }
-                          ]
+                          "text": "Armour gains +X Protection against attacks that hit the front of the armour.",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Resist (Type X)",
+                          "spans": []
                         },
                         {
-                          "text": "Cost",
+                          "text": "Armour gains +X Protection against damage of listed Type. For example, armour tagged with Resist (EMP 1) would gain +1 Protection against EMP damage. See Damage Types.",
                           "spans": [
                             {
-                              "style": "bold",
-                              "text": "Cost"
+                              "style": "link_underline",
+                              "text": "Damage Types",
+                              "href": "combat.yaml#damage-types"
                             }
                           ]
                         }
                       ],
                       [
                         {
-                          "text": "Flashbang Grenade",
+                          "text": "Vulnerable (Type X)",
                           "spans": []
                         },
                         {
-                          "text": "Applies Stun 1 to everyone within Very Near range, Thrown",
+                          "text": "Armour reduces its Protection against damage of listed Type by -X amount. For example, armour tagged with Vulnerable (EMP 1) would lose 1 Protection against EMP damage. Armour’s Protection rating cannot go below 0. See Damage Types.",
+                          "spans": [
+                            {
+                              "style": "link_underline",
+                              "text": "Damage Types",
+                              "href": "combat.yaml#damage-types"
+                            }
+                          ]
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Flimsy",
                           "spans": []
                         },
                         {
-                          "text": "1 use",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "200",
+                          "text": "This armour cannot be repaired.",
                           "spans": []
                         }
                       ],
                       [
                         {
-                          "text": "Frag Grenade",
+                          "text": "Incognito",
                           "spans": []
                         },
                         {
-                          "text": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown, Type (Explosive)",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 use",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "250",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "EMP Grenade",
-                          "spans": []
-                        },
-                        {
-                          "text": "Applies EMP 2 to everything within range, Thrown, Type (EMP)",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 use",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "300",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Combat Stim Injector",
-                          "spans": []
-                        },
-                        {
-                          "text": "Gain +1 action & -1 Stress; take 1 wound after effect ends",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 use",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "200",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Basic Medkit",
-                          "spans": []
-                        },
-                        {
-                          "text": "Right tool for the job: First Aid checks",
-                          "spans": []
-                        },
-                        {
-                          "text": "3 uses",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "350",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Multitool",
-                          "spans": []
-                        },
-                        {
-                          "text": "Allows engineering checks to repair, bypass, scrap, etc.",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "750",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Repair Kit",
-                          "spans": []
-                        },
-                        {
-                          "text": "Provides materials and tools for repairs",
-                          "spans": []
-                        },
-                        {
-                          "text": "10 uses",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "500",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Tracker",
-                          "spans": []
-                        },
-                        {
-                          "text": "While within 10km, always know location of this device",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 use",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "250",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Portable Scanner",
-                          "spans": []
-                        },
-                        {
-                          "text": "Right tool for the job: Observe (tech, lifeforms)",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "400",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Weapon Scope",
-                          "spans": []
-                        },
-                        {
-                          "text": "Simple Modification. Grants +1 bonus die to called shots at medium range and farther; inflicts +1 penalty die to attacks at Near range or nearer",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "750",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Weapon Silencer",
-                          "spans": []
-                        },
-                        {
-                          "text": "Simple Modification. Weapon makes reduced sound when fired; deals -1 damage",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "500",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Weapon SMART-link",
-                          "spans": []
-                        },
-                        {
-                          "text": "Grants weapon ability to use SMART ammo.",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "3000",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Armour Gel Pads",
-                          "spans": []
-                        },
-                        {
-                          "text": "Grants armour Resist (Explosive 1) trait.",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "2500",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Armour Kevlar Plating",
-                          "spans": []
-                        },
-                        {
-                          "text": "Expert Modification. Grants armour Resist (Ballistic 1) trait.",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "2000",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Compact Backpack",
-                          "spans": []
-                        },
-                        {
-                          "text": "+5 Inventory Slots when worn",
-                          "spans": []
-                        },
-                        {
-                          "text": "Permanent",
-                          "spans": []
-                        },
-                        {
-                          "text": "-",
-                          "spans": []
-                        },
-                        {
-                          "text": "150",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Ammo (Flechette)",
-                          "spans": []
-                        },
-                        {
-                          "text": "Deals +2 damage to unarmoured targets.",
-                          "spans": []
-                        },
-                        {
-                          "text": "10 ammo",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "500",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Ammo (SMART)",
-                          "spans": []
-                        },
-                        {
-                          "text": "Requires weapon fit with SMART-link. Negates one level of cover (Full Cover becomes Partial Cover; Partial Cover is negated entirely). Target must be visible and bullets must have a path to reach the target (not necessarily a straight line).",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 reload",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "1250",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Ammo (Armour Piercing)",
-                          "spans": []
-                        },
-                        {
-                          "text": "Adds Piercing 1 to attacks.",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 reload",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "750",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Ammo (Explosive)",
-                          "spans": []
-                        },
-                        {
-                          "text": "Adds Shredding 1 to attacks.",
-                          "spans": []
-                        },
-                        {
-                          "text": "1 reload",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "750",
+                          "text": "Appears to be normal clothing.",
                           "spans": []
                         }
                       ]
@@ -11133,6 +10704,506 @@
           {
             "title": "Items",
             "slug": "items",
+            "level": 3,
+            "content": [
+              {
+                "type": "table",
+                "rows": [
+                  [
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    },
+                    {
+                      "text": "Items",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Item Name",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Item Name"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Effect",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Effect"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Uses",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Uses"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Bulk",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Bulk"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Cost",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Cost"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Flashbang Grenade",
+                      "spans": []
+                    },
+                    {
+                      "text": "Applies Stun 1 to everyone within Very Near range, Thrown",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 use",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "200",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Frag Grenade",
+                      "spans": []
+                    },
+                    {
+                      "text": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown, Type (Explosive)",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 use",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "250",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "EMP Grenade",
+                      "spans": []
+                    },
+                    {
+                      "text": "Applies EMP 2 to everything within range, Thrown, Type (EMP)",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 use",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "300",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Combat Stim Injector",
+                      "spans": []
+                    },
+                    {
+                      "text": "Gain +1 action & -1 Stress; take 1 wound after effect ends",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 use",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "200",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Basic Medkit",
+                      "spans": []
+                    },
+                    {
+                      "text": "Right tool for the job: First Aid checks",
+                      "spans": []
+                    },
+                    {
+                      "text": "3 uses",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "350",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Multitool",
+                      "spans": []
+                    },
+                    {
+                      "text": "Allows engineering checks to repair, bypass, scrap, etc.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "750",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Repair Kit",
+                      "spans": []
+                    },
+                    {
+                      "text": "Provides materials and tools for repairs",
+                      "spans": []
+                    },
+                    {
+                      "text": "10 uses",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Tracker",
+                      "spans": []
+                    },
+                    {
+                      "text": "While within 10km, always know location of this device",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 use",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "250",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Portable Scanner",
+                      "spans": []
+                    },
+                    {
+                      "text": "Right tool for the job: Observe (tech, lifeforms)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "400",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Weapon Scope",
+                      "spans": []
+                    },
+                    {
+                      "text": "Simple Modification. Grants +1 bonus die to called shots at medium range and farther; inflicts +1 penalty die to attacks at Near range or nearer",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "750",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Weapon Silencer",
+                      "spans": []
+                    },
+                    {
+                      "text": "Simple Modification. Weapon makes reduced sound when fired; deals -1 damage",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Weapon SMART-link",
+                      "spans": []
+                    },
+                    {
+                      "text": "Grants weapon ability to use SMART ammo.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "3000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Armour Gel Pads",
+                      "spans": []
+                    },
+                    {
+                      "text": "Grants armour Resist (Explosive 1) trait.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "2500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Armour Kevlar Plating",
+                      "spans": []
+                    },
+                    {
+                      "text": "Expert Modification. Grants armour Resist (Ballistic 1) trait.",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "2000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Compact Backpack",
+                      "spans": []
+                    },
+                    {
+                      "text": "+5 Inventory Slots when worn",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "-",
+                      "spans": []
+                    },
+                    {
+                      "text": "150",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Ammo (Flechette)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Deals +2 damage to unarmoured targets.",
+                      "spans": []
+                    },
+                    {
+                      "text": "10 ammo",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Ammo (SMART)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Requires weapon fit with SMART-link. Negates one level of cover (Full Cover becomes Partial Cover; Partial Cover is negated entirely). Target must be visible and bullets must have a path to reach the target (not necessarily a straight line).",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 reload",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "1250",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Ammo (Armour Piercing)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Adds Piercing (1) to attacks.",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 reload",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "750",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Ammo (Explosive)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Adds Shredding (1) to attacks.",
+                      "spans": []
+                    },
+                    {
+                      "text": "1 reload",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "750",
+                      "spans": []
+                    }
+                  ]
+                ]
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Cyberware",
+            "slug": "cyberware",
             "level": 3,
             "content": [
               {
@@ -11255,7 +11326,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Low; spine",
+                      "text": "Minor; spine",
                       "spans": []
                     },
                     {
@@ -11693,7 +11764,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Your unarmed attacks deal damage equal to your REF and have Piercing 3. Additionally, gain +1 bonus die to climbing related checks.",
+                      "text": "PHYS unarmed attacks deal damage equal to double your PHYS and have Shredding (3). REF unarmed attacks deal damage equal to your REF and have Piercing (2). Additionally, gain +1 bonus die to climbing related checks.",
                       "spans": []
                     },
                     {
@@ -11831,13 +11902,6 @@
                 ]
               }
             ],
-            "sections": []
-          },
-          {
-            "title": "Cyberware",
-            "slug": "cyberware",
-            "level": 3,
-            "content": [],
             "sections": [
               {
                 "title": "Installing and Removing Cyberware",
@@ -12118,197 +12182,6 @@
                         ]
                       }
                     ]
-                  },
-                  {
-                    "type": "table",
-                    "rows": [
-                      [
-                        {
-                          "text": "Narcotics",
-                          "spans": []
-                        },
-                        {
-                          "text": "Narcotics",
-                          "spans": []
-                        },
-                        {
-                          "text": "Narcotics",
-                          "spans": []
-                        },
-                        {
-                          "text": "Narcotics",
-                          "spans": []
-                        },
-                        {
-                          "text": "Narcotics",
-                          "spans": []
-                        },
-                        {
-                          "text": "Narcotics",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Name",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Name"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Effect",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Effect"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Uses",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Uses"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Addiction Score",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Addiction Score"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Legality",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Legality"
-                            }
-                          ]
-                        },
-                        {
-                          "text": "Cost",
-                          "spans": [
-                            {
-                              "style": "bold",
-                              "text": "Cost"
-                            }
-                          ]
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Space Dust",
-                          "spans": []
-                        },
-                        {
-                          "text": "Grants +1 bonus die to Observe and Piloting checks for 6 hours",
-                          "spans": []
-                        },
-                        {
-                          "text": "5",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "Legal",
-                          "spans": []
-                        },
-                        {
-                          "text": "500",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Tranquility",
-                          "spans": []
-                        },
-                        {
-                          "text": "Reduces stress by 1; penalty die to all REF checks for 6 hours.",
-                          "spans": []
-                        },
-                        {
-                          "text": "2",
-                          "spans": []
-                        },
-                        {
-                          "text": "5",
-                          "spans": []
-                        },
-                        {
-                          "text": "Legal",
-                          "spans": []
-                        },
-                        {
-                          "text": "5000",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Smoothe",
-                          "spans": []
-                        },
-                        {
-                          "text": "Reduces stress by 1d4; increases Cool Under Fire by 2 and grants +1 bonus die to all Mental skill checks for 1 hour",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "8",
-                          "spans": []
-                        },
-                        {
-                          "text": "Illegal",
-                          "spans": []
-                        },
-                        {
-                          "text": "20000",
-                          "spans": []
-                        }
-                      ],
-                      [
-                        {
-                          "text": "Chemical Strength",
-                          "spans": []
-                        },
-                        {
-                          "text": "+1 bonus die to all PHYS checks for 1 hour; +1 movement bonus for 1 hour. After 1 hour, gain +1 penalty die to all PHYS checks and gain +1 movement penalty until sleep.",
-                          "spans": []
-                        },
-                        {
-                          "text": "1",
-                          "spans": []
-                        },
-                        {
-                          "text": "3",
-                          "spans": []
-                        },
-                        {
-                          "text": "Illegal",
-                          "spans": []
-                        },
-                        {
-                          "text": "8000",
-                          "spans": []
-                        }
-                      ]
-                    ]
                   }
                 ],
                 "sections": []
@@ -12319,7 +12192,199 @@
             "title": "Narcotics",
             "slug": "narcotics",
             "level": 3,
-            "content": [],
+            "content": [
+              {
+                "type": "table",
+                "rows": [
+                  [
+                    {
+                      "text": "Narcotics",
+                      "spans": []
+                    },
+                    {
+                      "text": "Narcotics",
+                      "spans": []
+                    },
+                    {
+                      "text": "Narcotics",
+                      "spans": []
+                    },
+                    {
+                      "text": "Narcotics",
+                      "spans": []
+                    },
+                    {
+                      "text": "Narcotics",
+                      "spans": []
+                    },
+                    {
+                      "text": "Narcotics",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Name",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Name"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Effect",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Effect"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Uses",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Uses"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Addiction Score",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Addiction Score"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Legality",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Legality"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Cost",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Cost"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Space Dust",
+                      "spans": []
+                    },
+                    {
+                      "text": "Grants +1 bonus die to Observe and Piloting checks for 6 hours",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "Legal",
+                      "spans": []
+                    },
+                    {
+                      "text": "500",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Tranquility",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reduces stress by 1; penalty die to all REF checks for 6 hours.",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "5",
+                      "spans": []
+                    },
+                    {
+                      "text": "Legal",
+                      "spans": []
+                    },
+                    {
+                      "text": "5000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Smoothe",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reduces stress by 1d4; increases Cool Under Fire by 2 and grants +1 bonus die to all Mental skill checks for 1 hour",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "Illegal",
+                      "spans": []
+                    },
+                    {
+                      "text": "20000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Chemical Strength",
+                      "spans": []
+                    },
+                    {
+                      "text": "+1 bonus die to all PHYS checks for 1 hour; +1 movement bonus for 1 hour. After 1 hour, gain +1 penalty die to all PHYS checks and gain +1 movement penalty until sleep.",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "3",
+                      "spans": []
+                    },
+                    {
+                      "text": "Illegal",
+                      "spans": []
+                    },
+                    {
+                      "text": "8000",
+                      "spans": []
+                    }
+                  ]
+                ]
+              }
+            ],
             "sections": [
               {
                 "title": "Addiction",
@@ -12345,7 +12410,15 @@
                     "type": "paragraph",
                     "text": "On a failed Addiction roll, the character becomes addicted to the narcotic and must progress through the Addiction table below, beginning with Onset.",
                     "spans": []
-                  },
+                  }
+                ],
+                "sections": []
+              },
+              {
+                "title": "Addiction Effects",
+                "slug": "addiction-effects",
+                "level": 4,
+                "content": [
                   {
                     "type": "table",
                     "rows": [
@@ -12412,13 +12485,6 @@
                     ]
                   }
                 ],
-                "sections": []
-              },
-              {
-                "title": "Addiction Effects",
-                "slug": "addiction-effects",
-                "level": 4,
-                "content": [],
                 "sections": []
               },
               {
@@ -12649,154 +12715,153 @@
         "title": "Hacking Equipment",
         "slug": "hacking-equipment",
         "level": 2,
-        "content": [
-          {
-            "type": "table",
-            "rows": [
-              [
-                {
-                  "text": "Rigs",
-                  "spans": []
-                },
-                {
-                  "text": "Rigs",
-                  "spans": []
-                },
-                {
-                  "text": "Rigs",
-                  "spans": []
-                },
-                {
-                  "text": "Rigs",
-                  "spans": []
-                },
-                {
-                  "text": "Rigs",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Name",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Name"
-                    }
-                  ]
-                },
-                {
-                  "text": "System Tier Access",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "System Tier Access"
-                    }
-                  ]
-                },
-                {
-                  "text": "Max Software Tier",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Max Software Tier"
-                    }
-                  ]
-                },
-                {
-                  "text": "Bulk",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Bulk"
-                    }
-                  ]
-                },
-                {
-                  "text": "Cost",
-                  "spans": [
-                    {
-                      "style": "bold",
-                      "text": "Cost"
-                    }
-                  ]
-                }
-              ],
-              [
-                {
-                  "text": "MonoTap",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "Tier 1",
-                  "spans": []
-                },
-                {
-                  "text": "1",
-                  "spans": []
-                },
-                {
-                  "text": "250",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "DeckLite",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Tier 1",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "400",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Raven Microdeck",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "Tier 2",
-                  "spans": []
-                },
-                {
-                  "text": "2",
-                  "spans": []
-                },
-                {
-                  "text": "600",
-                  "spans": []
-                }
-              ]
-            ]
-          }
-        ],
+        "content": [],
         "sections": [
           {
             "title": "Rigs",
             "slug": "rigs",
             "level": 3,
             "content": [
+              {
+                "type": "table",
+                "rows": [
+                  [
+                    {
+                      "text": "Rigs",
+                      "spans": []
+                    },
+                    {
+                      "text": "Rigs",
+                      "spans": []
+                    },
+                    {
+                      "text": "Rigs",
+                      "spans": []
+                    },
+                    {
+                      "text": "Rigs",
+                      "spans": []
+                    },
+                    {
+                      "text": "Rigs",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Name",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Name"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "System Tier Access",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "System Tier Access"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Max Software Tier",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Max Software Tier"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Bulk",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Bulk"
+                        }
+                      ]
+                    },
+                    {
+                      "text": "Cost",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "Cost"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "MonoTap",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "Tier 1",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "250",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "DeckLite",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Tier 1",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "400",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Raven Microdeck",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Tier 2",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "600",
+                      "spans": []
+                    }
+                  ]
+                ]
+              },
               {
                 "type": "paragraph",
                 "text": "Software modules are loaded into rigs and used to perform specific tasks. Rigs must support the software’s tier to use it.",
@@ -12806,7 +12871,15 @@
                     "text": "software’s tier"
                   }
                 ]
-              },
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Software",
+            "slug": "software",
+            "level": 3,
+            "content": [
               {
                 "type": "table",
                 "rows": [
@@ -12941,13 +13014,6 @@
                 ]
               }
             ],
-            "sections": []
-          },
-          {
-            "title": "Software",
-            "slug": "software",
-            "level": 3,
-            "content": [],
             "sections": []
           },
           {
@@ -16343,7 +16409,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788501386690495&usg=AOvVaw2v0U2tZ3QjjBDC7RKYSim1"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788502953189991&usg=AOvVaw0Bc0dd7X3iIdVztxXdOZ0d"
               }
             ]
           }
@@ -18704,7 +18770,13 @@
     "title": "Stealth",
     "slug": "stealth",
     "level": 1,
-    "content": [],
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Wearing armour of bulk 3 or more imposes +1 penalty die to Stealth rolls. Wearing armour of bulk 8 or more imposes +2 penalty dice to Stealth rolls.",
+        "spans": []
+      }
+    ],
     "sections": []
   },
   {

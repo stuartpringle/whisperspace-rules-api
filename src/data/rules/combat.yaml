@@ -263,6 +263,11 @@ sections:
           spans: []
         - text: '4'
           spans: []
+    sections: []
+  - title: Ranged weapons attacking within Very Near range
+    slug: ranged-weapons-attacking-within-very-near-range
+    level: 3
+    content:
     - type: table
       rows:
       - - &id002
@@ -293,11 +298,6 @@ sections:
           spans: []
         - text: +1 penalty die
           spans: []
-    sections: []
-  - title: Ranged weapons attacking within Very Near range
-    slug: ranged-weapons-attacking-within-very-near-range
-    level: 3
-    content: []
     sections: []
 - title: Melee Combat
   slug: melee-combat
@@ -399,10 +399,43 @@ sections:
     level: 3
     content:
     - type: paragraph
-      text: Attacking without a weapon uses the Melee (unarmed) skill and deals damage
-        equal to half your character’s PHYS or REF, rounded up.
+      text: When making an unarmed attack, you may choose whether to use your PHYS
+        attribute or your REF attribute.
       spans: []
-    sections: []
+    sections:
+    - title: Unarmed attacking using REF
+      slug: unarmed-attacking-using-ref
+      level: 4
+      content:
+      - type: paragraph
+        text: Use DC = 9 - REF
+        spans:
+        - style: bold
+          text: Use DC = 9 - REF
+      - type: paragraph
+        text: Damage = 1
+        spans: []
+      - type: paragraph
+        text: Ignore the penalty die for making a Called Shot for this attack.
+        spans: []
+      sections: []
+    - title: Unarmed attacking using PHYS
+      slug: unarmed-attacking-using-phys
+      level: 4
+      content:
+      - type: paragraph
+        text: Use DC = 11 - PHYS
+        spans:
+        - style: bold
+          text: Use DC = 11 - PHYS
+      - type: paragraph
+        text: Damage = PHYS
+        spans: []
+      - type: paragraph
+        text: On an extreme success, you may take the Grapple combat action without
+          spending an action to do so.
+        spans: []
+      sections: []
   - title: Improvised Weapons
     slug: improvised-weapons
     level: 3
@@ -536,6 +569,11 @@ sections:
 - title: Damage Types
   slug: damage-types
   level: 2
+  content: []
+  sections: []
+- title: Damage Types
+  slug: damage-types
+  level: 2
   content:
   - type: table
     rows:
@@ -592,11 +630,6 @@ sections:
         spans: []
       - text: Blood loss, poison doing its job
         spans: []
-  sections: []
-- title: Damage Types
-  slug: damage-types
-  level: 2
-  content: []
   sections: []
 - title: Combat actions
   slug: combat-actions

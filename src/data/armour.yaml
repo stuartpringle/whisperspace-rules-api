@@ -60,7 +60,7 @@ armor:
     durability: 8
     bulk: 4
     cost: 10000
-    special: +1 penalty die to Stealth, Req. (PHYS 3)
+    special: Req. (PHYS 3)
   - id: basic_power_armour
     name: Basic Power Armour
     protection: 4

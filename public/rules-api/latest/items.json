@@ -122,19 +122,17 @@
     },
     {
       "name": "Ammo (Armour Piercing)",
-      "effect": "Adds Piercing 1 to attacks.",
+      "effect": "Adds Piercing (1) to attacks.",
       "uses": "1 reload",
       "bulk": 1,
-      "cost": 750,
-      "gameplayEffects": "piercing+1"
+      "cost": 750
     },
     {
       "name": "Ammo (Explosive)",
-      "effect": "Adds Shredding 1 to attacks.",
+      "effect": "Adds Shredding (1) to attacks.",
       "uses": "1 reload",
       "bulk": 1,
-      "cost": 750,
-      "gameplayEffects": "shredding+1"
+      "cost": 750
     }
   ]
 }

@@ -6,7 +6,7 @@
       "effect": "Once per round, gain +1 bonus die to an Evade check.",
       "installationDifficulty": 2,
       "requirements": "REF 1",
-      "physicalImpact": "Low; spine",
+      "physicalImpact": "Minor; spine",
       "bulk": 1,
       "cost": 4000
     },
@@ -153,7 +153,7 @@
     {
       "name": "Mantis Claws (retractable)",
       "tier": 3,
-      "effect": "Your unarmed attacks deal damage equal to your REF and have Piercing 3. Additionally, gain +1 bonus die to climbing related checks.",
+      "effect": "PHYS unarmed attacks deal damage equal to double your PHYS and have Shredding (3). REF unarmed attacks deal damage equal to your REF and have Piercing (2). Additionally, gain +1 bonus die to climbing related checks.",
       "installationDifficulty": 3,
       "requirements": "REF 2 or PHYS 2",
       "physicalImpact": "Obvious; forearms and hands",

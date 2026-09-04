@@ -1,5 +1,9 @@
 title: Stealth
 slug: stealth
 level: 1
-content: []
+content:
+- type: paragraph
+  text: Wearing armour of bulk 3 or more imposes +1 penalty die to Stealth rolls.
+    Wearing armour of bulk 8 or more imposes +2 penalty dice to Stealth rolls.
+  spans: []
 sections: []
