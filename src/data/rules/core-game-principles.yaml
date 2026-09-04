@@ -99,15 +99,13 @@ sections:
     text: 'For example:'
     spans: []
   - type: paragraph
-    text: 'You aim and fire at an enemy behind a crate. Your Aim grants a Bonus die,
-      and your Rifle skill adds +3. That’s your side of the roll.
+    text: 'You fire at an enemy behind a crate. Your Rifle skill adds +3. That’s your
+      side of the roll.
 
       The GM sets the DC higher than normal because of the target’s cover. You can’t
       control your enemy’s cover; that’s the world making things more difficult for
       you.'
     spans:
-    - style: bold
-      text: Aim
     - style: bold
       text: Rifle skill adds +3
     - style: bold

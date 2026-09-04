@@ -1,13 +1,31 @@
 {
   "armor": [
     {
+      "id": "eva_suit",
+      "name": "EVA Suit",
+      "protection": 0,
+      "durability": 1,
+      "bulk": 3,
+      "cost": 500,
+      "special": "Allows survival in space. May be worn with armour of Bulk 1."
+    },
+    {
+      "id": "eva_suit_advanced",
+      "name": "EVA Suit (Advanced)",
+      "protection": 0,
+      "durability": 2,
+      "bulk": 3,
+      "cost": 2500,
+      "special": "Allows survival in space. May be worn with armour of Bulk 2 or less."
+    },
+    {
       "id": "scrap_armour",
       "name": "Scrap Armour",
       "protection": 1,
       "durability": 2,
       "bulk": 2,
       "cost": 500,
-      "special": "Cannot be repaired"
+      "special": "Flimsy"
     },
     {
       "id": "flak_jacket",
@@ -24,7 +42,7 @@
       "durability": 3,
       "bulk": 1,
       "cost": 1500,
-      "special": "Appears to be normal clothing"
+      "special": "Incognito"
     },
     {
       "id": "streetweave_jacket",
@@ -33,8 +51,7 @@
       "durability": 5,
       "bulk": 2,
       "cost": 2500,
-      "special": "+1 to Stealth",
-      "gameplayEffects": "stealth_streetweave_jacket+1"
+      "special": "Vulnerable (Blade 1)"
     },
     {
       "id": "milsec_bodyplate",
@@ -42,7 +59,8 @@
       "protection": 2,
       "durability": 6,
       "bulk": 2,
-      "cost": 5000
+      "cost": 5000,
+      "special": "Vulnerable (Energy 1)"
     },
     {
       "id": "breaching_plate",
@@ -51,7 +69,7 @@
       "durability": 4,
       "bulk": 3,
       "cost": 8500,
-      "special": "Frontal Shielding 1, Req. (PHYS 2)"
+      "special": "Frontal Shielding (1), Req. (PHYS 2), Resist (Ballistic 1)"
     },
     {
       "id": "heavy_bodyplate",
@@ -69,7 +87,7 @@
       "durability": 14,
       "bulk": 10,
       "cost": 40000,
-      "special": "Req. (Power Armour 1), Powered (3)"
+      "special": "Req. (Power Armour 1), Powered (3), Vulnerable (Energy 1)"
     }
   ]
 }

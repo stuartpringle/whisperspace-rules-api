@@ -5102,6 +5102,45 @@
         ],
         "sections": [
           {
+            "title": "Durability",
+            "slug": "durability",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "All armour has a Durability rating. When taking damage while wearing armour, reduce that armour’s durability by 1 (unless otherwise specified by the weapon used). If the armour’s durability ever drops to 0, the armour is broken and completely useless at stopping damage; it no longer provides any Protection or other benefits it may have provided. It does still take up inventory slots as normal, and must be removed as normal before equipping other armour.",
+                "spans": []
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Putting On and Taking Off Armour",
+            "slug": "putting-on-and-taking-off-armour",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Donning or doffing armour takes a number of rounds equal to the armour’s Bulk rating, using all your actions on each of those rounds to do so. Thus removing armour with Bulk 3 would take all a character’s actions for 3 rounds to achieve.",
+                "spans": []
+              }
+            ],
+            "sections": []
+          },
+          {
+            "title": "Wearing Multiple Pieces of Armour",
+            "slug": "wearing-multiple-pieces-of-armour",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "You cannot wear more than one item of armour unless otherwise specified by the armour itself.",
+                "spans": []
+              }
+            ],
+            "sections": []
+          },
+          {
             "title": "Unmitigated damage",
             "slug": "unmitigated-damage",
             "level": 3,
@@ -5115,6 +5154,153 @@
             "sections": []
           }
         ]
+      },
+      {
+        "title": "Damage Types",
+        "slug": "damage-types",
+        "level": 2,
+        "content": [
+          {
+            "type": "table",
+            "rows": [
+              [
+                {
+                  "text": "Damage Types",
+                  "spans": []
+                },
+                {
+                  "text": "Damage Types",
+                  "spans": []
+                },
+                {
+                  "text": "Damage Types",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "Type",
+                  "spans": [
+                    {
+                      "style": "bold",
+                      "text": "Type"
+                    }
+                  ]
+                },
+                {
+                  "text": "Special Effects",
+                  "spans": [
+                    {
+                      "style": "bold",
+                      "text": "Special Effects"
+                    }
+                  ]
+                },
+                {
+                  "text": "Description",
+                  "spans": [
+                    {
+                      "style": "bold",
+                      "text": "Description"
+                    }
+                  ]
+                }
+              ],
+              [
+                {
+                  "text": "Energy",
+                  "spans": []
+                },
+                {
+                  "text": "+1 damage to robots, drones, etc",
+                  "spans": []
+                },
+                {
+                  "text": "Electricity, heat, cold",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "Ballistic",
+                  "spans": []
+                },
+                {
+                  "text": "-",
+                  "spans": []
+                },
+                {
+                  "text": "Bullets, thrown weapons",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "Blade",
+                  "spans": []
+                },
+                {
+                  "text": "-",
+                  "spans": []
+                },
+                {
+                  "text": "Swords, knives, razorblades",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "Blunt",
+                  "spans": []
+                },
+                {
+                  "text": "-",
+                  "spans": []
+                },
+                {
+                  "text": "Fists, baseball bats, battering rams",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "Explosive",
+                  "spans": []
+                },
+                {
+                  "text": "+2 damage to structures, vehicles, or anything with hull points.",
+                  "spans": []
+                },
+                {
+                  "text": "Bombs, rockets, grenades",
+                  "spans": []
+                }
+              ],
+              [
+                {
+                  "text": "Unmitigated",
+                  "spans": []
+                },
+                {
+                  "text": "Not reduced by armour at all",
+                  "spans": []
+                },
+                {
+                  "text": "Blood loss, poison doing its job",
+                  "spans": []
+                }
+              ]
+            ]
+          }
+        ],
+        "sections": []
+      },
+      {
+        "title": "Damage Types",
+        "slug": "damage-types",
+        "level": 2,
+        "content": [],
+        "sections": []
       },
       {
         "title": "Combat actions",
@@ -5257,7 +5443,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Take a moment to aim before firing. Aiming allows you to attack a target up to one range band farther than your weapon’s Range without increasing the attack’s DC.",
+                      "text": "Take a moment to aim before firing. Aiming allows your next ranged attack to target up to one range band farther than your weapon’s Range without increasing the attack’s DC.",
                       "spans": []
                     }
                   ],
@@ -5299,7 +5485,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Make an attack against an opponent within range. Must have a drawn weapon or make an unarmed attack.",
+                      "text": "Make an attack against an opponent within range. Must have a drawn weapon or make an unarmed attack. Once an attack is made, any subsequent attacks you make suffer +1 Penalty die until the start of your next turn.",
                       "spans": [
                         {
                           "style": "link_underline",
@@ -5376,8 +5562,13 @@
                       "spans": []
                     },
                     {
-                      "text": "You prepare to assist an ally with a skill check.\nChoose a specific skill your ally is about to use.\nRestrictions:",
-                      "spans": [],
+                      "text": "You prepare to assist an ally with a skill check.\nChoose a specific skill your ally is about to use and describe how you will help them with that skill check.\nYou must have at least 1 rank in the skill being aided. Only one character may Aid a check. Aid cannot be used on attacks, reactions, or checks made to resist an effect. GM discretion is encouraged to determine whether a task can benefit from the proposed assistance.",
+                      "spans": [
+                        {
+                          "style": "bold",
+                          "text": "at least 1 rank"
+                        }
+                      ],
                       "blocks": [
                         {
                           "type": "list",
@@ -5398,30 +5589,6 @@
                                 {
                                   "style": "bold",
                                   "text": "+1 bonus die"
-                                }
-                              ]
-                            }
-                          ]
-                        },
-                        {
-                          "type": "list",
-                          "ordered": false,
-                          "items": [
-                            {
-                              "text": "You must have at least 1 rank in the skill being aided.",
-                              "spans": [
-                                {
-                                  "style": "bold",
-                                  "text": "at least 1 rank"
-                                }
-                              ]
-                            },
-                            {
-                              "text": "Attack actions cannot be aided.",
-                              "spans": [
-                                {
-                                  "style": "bold",
-                                  "text": "Attack actions cannot be aided."
                                 }
                               ]
                             }
@@ -5507,13 +5674,8 @@
                       "spans": []
                     },
                     {
-                      "text": "Each hacking check completes in one round. The Simple Hacking optional rule may be used for this at the GMs discretion.",
+                      "text": "Attempt to complete one step of the hacking sequence. The Simple Hacking optional rule may be used for this at the GMs discretion.",
                       "spans": [
-                        {
-                          "style": "link_underline",
-                          "text": "hacking",
-                          "href": "hacking.yaml#hacking"
-                        },
                         {
                           "style": "link_underline",
                           "text": "Simple Hacking",
@@ -5532,7 +5694,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Attempt to demoralize or frighten an enemy. Roll Bearing, Persuade, or Subterfuge (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy was injured within the last round, another enemy was killed during combat, or is flanked.",
+                      "text": "Attempt to demoralize or frighten an enemy. Roll Bearing, Persuade, or Subterfuge (DC 12 - enemy’s stress level). Gain a bonus die to this roll if the enemy was injured within the last round, another enemy was killed during combat, or the enemy is outnumbered.\nUsing Intimidate for a second time during a round uses 2 actions instead of 1.",
                       "spans": [
                         {
                           "style": "bold",
@@ -5548,7 +5710,7 @@
                         },
                         {
                           "style": "link_underline",
-                          "text": "flanked",
+                          "text": "outnumbered",
                           "href": "#flanking"
                         }
                       ],
@@ -5558,7 +5720,7 @@
                           "ordered": false,
                           "items": [
                             {
-                              "text": "Extreme success, target suffers +2 stress and is Demoralized.",
+                              "text": "Extreme success, target suffers +2 stress and is Demoralized (2).",
                               "spans": [
                                 {
                                   "style": "bold",
@@ -5566,13 +5728,13 @@
                                 },
                                 {
                                   "style": "link_underline",
-                                  "text": "Demoralized",
+                                  "text": "Demoralized (2)",
                                   "href": "conditions.yaml#demoralized-x"
                                 }
                               ]
                             },
                             {
-                              "text": "Success: target is Demoralized.",
+                              "text": "Success: target is Demoralized (1).",
                               "spans": [
                                 {
                                   "style": "bold",
@@ -5580,7 +5742,7 @@
                                 },
                                 {
                                   "style": "link_underline",
-                                  "text": "Demoralized",
+                                  "text": "Demoralized (1)",
                                   "href": "conditions.yaml#demoralized-x"
                                 }
                               ]
@@ -5600,7 +5762,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Prepare to use an action on another character’s turn. To do so, choose an action you would like to prepare as well as a trigger that will prompt its use. For example, “I will hold an Attack action. The trigger will be any enemy entering my range.”",
+                      "text": "Prepare to use an action on another character’s turn. To do so, choose an action you would like to prepare as well as a trigger that will prompt its use. For example, “I will hold an Attack action. The trigger will be any enemy entering my range.” If no trigger is given, the held action cannot be used.",
                       "spans": []
                     }
                   ],
@@ -5627,7 +5789,7 @@
                           "ordered": false,
                           "items": [
                             {
-                              "text": "Extreme Success: you and each targeted ally all gain +1 bonus die to any roll before the start of your next turn.",
+                              "text": "Extreme Success: you and targeted allies gain +1 Bonus die to a roll of your or their choice before the start of your next turn.",
                               "spans": [
                                 {
                                   "style": "bold",
@@ -5642,7 +5804,7 @@
                           "ordered": false,
                           "items": [
                             {
-                              "text": "Success: each targeted ally gains +1 bonus die to any roll before the start of your next turn.",
+                              "text": "Success: each targeted ally gains +1 Bonus die to a roll of their choice before the start of your next turn.",
                               "spans": [
                                 {
                                   "style": "bold",
@@ -6004,7 +6166,7 @@
                       "spans": []
                     },
                     {
-                      "text": "1 reaction",
+                      "text": "Minimum 1 reaction",
                       "spans": []
                     },
                     {
@@ -6012,7 +6174,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Use the held action immediately.",
+                      "text": "Use the held action immediately. Using a held action costs the same number of reactions the action would normally cost in actions. For example, using an Attack action costs 1 reaction, while using an Execute action costs 2 reactions.",
                       "spans": []
                     }
                   ]
@@ -7266,12 +7428,8 @@
           },
           {
             "type": "paragraph",
-            "text": "You aim and fire at an enemy behind a crate. Your Aim grants a Bonus die, and your Rifle skill adds +3. That’s your side of the roll.\nThe GM sets the DC higher than normal because of the target’s cover. You can’t control your enemy’s cover; that’s the world making things more difficult for you.",
+            "text": "You fire at an enemy behind a crate. Your Rifle skill adds +3. That’s your side of the roll.\nThe GM sets the DC higher than normal because of the target’s cover. You can’t control your enemy’s cover; that’s the world making things more difficult for you.",
             "spans": [
-              {
-                "style": "bold",
-                "text": "Aim"
-              },
               {
                 "style": "bold",
                 "text": "Rifle skill adds +3"
@@ -8902,7 +9060,7 @@
           },
           {
             "type": "paragraph",
-            "text": "Modifying equipment works the same way as repairing equipment, but does not require materials other than the modification you wish to install. Only advanced and expert modifications require an Engineering check or take longer than one action to enact; simple modifications may be done (or undone) mid-combat and require no roll, only the use of an action.",
+            "text": "Modifying equipment works the same way as repairing equipment, but does not require materials other than the modification you wish to install. Only advanced and expert modifications require an Engineering check or take longer than one action to enact; simple modifications may be done (or undone) mid-combat and require no roll, only the use of two actions.",
             "spans": [
               {
                 "style": "bold",
@@ -8922,7 +9080,7 @@
           },
           {
             "type": "paragraph",
-            "text": "Unless otherwise specified, a modification is considered simple.",
+            "text": "Unless otherwise specified, a modification is considered advanced.",
             "spans": []
           }
         ],
@@ -8957,6 +9115,30 @@
               }
             ],
             "sections": []
+          },
+          {
+            "title": "Armour Modification Limits",
+            "slug": "armour-modification-limits",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Items of armour may only have one modification fitted to them at a time. Installing a new armour mod on armour that already has a mod requires the removal of the old modification first. The exception to this is Power Armour, which may have up to two modifications at once.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "When an armour mod is installed, the armour item’s bulk increases by the modification’s bulk. Thus, installing an armour mod which has 1 bulk into a suit of armour that normally has 2 bulk results in a suit of armour with 3 bulk. Note that this can affect Concealing Gear.",
+                "spans": [
+                  {
+                    "style": "link_underline",
+                    "text": "Concealing Gear",
+                    "href": "#concealing-gear"
+                  }
+                ]
+              }
+            ],
+            "sections": []
           }
         ]
       },
@@ -8972,13 +9154,18 @@
           },
           {
             "type": "paragraph",
-            "text": "Either way, characters wishing to carry a weapon or other item in a no-carry zone may attempt to conceal it on their persons. Doing so requires a Subterfuge check to see how well the item is concealed on their person. Concealing any item of more than 2 bulk imposes +1 penalty die on this roll; concealing an item of 5 or more bulk imposes +2 penalty dice to this roll. Concealing an item of 1 bulk grants +1 bonus die to this roll. It is impossible to conceal an item of 10 bulk or more.",
+            "text": "Either way, characters wishing to carry a weapon or other item in a no-carry zone may attempt to conceal it on their persons. Doing so requires a Subterfuge check to see how well the item is concealed on their person. Concealing any item of more than 2 bulk imposes +1 penalty die on this roll; concealing an item of 5 or more bulk imposes +2 penalty dice to this roll. Concealing an item of 1 bulk grants +1 bonus die to this roll. It is impossible to conceal an item of 10 bulk or more. Unless otherwise specified, you cannot conceal armour while wearing it.",
             "spans": []
           },
           {
             "type": "paragraph",
             "text": "Characters attempting to suss out if another character is carrying something concealed on their person must roll Observe (DC = result of other character’s Subterfuge roll).",
-            "spans": []
+            "spans": [
+              {
+                "style": "bold",
+                "text": "Observe (DC = result of other character’s Subterfuge roll)"
+              }
+            ]
           }
         ],
         "sections": []
@@ -8992,6 +9179,10 @@
             "type": "table",
             "rows": [
               [
+                {
+                  "text": "Weapons",
+                  "spans": []
+                },
                 {
                   "text": "Weapons",
                   "spans": []
@@ -9103,6 +9294,15 @@
                   ]
                 },
                 {
+                  "text": "Damage Type",
+                  "spans": [
+                    {
+                      "style": "bold",
+                      "text": "Damage Type"
+                    }
+                  ]
+                },
+                {
                   "text": "Cost",
                   "spans": [
                     {
@@ -9146,6 +9346,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Ballistic",
+                  "spans": []
+                },
+                {
                   "text": "500",
                   "spans": []
                 }
@@ -9181,6 +9385,10 @@
                 },
                 {
                   "text": "Toxin (Prax)",
+                  "spans": []
+                },
+                {
+                  "text": "Blade",
                   "spans": []
                 },
                 {
@@ -9222,6 +9430,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Ballistic",
+                  "spans": []
+                },
+                {
                   "text": "600",
                   "spans": []
                 }
@@ -9257,6 +9469,10 @@
                 },
                 {
                   "text": "Automatic",
+                  "spans": []
+                },
+                {
+                  "text": "Ballistic",
                   "spans": []
                 },
                 {
@@ -9298,6 +9514,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Ballistic",
+                  "spans": []
+                },
+                {
                   "text": "1000",
                   "spans": []
                 }
@@ -9333,6 +9553,10 @@
                 },
                 {
                   "text": "Two-Handed",
+                  "spans": []
+                },
+                {
+                  "text": "Energy",
                   "spans": []
                 },
                 {
@@ -9374,6 +9598,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Ballistic",
+                  "spans": []
+                },
+                {
                   "text": "1000",
                   "spans": []
                 }
@@ -9408,7 +9636,11 @@
                   "spans": []
                 },
                 {
-                  "text": "Two-Handed, Point Blank (2), Shredding (1), (Req. PHYS 1)",
+                  "text": "Two-Handed, Point Blank (2), Shredding (1), Req. (PHYS 1)",
+                  "spans": []
+                },
+                {
+                  "text": "Ballistic",
                   "spans": []
                 },
                 {
@@ -9450,6 +9682,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Ballistic",
+                  "spans": []
+                },
+                {
                   "text": "2500",
                   "spans": []
                 }
@@ -9485,6 +9721,10 @@
                 },
                 {
                   "text": "Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)",
+                  "spans": []
+                },
+                {
+                  "text": "-",
                   "spans": []
                 },
                 {
@@ -9526,6 +9766,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Energy",
+                  "spans": []
+                },
+                {
                   "text": "8000",
                   "spans": []
                 }
@@ -9561,6 +9805,10 @@
                 },
                 {
                   "text": "Two-Handed, Stun (2), Crit (Stun (1))",
+                  "spans": []
+                },
+                {
+                  "text": "Energy",
                   "spans": []
                 },
                 {
@@ -9602,6 +9850,10 @@
                   "spans": []
                 },
                 {
+                  "text": "Energy",
+                  "spans": []
+                },
+                {
                   "text": "450",
                   "spans": []
                 }
@@ -9636,7 +9888,11 @@
                   "spans": []
                 },
                 {
-                  "text": "Thrown",
+                  "text": "Thrown, Type (Blade)",
+                  "spans": []
+                },
+                {
+                  "text": "Blade",
                   "spans": []
                 },
                 {
@@ -9674,7 +9930,11 @@
                   "spans": []
                 },
                 {
-                  "text": "Piercing (2), Req. (REF 2)",
+                  "text": "Piercing (2), Req. (REF 2), Type (Blade)",
+                  "spans": []
+                },
+                {
+                  "text": "Blade",
                   "spans": []
                 },
                 {
@@ -9712,7 +9972,11 @@
                   "spans": []
                 },
                 {
-                  "text": "Two-Handed, Req. PHYS 3",
+                  "text": "Two-Handed, Req. (PHYS 3)",
+                  "spans": []
+                },
+                {
+                  "text": "Explosive",
                   "spans": []
                 },
                 {
@@ -9768,7 +10032,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Takes 2 actions to reload",
+                      "text": "Takes 2 actions to reload.",
                       "spans": []
                     }
                   ],
@@ -9778,7 +10042,7 @@
                       "spans": []
                     },
                     {
-                      "text": "On a hit, target must roll Toughness (DC 6 + X) or be Stunned for X rounds",
+                      "text": "On a hit, target must roll Toughness (DC 6 + X) or be Stunned for X rounds.",
                       "spans": [
                         {
                           "style": "bold",
@@ -9793,7 +10057,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Requires both hands to use",
+                      "text": "Requires both hands to use.",
                       "spans": []
                     }
                   ],
@@ -9887,6 +10151,16 @@
                           "href": "combat.yaml#critical-hits"
                         }
                       ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Type (Type)",
+                      "spans": []
+                    },
+                    {
+                      "text": "This weapon’s damage is of the listed type. For example, Type (Energy) would mean that this weapon deals Energy damage, whereas Type (Explosive) would deal Explosive damage",
+                      "spans": []
                     }
                   ]
                 ]
@@ -9985,6 +10259,58 @@
                       ],
                       [
                         {
+                          "text": "EVA Suit",
+                          "spans": []
+                        },
+                        {
+                          "text": "-",
+                          "spans": []
+                        },
+                        {
+                          "text": "1",
+                          "spans": []
+                        },
+                        {
+                          "text": "3",
+                          "spans": []
+                        },
+                        {
+                          "text": "Allows survival in space. May be worn with armour of Bulk 1.",
+                          "spans": []
+                        },
+                        {
+                          "text": "500",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "EVA Suit (Advanced)",
+                          "spans": []
+                        },
+                        {
+                          "text": "-",
+                          "spans": []
+                        },
+                        {
+                          "text": "2",
+                          "spans": []
+                        },
+                        {
+                          "text": "3",
+                          "spans": []
+                        },
+                        {
+                          "text": "Allows survival in space. May be worn with armour of Bulk 2 or less.",
+                          "spans": []
+                        },
+                        {
+                          "text": "2500",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
                           "text": "Scrap Armour",
                           "spans": []
                         },
@@ -10001,7 +10327,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Cannot be repaired",
+                          "text": "Flimsy",
                           "spans": []
                         },
                         {
@@ -10053,7 +10379,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Appears to be normal clothing",
+                          "text": "Incognito",
                           "spans": []
                         },
                         {
@@ -10079,7 +10405,7 @@
                           "spans": []
                         },
                         {
-                          "text": "+1 to Stealth",
+                          "text": "Vulnerable (Blade 1)",
                           "spans": []
                         },
                         {
@@ -10105,7 +10431,7 @@
                           "spans": []
                         },
                         {
-                          "text": "-",
+                          "text": "Vulnerable (Energy 1)",
                           "spans": []
                         },
                         {
@@ -10131,7 +10457,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Frontal Shielding 1, Req. (PHYS 2)",
+                          "text": "Frontal Shielding (1), Req. (PHYS 2), Resist (Ballistic 1)",
                           "spans": []
                         },
                         {
@@ -10183,7 +10509,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Req. (Power Armour 1), Powered (3)",
+                          "text": "Req. (Power Armour 1), Powered (3), Vulnerable (Energy 1)",
                           "spans": []
                         },
                         {
@@ -10233,6 +10559,68 @@
                     },
                     {
                       "text": "Requires Power Armour (DC = 6 + X) check to activate. Failure: become Immobile; gain +1 penalty die to all PHYS and REF based checks.\n\nWhen successfully activated, reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before requiring a charge to be powered again.",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Frontal Shielding (X)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour gains +X Protection against attacks that hit the front of the armour.",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Resist (Type X)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour gains +X Protection against damage of listed Type. For example, armour tagged with Resist (EMP 1) would gain +1 Protection against EMP damage. See Damage Types.",
+                      "spans": [
+                        {
+                          "style": "link_underline",
+                          "text": "Damage Types",
+                          "href": "combat.yaml#damage-types"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Vulnerable (Type X)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Armour reduces its Protection against damage of listed Type by -X amount. For example, armour tagged with Vulnerable (EMP 1) would lose 1 Protection against EMP damage. Armour’s Protection rating cannot go below 0. See Damage Types.",
+                      "spans": [
+                        {
+                          "style": "link_underline",
+                          "text": "Damage Types",
+                          "href": "combat.yaml#damage-types"
+                        }
+                      ]
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Flimsy",
+                      "spans": []
+                    },
+                    {
+                      "text": "This armour cannot be repaired.",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Incognito",
+                      "spans": []
+                    },
+                    {
+                      "text": "Appears to be normal clothing.",
                       "spans": []
                     }
                   ]
@@ -10345,7 +10733,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown",
+                          "text": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown, Type (Explosive)",
                           "spans": []
                         },
                         {
@@ -10367,7 +10755,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Applies EMP 2 to everything within range, Thrown",
+                          "text": "Applies EMP 2 to everything within range, Thrown, Type (EMP)",
                           "spans": []
                         },
                         {
@@ -10578,6 +10966,50 @@
                         },
                         {
                           "text": "3000",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Armour Gel Pads",
+                          "spans": []
+                        },
+                        {
+                          "text": "Grants armour Resist (Explosive 1) trait.",
+                          "spans": []
+                        },
+                        {
+                          "text": "Permanent",
+                          "spans": []
+                        },
+                        {
+                          "text": "2",
+                          "spans": []
+                        },
+                        {
+                          "text": "2500",
+                          "spans": []
+                        }
+                      ],
+                      [
+                        {
+                          "text": "Armour Kevlar Plating",
+                          "spans": []
+                        },
+                        {
+                          "text": "Expert Modification. Grants armour Resist (Ballistic 1) trait.",
+                          "spans": []
+                        },
+                        {
+                          "text": "Permanent",
+                          "spans": []
+                        },
+                        {
+                          "text": "2",
+                          "spans": []
+                        },
+                        {
+                          "text": "2000",
                           "spans": []
                         }
                       ],
@@ -15911,7 +16343,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1787706009079131&usg=AOvVaw3poY18c9Jfd8zKARzl0xsC"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788500051740847&usg=AOvVaw1gl_AC-VKLUZ651j1OAg18"
               }
             ]
           }
@@ -21182,12 +21614,12 @@
       },
       {
         "type": "paragraph",
-        "text": "Gear List 56",
+        "text": "Gear List",
         "spans": [
           {
             "style": "link_underline",
-            "text": "Gear List 56",
-            "href": "#h.naqfz3pqitdo"
+            "text": "Gear List",
+            "href": "equipment-gear.yaml#gear-list"
           }
         ]
       },

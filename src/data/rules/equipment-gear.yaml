@@ -114,7 +114,7 @@ sections:
       not require materials other than the modification you wish to install. Only
       advanced and expert modifications require an Engineering check or take longer
       than one action to enact; simple modifications may be done (or undone) mid-combat
-      and require no roll, only the use of an action.
+      and require no roll, only the use of two actions.
     spans:
     - style: bold
       text: Modifying equipment
@@ -124,7 +124,7 @@ sections:
     - style: bold
       text: 'Modification DC:'
   - type: paragraph
-    text: Unless otherwise specified, a modification is considered simple.
+    text: Unless otherwise specified, a modification is considered advanced.
     spans: []
   sections:
   - title: Paid Experts
@@ -157,6 +157,26 @@ sections:
         suffer +1 penalty die to your Engineering check.
       spans: []
     sections: []
+  - title: Armour Modification Limits
+    slug: armour-modification-limits
+    level: 3
+    content:
+    - type: paragraph
+      text: Items of armour may only have one modification fitted to them at a time.
+        Installing a new armour mod on armour that already has a mod requires the
+        removal of the old modification first. The exception to this is Power Armour,
+        which may have up to two modifications at once.
+      spans: []
+    - type: paragraph
+      text: When an armour mod is installed, the armour item’s bulk increases by the
+        modification’s bulk. Thus, installing an armour mod which has 1 bulk into
+        a suit of armour that normally has 2 bulk results in a suit of armour with
+        3 bulk. Note that this can affect Concealing Gear.
+      spans:
+      - style: link_underline
+        text: Concealing Gear
+        href: '#concealing-gear'
+    sections: []
 - title: Concealing Gear
   slug: concealing-gear
   level: 2
@@ -176,13 +196,16 @@ sections:
       item of more than 2 bulk imposes +1 penalty die on this roll; concealing an
       item of 5 or more bulk imposes +2 penalty dice to this roll. Concealing an item
       of 1 bulk grants +1 bonus die to this roll. It is impossible to conceal an item
-      of 10 bulk or more.
+      of 10 bulk or more. Unless otherwise specified, you cannot conceal armour while
+      wearing it.
     spans: []
   - type: paragraph
     text: Characters attempting to suss out if another character is carrying something
       concealed on their person must roll Observe (DC = result of other character’s
       Subterfuge roll).
-    spans: []
+    spans:
+    - style: bold
+      text: Observe (DC = result of other character’s Subterfuge roll)
   sections: []
 - title: Gear List
   slug: gear-list
@@ -193,6 +216,7 @@ sections:
     - - &id001
         text: Weapons
         spans: []
+      - *id001
       - *id001
       - *id001
       - *id001
@@ -233,6 +257,10 @@ sections:
         spans:
         - style: bold
           text: Traits
+      - text: Damage Type
+        spans:
+        - style: bold
+          text: Damage Type
       - text: Cost
         spans:
         - style: bold
@@ -253,6 +281,8 @@ sections:
         spans: []
       - text: '-'
         spans: []
+      - text: Ballistic
+        spans: []
       - text: '500'
         spans: []
     - - text: Toxic Spike
@@ -270,6 +300,8 @@ sections:
       - text: '1'
         spans: []
       - text: Toxin (Prax)
+        spans: []
+      - text: Blade
         spans: []
       - text: '750'
         spans: []
@@ -289,6 +321,8 @@ sections:
         spans: []
       - text: Point Blank (3)
         spans: []
+      - text: Ballistic
+        spans: []
       - text: '600'
         spans: []
     - - text: Compact SMG
@@ -306,6 +340,8 @@ sections:
       - text: '2'
         spans: []
       - text: Automatic
+        spans: []
+      - text: Ballistic
         spans: []
       - text: '800'
         spans: []
@@ -325,6 +361,8 @@ sections:
         spans: []
       - text: Automatic
         spans: []
+      - text: Ballistic
+        spans: []
       - text: '1000'
         spans: []
     - - text: Photon Rifle
@@ -342,6 +380,8 @@ sections:
       - text: '3'
         spans: []
       - text: Two-Handed
+        spans: []
+      - text: Energy
         spans: []
       - text: '5000'
         spans: []
@@ -361,6 +401,8 @@ sections:
         spans: []
       - text: Two-Handed, Piercing (1)
         spans: []
+      - text: Ballistic
+        spans: []
       - text: '1000'
         spans: []
     - - text: Shotgun
@@ -377,7 +419,9 @@ sections:
         spans: []
       - text: '3'
         spans: []
-      - text: Two-Handed, Point Blank (2), Shredding (1), (Req. PHYS 1)
+      - text: Two-Handed, Point Blank (2), Shredding (1), Req. (PHYS 1)
+        spans: []
+      - text: Ballistic
         spans: []
       - text: '800'
         spans: []
@@ -397,6 +441,8 @@ sections:
         spans: []
       - text: Two-Handed, Slow Load, Automatic, Req. (PHYS 3)
         spans: []
+      - text: Ballistic
+        spans: []
       - text: '2500'
         spans: []
     - - text: Grenade Launcher
@@ -414,6 +460,8 @@ sections:
       - text: '3'
         spans: []
       - text: Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)
+        spans: []
+      - text: '-'
         spans: []
       - text: '3000'
         spans: []
@@ -433,6 +481,8 @@ sections:
         spans: []
       - text: Area (melee), Two-Handed, Slow Load, Shredding (3), Req. (PHYS 1)
         spans: []
+      - text: Energy
+        spans: []
       - text: '8000'
         spans: []
     - - text: Tesla Rifle
@@ -450,6 +500,8 @@ sections:
       - text: '2'
         spans: []
       - text: Two-Handed, Stun (2), Crit (Stun (1))
+        spans: []
+      - text: Energy
         spans: []
       - text: '6000'
         spans: []
@@ -469,6 +521,8 @@ sections:
         spans: []
       - text: Stun (1), Crit (Stun (1))
         spans: []
+      - text: Energy
+        spans: []
       - text: '450'
         spans: []
     - - text: Switchblade
@@ -485,7 +539,9 @@ sections:
         spans: []
       - text: '1'
         spans: []
-      - text: Thrown
+      - text: Thrown, Type (Blade)
+        spans: []
+      - text: Blade
         spans: []
       - text: '150'
         spans: []
@@ -503,7 +559,9 @@ sections:
         spans: []
       - text: '2'
         spans: []
-      - text: Piercing (2), Req. (REF 2)
+      - text: Piercing (2), Req. (REF 2), Type (Blade)
+        spans: []
+      - text: Blade
         spans: []
       - text: '1200'
         spans: []
@@ -521,7 +579,9 @@ sections:
         spans: []
       - text: '3'
         spans: []
-      - text: Two-Handed, Req. PHYS 3
+      - text: Two-Handed, Req. (PHYS 3)
+        spans: []
+      - text: Explosive
         spans: []
       - text: '2500'
         spans: []
@@ -549,18 +609,18 @@ sections:
           spans: []
       - - text: Slow Load
           spans: []
-        - text: Takes 2 actions to reload
+        - text: Takes 2 actions to reload.
           spans: []
       - - text: Stun (X)
           spans: []
         - text: On a hit, target must roll Toughness (DC 6 + X) or be Stunned for
-            X rounds
+            X rounds.
           spans:
           - style: bold
             text: Toughness (DC 6 + X)
       - - text: Two-Handed
           spans: []
-        - text: Requires both hands to use
+        - text: Requires both hands to use.
           spans: []
       - - text: Automatic
           spans: []
@@ -616,6 +676,12 @@ sections:
           - style: link_underline
             text: critical effects
             href: combat.yaml#critical-hits
+      - - text: Type (Type)
+          spans: []
+        - text: This weapon’s damage is of the listed type. For example, Type (Energy)
+            would mean that this weapon deals Energy damage, whereas Type (Explosive)
+            would deal Explosive damage
+          spans: []
     sections:
     - title: Weapon keywords
       slug: weapon-keywords
@@ -655,6 +721,30 @@ sections:
             spans:
             - style: bold
               text: Cost
+        - - text: EVA Suit
+            spans: []
+          - text: '-'
+            spans: []
+          - text: '1'
+            spans: []
+          - text: '3'
+            spans: []
+          - text: Allows survival in space. May be worn with armour of Bulk 1.
+            spans: []
+          - text: '500'
+            spans: []
+        - - text: EVA Suit (Advanced)
+            spans: []
+          - text: '-'
+            spans: []
+          - text: '2'
+            spans: []
+          - text: '3'
+            spans: []
+          - text: Allows survival in space. May be worn with armour of Bulk 2 or less.
+            spans: []
+          - text: '2500'
+            spans: []
         - - text: Scrap Armour
             spans: []
           - text: '1'
@@ -663,7 +753,7 @@ sections:
             spans: []
           - text: '2'
             spans: []
-          - text: Cannot be repaired
+          - text: Flimsy
             spans: []
           - text: '500'
             spans: []
@@ -687,7 +777,7 @@ sections:
             spans: []
           - text: '1'
             spans: []
-          - text: Appears to be normal clothing
+          - text: Incognito
             spans: []
           - text: '1500'
             spans: []
@@ -699,7 +789,7 @@ sections:
             spans: []
           - text: '2'
             spans: []
-          - text: +1 to Stealth
+          - text: Vulnerable (Blade 1)
             spans: []
           - text: '2500'
             spans: []
@@ -711,7 +801,7 @@ sections:
             spans: []
           - text: '2'
             spans: []
-          - text: '-'
+          - text: Vulnerable (Energy 1)
             spans: []
           - text: '5000'
             spans: []
@@ -723,7 +813,7 @@ sections:
             spans: []
           - text: '3'
             spans: []
-          - text: Frontal Shielding 1, Req. (PHYS 2)
+          - text: Frontal Shielding (1), Req. (PHYS 2), Resist (Ballistic 1)
             spans: []
           - text: '8500'
             spans: []
@@ -747,7 +837,7 @@ sections:
             spans: []
           - text: '10'
             spans: []
-          - text: Req. (Power Armour 1), Powered (3)
+          - text: Req. (Power Armour 1), Powered (3), Vulnerable (Energy 1)
             spans: []
           - text: '40000'
             spans: []
@@ -783,6 +873,38 @@ sections:
 
             Powered armour may remain powered for X * 4 rounds before requiring a
             charge to be powered again.'
+          spans: []
+      - - text: Frontal Shielding (X)
+          spans: []
+        - text: Armour gains +X Protection against attacks that hit the front of the
+            armour.
+          spans: []
+      - - text: Resist (Type X)
+          spans: []
+        - text: Armour gains +X Protection against damage of listed Type. For example,
+            armour tagged with Resist (EMP 1) would gain +1 Protection against EMP
+            damage. See Damage Types.
+          spans:
+          - style: link_underline
+            text: Damage Types
+            href: combat.yaml#damage-types
+      - - text: Vulnerable (Type X)
+          spans: []
+        - text: Armour reduces its Protection against damage of listed Type by -X
+            amount. For example, armour tagged with Vulnerable (EMP 1) would lose
+            1 Protection against EMP damage. Armour’s Protection rating cannot go
+            below 0. See Damage Types.
+          spans:
+          - style: link_underline
+            text: Damage Types
+            href: combat.yaml#damage-types
+      - - text: Flimsy
+          spans: []
+        - text: This armour cannot be repaired.
+          spans: []
+      - - text: Incognito
+          spans: []
+        - text: Appears to be normal clothing.
           spans: []
     sections:
     - title: Armour keywords
@@ -830,7 +952,8 @@ sections:
             spans: []
         - - text: Frag Grenade
             spans: []
-          - text: Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown
+          - text: Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown,
+              Type (Explosive)
             spans: []
           - text: 1 use
             spans: []
@@ -840,7 +963,7 @@ sections:
             spans: []
         - - text: EMP Grenade
             spans: []
-          - text: Applies EMP 2 to everything within range, Thrown
+          - text: Applies EMP 2 to everything within range, Thrown, Type (EMP)
             spans: []
           - text: 1 use
             spans: []
@@ -940,6 +1063,26 @@ sections:
           - text: '2'
             spans: []
           - text: '3000'
+            spans: []
+        - - text: Armour Gel Pads
+            spans: []
+          - text: Grants armour Resist (Explosive 1) trait.
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '2'
+            spans: []
+          - text: '2500'
+            spans: []
+        - - text: Armour Kevlar Plating
+            spans: []
+          - text: Expert Modification. Grants armour Resist (Ballistic 1) trait.
+            spans: []
+          - text: Permanent
+            spans: []
+          - text: '2'
+            spans: []
+          - text: '2000'
             spans: []
         - - text: Compact Backpack
             spans: []

@@ -9,14 +9,14 @@
     },
     {
       "name": "Frag Grenade",
-      "effect": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown",
+      "effect": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown, Type (Explosive)",
       "uses": "1 use",
       "bulk": 1,
       "cost": 250
     },
     {
       "name": "EMP Grenade",
-      "effect": "Applies EMP 2 to everything within range, Thrown",
+      "effect": "Applies EMP 2 to everything within range, Thrown, Type (EMP)",
       "uses": "1 use",
       "bulk": 1,
       "cost": 300
@@ -83,6 +83,20 @@
       "uses": "Permanent",
       "bulk": 2,
       "cost": 3000
+    },
+    {
+      "name": "Armour Gel Pads",
+      "effect": "Grants armour Resist (Explosive 1) trait.",
+      "uses": "Permanent",
+      "bulk": 2,
+      "cost": 2500
+    },
+    {
+      "name": "Armour Kevlar Plating",
+      "effect": "Expert Modification. Grants armour Resist (Ballistic 1) trait.",
+      "uses": "Permanent",
+      "bulk": 2,
+      "cost": 2000
     },
     {
       "name": "Compact Backpack",

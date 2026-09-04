@@ -171,6 +171,7 @@ function parseWeapons(tableRows) {
     const bulk = parseNumber(getCell(row, map, "blk"));
     const req = getCell(row, map, "req.") || getCell(row, map, "req");
     const special = getCell(row, map, "special") || getCell(row, map, "traits");
+    const damageType = getCell(row, map, "damage type");
     const cost = parseNumber(getCell(row, map, "cost"));
     const gameplayEffects = getGameplayEffects(row, map, special, name);
 
@@ -188,6 +189,7 @@ function parseWeapons(tableRows) {
     if (req && req !== "-") item.req = req;
     const keywords = splitKeywords(special);
     if (keywords.length) item.keywords = keywords;
+    if (damageType && damageType !== "-") item.damageType = damageType;
     if (gameplayEffects) item.gameplayEffects = gameplayEffects;
     out.push(item);
   }

@@ -513,11 +513,11 @@ content:
     text: Repair and Modification 54
     href: equipment-gear.yaml#repair-and-modification
 - type: paragraph
-  text: Gear List 56
+  text: Gear List
   spans:
   - style: link_underline
-    text: Gear List 56
-    href: '#h.naqfz3pqitdo'
+    text: Gear List
+    href: equipment-gear.yaml#gear-list
 - type: paragraph
   text: Hacking Equipment 68
   spans:

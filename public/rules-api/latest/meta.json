@@ -1,26 +1,26 @@
 {
   "version": "0.2.0",
-  "generatedAt": "2026-08-26T00:23:48.088Z",
+  "generatedAt": "2026-09-04T04:34:21.966Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
       "bytes": 4702
     },
     "weapons.json": {
-      "sha256": "88ce664f83764f4379369191dae31e9e3acb4a285ca14a2b067314b68d905f7f",
-      "bytes": 4682
+      "sha256": "9f70ab799e329a091bd9d31663020b11e7e1c6fe7f17bc8f1b15e28eb69fce04",
+      "bytes": 5203
     },
     "armour.json": {
-      "sha256": "0fc72a9b365fb145bdec63fa9e445bee81b6ca12c69281a46cfa14738e49fb36",
-      "bytes": 1646
+      "sha256": "ee233dffbf8f4859c1dfbe009bceef47c76e59c6954e6ee1454040d9d01cfcda",
+      "bytes": 2132
     },
     "weapon_keywords.json": {
       "sha256": "53fdbdb95a1bafc8fa0c5c3a09c4c54058c6ceb767d68cb00393838236ccaf88",
       "bytes": 2165
     },
     "items.json": {
-      "sha256": "f3748377956e9b90b95a48fdbfd0dbdfa66a4b80ae3d3b08ab093d533f4cdbee",
-      "bytes": 3368
+      "sha256": "7c2fa20f7b8251a62a346e25cdb43b391b948a3b1b1085f1c0f2f267cd1f68d6",
+      "bytes": 3765
     },
     "cyberware.json": {
       "sha256": "605e4220a7a78140ec6031f68a14e5a4a55e108e61e0dfe4f7676d9b5b66ce7a",
@@ -35,8 +35,8 @@
       "bytes": 1086
     },
     "rules.json": {
-      "sha256": "55f02e7c874ffc600652a2cb8bd349432999b2c821a6dd43c5e206440daffc75",
-      "bytes": 729298
+      "sha256": "89241f3e3f9e0c806cf62575f12667a3264b0742018451ab96974faac7f537b3",
+      "bytes": 744415
     },
     "skill_tooltips.json": {
       "sha256": "f7e637b2dad956827264229a0a76260a4b61397790a9f60d09bfc783d4754243",

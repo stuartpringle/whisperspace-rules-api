@@ -491,6 +491,39 @@ sections:
       3 wounds. Wearing armour with Protection 2 would reduce that to 1 wound.
     spans: []
   sections:
+  - title: Durability
+    slug: durability
+    level: 3
+    content:
+    - type: paragraph
+      text: All armour has a Durability rating. When taking damage while wearing armour,
+        reduce that armour’s durability by 1 (unless otherwise specified by the weapon
+        used). If the armour’s durability ever drops to 0, the armour is broken and
+        completely useless at stopping damage; it no longer provides any Protection
+        or other benefits it may have provided. It does still take up inventory slots
+        as normal, and must be removed as normal before equipping other armour.
+      spans: []
+    sections: []
+  - title: Putting On and Taking Off Armour
+    slug: putting-on-and-taking-off-armour
+    level: 3
+    content:
+    - type: paragraph
+      text: Donning or doffing armour takes a number of rounds equal to the armour’s
+        Bulk rating, using all your actions on each of those rounds to do so. Thus
+        removing armour with Bulk 3 would take all a character’s actions for 3 rounds
+        to achieve.
+      spans: []
+    sections: []
+  - title: Wearing Multiple Pieces of Armour
+    slug: wearing-multiple-pieces-of-armour
+    level: 3
+    content:
+    - type: paragraph
+      text: You cannot wear more than one item of armour unless otherwise specified
+        by the armour itself.
+      spans: []
+    sections: []
   - title: Unmitigated damage
     slug: unmitigated-damage
     level: 3
@@ -500,6 +533,71 @@ sections:
         this type of damage at all.
       spans: []
     sections: []
+- title: Damage Types
+  slug: damage-types
+  level: 2
+  content:
+  - type: table
+    rows:
+    - - &id003
+        text: Damage Types
+        spans: []
+      - *id003
+      - *id003
+    - - text: Type
+        spans:
+        - style: bold
+          text: Type
+      - text: Special Effects
+        spans:
+        - style: bold
+          text: Special Effects
+      - text: Description
+        spans:
+        - style: bold
+          text: Description
+    - - text: Energy
+        spans: []
+      - text: +1 damage to robots, drones, etc
+        spans: []
+      - text: Electricity, heat, cold
+        spans: []
+    - - text: Ballistic
+        spans: []
+      - text: '-'
+        spans: []
+      - text: Bullets, thrown weapons
+        spans: []
+    - - text: Blade
+        spans: []
+      - text: '-'
+        spans: []
+      - text: Swords, knives, razorblades
+        spans: []
+    - - text: Blunt
+        spans: []
+      - text: '-'
+        spans: []
+      - text: Fists, baseball bats, battering rams
+        spans: []
+    - - text: Explosive
+        spans: []
+      - text: +2 damage to structures, vehicles, or anything with hull points.
+        spans: []
+      - text: Bombs, rockets, grenades
+        spans: []
+    - - text: Unmitigated
+        spans: []
+      - text: Not reduced by armour at all
+        spans: []
+      - text: Blood loss, poison doing its job
+        spans: []
+  sections: []
+- title: Damage Types
+  slug: damage-types
+  level: 2
+  content: []
+  sections: []
 - title: Combat actions
   slug: combat-actions
   level: 2
@@ -571,11 +669,11 @@ sections:
     content:
     - type: table
       rows:
-      - - &id003
+      - - &id004
           text: Actions
           spans: []
-        - *id003
-        - *id003
+        - *id004
+        - *id004
       - - text: Name
           spans:
           - style: bold
@@ -592,9 +690,9 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: Take a moment to aim before firing. Aiming allows you to attack a
-            target up to one range band farther than your weapon’s Range without increasing
-            the attack’s DC.
+        - text: Take a moment to aim before firing. Aiming allows your next ranged
+            attack to target up to one range band farther than your weapon’s Range
+            without increasing the attack’s DC.
           spans: []
       - - text: Move
           spans: []
@@ -623,7 +721,8 @@ sections:
         - text: 1 action
           spans: []
         - text: Make an attack against an opponent within range. Must have a drawn
-            weapon or make an unarmed attack.
+            weapon or make an unarmed attack. Once an attack is made, any subsequent
+            attacks you make suffer +1 Penalty die until the start of your next turn.
           spans:
           - style: link_underline
             text: unarmed attack
@@ -663,10 +762,16 @@ sections:
           spans: []
         - text: 'You prepare to assist an ally with a skill check.
 
-            Choose a specific skill your ally is about to use.
+            Choose a specific skill your ally is about to use and describe how you
+            will help them with that skill check.
 
-            Restrictions:'
-          spans: []
+            You must have at least 1 rank in the skill being aided. Only one character
+            may Aid a check. Aid cannot be used on attacks, reactions, or checks made
+            to resist an effect. GM discretion is encouraged to determine whether
+            a task can benefit from the proposed assistance.'
+          spans:
+          - style: bold
+            text: at least 1 rank
           blocks:
           - type: list
             ordered: false
@@ -680,17 +785,6 @@ sections:
               spans:
               - style: bold
                 text: +1 bonus die
-          - type: list
-            ordered: false
-            items:
-            - text: You must have at least 1 rank in the skill being aided.
-              spans:
-              - style: bold
-                text: at least 1 rank
-            - text: Attack actions cannot be aided.
-              spans:
-              - style: bold
-                text: Attack actions cannot be aided.
       - - text: Suppressing Fire
           spans: []
         - text: 1 action
@@ -733,12 +827,9 @@ sections:
           spans: []
         - text: 2 action
           spans: []
-        - text: Each hacking check completes in one round. The Simple Hacking optional
-            rule may be used for this at the GMs discretion.
+        - text: Attempt to complete one step of the hacking sequence. The Simple Hacking
+            optional rule may be used for this at the GMs discretion.
           spans:
-          - style: link_underline
-            text: hacking
-            href: hacking.yaml#hacking
           - style: link_underline
             text: Simple Hacking
             href: hacking.yaml#optional-rule-simple-hacking
@@ -746,10 +837,13 @@ sections:
           spans: []
         - text: 1 action
           spans: []
-        - text: Attempt to demoralize or frighten an enemy. Roll Bearing, Persuade,
+        - text: 'Attempt to demoralize or frighten an enemy. Roll Bearing, Persuade,
             or Subterfuge (DC 12 - enemy’s stress level). Gain a bonus die to this
             roll if the enemy was injured within the last round, another enemy was
-            killed during combat, or is flanked.
+            killed during combat, or the enemy is outnumbered.
+
+            Using Intimidate for a second time during a round uses 2 actions instead
+            of 1.'
           spans:
           - style: bold
             text: Bearing
@@ -758,25 +852,25 @@ sections:
           - style: bold
             text: Subterfuge (DC 12 - enemy’s stress level)
           - style: link_underline
-            text: flanked
+            text: outnumbered
             href: '#flanking'
           blocks:
           - type: list
             ordered: false
             items:
-            - text: Extreme success, target suffers +2 stress and is Demoralized.
+            - text: Extreme success, target suffers +2 stress and is Demoralized (2).
               spans:
               - style: bold
                 text: Extreme success
               - style: link_underline
-                text: Demoralized
+                text: Demoralized (2)
                 href: conditions.yaml#demoralized-x
-            - text: 'Success: target is Demoralized.'
+            - text: 'Success: target is Demoralized (1).'
               spans:
               - style: bold
                 text: Success
               - style: link_underline
-                text: Demoralized
+                text: Demoralized (1)
                 href: conditions.yaml#demoralized-x
       - - text: Hold Action
           spans: []
@@ -785,7 +879,8 @@ sections:
         - text: Prepare to use an action on another character’s turn. To do so, choose
             an action you would like to prepare as well as a trigger that will prompt
             its use. For example, “I will hold an Attack action. The trigger will
-            be any enemy entering my range.”
+            be any enemy entering my range.” If no trigger is given, the held action
+            cannot be used.
           spans: []
       - - text: Teamwork
           spans: []
@@ -802,16 +897,16 @@ sections:
           - type: list
             ordered: false
             items:
-            - text: 'Extreme Success: you and each targeted ally all gain +1 bonus
-                die to any roll before the start of your next turn.'
+            - text: 'Extreme Success: you and targeted allies gain +1 Bonus die to
+                a roll of your or their choice before the start of your next turn.'
               spans:
               - style: bold
                 text: Extreme Success
           - type: list
             ordered: false
             items:
-            - text: 'Success: each targeted ally gains +1 bonus die to any roll before
-                the start of your next turn.'
+            - text: 'Success: each targeted ally gains +1 Bonus die to a roll of their
+                choice before the start of your next turn.'
               spans:
               - style: bold
                 text: Success
@@ -885,12 +980,12 @@ sections:
           spans: []
     - type: table
       rows:
-      - - &id004
+      - - &id005
           text: Reactions
           spans: []
-        - *id004
-        - *id004
-        - *id004
+        - *id005
+        - *id005
+        - *id005
       - - text: Name
           spans:
           - style: bold
@@ -981,18 +1076,21 @@ sections:
                 text: Success
       - - text: Use Held Action
           spans: []
-        - text: 1 reaction
+        - text: Minimum 1 reaction
           spans: []
         - text: Custom (given when action was held)
           spans: []
-        - text: Use the held action immediately.
+        - text: Use the held action immediately. Using a held action costs the same
+            number of reactions the action would normally cost in actions. For example,
+            using an Attack action costs 1 reaction, while using an Execute action
+            costs 2 reactions.
           spans: []
     - type: table
       rows:
-      - - &id005
+      - - &id006
           text: Free Actions
           spans: []
-        - *id005
+        - *id006
       - - text: Name
           spans:
           - style: bold
@@ -1205,11 +1303,11 @@ sections:
       spans: []
     - type: table
       rows:
-      - - &id006
+      - - &id007
           text: Reasonable Cover Durability
           spans: []
-        - *id006
-        - *id006
+        - *id007
+        - *id007
       - - text: Cover
           spans:
           - style: bold

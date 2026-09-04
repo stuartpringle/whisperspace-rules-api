@@ -8,6 +8,7 @@ weapons:
     ammo: 10
     bulk: 1
     cost: 500
+    damageType: Ballistic
   - id: toxic_spike
     name: Toxic Spike
     skillId: weapons_light
@@ -19,6 +20,7 @@ weapons:
     cost: 750
     keywords:
       - Toxin (Prax)
+    damageType: Blade
   - id: boom_stick
     name: Boom Stick
     skillId: weapons_light
@@ -30,6 +32,7 @@ weapons:
     cost: 600
     keywords:
       - Point Blank (3)
+    damageType: Ballistic
   - id: compact_smg
     name: Compact SMG
     skillId: weapons_light
@@ -41,6 +44,7 @@ weapons:
     cost: 800
     keywords:
       - Automatic
+    damageType: Ballistic
   - id: smg
     name: SMG
     skillId: weapons_medium
@@ -52,6 +56,7 @@ weapons:
     cost: 1000
     keywords:
       - Automatic
+    damageType: Ballistic
   - id: photon_rifle
     name: Photon Rifle
     skillId: weapons_medium
@@ -63,6 +68,7 @@ weapons:
     cost: 5000
     keywords:
       - Two-Handed
+    damageType: Energy
   - id: rifle
     name: Rifle
     skillId: weapons_medium
@@ -75,6 +81,7 @@ weapons:
     keywords:
       - Two-Handed
       - Piercing (1)
+    damageType: Ballistic
   - id: shotgun
     name: Shotgun
     skillId: weapons_medium
@@ -88,7 +95,8 @@ weapons:
       - Two-Handed
       - Point Blank (2)
       - Shredding (1)
-      - (Req. PHYS 1)
+      - Req. (PHYS 1)
+    damageType: Ballistic
   - id: gauss_cannon
     name: Gauss Cannon
     skillId: weapons_heavy
@@ -103,6 +111,7 @@ weapons:
       - Slow Load
       - Automatic
       - Req. (PHYS 3)
+    damageType: Ballistic
   - id: grenade_launcher
     name: Grenade Launcher
     skillId: weapons_heavy
@@ -133,6 +142,7 @@ weapons:
       - Slow Load
       - Shredding (3)
       - Req. (PHYS 1)
+    damageType: Energy
   - id: tesla_rifle
     name: Tesla Rifle
     skillId: weapons_exotic
@@ -146,6 +156,7 @@ weapons:
       - Two-Handed
       - Stun (2)
       - Crit (Stun (1))
+    damageType: Energy
   - id: stun_baton
     name: Stun Baton
     skillId: melee_weapons
@@ -158,6 +169,7 @@ weapons:
     keywords:
       - Stun (1)
       - Crit (Stun (1))
+    damageType: Energy
   - id: switchblade
     name: Switchblade
     skillId: melee_weapons
@@ -169,6 +181,8 @@ weapons:
     cost: 150
     keywords:
       - Thrown
+      - Type (Blade)
+    damageType: Blade
   - id: fusion_blade
     name: Fusion Blade
     skillId: melee_weapons
@@ -181,6 +195,8 @@ weapons:
     keywords:
       - Piercing (2)
       - Req. (REF 2)
+      - Type (Blade)
+    damageType: Blade
   - id: rocket_maul
     name: Rocket Maul
     skillId: melee_weapons
@@ -192,4 +208,5 @@ weapons:
     cost: 2500
     keywords:
       - Two-Handed
-      - Req. PHYS 3
+      - Req. (PHYS 3)
+    damageType: Explosive
