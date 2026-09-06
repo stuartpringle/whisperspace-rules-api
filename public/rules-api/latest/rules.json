@@ -4980,7 +4980,7 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "When making an unarmed attack, you may choose whether to use your PHYS attribute or your REF attribute.",
+                "text": "When making an unarmed attack, roll Melee (unarmed). Choose one of PHYS or REF to determine the attack’s Use DC, damage, and additional effects. Unarmed attacks deal Blunt damage.",
                 "spans": []
               }
             ],
@@ -5036,11 +5036,6 @@
                   {
                     "type": "paragraph",
                     "text": "On an extreme success, you may take the Grapple combat action without spending an action to do so.",
-                    "spans": []
-                  },
-                  {
-                    "type": "paragraph",
-                    "text": "Unarmed attacks deal Blunt damage.",
                     "spans": []
                   }
                 ],
@@ -11443,7 +11438,7 @@
                       "spans": []
                     },
                     {
-                      "text": "",
+                      "text": "1500",
                       "spans": []
                     }
                   ],
@@ -16860,7 +16855,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788677290627665&usg=AOvVaw0GajM9FvDZN8ee2bFD1t3B"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788679073139579&usg=AOvVaw3qB_97nBfyJbniHf_H0iic"
               }
             ]
           }

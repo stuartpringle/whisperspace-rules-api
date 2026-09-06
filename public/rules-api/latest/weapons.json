@@ -3,7 +3,7 @@
     {
       "id": "pistol",
       "name": "Pistol",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_light",
       "useDC": 7,
       "damage": 2,
       "range": "Med",
@@ -15,7 +15,7 @@
     {
       "id": "toxic_spike",
       "name": "Toxic Spike",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_light",
       "useDC": 10,
       "damage": 3,
       "range": "Near",
@@ -30,7 +30,7 @@
     {
       "id": "boom_stick",
       "name": "Boom Stick",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_light",
       "useDC": 8,
       "damage": 1,
       "range": "Near",
@@ -45,7 +45,7 @@
     {
       "id": "compact_smg",
       "name": "Compact SMG",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_light",
       "useDC": 7,
       "damage": 2,
       "range": "Near",
@@ -124,7 +124,7 @@
     {
       "id": "heavy_rifle",
       "name": "Heavy Rifle",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_heavy",
       "useDC": 8,
       "damage": 4,
       "range": "Long",
@@ -140,7 +140,7 @@
     {
       "id": "gauss_cannon",
       "name": "Gauss Cannon",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_heavy",
       "useDC": 7,
       "damage": 4,
       "range": "Med",
@@ -158,7 +158,7 @@
     {
       "id": "grenade_launcher",
       "name": "Grenade Launcher",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_heavy",
       "useDC": 8,
       "damage": 3,
       "range": "Med",
@@ -175,7 +175,7 @@
     {
       "id": "magneton_cannon",
       "name": "Magneton Cannon",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_exotic",
       "useDC": 5,
       "damage": 2,
       "range": "Near",
@@ -194,7 +194,7 @@
     {
       "id": "tesla_rifle",
       "name": "Tesla Rifle",
-      "skillId": "weapons_medium",
+      "skillId": "weapons_exotic",
       "useDC": 8,
       "damage": 5,
       "range": "Med",
@@ -211,7 +211,7 @@
     {
       "id": "stun_baton",
       "name": "Stun Baton",
-      "skillId": "weapons_medium",
+      "skillId": "melee_weapons",
       "useDC": 6,
       "damage": 0,
       "range": "Melee",
@@ -227,7 +227,7 @@
     {
       "id": "switchblade",
       "name": "Switchblade",
-      "skillId": "weapons_medium",
+      "skillId": "melee_weapons",
       "useDC": 9,
       "damage": 2,
       "range": "Melee",
@@ -242,7 +242,7 @@
     {
       "id": "fusion_blade",
       "name": "Fusion Blade",
-      "skillId": "weapons_medium",
+      "skillId": "melee_weapons",
       "useDC": 8,
       "damage": 3,
       "range": "Melee",
@@ -258,7 +258,7 @@
     {
       "id": "rocket_maul",
       "name": "Rocket Maul",
-      "skillId": "weapons_medium",
+      "skillId": "melee_weapons",
       "useDC": 10,
       "damage": 6,
       "range": "Melee",

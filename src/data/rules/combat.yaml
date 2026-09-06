@@ -402,8 +402,9 @@ sections:
     level: 3
     content:
     - type: paragraph
-      text: When making an unarmed attack, you may choose whether to use your PHYS
-        attribute or your REF attribute.
+      text: When making an unarmed attack, roll Melee (unarmed). Choose one of PHYS
+        or REF to determine the attack’s Use DC, damage, and additional effects. Unarmed
+        attacks deal Blunt damage.
       spans: []
     sections:
     - title: Unarmed attacking using REF
@@ -437,9 +438,6 @@ sections:
       - type: paragraph
         text: On an extreme success, you may take the Grapple combat action without
           spending an action to do so.
-        spans: []
-      - type: paragraph
-        text: Unarmed attacks deal Blunt damage.
         spans: []
       sections: []
   - title: Improvised Weapons

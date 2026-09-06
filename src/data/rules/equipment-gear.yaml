@@ -1200,7 +1200,7 @@ sections:
           spans: []
         - text: '1'
           spans: []
-        - text: ''
+        - text: '1500'
           spans: []
       - - text: Compact Backpack
           spans: []

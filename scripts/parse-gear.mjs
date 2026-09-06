@@ -153,7 +153,7 @@ function parseWeapons(tableRows) {
   for (const row of tableRows.slice(2)) {
     const name = getCell(row, map, "name");
     if (!name) continue;
-    const type = getCell(row, map, "type");
+    const type = getCell(row, map, "type") || getCell(row, map, "class");
     const id = slugify(name);
     const typeNorm = String(type).toLowerCase();
     let skillId = "weapons_medium";

@@ -110,7 +110,7 @@
       "effect": "Expert Modification. Reduces Called Shot damage bonus by half (rounded up).",
       "uses": "Permanent",
       "bulk": 1,
-      "cost": 0
+      "cost": 1500
     },
     {
       "name": "Compact Backpack",
