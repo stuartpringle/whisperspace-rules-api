@@ -1,7 +1,7 @@
 weapons:
   - id: pistol
     name: Pistol
-    skillId: weapons_light
+    skillId: weapons_medium
     useDC: 7
     damage: 2
     range: Med
@@ -11,7 +11,7 @@ weapons:
     damageType: Ballistic
   - id: toxic_spike
     name: Toxic Spike
-    skillId: weapons_light
+    skillId: weapons_medium
     useDC: 10
     damage: 3
     range: Near
@@ -23,7 +23,7 @@ weapons:
     damageType: Blade
   - id: boom_stick
     name: Boom Stick
-    skillId: weapons_light
+    skillId: weapons_medium
     useDC: 8
     damage: 1
     range: Near
@@ -35,7 +35,7 @@ weapons:
     damageType: Ballistic
   - id: compact_smg
     name: Compact SMG
-    skillId: weapons_light
+    skillId: weapons_medium
     useDC: 7
     damage: 2
     range: Near
@@ -73,10 +73,10 @@ weapons:
     name: Rifle
     skillId: weapons_medium
     useDC: 8
-    damage: 4
+    damage: 2
     range: Long
-    ammo: 8
-    bulk: 2
+    ammo: 4
+    bulk: 3
     cost: 1000
     keywords:
       - Two-Handed
@@ -97,39 +97,51 @@ weapons:
       - Shredding (1)
       - Req. (PHYS 1)
     damageType: Ballistic
+  - id: heavy_rifle
+    name: Heavy Rifle
+    skillId: weapons_medium
+    useDC: 8
+    damage: 4
+    range: Long
+    ammo: 8
+    bulk: 4
+    cost: 3000
+    keywords:
+      - Two-Handed
+      - Piercing (1)
+    damageType: Ballistic
   - id: gauss_cannon
     name: Gauss Cannon
-    skillId: weapons_heavy
+    skillId: weapons_medium
     useDC: 7
     damage: 4
     range: Med
     ammo: 20
-    bulk: 4
+    bulk: 5
     cost: 2500
     keywords:
       - Two-Handed
       - Slow Load
       - Automatic
-      - Req. (PHYS 3)
+      - Req. (PHYS 2)
     damageType: Ballistic
   - id: grenade_launcher
     name: Grenade Launcher
-    skillId: weapons_heavy
+    skillId: weapons_medium
     useDC: 8
     damage: 3
     range: Med
     ammo: 1
-    bulk: 3
+    bulk: 4
     cost: 3000
     keywords:
-      - Area (Very Near)
       - Two-Handed
       - Slow Load
       - Grenade
       - Req. (PHYS 2)
   - id: magneton_cannon
     name: Magneton Cannon
-    skillId: weapons_exotic
+    skillId: weapons_medium
     useDC: 5
     damage: 2
     range: Near
@@ -145,7 +157,7 @@ weapons:
     damageType: Energy
   - id: tesla_rifle
     name: Tesla Rifle
-    skillId: weapons_exotic
+    skillId: weapons_medium
     useDC: 8
     damage: 5
     range: Med
@@ -159,7 +171,7 @@ weapons:
     damageType: Energy
   - id: stun_baton
     name: Stun Baton
-    skillId: melee_weapons
+    skillId: weapons_medium
     useDC: 6
     damage: 0
     range: Melee
@@ -172,7 +184,7 @@ weapons:
     damageType: Energy
   - id: switchblade
     name: Switchblade
-    skillId: melee_weapons
+    skillId: weapons_medium
     useDC: 9
     damage: 2
     range: Melee
@@ -181,11 +193,10 @@ weapons:
     cost: 150
     keywords:
       - Thrown
-      - Type (Blade)
     damageType: Blade
   - id: fusion_blade
     name: Fusion Blade
-    skillId: melee_weapons
+    skillId: weapons_medium
     useDC: 8
     damage: 3
     range: Melee
@@ -195,11 +206,10 @@ weapons:
     keywords:
       - Piercing (2)
       - Req. (REF 2)
-      - Type (Blade)
     damageType: Blade
   - id: rocket_maul
     name: Rocket Maul
-    skillId: melee_weapons
+    skillId: weapons_medium
     useDC: 10
     damage: 6
     range: Melee

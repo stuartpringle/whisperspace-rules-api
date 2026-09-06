@@ -38,15 +38,21 @@ armor:
     protection: 1
     durability: 5
     bulk: 2
-    cost: 2500
+    cost: 1750
     special: Vulnerable (Blade 1)
+  - id: synthweave_armour
+    name: Synthweave Armour
+    protection: 2
+    durability: 8
+    bulk: 2
+    cost: 4500
+    special: Vulnerable (Energy 2), Flimsy
   - id: milsec_bodyplate
     name: MilSec Bodyplate
     protection: 2
-    durability: 6
-    bulk: 2
-    cost: 5000
-    special: Vulnerable (Energy 1)
+    durability: 5
+    bulk: 3
+    cost: 6000
   - id: breaching_plate
     name: Breaching plate
     protection: 2
@@ -68,3 +74,11 @@ armor:
     bulk: 10
     cost: 40000
     special: Req. (Power Armour 1), Powered (3), Vulnerable (Energy 1)
+  - id: power_armour
+    name: Power Armour
+    protection: 6
+    durability: 20
+    bulk: 15
+    cost: 75000
+    special: Req. (Power Armour 3), Powered (5), Resist (Ballistic 1, Blade 1),
+      Vulnerable (Explosive 2)

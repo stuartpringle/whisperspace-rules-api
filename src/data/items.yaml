@@ -1,17 +1,16 @@
 items:
   - name: Flashbang Grenade
-    effect: Applies Stun 1 to everyone within Very Near range, Thrown
+    effect: Applies Stun (1) to everyone within Very Near range, Thrown
     uses: 1 use
     bulk: 1
     cost: 200
   - name: Frag Grenade
-    effect: Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown, Type
-      (Explosive)
+    effect: Deals 2 area (Very Near range) Explosive damage (DC8 to Evade half), Thrown
     uses: 1 use
     bulk: 1
     cost: 250
   - name: EMP Grenade
-    effect: Applies EMP 2 to everything within range, Thrown, Type (EMP)
+    effect: Applies EMP (2) to everything within Near range, Thrown
     uses: 1 use
     bulk: 1
     cost: 300
@@ -45,34 +44,44 @@ items:
     uses: Permanent
     bulk: 1
     cost: 400
-  - name: Weapon Scope
+  - name: Weapon Scope (mod)
     effect: Simple Modification. Grants +1 bonus die to called shots at medium range
       and farther; inflicts +1 penalty die to attacks at Near range or nearer
     uses: Permanent
     bulk: 1
     cost: 750
-  - name: Weapon Silencer
+  - name: Weapon Silencer (mod)
     effect: Simple Modification. Weapon makes reduced sound when fired; deals -1 damage
     uses: Permanent
     bulk: 1
     cost: 500
-  - name: Weapon SMART-link
+  - name: Weapon SMART-link (mod)
     effect: Grants weapon ability to use SMART ammo.
     uses: Permanent
     bulk: 2
     cost: 3000
-  - name: Armour Gel Pads
+  - name: Armour Gel Pads (mod)
     effect: Grants armour Resist (Explosive 1) trait.
     uses: Permanent
     bulk: 2
     cost: 2500
-  - name: Armour Kevlar Plating
+  - name: Armour Kevlar Plating (mod)
     effect: Expert Modification. Grants armour Resist (Ballistic 1) trait.
     uses: Permanent
     bulk: 2
     cost: 2000
+  - name: Quick Release Harness (mod)
+    effect: Reduces time to put on or take off armour by half (rounded down).
+    uses: Permanent
+    bulk: 2
+    cost: 1000
+  - name: Reinforced Helmet (mod)
+    effect: Expert Modification. Reduces Called Shot damage bonus by half (rounded up).
+    uses: Permanent
+    bulk: 1
+    cost: 0
   - name: Compact Backpack
-    effect: +5 Inventory Slots when worn
+    effect: +5 Inventory Slots when worn.
     uses: Permanent
     bulk: 0
     cost: 150
@@ -96,7 +105,7 @@ items:
     bulk: 1
     cost: 750
   - name: Ammo (Explosive)
-    effect: Adds Shredding (1) to attacks.
+    effect: Adds Shredding (1) to attacks. Attacks deal Explosive damage.
     uses: 1 reload
     bulk: 1
     cost: 750

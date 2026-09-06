@@ -112,17 +112,46 @@ sections:
   - type: paragraph
     text: Modifying equipment works the same way as repairing equipment, but does
       not require materials other than the modification you wish to install. Only
-      advanced and expert modifications require an Engineering check or take longer
-      than one action to enact; simple modifications may be done (or undone) mid-combat
-      and require no roll, only the use of two actions.
+      simple modifications may be done (or undone) mid-combat. Once a modification
+      is installed, increase the equipment’s bulk by the modification’s bulk. Unless
+      otherwise specified, equipment may only support up to 2 modifications, and these
+      modifications cannot be duplicates.
     spans:
     - style: bold
       text: Modifying equipment
   - type: paragraph
-    text: 'Modification DC: 8 (advanced, 2 hours), 10 (expert, 4 hours)'
+    text: 'Simple modifications: no roll required, requires 2 actions
+
+      Advanced modifications: DC 8, requires 2 hours
+
+      Expert modifications: DC 10, requires 4 hours'
     spans:
     - style: bold
-      text: 'Modification DC:'
+      text: 'Simple modifications:'
+    - style: bold
+      text: 'Advanced modifications:'
+    - style: bold
+      text: 'Expert modifications:'
+  - type: paragraph
+    text: On Extreme Success, reduce time required for modification by half.
+    spans:
+    - style: bold
+      text: On Extreme Success
+  - type: paragraph
+    text: On Success, modification installed normally.
+    spans:
+    - style: bold
+      text: On Success
+  - type: paragraph
+    text: On Failure, not installed; increase the next modification check DC by +1.
+    spans:
+    - style: bold
+      text: On Failure
+  - type: paragraph
+    text: On Extreme Failure, not installed; the modification loses 1 durability.
+    spans:
+    - style: bold
+      text: On Extreme Failure
   - type: paragraph
     text: Unless otherwise specified, a modification is considered advanced.
     spans: []
@@ -234,10 +263,10 @@ sections:
           spans:
           - style: bold
             text: Name
-        - text: Type
+        - text: Class
           spans:
           - style: bold
-            text: Type
+            text: Class
         - text: DC
           spans:
           - style: bold
@@ -396,13 +425,13 @@ sections:
           spans: []
         - text: '8'
           spans: []
-        - text: '4'
+        - text: '2'
           spans: []
         - text: Long
           spans: []
-        - text: '8'
+        - text: '4'
           spans: []
-        - text: '2'
+        - text: '3'
           spans: []
         - text: Two-Handed, Piercing (1)
           spans: []
@@ -430,6 +459,26 @@ sections:
           spans: []
         - text: '800'
           spans: []
+      - - text: Heavy Rifle
+          spans: []
+        - text: Heavy
+          spans: []
+        - text: '8'
+          spans: []
+        - text: '4'
+          spans: []
+        - text: Long
+          spans: []
+        - text: '8'
+          spans: []
+        - text: '4'
+          spans: []
+        - text: Two-Handed, Piercing (1)
+          spans: []
+        - text: Ballistic
+          spans: []
+        - text: '3000'
+          spans: []
       - - text: Gauss Cannon
           spans: []
         - text: Heavy
@@ -442,9 +491,9 @@ sections:
           spans: []
         - text: '20'
           spans: []
-        - text: '4'
+        - text: '5'
           spans: []
-        - text: Two-Handed, Slow Load, Automatic, Req. (PHYS 3)
+        - text: Two-Handed, Slow Load, Automatic, Req. (PHYS 2)
           spans: []
         - text: Ballistic
           spans: []
@@ -462,9 +511,9 @@ sections:
           spans: []
         - text: '1'
           spans: []
-        - text: '3'
+        - text: '4'
           spans: []
-        - text: Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)
+        - text: Two-Handed, Slow Load, Grenade, Req. (PHYS 2)
           spans: []
         - text: '-'
           spans: []
@@ -544,7 +593,7 @@ sections:
           spans: []
         - text: '1'
           spans: []
-        - text: Thrown, Type (Blade)
+        - text: Thrown
           spans: []
         - text: Blade
           spans: []
@@ -564,7 +613,7 @@ sections:
           spans: []
         - text: '2'
           spans: []
-        - text: Piercing (2), Req. (REF 2), Type (Blade)
+        - text: Piercing (2), Req. (REF 2)
           spans: []
         - text: Blade
           spans: []
@@ -630,15 +679,23 @@ sections:
             spans: []
         - - text: Automatic
             spans: []
-          - text: When attacking with this weapon, you may choose to spend 3 or 6
+          - text: 'When attacking with this weapon, you may choose to spend 3 or 6
               ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal
               +1 damage on a hit. An attack this way cannot be a Called Shot or deal
               critical hit damage (though other critical hit effects may apply).
-            spans: []
+
+
+              Additionally, Automatic weapons may spend additional ammo on the Suppressing
+              Fire combat action.'
+            spans:
+            - style: link_underline
+              text: combat action
+              href: combat.yaml#combat-actions
         - - text: Shredding (X)
             spans: []
           - text: If damage exceeds armour’s protection value, reduce armour’s durability
-              by X.
+              by X. If damage does not exceed armour’s protection value, still reduce
+              armour’s durability by 1.
             spans: []
         - - text: Area (X)
             spans: []
@@ -652,9 +709,9 @@ sections:
             spans: []
           - text: Requires (and uses up) a grenade item, applying the effects and
               any damage the grenade deals upon a hit. Additionally, deals this weapon’s
-              damage to the target from the impact. A failure to hit by 3 or less
-              still grants the effect of the grenade used, but does not deal this
-              weapon’s damage to the target.
+              damage as Blunt damage to the target from the impact. A failure to hit
+              by 3 or less still grants the effect of the grenade used, but does not
+              deal this weapon’s damage to the target.
             spans: []
         - - text: Toxin (X)
             spans: []
@@ -677,7 +734,8 @@ sections:
               effects. For example, a weapon with Crit: Prone knocks the target prone
               on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2)
               to the attack (which stacks with all other Piercing from the weapon
-              or ammunition used).'
+              or ammunition used). Crit effects stack cumulatively with regular weapon
+              effects.'
             spans:
             - style: link_underline
               text: critical effects
@@ -800,19 +858,31 @@ sections:
           spans: []
         - text: Vulnerable (Blade 1)
           spans: []
-        - text: '2500'
+        - text: '1750'
+          spans: []
+      - - text: Synthweave Armour
+          spans: []
+        - text: '2'
+          spans: []
+        - text: '8'
+          spans: []
+        - text: '2'
+          spans: []
+        - text: Vulnerable (Energy 2), Flimsy
+          spans: []
+        - text: '4500'
           spans: []
       - - text: MilSec Bodyplate
           spans: []
         - text: '2'
           spans: []
-        - text: '6'
+        - text: '5'
           spans: []
-        - text: '2'
+        - text: '3'
           spans: []
-        - text: Vulnerable (Energy 1)
+        - text: '-'
           spans: []
-        - text: '5000'
+        - text: '6000'
           spans: []
       - - text: Breaching plate
           spans: []
@@ -850,6 +920,19 @@ sections:
           spans: []
         - text: '40000'
           spans: []
+      - - text: Power Armour
+          spans: []
+        - text: '6'
+          spans: []
+        - text: '20'
+          spans: []
+        - text: '15'
+          spans: []
+        - text: Req. (Power Armour 3), Powered (5), Resist (Ballistic 1, Blade 1),
+            Vulnerable (Explosive 2)
+          spans: []
+        - text: '75000'
+          spans: []
     sections:
     - title: Armour keywords
       slug: armour-keywords
@@ -871,17 +954,22 @@ sections:
             spans: []
         - - text: Powered (X)
             spans: []
-          - text: 'Requires Power Armour (DC = 6 + X) check to activate. Failure:
-              become Immobile; gain +1 penalty die to all PHYS and REF based checks.
+          - text: 'Requires 1 action and a Power Armour (DC = 6 + X) check to activate.
+              Extreme Failure: become Immobile for 1 round.
 
 
-              When successfully activated, reduces its own bulk by X and grants +1
-              bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons)
-              damage deals an additional X damage to the target.
+              When successfully activated, Powered armour reduces its own bulk by
+              X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed)
+              or Melee (weapons) damage deals an additional X damage to the target.
 
 
-              Powered armour may remain powered for X * 4 rounds before requiring
-              a charge to be powered again.'
+              Powered armour may remain powered for X * 4 rounds before deactivating
+              and requiring a charge to be powered again.
+
+
+              While inactive, Powered armour loses half its Protection value (rounded
+              up) and gains Vulnerable (Blade 2). In addition, the wearer gains +1
+              penalty die to all PHYS and REF based checks.'
             spans: []
         - - text: Frontal Shielding (X)
             spans: []
@@ -891,8 +979,8 @@ sections:
         - - text: Resist (Type X)
             spans: []
           - text: Armour gains +X Protection against damage of listed Type. For example,
-              armour tagged with Resist (EMP 1) would gain +1 Protection against EMP
-              damage. See Damage Types.
+              armour tagged with Resist (Blade 1) would gain +1 Protection against
+              Blade damage. See Damage Types.
             spans:
             - style: link_underline
               text: Damage Types
@@ -900,9 +988,9 @@ sections:
         - - text: Vulnerable (Type X)
             spans: []
           - text: Armour reduces its Protection against damage of listed Type by -X
-              amount. For example, armour tagged with Vulnerable (EMP 1) would lose
-              1 Protection against EMP damage. Armour’s Protection rating cannot go
-              below 0. See Damage Types.
+              amount. For example, armour tagged with Vulnerable (Blade 1) would lose
+              1 Protection against Blade damage. Armour’s Protection rating cannot
+              go below 0. See Damage Types.
             spans:
             - style: link_underline
               text: Damage Types
@@ -951,7 +1039,7 @@ sections:
             text: Cost
       - - text: Flashbang Grenade
           spans: []
-        - text: Applies Stun 1 to everyone within Very Near range, Thrown
+        - text: Applies Stun (1) to everyone within Very Near range, Thrown
           spans: []
         - text: 1 use
           spans: []
@@ -961,8 +1049,8 @@ sections:
           spans: []
       - - text: Frag Grenade
           spans: []
-        - text: Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown,
-            Type (Explosive)
+        - text: Deals 2 area (Very Near range) Explosive damage (DC8 to Evade half),
+            Thrown
           spans: []
         - text: 1 use
           spans: []
@@ -972,7 +1060,7 @@ sections:
           spans: []
       - - text: EMP Grenade
           spans: []
-        - text: Applies EMP 2 to everything within range, Thrown, Type (EMP)
+        - text: Applies EMP (2) to everything within Near range, Thrown
           spans: []
         - text: 1 use
           spans: []
@@ -1040,7 +1128,7 @@ sections:
           spans: []
         - text: '400'
           spans: []
-      - - text: Weapon Scope
+      - - text: Weapon Scope (mod)
           spans: []
         - text: Simple Modification. Grants +1 bonus die to called shots at medium
             range and farther; inflicts +1 penalty die to attacks at Near range or
@@ -1052,7 +1140,7 @@ sections:
           spans: []
         - text: '750'
           spans: []
-      - - text: Weapon Silencer
+      - - text: Weapon Silencer (mod)
           spans: []
         - text: Simple Modification. Weapon makes reduced sound when fired; deals
             -1 damage
@@ -1063,7 +1151,7 @@ sections:
           spans: []
         - text: '500'
           spans: []
-      - - text: Weapon SMART-link
+      - - text: Weapon SMART-link (mod)
           spans: []
         - text: Grants weapon ability to use SMART ammo.
           spans: []
@@ -1073,7 +1161,7 @@ sections:
           spans: []
         - text: '3000'
           spans: []
-      - - text: Armour Gel Pads
+      - - text: Armour Gel Pads (mod)
           spans: []
         - text: Grants armour Resist (Explosive 1) trait.
           spans: []
@@ -1083,7 +1171,7 @@ sections:
           spans: []
         - text: '2500'
           spans: []
-      - - text: Armour Kevlar Plating
+      - - text: Armour Kevlar Plating (mod)
           spans: []
         - text: Expert Modification. Grants armour Resist (Ballistic 1) trait.
           spans: []
@@ -1093,9 +1181,30 @@ sections:
           spans: []
         - text: '2000'
           spans: []
+      - - text: Quick Release Harness (mod)
+          spans: []
+        - text: Reduces time to put on or take off armour by half (rounded down).
+          spans: []
+        - text: Permanent
+          spans: []
+        - text: '2'
+          spans: []
+        - text: '1000'
+          spans: []
+      - - text: Reinforced Helmet (mod)
+          spans: []
+        - text: Expert Modification. Reduces Called Shot damage bonus by half (rounded
+            up).
+          spans: []
+        - text: Permanent
+          spans: []
+        - text: '1'
+          spans: []
+        - text: ''
+          spans: []
       - - text: Compact Backpack
           spans: []
-        - text: +5 Inventory Slots when worn
+        - text: +5 Inventory Slots when worn.
           spans: []
         - text: Permanent
           spans: []
@@ -1138,7 +1247,7 @@ sections:
           spans: []
       - - text: Ammo (Explosive)
           spans: []
-        - text: Adds Shredding (1) to attacks.
+        - text: Adds Shredding (1) to attacks. Attacks deal Explosive damage.
           spans: []
         - text: 1 reload
           spans: []
@@ -1332,7 +1441,7 @@ sections:
           spans: []
         - text: '2'
           spans: []
-        - text: Once per day, activate to gain 2 additional actions on your turn.
+        - text: Once per day, activate to gain 3 additional actions on your turn.
             At the end of your turn, gain +2 stress.
           spans: []
         - text: '4'
@@ -1377,8 +1486,7 @@ sections:
         - text: '2'
           spans: []
         - text: Gain +1 bonus die on Powerlifting or Athletics checks involving lifting,
-            pushing, or breaking objects. Unarmed attacks deal damage equal to your
-            full PHYS.
+            pushing, or breaking objects. Unarmed attacks gain +1 damage.
           spans: []
         - text: '4'
           spans: []
@@ -1422,9 +1530,11 @@ sections:
           spans: []
         - text: '3'
           spans: []
-        - text: PHYS unarmed attacks deal damage equal to double your PHYS and have
-            Shredding (3). REF unarmed attacks deal damage equal to your REF and have
-            Piercing (2). Additionally, gain +1 bonus die to climbing related checks.
+        - text: 'Activate to gain: PHYS unarmed attacks deal damage equal to your
+            PHYS + 2 and have Shredding (2). REF unarmed attacks deal damage equal
+            to half your REF (rounded up) + 1, and have Piercing (2). Attacks made
+            with Mantis Claws deal Blade type damage. Additionally, gain +1 bonus
+            die to climbing related checks.'
           spans: []
         - text: '3'
           spans: []
@@ -1512,8 +1622,11 @@ sections:
       - type: list
         ordered: false
         items:
-        - text: Activating or benefitting from the bonus a piece of Cyberware gives
-            you does not cost any actions.
+        - text: Activating requires 1 action (on your turn) or 1 reaction (not on
+            your turn).
+          spans: []
+        - text: Benefitting from the bonus a piece of Cyberware gives you does not
+            cost any actions.
           spans: []
         - text: You may not have more than one Cyberware of any type installed at
             one time.

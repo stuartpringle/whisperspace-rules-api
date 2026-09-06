@@ -263,6 +263,9 @@ sections:
           spans: []
         - text: '4'
           spans: []
+    - type: paragraph
+      text: Weapons that list zero or no damage instead deal half critical hit damage.
+      spans: []
     sections: []
   - title: Ranged weapons attacking within Very Near range
     slug: ranged-weapons-attacking-within-very-near-range
@@ -435,6 +438,9 @@ sections:
         text: On an extreme success, you may take the Grapple combat action without
           spending an action to do so.
         spans: []
+      - type: paragraph
+        text: Unarmed attacks deal Blunt damage.
+        spans: []
       sections: []
   - title: Improvised Weapons
     slug: improvised-weapons
@@ -450,6 +456,9 @@ sections:
       text: The GM may decide to lower or increase either the Use DC or the damage
         of an improvised weapon as they see fit. They usually break on an extreme
         failure, or after a few solid hits (GM discretion).
+      spans: []
+    - type: paragraph
+      text: Improvised weapons are often Blunt, but the GM determines the damage type.
       spans: []
     sections: []
   - title: Throwing weapons
@@ -524,17 +533,90 @@ sections:
       3 wounds. Wearing armour with Protection 2 would reduce that to 1 wound.
     spans: []
   sections:
+  - title: Order of operations
+    slug: order-of-operations
+    level: 3
+    content:
+    - type: paragraph
+      text: 'When you get hit, here’s a quick list of what to do:'
+      spans: []
+    - type: paragraph
+      text: 'First, determine the total amount of incoming damage as well as the type
+        of that damage:'
+      spans:
+      - style: bold
+        text: First
+      - style: bold
+        text: incoming damage
+    - type: list
+      ordered: false
+      items:
+      - text: Incoming Damage is the total amount of damage from an attack or effect,
+          taking into account weapon keywords, critical hit damage, called shot damage,
+          or anything else that would modify the amount of damage dealt on the incoming
+          attack.
+        spans:
+        - style: bold
+          text: Incoming Damage
+    - type: paragraph
+      text: 'Second, determine your total armour protection:'
+      spans:
+      - style: bold
+        text: Second
+      - style: bold
+        text: armour protection
+    - type: list
+      ordered: false
+      items:
+      - text: Armour Protection includes the armour’s Protection value as well as
+          all bonuses from things like Resistance to the incoming damage type or Frontal
+          Shielding, as well as all negatives from Vulnerability or other sources.
+          For example, taking energy damage while wearing armour with 2 protection
+          and Vulnerable (Energy 1) would give a total Armour Protection of 1 against
+          the incoming damage.
+        spans:
+        - style: bold
+          text: Armour Protection
+    - type: paragraph
+      text: Third, calculate the damage taken using those two numbers and the Damage
+        Taken formula above, translating that to wounds via the wound track.
+      spans:
+      - style: bold
+        text: Third
+      - style: bold
+        text: damage taken
+      - style: bold
+        text: Damage Taken
+      - style: link_underline
+        text: wound track
+        href: health-wounds.yaml#wound-tracking
+    - type: paragraph
+      text: Finally, apply any additional effects from the attack as well as resolve
+        armour durability loss.
+      spans:
+      - style: bold
+        text: Finally
+    sections: []
   - title: Durability
     slug: durability
     level: 3
     content:
     - type: paragraph
-      text: All armour has a Durability rating. When taking damage while wearing armour,
-        reduce that armour’s durability by 1 (unless otherwise specified by the weapon
-        used). If the armour’s durability ever drops to 0, the armour is broken and
-        completely useless at stopping damage; it no longer provides any Protection
-        or other benefits it may have provided. It does still take up inventory slots
-        as normal, and must be removed as normal before equipping other armour.
+      text: All armour has a Durability rating. When damage from a combat source (being
+        shot, stabbed, etc) gets through your armour (damages you), reduce that armour’s
+        durability by 1. If the armour’s durability ever drops to 0, the armour is
+        broken and completely useless at stopping damage; it no longer provides any
+        Protection or other benefits it may have provided. It does still take up inventory
+        slots as normal, and must be removed as normal before equipping other armour.
+      spans: []
+    - type: paragraph
+      text: Some weapons or effects (such as Shredding weapons) deal additional durability
+        loss; this is cumulative with the normal durability loss from being injured
+        while wearing armour.
+      spans: []
+    - type: paragraph
+      text: At the GM’s discretion, environmental effects or other types of damage
+        could reduce armour’s durability as well.
       spans: []
     sections: []
   - title: Putting On and Taking Off Armour
@@ -542,12 +624,48 @@ sections:
     level: 3
     content:
     - type: paragraph
-      text: Donning or doffing armour takes a number of rounds equal to the armour’s
-        Bulk rating, using all your actions on each of those rounds to do so. Thus
-        removing armour with Bulk 3 would take all a character’s actions for 3 rounds
-        to achieve.
+      text: Donning or doffing armour takes a number of actions equal to the armour’s
+        Bulk rating * 3. Thus removing armour with Bulk 3 would take 9 actions to
+        do. These actions may be spread across multiple rounds, and progress is preserved
+        if the process is interrupted.
+      spans: []
+    - type: paragraph
+      text: Armour provides no Protection while it is being put on or taken off.
       spans: []
     sections: []
+  - title: EVA Suits
+    slug: eva-suits
+    level: 3
+    content:
+    - type: paragraph
+      text: Extravehicular Activity suits are specialized space suits worn to survive
+        in space. They provide pressure control, temperature regulation, and an oxygen
+        supply while functional.
+      spans: []
+    sections:
+    - title: Suit Breach
+      slug: suit-breach
+      level: 4
+      content:
+      - type: paragraph
+        text: Any durability loss reduces the efficacy of an EVA suit. A damaged suit
+          provides life support for a number of rounds equal to its maximum durability.
+          After that, the wearer takes on the Asphyxiating condition.
+        spans:
+        - style: link_underline
+          text: Asphyxiating
+          href: conditions.yaml#asphyxiating
+      - type: paragraph
+        text: Patching such a suit breach may be done with a successful Repair roll.
+          Unlike normal repair rolls, patching a suit takes 2 actions and does not
+          restore lost durability; instead, it negates the suit breach. An EVA suit
+          with 0 durability imposes a penalty die on any attempt to patch it, and
+          requires an Extreme Success on the Repair roll to patch successfully.
+        spans:
+        - style: link_underline
+          text: Repair
+          href: equipment-gear.yaml#repair-and-modification
+      sections: []
   - title: Wearing Multiple Pieces of Armour
     slug: wearing-multiple-pieces-of-armour
     level: 3
@@ -556,6 +674,10 @@ sections:
       text: You cannot wear more than one item of armour unless otherwise specified
         by the armour itself.
       spans: []
+    - type: paragraph
+      text: If you do wear more than one piece of armour, all worn armour loses durability
+        at the same rate.
+      spans: []
     sections: []
   - title: Unmitigated damage
     slug: unmitigated-damage
@@ -563,7 +685,8 @@ sections:
     content:
     - type: paragraph
       text: Some damage sources deal ‘unmitigated damage’. Armour does not reduce
-        this type of damage at all.
+        this type of damage at all. Bleeding or falling from a height are examples
+        of unmitigated damage.
       spans: []
     sections: []
 - title: Damage Types
@@ -623,12 +746,6 @@ sections:
       - text: +2 damage to structures, vehicles, or anything with hull points.
         spans: []
       - text: Bombs, rockets, grenades
-        spans: []
-    - - text: Unmitigated
-        spans: []
-      - text: Not reduced by armour at all
-        spans: []
-      - text: Blood loss, poison doing its job
         spans: []
   sections: []
 - title: Combat actions

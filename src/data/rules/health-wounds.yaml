@@ -57,7 +57,21 @@ sections:
     - style: link_bold_underline
       text: Dying
       href: conditions.yaml#dying
-  sections: []
+  sections:
+  - title: Taking Damage
+    slug: taking-damage
+    level: 3
+    content:
+    - type: paragraph
+      text: When you take damage, fill out the wound track; one circle for each point
+        of damage taken. For example, if you have no wounds and take 3 damage, you
+        would fill in two light wound circles and one moderate wound circle, for a
+        total of 3 circles filled. If you take another point of damage, you would
+        then fill in another light wound circle, and so on. Only once all light wound
+        and moderate wound circles have been filled would you fill in the heavy wound
+        circle.
+      spans: []
+    sections: []
 - title: Healing
   slug: healing
   level: 2

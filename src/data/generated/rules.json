@@ -4728,6 +4728,11 @@
                     }
                   ]
                 ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Weapons that list zero or no damage instead deal half critical hit damage.",
+                "spans": []
               }
             ],
             "sections": []
@@ -5032,6 +5037,11 @@
                     "type": "paragraph",
                     "text": "On an extreme success, you may take the Grapple combat action without spending an action to do so.",
                     "spans": []
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Unarmed attacks deal Blunt damage.",
+                    "spans": []
                   }
                 ],
                 "sections": []
@@ -5051,6 +5061,11 @@
               {
                 "type": "paragraph",
                 "text": "The GM may decide to lower or increase either the Use DC or the damage of an improvised weapon as they see fit. They usually break on an extreme failure, or after a few solid hits (GM discretion).",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "Improvised weapons are often Blunt, but the GM determines the damage type.",
                 "spans": []
               }
             ],
@@ -5160,13 +5175,127 @@
         ],
         "sections": [
           {
+            "title": "Order of operations",
+            "slug": "order-of-operations",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "When you get hit, here’s a quick list of what to do:",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "First, determine the total amount of incoming damage as well as the type of that damage:",
+                "spans": [
+                  {
+                    "style": "bold",
+                    "text": "First"
+                  },
+                  {
+                    "style": "bold",
+                    "text": "incoming damage"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "Incoming Damage is the total amount of damage from an attack or effect, taking into account weapon keywords, critical hit damage, called shot damage, or anything else that would modify the amount of damage dealt on the incoming attack.",
+                    "spans": [
+                      {
+                        "style": "bold",
+                        "text": "Incoming Damage"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Second, determine your total armour protection:",
+                "spans": [
+                  {
+                    "style": "bold",
+                    "text": "Second"
+                  },
+                  {
+                    "style": "bold",
+                    "text": "armour protection"
+                  }
+                ]
+              },
+              {
+                "type": "list",
+                "ordered": false,
+                "items": [
+                  {
+                    "text": "Armour Protection includes the armour’s Protection value as well as all bonuses from things like Resistance to the incoming damage type or Frontal Shielding, as well as all negatives from Vulnerability or other sources. For example, taking energy damage while wearing armour with 2 protection and Vulnerable (Energy 1) would give a total Armour Protection of 1 against the incoming damage.",
+                    "spans": [
+                      {
+                        "style": "bold",
+                        "text": "Armour Protection"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Third, calculate the damage taken using those two numbers and the Damage Taken formula above, translating that to wounds via the wound track.",
+                "spans": [
+                  {
+                    "style": "bold",
+                    "text": "Third"
+                  },
+                  {
+                    "style": "bold",
+                    "text": "damage taken"
+                  },
+                  {
+                    "style": "bold",
+                    "text": "Damage Taken"
+                  },
+                  {
+                    "style": "link_underline",
+                    "text": "wound track",
+                    "href": "health-wounds.yaml#wound-tracking"
+                  }
+                ]
+              },
+              {
+                "type": "paragraph",
+                "text": "Finally, apply any additional effects from the attack as well as resolve armour durability loss.",
+                "spans": [
+                  {
+                    "style": "bold",
+                    "text": "Finally"
+                  }
+                ]
+              }
+            ],
+            "sections": []
+          },
+          {
             "title": "Durability",
             "slug": "durability",
             "level": 3,
             "content": [
               {
                 "type": "paragraph",
-                "text": "All armour has a Durability rating. When taking damage while wearing armour, reduce that armour’s durability by 1 (unless otherwise specified by the weapon used). If the armour’s durability ever drops to 0, the armour is broken and completely useless at stopping damage; it no longer provides any Protection or other benefits it may have provided. It does still take up inventory slots as normal, and must be removed as normal before equipping other armour.",
+                "text": "All armour has a Durability rating. When damage from a combat source (being shot, stabbed, etc) gets through your armour (damages you), reduce that armour’s durability by 1. If the armour’s durability ever drops to 0, the armour is broken and completely useless at stopping damage; it no longer provides any Protection or other benefits it may have provided. It does still take up inventory slots as normal, and must be removed as normal before equipping other armour.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "Some weapons or effects (such as Shredding weapons) deal additional durability loss; this is cumulative with the normal durability loss from being injured while wearing armour.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "At the GM’s discretion, environmental effects or other types of damage could reduce armour’s durability as well.",
                 "spans": []
               }
             ],
@@ -5179,11 +5308,60 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "Donning or doffing armour takes a number of rounds equal to the armour’s Bulk rating, using all your actions on each of those rounds to do so. Thus removing armour with Bulk 3 would take all a character’s actions for 3 rounds to achieve.",
+                "text": "Donning or doffing armour takes a number of actions equal to the armour’s Bulk rating * 3. Thus removing armour with Bulk 3 would take 9 actions to do. These actions may be spread across multiple rounds, and progress is preserved if the process is interrupted.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "Armour provides no Protection while it is being put on or taken off.",
                 "spans": []
               }
             ],
             "sections": []
+          },
+          {
+            "title": "EVA Suits",
+            "slug": "eva-suits",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "Extravehicular Activity suits are specialized space suits worn to survive in space. They provide pressure control, temperature regulation, and an oxygen supply while functional.",
+                "spans": []
+              }
+            ],
+            "sections": [
+              {
+                "title": "Suit Breach",
+                "slug": "suit-breach",
+                "level": 4,
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "text": "Any durability loss reduces the efficacy of an EVA suit. A damaged suit provides life support for a number of rounds equal to its maximum durability. After that, the wearer takes on the Asphyxiating condition.",
+                    "spans": [
+                      {
+                        "style": "link_underline",
+                        "text": "Asphyxiating",
+                        "href": "conditions.yaml#asphyxiating"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "text": "Patching such a suit breach may be done with a successful Repair roll. Unlike normal repair rolls, patching a suit takes 2 actions and does not restore lost durability; instead, it negates the suit breach. An EVA suit with 0 durability imposes a penalty die on any attempt to patch it, and requires an Extreme Success on the Repair roll to patch successfully.",
+                    "spans": [
+                      {
+                        "style": "link_underline",
+                        "text": "Repair",
+                        "href": "equipment-gear.yaml#repair-and-modification"
+                      }
+                    ]
+                  }
+                ],
+                "sections": []
+              }
+            ]
           },
           {
             "title": "Wearing Multiple Pieces of Armour",
@@ -5193,6 +5371,11 @@
               {
                 "type": "paragraph",
                 "text": "You cannot wear more than one item of armour unless otherwise specified by the armour itself.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "If you do wear more than one piece of armour, all worn armour loses durability at the same rate.",
                 "spans": []
               }
             ],
@@ -5205,7 +5388,7 @@
             "content": [
               {
                 "type": "paragraph",
-                "text": "Some damage sources deal ‘unmitigated damage’. Armour does not reduce this type of damage at all.",
+                "text": "Some damage sources deal ‘unmitigated damage’. Armour does not reduce this type of damage at all. Bleeding or falling from a height are examples of unmitigated damage.",
                 "spans": []
               }
             ],
@@ -5338,20 +5521,6 @@
                 },
                 {
                   "text": "Bombs, rockets, grenades",
-                  "spans": []
-                }
-              ],
-              [
-                {
-                  "text": "Unmitigated",
-                  "spans": []
-                },
-                {
-                  "text": "Not reduced by armour at all",
-                  "spans": []
-                },
-                {
-                  "text": "Blood loss, poison doing its job",
                   "spans": []
                 }
               ]
@@ -9118,7 +9287,7 @@
           },
           {
             "type": "paragraph",
-            "text": "Modifying equipment works the same way as repairing equipment, but does not require materials other than the modification you wish to install. Only advanced and expert modifications require an Engineering check or take longer than one action to enact; simple modifications may be done (or undone) mid-combat and require no roll, only the use of two actions.",
+            "text": "Modifying equipment works the same way as repairing equipment, but does not require materials other than the modification you wish to install. Only simple modifications may be done (or undone) mid-combat. Once a modification is installed, increase the equipment’s bulk by the modification’s bulk. Unless otherwise specified, equipment may only support up to 2 modifications, and these modifications cannot be duplicates.",
             "spans": [
               {
                 "style": "bold",
@@ -9128,11 +9297,59 @@
           },
           {
             "type": "paragraph",
-            "text": "Modification DC: 8 (advanced, 2 hours), 10 (expert, 4 hours)",
+            "text": "Simple modifications: no roll required, requires 2 actions\nAdvanced modifications: DC 8, requires 2 hours\nExpert modifications: DC 10, requires 4 hours",
             "spans": [
               {
                 "style": "bold",
-                "text": "Modification DC:"
+                "text": "Simple modifications:"
+              },
+              {
+                "style": "bold",
+                "text": "Advanced modifications:"
+              },
+              {
+                "style": "bold",
+                "text": "Expert modifications:"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "On Extreme Success, reduce time required for modification by half.",
+            "spans": [
+              {
+                "style": "bold",
+                "text": "On Extreme Success"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "On Success, modification installed normally.",
+            "spans": [
+              {
+                "style": "bold",
+                "text": "On Success"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "On Failure, not installed; increase the next modification check DC by +1.",
+            "spans": [
+              {
+                "style": "bold",
+                "text": "On Failure"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "text": "On Extreme Failure, not installed; the modification loses 1 durability.",
+            "spans": [
+              {
+                "style": "bold",
+                "text": "On Extreme Failure"
               }
             ]
           },
@@ -9295,11 +9512,11 @@
                       ]
                     },
                     {
-                      "text": "Type",
+                      "text": "Class",
                       "spans": [
                         {
                           "style": "bold",
-                          "text": "Type"
+                          "text": "Class"
                         }
                       ]
                     },
@@ -9642,7 +9859,7 @@
                       "spans": []
                     },
                     {
-                      "text": "4",
+                      "text": "2",
                       "spans": []
                     },
                     {
@@ -9650,11 +9867,11 @@
                       "spans": []
                     },
                     {
-                      "text": "8",
+                      "text": "4",
                       "spans": []
                     },
                     {
-                      "text": "2",
+                      "text": "3",
                       "spans": []
                     },
                     {
@@ -9714,6 +9931,48 @@
                   ],
                   [
                     {
+                      "text": "Heavy Rifle",
+                      "spans": []
+                    },
+                    {
+                      "text": "Heavy",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "Long",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "4",
+                      "spans": []
+                    },
+                    {
+                      "text": "Two-Handed, Piercing (1)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Ballistic",
+                      "spans": []
+                    },
+                    {
+                      "text": "3000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
                       "text": "Gauss Cannon",
                       "spans": []
                     },
@@ -9738,11 +9997,11 @@
                       "spans": []
                     },
                     {
-                      "text": "4",
+                      "text": "5",
                       "spans": []
                     },
                     {
-                      "text": "Two-Handed, Slow Load, Automatic, Req. (PHYS 3)",
+                      "text": "Two-Handed, Slow Load, Automatic, Req. (PHYS 2)",
                       "spans": []
                     },
                     {
@@ -9780,11 +10039,11 @@
                       "spans": []
                     },
                     {
-                      "text": "3",
+                      "text": "4",
                       "spans": []
                     },
                     {
-                      "text": "Area (Very Near), Two-Handed, Slow Load, Grenade, Req. (PHYS 2)",
+                      "text": "Two-Handed, Slow Load, Grenade, Req. (PHYS 2)",
                       "spans": []
                     },
                     {
@@ -9952,7 +10211,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Thrown, Type (Blade)",
+                      "text": "Thrown",
                       "spans": []
                     },
                     {
@@ -9994,7 +10253,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Piercing (2), Req. (REF 2), Type (Blade)",
+                      "text": "Piercing (2), Req. (REF 2)",
                       "spans": []
                     },
                     {
@@ -10131,8 +10390,14 @@
                           "spans": []
                         },
                         {
-                          "text": "When attacking with this weapon, you may choose to spend 3 or 6 ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage on a hit. An attack this way cannot be a Called Shot or deal critical hit damage (though other critical hit effects may apply).",
-                          "spans": []
+                          "text": "When attacking with this weapon, you may choose to spend 3 or 6 ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage on a hit. An attack this way cannot be a Called Shot or deal critical hit damage (though other critical hit effects may apply).\n\nAdditionally, Automatic weapons may spend additional ammo on the Suppressing Fire combat action.",
+                          "spans": [
+                            {
+                              "style": "link_underline",
+                              "text": "combat action",
+                              "href": "combat.yaml#combat-actions"
+                            }
+                          ]
                         }
                       ],
                       [
@@ -10141,7 +10406,7 @@
                           "spans": []
                         },
                         {
-                          "text": "If damage exceeds armour’s protection value, reduce armour’s durability by X.",
+                          "text": "If damage exceeds armour’s protection value, reduce armour’s durability by X. If damage does not exceed armour’s protection value, still reduce armour’s durability by 1.",
                           "spans": []
                         }
                       ],
@@ -10171,7 +10436,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Requires (and uses up) a grenade item, applying the effects and any damage the grenade deals upon a hit. Additionally, deals this weapon’s damage to the target from the impact. A failure to hit by 3 or less still grants the effect of the grenade used, but does not deal this weapon’s damage to the target.",
+                          "text": "Requires (and uses up) a grenade item, applying the effects and any damage the grenade deals upon a hit. Additionally, deals this weapon’s damage as Blunt damage to the target from the impact. A failure to hit by 3 or less still grants the effect of the grenade used, but does not deal this weapon’s damage to the target.",
                           "spans": []
                         }
                       ],
@@ -10207,7 +10472,7 @@
                           "spans": []
                         },
                         {
-                          "text": "This weapon applies a specific effect in addition to normal critical effects. For example, a weapon with Crit: Prone knocks the target prone on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2) to the attack (which stacks with all other Piercing from the weapon or ammunition used).",
+                          "text": "This weapon applies a specific effect in addition to normal critical effects. For example, a weapon with Crit: Prone knocks the target prone on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2) to the attack (which stacks with all other Piercing from the weapon or ammunition used). Crit effects stack cumulatively with regular weapon effects.",
                           "spans": [
                             {
                               "style": "link_underline",
@@ -10482,7 +10747,33 @@
                       "spans": []
                     },
                     {
-                      "text": "2500",
+                      "text": "1750",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Synthweave Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "8",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "Vulnerable (Energy 2), Flimsy",
+                      "spans": []
+                    },
+                    {
+                      "text": "4500",
                       "spans": []
                     }
                   ],
@@ -10496,19 +10787,19 @@
                       "spans": []
                     },
                     {
-                      "text": "6",
+                      "text": "5",
                       "spans": []
                     },
                     {
-                      "text": "2",
+                      "text": "3",
                       "spans": []
                     },
                     {
-                      "text": "Vulnerable (Energy 1)",
+                      "text": "-",
                       "spans": []
                     },
                     {
-                      "text": "5000",
+                      "text": "6000",
                       "spans": []
                     }
                   ],
@@ -10589,6 +10880,32 @@
                       "text": "40000",
                       "spans": []
                     }
+                  ],
+                  [
+                    {
+                      "text": "Power Armour",
+                      "spans": []
+                    },
+                    {
+                      "text": "6",
+                      "spans": []
+                    },
+                    {
+                      "text": "20",
+                      "spans": []
+                    },
+                    {
+                      "text": "15",
+                      "spans": []
+                    },
+                    {
+                      "text": "Req. (Power Armour 3), Powered (5), Resist (Ballistic 1, Blade 1), Vulnerable (Explosive 2)",
+                      "spans": []
+                    },
+                    {
+                      "text": "75000",
+                      "spans": []
+                    }
                   ]
                 ]
               }
@@ -10628,7 +10945,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Requires Power Armour (DC = 6 + X) check to activate. Failure: become Immobile; gain +1 penalty die to all PHYS and REF based checks.\n\nWhen successfully activated, reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before requiring a charge to be powered again.",
+                          "text": "Requires 1 action and a Power Armour (DC = 6 + X) check to activate. Extreme Failure: become Immobile for 1 round.\n\nWhen successfully activated, Powered armour reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before deactivating and requiring a charge to be powered again.\n\nWhile inactive, Powered armour loses half its Protection value (rounded up) and gains Vulnerable (Blade 2). In addition, the wearer gains +1 penalty die to all PHYS and REF based checks.",
                           "spans": []
                         }
                       ],
@@ -10648,7 +10965,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Armour gains +X Protection against damage of listed Type. For example, armour tagged with Resist (EMP 1) would gain +1 Protection against EMP damage. See Damage Types.",
+                          "text": "Armour gains +X Protection against damage of listed Type. For example, armour tagged with Resist (Blade 1) would gain +1 Protection against Blade damage. See Damage Types.",
                           "spans": [
                             {
                               "style": "link_underline",
@@ -10664,7 +10981,7 @@
                           "spans": []
                         },
                         {
-                          "text": "Armour reduces its Protection against damage of listed Type by -X amount. For example, armour tagged with Vulnerable (EMP 1) would lose 1 Protection against EMP damage. Armour’s Protection rating cannot go below 0. See Damage Types.",
+                          "text": "Armour reduces its Protection against damage of listed Type by -X amount. For example, armour tagged with Vulnerable (Blade 1) would lose 1 Protection against Blade damage. Armour’s Protection rating cannot go below 0. See Damage Types.",
                           "spans": [
                             {
                               "style": "link_underline",
@@ -10784,7 +11101,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Applies Stun 1 to everyone within Very Near range, Thrown",
+                      "text": "Applies Stun (1) to everyone within Very Near range, Thrown",
                       "spans": []
                     },
                     {
@@ -10806,7 +11123,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Deals 2 area (Very Near range) damage (DC8 to Evade half), Thrown, Type (Explosive)",
+                      "text": "Deals 2 area (Very Near range) Explosive damage (DC8 to Evade half), Thrown",
                       "spans": []
                     },
                     {
@@ -10828,7 +11145,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Applies EMP 2 to everything within range, Thrown, Type (EMP)",
+                      "text": "Applies EMP (2) to everything within Near range, Thrown",
                       "spans": []
                     },
                     {
@@ -10978,7 +11295,7 @@
                   ],
                   [
                     {
-                      "text": "Weapon Scope",
+                      "text": "Weapon Scope (mod)",
                       "spans": []
                     },
                     {
@@ -11000,7 +11317,7 @@
                   ],
                   [
                     {
-                      "text": "Weapon Silencer",
+                      "text": "Weapon Silencer (mod)",
                       "spans": []
                     },
                     {
@@ -11022,7 +11339,7 @@
                   ],
                   [
                     {
-                      "text": "Weapon SMART-link",
+                      "text": "Weapon SMART-link (mod)",
                       "spans": []
                     },
                     {
@@ -11044,7 +11361,7 @@
                   ],
                   [
                     {
-                      "text": "Armour Gel Pads",
+                      "text": "Armour Gel Pads (mod)",
                       "spans": []
                     },
                     {
@@ -11066,7 +11383,7 @@
                   ],
                   [
                     {
-                      "text": "Armour Kevlar Plating",
+                      "text": "Armour Kevlar Plating (mod)",
                       "spans": []
                     },
                     {
@@ -11088,11 +11405,55 @@
                   ],
                   [
                     {
+                      "text": "Quick Release Harness (mod)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Reduces time to put on or take off armour by half (rounded down).",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "2",
+                      "spans": []
+                    },
+                    {
+                      "text": "1000",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
+                      "text": "Reinforced Helmet (mod)",
+                      "spans": []
+                    },
+                    {
+                      "text": "Expert Modification. Reduces Called Shot damage bonus by half (rounded up).",
+                      "spans": []
+                    },
+                    {
+                      "text": "Permanent",
+                      "spans": []
+                    },
+                    {
+                      "text": "1",
+                      "spans": []
+                    },
+                    {
+                      "text": "",
+                      "spans": []
+                    }
+                  ],
+                  [
+                    {
                       "text": "Compact Backpack",
                       "spans": []
                     },
                     {
-                      "text": "+5 Inventory Slots when worn",
+                      "text": "+5 Inventory Slots when worn.",
                       "spans": []
                     },
                     {
@@ -11180,7 +11541,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Adds Shredding (1) to attacks.",
+                      "text": "Adds Shredding (1) to attacks. Attacks deal Explosive damage.",
                       "spans": []
                     },
                     {
@@ -11584,7 +11945,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Once per day, activate to gain 2 additional actions on your turn. At the end of your turn, gain +2 stress.",
+                      "text": "Once per day, activate to gain 3 additional actions on your turn. At the end of your turn, gain +2 stress.",
                       "spans": []
                     },
                     {
@@ -11674,7 +12035,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Gain +1 bonus die on Powerlifting or Athletics checks involving lifting, pushing, or breaking objects. Unarmed attacks deal damage equal to your full PHYS.",
+                      "text": "Gain +1 bonus die on Powerlifting or Athletics checks involving lifting, pushing, or breaking objects. Unarmed attacks gain +1 damage.",
                       "spans": []
                     },
                     {
@@ -11764,7 +12125,7 @@
                       "spans": []
                     },
                     {
-                      "text": "PHYS unarmed attacks deal damage equal to double your PHYS and have Shredding (3). REF unarmed attacks deal damage equal to your REF and have Piercing (2). Additionally, gain +1 bonus die to climbing related checks.",
+                      "text": "Activate to gain: PHYS unarmed attacks deal damage equal to your PHYS + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half your REF (rounded up) + 1, and have Piercing (2). Attacks made with Mantis Claws deal Blade type damage. Additionally, gain +1 bonus die to climbing related checks.",
                       "spans": []
                     },
                     {
@@ -11923,7 +12284,11 @@
                     "ordered": false,
                     "items": [
                       {
-                        "text": "Activating or benefitting from the bonus a piece of Cyberware gives you does not cost any actions.",
+                        "text": "Activating requires 1 action (on your turn) or 1 reaction (not on your turn).",
+                        "spans": []
+                      },
+                      {
+                        "text": "Benefitting from the bonus a piece of Cyberware gives you does not cost any actions.",
                         "spans": []
                       },
                       {
@@ -13620,7 +13985,21 @@
             ]
           }
         ],
-        "sections": []
+        "sections": [
+          {
+            "title": "Taking Damage",
+            "slug": "taking-damage",
+            "level": 3,
+            "content": [
+              {
+                "type": "paragraph",
+                "text": "When you take damage, fill out the wound track; one circle for each point of damage taken. For example, if you have no wounds and take 3 damage, you would fill in two light wound circles and one moderate wound circle, for a total of 3 circles filled. If you take another point of damage, you would then fill in another light wound circle, and so on. Only once all light wound and moderate wound circles have been filled would you fill in the heavy wound circle.",
+                "spans": []
+              }
+            ],
+            "sections": []
+          }
+        ]
       },
       {
         "title": "Healing",
@@ -16481,7 +16860,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788504940475529&usg=AOvVaw1HzTPw50cW1mAvfmdoNLLc"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1788677290627665&usg=AOvVaw0GajM9FvDZN8ee2bFD1t3B"
               }
             ]
           }
