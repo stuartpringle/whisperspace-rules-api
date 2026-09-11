@@ -107,7 +107,7 @@
     },
     {
       "name": "Reinforced Helmet (mod)",
-      "effect": "Expert Modification. Reduces Called Shot damage bonus by half (rounded up).",
+      "effect": "Expert Modification. Gain +2 Protection against attacks made with Called Shot: Head",
       "uses": "Permanent",
       "bulk": 1,
       "cost": 1500

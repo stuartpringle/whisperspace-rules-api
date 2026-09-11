@@ -266,11 +266,6 @@ sections:
     - type: paragraph
       text: Weapons that list zero or no damage instead deal half critical hit damage.
       spans: []
-    sections: []
-  - title: Ranged weapons attacking within Very Near range
-    slug: ranged-weapons-attacking-within-very-near-range
-    level: 3
-    content:
     - type: table
       rows:
       - - &id002
@@ -350,7 +345,23 @@ sections:
     - type: list
       ordered: false
       items:
-      - text: Double damage the target receives (after adjusting for armour protection)
+      - text: Inflict +2 damage on this attack
+        spans: []
+      - text: Target gains Agonized (1) condition (Agonized (2) instead if the Called
+          Shot was a critical hit)
+        spans: []
+    - type: list
+      ordered: false
+      items:
+      - text: Stomach
+        spans:
+        - style: bold
+          text: Stomach
+    - type: list
+      ordered: false
+      items:
+      - text: Target gains Bleeding (1) condition (Bleeding (2) instead if the Called
+          Shot was a critical hit)
         spans: []
     - type: list
       ordered: false
@@ -687,11 +698,6 @@ sections:
         of unmitigated damage.
       spans: []
     sections: []
-- title: Damage Types
-  slug: damage-types
-  level: 2
-  content: []
-  sections: []
 - title: Damage Types
   slug: damage-types
   level: 2

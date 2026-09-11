@@ -74,7 +74,7 @@ sections:
     - type: list
       ordered: false
       items:
-      - text: 'Failure: suffer 1 wound.'
+      - text: 'Failure: suffer 1 unmitigated damage.'
         spans:
         - style: bold
           text: Failure
@@ -158,8 +158,9 @@ sections:
           and cyberware) affected.
         spans: []
       - text: Completely shuts off all electronic systems (robots, computers, ship
-          modules, and cyberware) of tier X or lower. Until restarted, these systems
-          are inactive.
+          modules, and cyberware) of tier X or lower. Also shuts off all Power Armour
+          of Powered (X) or lower. Until restarted, these systems are inactive and
+          disabled.
         spans: []
       - text: Has no effect on biological creatures such as humans.
         spans: []
@@ -229,20 +230,20 @@ sections:
         spans:
         - style: bold
           text: First Aid (DC4 + current bleed level)
-      - text: 'Light: take 1 damage at the end of your turn.'
+      - text: 'Light: take 1 unmitigated damage at the end of your turn.'
         spans:
         - style: bold
           text: Light
-      - text: 'Moderate: take 2 damage at the end of your turn.'
+      - text: 'Moderate: take 2 unmitigated damage at the end of your turn.'
         spans:
         - style: bold
           text: Moderate
-      - text: 'Heavy: take 3 damage at the end of your turn.'
+      - text: 'Heavy: take 3 unmitigated damage at the end of your turn.'
         spans:
         - style: bold
           text: Heavy
-      - text: 'Extreme: take 2 damage at the start of your turn and 4 damage at the
-          end of your turn.'
+      - text: 'Extreme: take 2 unmitigated damage at the start of your turn and 4
+          unmitigated damage at the end of your turn.'
         spans:
         - style: bold
           text: Extreme

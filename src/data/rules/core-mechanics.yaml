@@ -70,7 +70,7 @@ sections:
         spans: []
       - text: '4'
         spans: []
-      - text: Finding milk in a fridge
+      - text: Finding milk in an empty fridge
         spans: []
     - - text: Easy
         spans: []
@@ -101,7 +101,7 @@ sections:
       - text: '18'
         spans: []
       - text: Throwing a glass of milk and getting all the milk back into its carton
-          without spilling any
+          (while tap-dancing) without spilling any
         spans: []
   sections:
   - title: Degrees of Success and Failure

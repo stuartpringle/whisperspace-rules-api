@@ -314,9 +314,9 @@ content:
     - &id019
       text: Cybernetic enhancements are more than a physical reality to you; they
         are something you have spent hours feeling, thinking about, and accepting
-        as part of who you are. Gain +1 bonus die to Cybernetics checks. If you are
-        wearing at least 1 piece of cyberware, your attacks with Melee (weapon) weapons
-        gain +1 bonus die.
+        as part of who you are. Gain +1 bonus die to Cybernetics checks. If you have
+        at least 1 piece of cyberware booted up, your attacks with Melee (weapon)
+        weapons gain +1 bonus die.
       spans: []
     - *id019
     - *id019
@@ -327,8 +327,8 @@ content:
     - text: ''
       spans: []
     - &id020
-      text: While wearing at least 1 piece of visible cyberware, gain +1 bonus die
-        to Bearing checks made to intimidate.
+      text: While having at least 1 piece of visible cyberware installed, gain +1
+        bonus die to Bearing checks made to intimidate.
       spans: []
     - *id020
     - *id020
