@@ -26,7 +26,12 @@ cyberware:
     cost: 4000
   - name: EMP Shielding
     tier: 1
-    effect: Ignore the effects of EMP once per day.
+    effect: >-
+      Activate as a reaction before being affected by incoming EMP. The EMP has
+      no effect on installed cyberware.
+
+
+      Once activated, EMP Shielding cannot be reactivated for 10 minutes.
     installationDifficulty: 2
     requirements: MENT 1
     physicalImpact: None; torso
@@ -54,8 +59,10 @@ cyberware:
     effect: Highly illegal; when installed, is given a mandate such as “don’t go to
       the police”. If the host violates this mandate, the Skull Popper explodes,
       killing the host. The more specific the mandate, the better the implant
-      functions. A Skull Popper that is disabled will automatically detonate; if
-      disabled by EMP, there is a 75% chance it will detonate.
+      functions. A Skull Popper boosts automatically when installation is
+      completed and cannot be voluntarily shut down. If it is forced to shut
+      down or reduced to 0 durability, roll 1d12. On a result of 1-9, it
+      detonates.
     installationDifficulty: 2
     requirements: "-"
     physicalImpact: None; brain
@@ -147,10 +154,12 @@ cyberware:
 
       While extended, gain: PHYS unarmed attacks deal damage equal to your PHYS
       + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half
-      your REF (rounded up) + 1, and have Piercing (2). Attacks made with Mantis
-      Claws deal Blade type damage. Additionally, gain +1 bonus die to climbing
-      related checks. While disabled, the claws may not be activated, however
-      the bonuses from already having them extended remain in effect.
+      your REF (rounded up) + 1, and have Piercing (2). Additionally, gain +1
+      bonus die to climbing related checks. While shut down, the claws do not
+      gain any attack bonuses, however the climbing bonus remains in effect.
+
+
+      Attacks made with Mantis Claws always deal Blade type damage.
     installationDifficulty: 3
     requirements: REF 2 or PHYS 2
     physicalImpact: Obvious; forearms and hands

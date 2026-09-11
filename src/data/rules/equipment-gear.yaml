@@ -568,7 +568,7 @@ sections:
         spans: []
       - text: '1'
         spans: []
-      - text: Stun (1), Crit (Stun (1))
+      - text: Stun (1), Crit (Stun (1)), Nonlethal
         spans: []
       - text: Energy
         spans: []
@@ -674,7 +674,7 @@ sections:
           damage (though other critical hit effects may apply).
 
 
-          Additionally, Automatic weapons may spend additional ammo on the Suppressing
+          Additionally, Automatic weapons may spend up to 3 ammo on the Suppressing
           Fire combat action.'
         spans:
         - style: link_underline
@@ -688,7 +688,11 @@ sections:
         spans: []
     - - text: Area (X)
         spans: []
-      - text: Deals damage to all targets at X distance or closer.
+      - text: Deals damage to all targets at X distance or closer, centred on the
+          location hit. Targets behind cover from this damage reduce damage taken
+          and any additional effects applied by 1 (partial cover) or 3 (full cover).
+          On a missed Area (X) attack, the GM determines another reasonable location
+          of impact from which the attack applies its damage and effects to.
         spans: []
     - - text: Thrown
         spans: []
@@ -737,6 +741,18 @@ sections:
         - style: link_underline
           text: damage type
           href: combat.yaml#damage-types
+    - - text: Nonlethal
+        spans: []
+      - text: This weapon cannot cause moderate or heavy wounds. Any damage it may
+          deal that would cause a moderate or heavy wound is ignored.
+        spans: []
+  - type: paragraph
+    text: Any keyword effects that could combine cumulatively should do so. For example,
+      if two separate effects give an attack a Stun (X) value, combine the two. Stun
+      (1) plus Stun (3) would become a single instance of Stun (4), as an example.
+      Stun (1) and Toxin (1) would not combine since they are two different keyword
+      effects.
+    spans: []
   - type: table
     rows:
     - - &id003
@@ -942,7 +958,9 @@ sections:
 
 
           Powered armour may remain powered for X * 4 rounds before deactivating and
-          requiring a charge to be powered again.
+          requiring either a new Energy Core or at least 1 hour spent charging at
+          a power source (such as a ship’s power core or a colony’s generator) to
+          be powered again.
 
 
           While inactive, Powered armour loses half its Protection value (rounded
@@ -1101,6 +1119,16 @@ sections:
         spans: []
       - text: '400'
         spans: []
+    - - text: Energy Core
+        spans: []
+      - text: A mobile power source capable of powering Power Armour.
+        spans: []
+      - text: 5 uses
+        spans: []
+      - text: '1'
+        spans: []
+      - text: '2500'
+        spans: []
     - - text: Weapon Scope (mod)
         spans: []
       - text: Simple Modification. Grants +1 bonus die to called shots at medium range
@@ -1159,7 +1187,7 @@ sections:
         spans: []
       - text: Permanent
         spans: []
-      - text: '2'
+      - text: '1'
         spans: []
       - text: '1000'
         spans: []
@@ -1313,7 +1341,11 @@ sections:
         spans: []
       - text: '1'
         spans: []
-      - text: Ignore the effects of EMP once per day.
+      - text: 'Activate as a reaction before being affected by incoming EMP. The EMP
+          has no effect on installed cyberware.
+
+
+          Once activated, EMP Shielding cannot be reactivated for 10 minutes.'
         spans: []
       - text: '2'
         spans: []
@@ -1359,8 +1391,9 @@ sections:
       - text: Highly illegal; when installed, is given a mandate such as “don’t go
           to the police”. If the host violates this mandate, the Skull Popper explodes,
           killing the host. The more specific the mandate, the better the implant
-          functions. A Skull Popper that is disabled will automatically detonate;
-          if disabled by EMP, there is a 75% chance it will detonate.
+          functions. A Skull Popper boosts automatically when installation is completed
+          and cannot be voluntarily shut down. If it is forced to shut down or reduced
+          to 0 durability, roll 1d12. On a result of 1-9, it detonates.
         spans: []
       - text: '2'
         spans: []
@@ -1504,10 +1537,12 @@ sections:
 
           While extended, gain: PHYS unarmed attacks deal damage equal to your PHYS
           + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half
-          your REF (rounded up) + 1, and have Piercing (2). Attacks made with Mantis
-          Claws deal Blade type damage. Additionally, gain +1 bonus die to climbing
-          related checks. While disabled, the claws may not be activated, however
-          the bonuses from already having them extended remain in effect.'
+          your REF (rounded up) + 1, and have Piercing (2). Additionally, gain +1
+          bonus die to climbing related checks. While shut down, the claws do not
+          gain any attack bonuses, however the climbing bonus remains in effect.
+
+
+          Attacks made with Mantis Claws always deal Blade type damage.'
         spans: []
       - text: '3'
         spans: []
@@ -1599,8 +1634,8 @@ sections:
     - type: list
       ordered: false
       items:
-      - text: Activating requires 1 action (on your turn) or 1 reaction (not on your
-          turn).
+      - text: Attempting to activate cyberware requires 1 action (on your turn) or
+          1 reaction (not on your turn).
         spans: []
       - text: Benefitting from the bonus a Cyberware implant gives you does not cost
           any actions.
@@ -1611,19 +1646,19 @@ sections:
       - text: Having Cyberware installed does not increase your bulk.
         spans: []
     - type: paragraph
-      text: Each time cyberware is activated, roll Cyberware (DC 4 + total cyberware
+      text: Each time cyberware is activated, roll Cybernetics (DC 4 + total cyberware
         value).
       spans:
       - style: bold
-        text: Cyberware (DC 4 + total cyberware value)
+        text: Cybernetics (DC 4 + total cyberware value)
     - type: list
       ordered: false
       items:
-      - text: 'Success: cyberware activates normally'
+      - text: 'Success: cyberware activates normally.'
         spans:
         - style: bold
           text: Success
-      - text: 'Failure: cyberware activates normally but takes 1 damage'
+      - text: 'Failure: cyberware activates normally but takes 1 damage after activation.'
         spans:
         - style: bold
           text: Failure
@@ -1637,7 +1672,7 @@ sections:
       level: 4
       content:
       - type: paragraph
-        text: A character’s total cyberware value equals each booted up piece of cyberwear’s
+        text: A character’s total cyberware value equals each booted up piece of cyberware’s
           Tier value added together. Thus a character with two Tier 1 implants has
           a total cyberware value of 2, while a character with a Tier 2 implant and
           a Tier 3 implant has a total cyberware value of 5.
@@ -1683,14 +1718,14 @@ sections:
       level: 4
       content:
       - type: paragraph
-        text: If at any time a character boots up cyberware and his total cyberware
-          value exceeds his Cybernetics skill rank, he is considered to be in a state
-          of Cyberware Overload. When a character enters this state (and at the beginning
-          of every turn afterward), he must roll a Cybernetics (DC4 + total cyberwear
-          value) check.
+        text: If at any time (and as long as) a character’s total cyberware value
+          exceeds his Cybernetics skill rank or a character has a glitchy implant
+          booted up, he is considered to be in a state of Cyberware Overload. When
+          a character enters this state (and at the beginning of every turn afterward),
+          he must roll a Cybernetics (DC4 + total cyberware value) check.
         spans:
         - style: bold
-          text: Cybernetics (DC4 + total cyberwear value)
+          text: Cybernetics (DC4 + total cyberware value)
       - type: list
         ordered: false
         items:
@@ -1746,15 +1781,15 @@ sections:
       - type: list
         ordered: false
         items:
-        - text: Success, the cyberware is installed properly.
+        - text: Success, the procedure completes successfully.
           spans:
           - style: bold
             text: Success
-        - text: Failure, the process fails and the subject takes 1 damage.
+        - text: Failure, the procedure fails and the subject takes 1 damage.
           spans:
           - style: bold
             text: Failure
-        - text: Extreme failure, the process fails, the cyberware takes 1d4 damage,
+        - text: Extreme failure, the procedure fails, the cyberware takes 1d4 damage,
             and the subject takes 2 damage.
           spans:
           - style: bold
@@ -1787,7 +1822,9 @@ sections:
       - type: paragraph
         text: Attempting to repair damaged cyberware may be done after the First Aid
           roll as well; the process for this is the same as repairing other equipment
-          (see Repair and Modification above).
+          (see Repair and Modification above). When attempting to repair glitchy cyberware,
+          the process is the same as for repairing 1 point of durability. If the repair
+          check is successful, the cyberware is no longer glitchy.
         spans:
         - style: bold
           text: First Aid roll
@@ -1807,11 +1844,11 @@ sections:
         spans: []
       - type: paragraph
         text: After any cyberware work (installing, repairing, removing) whether done
-          by a ripper doc or not, the character must make a Cybernetics check (DC
-          4 + their total cyberware value) or suffer +2 stress.
+          by a ripper doc or not, the character must succeed at a Cybernetics check
+          (DC 4 + installed cyberware’s Tier) or suffer +2 stress.
         spans:
         - style: bold
-          text: Cybernetics check (DC 4 + their total cyberware value)
+          text: Cybernetics check (DC 4 + installed cyberware’s Tier)
       sections:
       - title: External Factors
         slug: external-factors

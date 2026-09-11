@@ -44,6 +44,11 @@ items:
     uses: Permanent
     bulk: 1
     cost: 400
+  - name: Energy Core
+    effect: A mobile power source capable of powering Power Armour.
+    uses: 5 uses
+    bulk: 1
+    cost: 2500
   - name: Weapon Scope (mod)
     effect: Simple Modification. Grants +1 bonus die to called shots at medium range
       and farther; inflicts +1 penalty die to attacks at Near range or nearer
@@ -73,7 +78,7 @@ items:
   - name: Quick Release Harness (mod)
     effect: Reduces time to put on or take off armour by half (rounded down).
     uses: Permanent
-    bulk: 2
+    bulk: 1
     cost: 1000
   - name: Reinforced Helmet (mod)
     effect: "Expert Modification. Gain +2 Protection against attacks made with

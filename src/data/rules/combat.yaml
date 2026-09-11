@@ -263,9 +263,6 @@ sections:
           spans: []
         - text: '4'
           spans: []
-    - type: paragraph
-      text: Weapons that list zero or no damage instead deal half critical hit damage.
-      spans: []
     - type: table
       rows:
       - - &id002
@@ -392,11 +389,13 @@ sections:
       items:
       - text: Target must drop what it’s holding
         spans: []
-      - text: Inflict -1 damage on this attack
-        spans: []
     - type: paragraph
       text: The GM may allow other called shot locations using the above examples
         as a guideline.
+      spans: []
+    - type: paragraph
+      text: Conditions and other effects caused by a called shot apply only if the
+        attack wounds the target (deals damage through worn armour).
       spans: []
     sections: []
   - title: Melee attacks
@@ -944,10 +943,10 @@ sections:
         - text: 1 action
           spans: []
         - text: 'Choose a direction or a location within your weapon’s range, then
-            spend 1-3 ammo. Until the start of your next turn, the first time each
-            enemy you can see enters or moves from that direction or location, they
-            must make a Cool Under Fire (DC4 + ammo used) check. This effect occurs
-            once per ammo spent, up to a maximum of three times.
+            spend 1 ammo. Until the start of your next turn, the first time each enemy
+            you can see enters or moves from that direction or location, they must
+            make a Cool Under Fire (DC4 + ammo used) check. This effect occurs once
+            per ammo spent, up to a maximum of three times.
 
 
             Suppressing fire may only be used with a ranged weapon.'

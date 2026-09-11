@@ -220,7 +220,8 @@
       "cost": 450,
       "keywords": [
         "Stun (1)",
-        "Crit (Stun (1))"
+        "Crit (Stun (1))",
+        "Nonlethal"
       ],
       "damageType": "Energy"
     },

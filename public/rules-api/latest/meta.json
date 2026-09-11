@@ -1,14 +1,14 @@
 {
   "version": "0.2.0",
-  "generatedAt": "2026-09-11T03:22:12.039Z",
+  "generatedAt": "2026-09-11T05:05:52.310Z",
   "files": {
     "skills.json": {
       "sha256": "bfac1c04a8924cb564578fd830930191ffa9a4c674c19430f860a9e5dbf7c169",
       "bytes": 4702
     },
     "weapons.json": {
-      "sha256": "09537d48a21acb8bbcc642380654a3611992a737afaab37eabb166f94a52cf97",
-      "bytes": 5450
+      "sha256": "04247512e9304a8c97f531a39c666b9423f82b072005cdd6db91ac744fc15263",
+      "bytes": 5471
     },
     "armour.json": {
       "sha256": "a7f045b91f5a70de3cd3adc7af5a6bf71b9d74570c9bd86444a03d78f5338edd",
@@ -19,12 +19,12 @@
       "bytes": 2165
     },
     "items.json": {
-      "sha256": "015dd5d08140fe3126beb70f5b6a7d45af1831bc84357ebddb9e52f6120410c7",
-      "bytes": 4167
+      "sha256": "ad0fc71e95126a02428bd7676ae80f0f7e5814e4ac5ab087885e0dbdc3d140de",
+      "bytes": 4344
     },
     "cyberware.json": {
-      "sha256": "99be085abbeb1ffe552da7387b4f88ab97dae521e1390f93673fc31190c782b0",
-      "bytes": 7247
+      "sha256": "a1a429480ff0ffea783c0cfd3af6ebc117fefc919e900ee0adc2ec62206a6a33",
+      "bytes": 7466
     },
     "narcotics.json": {
       "sha256": "d49b29b43297c8e0628f7bf4fd41ce544bddb1578a1e4b68dab9ebd278d37e40",
@@ -35,12 +35,12 @@
       "bytes": 1086
     },
     "rules.json": {
-      "sha256": "5883d3f81669474615170b27d038a53627c916bb8c1cb17d0958b816d5e7bee7",
-      "bytes": 758296
+      "sha256": "ea2a2073b005e3451f86a7f913527d4014c52c790bf5fe119594232506e1ac72",
+      "bytes": 760535
     },
     "skill_tooltips.json": {
-      "sha256": "f7e637b2dad956827264229a0a76260a4b61397790a9f60d09bfc783d4754243",
-      "bytes": 16829
+      "sha256": "24902ef25143431858589cbe81f24ebac787334424b633a11f3ccb6a91817a60",
+      "bytes": 16832
     },
     "core/combat.js": {
       "sha256": "4b8d4c01b283fc119fd1b71a32f7f5ab06f948a541af1f44074a00a0e81c1dd7",

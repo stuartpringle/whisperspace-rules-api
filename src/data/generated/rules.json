@@ -2939,7 +2939,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Can incorporate one level of cybernetic implant per level of this skill. So with 3 points in Cybernetics, you could equip one Level 2 cybernetic implant plus one Level 1 implant, three Level 1 implants, or one Level 3 implant.",
+                      "text": "Can safely run one level of cybernetic implant per level of this skill. So with 3 points in Cybernetics, you could boot up one Level 2 cybernetic implant plus one Level 1 implant, three Level 1 implants, or one Level 3 implant.",
                       "spans": []
                     }
                   ],
@@ -4730,11 +4730,6 @@
                 ]
               },
               {
-                "type": "paragraph",
-                "text": "Weapons that list zero or no damage instead deal half critical hit damage.",
-                "spans": []
-              },
-              {
                 "type": "table",
                 "rows": [
                   [
@@ -4966,16 +4961,17 @@
                   {
                     "text": "Target must drop what it’s holding",
                     "spans": []
-                  },
-                  {
-                    "text": "Inflict -1 damage on this attack",
-                    "spans": []
                   }
                 ]
               },
               {
                 "type": "paragraph",
                 "text": "The GM may allow other called shot locations using the above examples as a guideline.",
+                "spans": []
+              },
+              {
+                "type": "paragraph",
+                "text": "Conditions and other effects caused by a called shot apply only if the attack wounds the target (deals damage through worn armour).",
                 "spans": []
               }
             ],
@@ -5843,7 +5839,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Choose a direction or a location within your weapon’s range, then spend 1-3 ammo. Until the start of your next turn, the first time each enemy you can see enters or moves from that direction or location, they must make a Cool Under Fire (DC4 + ammo used) check. This effect occurs once per ammo spent, up to a maximum of three times.\n\nSuppressing fire may only be used with a ranged weapon.",
+                      "text": "Choose a direction or a location within your weapon’s range, then spend 1 ammo. Until the start of your next turn, the first time each enemy you can see enters or moves from that direction or location, they must make a Cool Under Fire (DC4 + ammo used) check. This effect occurs once per ammo spent, up to a maximum of three times.\n\nSuppressing fire may only be used with a ranged weapon.",
                       "spans": [
                         {
                           "style": "bold",
@@ -10172,7 +10168,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Stun (1), Crit (Stun (1))",
+                  "text": "Stun (1), Crit (Stun (1)), Nonlethal",
                   "spans": []
                 },
                 {
@@ -10386,7 +10382,7 @@
                   "spans": []
                 },
                 {
-                  "text": "When attacking with this weapon, you may choose to spend 3 or 6 ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage on a hit. An attack this way cannot be a Called Shot or deal critical hit damage (though other critical hit effects may apply).\n\nAdditionally, Automatic weapons may spend additional ammo on the Suppressing Fire combat action.",
+                  "text": "When attacking with this weapon, you may choose to spend 3 or 6 ammo instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage on a hit. An attack this way cannot be a Called Shot or deal critical hit damage (though other critical hit effects may apply).\n\nAdditionally, Automatic weapons may spend up to 3 ammo on the Suppressing Fire combat action.",
                   "spans": [
                     {
                       "style": "link_underline",
@@ -10412,7 +10408,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Deals damage to all targets at X distance or closer.",
+                  "text": "Deals damage to all targets at X distance or closer, centred on the location hit. Targets behind cover from this damage reduce damage taken and any additional effects applied by 1 (partial cover) or 3 (full cover). On a missed Area (X) attack, the GM determines another reasonable location of impact from which the attack applies its damage and effects to.",
                   "spans": []
                 }
               ],
@@ -10493,8 +10489,23 @@
                     }
                   ]
                 }
+              ],
+              [
+                {
+                  "text": "Nonlethal",
+                  "spans": []
+                },
+                {
+                  "text": "This weapon cannot cause moderate or heavy wounds. Any damage it may deal that would cause a moderate or heavy wound is ignored.",
+                  "spans": []
+                }
               ]
             ]
+          },
+          {
+            "type": "paragraph",
+            "text": "Any keyword effects that could combine cumulatively should do so. For example, if two separate effects give an attack a Stun (X) value, combine the two. Stun (1) plus Stun (3) would become a single instance of Stun (4), as an example. Stun (1) and Toxin (1) would not combine since they are two different keyword effects.",
+            "spans": []
           },
           {
             "type": "table",
@@ -10924,7 +10935,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Requires 1 action and a Power Armour (DC = 6 + X) check to activate. Extreme Failure: become Immobile for 1 round.\n\nWhen successfully activated, Powered armour reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before deactivating and requiring a charge to be powered again.\n\nWhile inactive, Powered armour loses half its Protection value (rounded up) and gains Vulnerable (Blade 2). In addition, the wearer gains +1 penalty die to all PHYS and REF based checks.",
+                  "text": "Requires 1 action and a Power Armour (DC = 6 + X) check to activate. Extreme Failure: become Immobile for 1 round.\n\nWhen successfully activated, Powered armour reduces its own bulk by X and grants +1 bonus die to all PHYS based checks. Using Melee (unarmed) or Melee (weapons) damage deals an additional X damage to the target.\n\nPowered armour may remain powered for X * 4 rounds before deactivating and requiring either a new Energy Core or at least 1 hour spent charging at a power source (such as a ship’s power core or a colony’s generator) to be powered again.\n\nWhile inactive, Powered armour loses half its Protection value (rounded up) and gains Vulnerable (Blade 2). In addition, the wearer gains +1 penalty die to all PHYS and REF based checks.",
                   "spans": []
                 }
               ],
@@ -11264,6 +11275,28 @@
               ],
               [
                 {
+                  "text": "Energy Core",
+                  "spans": []
+                },
+                {
+                  "text": "A mobile power source capable of powering Power Armour.",
+                  "spans": []
+                },
+                {
+                  "text": "5 uses",
+                  "spans": []
+                },
+                {
+                  "text": "1",
+                  "spans": []
+                },
+                {
+                  "text": "2500",
+                  "spans": []
+                }
+              ],
+              [
+                {
                   "text": "Weapon Scope (mod)",
                   "spans": []
                 },
@@ -11386,7 +11419,7 @@
                   "spans": []
                 },
                 {
-                  "text": "2",
+                  "text": "1",
                   "spans": []
                 },
                 {
@@ -11726,7 +11759,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Ignore the effects of EMP once per day.",
+                  "text": "Activate as a reaction before being affected by incoming EMP. The EMP has no effect on installed cyberware.\n\nOnce activated, EMP Shielding cannot be reactivated for 10 minutes.",
                   "spans": []
                 },
                 {
@@ -11816,7 +11849,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Highly illegal; when installed, is given a mandate such as “don’t go to the police”. If the host violates this mandate, the Skull Popper explodes, killing the host. The more specific the mandate, the better the implant functions. A Skull Popper that is disabled will automatically detonate; if disabled by EMP, there is a 75% chance it will detonate.",
+                  "text": "Highly illegal; when installed, is given a mandate such as “don’t go to the police”. If the host violates this mandate, the Skull Popper explodes, killing the host. The more specific the mandate, the better the implant functions. A Skull Popper boosts automatically when installation is completed and cannot be voluntarily shut down. If it is forced to shut down or reduced to 0 durability, roll 1d12. On a result of 1-9, it detonates.",
                   "spans": []
                 },
                 {
@@ -12086,7 +12119,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Activating the claws extends them from your arms. They then remain extended until they are activated again, which retracts them.\n\nWhile extended, gain: PHYS unarmed attacks deal damage equal to your PHYS + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half your REF (rounded up) + 1, and have Piercing (2). Attacks made with Mantis Claws deal Blade type damage. Additionally, gain +1 bonus die to climbing related checks. While disabled, the claws may not be activated, however the bonuses from already having them extended remain in effect.",
+                  "text": "Activating the claws extends them from your arms. They then remain extended until they are activated again, which retracts them.\n\nWhile extended, gain: PHYS unarmed attacks deal damage equal to your PHYS + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half your REF (rounded up) + 1, and have Piercing (2). Additionally, gain +1 bonus die to climbing related checks. While shut down, the claws do not gain any attack bonuses, however the climbing bonus remains in effect.\n\nAttacks made with Mantis Claws always deal Blade type damage.",
                   "spans": []
                 },
                 {
@@ -12255,7 +12288,7 @@
                 "ordered": false,
                 "items": [
                   {
-                    "text": "Activating requires 1 action (on your turn) or 1 reaction (not on your turn).",
+                    "text": "Attempting to activate cyberware requires 1 action (on your turn) or 1 reaction (not on your turn).",
                     "spans": []
                   },
                   {
@@ -12274,11 +12307,11 @@
               },
               {
                 "type": "paragraph",
-                "text": "Each time cyberware is activated, roll Cyberware (DC 4 + total cyberware value).",
+                "text": "Each time cyberware is activated, roll Cybernetics (DC 4 + total cyberware value).",
                 "spans": [
                   {
                     "style": "bold",
-                    "text": "Cyberware (DC 4 + total cyberware value)"
+                    "text": "Cybernetics (DC 4 + total cyberware value)"
                   }
                 ]
               },
@@ -12287,7 +12320,7 @@
                 "ordered": false,
                 "items": [
                   {
-                    "text": "Success: cyberware activates normally",
+                    "text": "Success: cyberware activates normally.",
                     "spans": [
                       {
                         "style": "bold",
@@ -12296,7 +12329,7 @@
                     ]
                   },
                   {
-                    "text": "Failure: cyberware activates normally but takes 1 damage",
+                    "text": "Failure: cyberware activates normally but takes 1 damage after activation.",
                     "spans": [
                       {
                         "style": "bold",
@@ -12324,7 +12357,7 @@
                 "content": [
                   {
                     "type": "paragraph",
-                    "text": "A character’s total cyberware value equals each booted up piece of cyberwear’s Tier value added together. Thus a character with two Tier 1 implants has a total cyberware value of 2, while a character with a Tier 2 implant and a Tier 3 implant has a total cyberware value of 5.",
+                    "text": "A character’s total cyberware value equals each booted up piece of cyberware’s Tier value added together. Thus a character with two Tier 1 implants has a total cyberware value of 2, while a character with a Tier 2 implant and a Tier 3 implant has a total cyberware value of 5.",
                     "spans": []
                   }
                 ],
@@ -12378,11 +12411,11 @@
                 "content": [
                   {
                     "type": "paragraph",
-                    "text": "If at any time a character boots up cyberware and his total cyberware value exceeds his Cybernetics skill rank, he is considered to be in a state of Cyberware Overload. When a character enters this state (and at the beginning of every turn afterward), he must roll a Cybernetics (DC4 + total cyberwear value) check.",
+                    "text": "If at any time (and as long as) a character’s total cyberware value exceeds his Cybernetics skill rank or a character has a glitchy implant booted up, he is considered to be in a state of Cyberware Overload. When a character enters this state (and at the beginning of every turn afterward), he must roll a Cybernetics (DC4 + total cyberware value) check.",
                     "spans": [
                       {
                         "style": "bold",
-                        "text": "Cybernetics (DC4 + total cyberwear value)"
+                        "text": "Cybernetics (DC4 + total cyberware value)"
                       }
                     ]
                   },
@@ -12471,7 +12504,7 @@
                     "ordered": false,
                     "items": [
                       {
-                        "text": "Success, the cyberware is installed properly.",
+                        "text": "Success, the procedure completes successfully.",
                         "spans": [
                           {
                             "style": "bold",
@@ -12480,7 +12513,7 @@
                         ]
                       },
                       {
-                        "text": "Failure, the process fails and the subject takes 1 damage.",
+                        "text": "Failure, the procedure fails and the subject takes 1 damage.",
                         "spans": [
                           {
                             "style": "bold",
@@ -12489,7 +12522,7 @@
                         ]
                       },
                       {
-                        "text": "Extreme failure, the process fails, the cyberware takes 1d4 damage, and the subject takes 2 damage.",
+                        "text": "Extreme failure, the procedure fails, the cyberware takes 1d4 damage, and the subject takes 2 damage.",
                         "spans": [
                           {
                             "style": "bold",
@@ -12548,7 +12581,7 @@
                   },
                   {
                     "type": "paragraph",
-                    "text": "Attempting to repair damaged cyberware may be done after the First Aid roll as well; the process for this is the same as repairing other equipment (see Repair and Modification above).",
+                    "text": "Attempting to repair damaged cyberware may be done after the First Aid roll as well; the process for this is the same as repairing other equipment (see Repair and Modification above). When attempting to repair glitchy cyberware, the process is the same as for repairing 1 point of durability. If the repair check is successful, the cyberware is no longer glitchy.",
                     "spans": [
                       {
                         "style": "bold",
@@ -12573,11 +12606,11 @@
                   },
                   {
                     "type": "paragraph",
-                    "text": "After any cyberware work (installing, repairing, removing) whether done by a ripper doc or not, the character must make a Cybernetics check (DC 4 + their total cyberware value) or suffer +2 stress.",
+                    "text": "After any cyberware work (installing, repairing, removing) whether done by a ripper doc or not, the character must succeed at a Cybernetics check (DC 4 + installed cyberware’s Tier) or suffer +2 stress.",
                     "spans": [
                       {
                         "style": "bold",
-                        "text": "Cybernetics check (DC 4 + their total cyberware value)"
+                        "text": "Cybernetics check (DC 4 + installed cyberware’s Tier)"
                       }
                     ]
                   }
@@ -16924,7 +16957,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1789100521844050&usg=AOvVaw1Xwhp25mNdZHhAAPITKak0"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1789106741971859&usg=AOvVaw0JiqWy5jeExX87QYyf6Cer"
               }
             ]
           }
