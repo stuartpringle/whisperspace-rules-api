@@ -14,6 +14,7 @@ const OUT_ITEMS = path.join(ROOT, "src", "data", "items.yaml");
 const OUT_CYBERWARE = path.join(ROOT, "src", "data", "cyberware.yaml");
 const OUT_NARCOTICS = path.join(ROOT, "src", "data", "narcotics.yaml");
 const OUT_HACKING = path.join(ROOT, "src", "data", "hacking_gear.yaml");
+const OUT_WEAPON_KEYWORDS = path.join(ROOT, "src", "data", "weapon_keywords.yaml");
 
 function slugify(name) {
   return String(name || "")
@@ -267,7 +268,6 @@ function parseCyberware(tableRows) {
       installationDifficulty,
       requirements: requirements || "-",
       physicalImpact,
-      bulk: 1,
       cost,
     });
   }
@@ -322,6 +322,19 @@ function parseSoftware(tableRows) {
   return out;
 }
 
+function parseWeaponKeywords(tableRows) {
+  // Unlike the other gear tables, this one has no header row: row 0 is the
+  // title bar, and every row after that is a name/description pair.
+  const out = [];
+  for (const row of tableRows.slice(1)) {
+    const name = (row[0] ?? "").trim();
+    const description = (row[1] ?? "").trim();
+    if (!name) continue;
+    out.push({ name, description });
+  }
+  return out;
+}
+
 function writeYaml(filePath, data) {
   const doc = YAML.stringify(data, { indent: 2 });
   fs.writeFileSync(filePath, doc, "utf8");
@@ -343,6 +356,7 @@ function main() {
   let narcotics = [];
   let rigs = [];
   let software = [];
+  let weaponKeywords = [];
 
   for (const table of tables) {
     const rows = tableToTextRows(table);
@@ -355,6 +369,7 @@ function main() {
     else if (cat === "narcotics") narcotics = parseNarcotics(rows);
     else if (cat === "rigs") rigs = parseRigs(rows);
     else if (cat === "software") software = parseSoftware(rows);
+    else if (cat === "weapon keywords") weaponKeywords = parseWeaponKeywords(rows);
   }
 
   writeYaml(OUT_WEAPONS, { weapons });
@@ -363,8 +378,9 @@ function main() {
   writeYaml(OUT_CYBERWARE, { cyberware });
   writeYaml(OUT_NARCOTICS, { narcotics });
   writeYaml(OUT_HACKING, { rigs, software });
+  writeYaml(OUT_WEAPON_KEYWORDS, { keywords: weaponKeywords });
 
-  console.log("[parse-gear] Wrote weapons, armour, items, cyberware, narcotics, hacking_gear.");
+  console.log("[parse-gear] Wrote weapons, armour, items, cyberware, narcotics, hacking_gear, weapon_keywords.");
 }
 
 main();

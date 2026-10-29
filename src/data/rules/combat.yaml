@@ -3,9 +3,11 @@ slug: combat
 level: 1
 content:
 - type: paragraph
-  text: Combat is tracked through rounds. Before the first round, the GM will call
-    for a Reflex check from each player (and will roll for NPCs). This determines
-    the initiative order for each round of combat (highest result to lowest).
+  text: Combat is tracked through rounds. Each round represents 6 seconds in-game
+    time passing. Thus, 10 rounds in turn-based play equates to one minute passing.
+    Before the first round, the GM will call for a Reflex check from each player (and
+    will roll for NPCs). This determines the initiative order for each round of combat
+    (highest result to lowest).
   spans: []
 sections:
 - title: Action Economy

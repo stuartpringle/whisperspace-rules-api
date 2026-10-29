@@ -1,44 +1,64 @@
 keywords:
-  - name: Concealable
-    description: "May be hidden easily. +1 bonus die to Subterfuge if trying to conceal this weapon."
-
-  - name: Piercing X
-    description: "Ignores X points of armor protection."
-
-  - name: Point Blank
-    description: "Ignore penalty die from shooting at Melee or Near range. At Melee range, gain Piercing 2."
-
+  - name: Piercing (X)
+    description: Ignores X points of armor protection.
+  - name: Point Blank (X)
+    description: Ignore penalty die imposed by the weapon’s Type when attacking at
+      Melee or Very Near range. At these ranges, it deals X additional damage.
+      Beyond its listed range, reduce its damage by 1 for each additional range
+      band. In addition, it cannot critically hit beyond its listed Range.
   - name: Slow Load
-    description: "Takes 2 actions to reload."
-
-  - name: Smart-Linked
-    description: "Requires Ammo (SMART); negate one level of cover (Full -> Partial; Partial negated). Target must be visible and bullets must have a path."
-
-  - name: Stun X
-    description: "Deals no damage, but forces target to roll Toughness (DC 6 + X) or be Stunned for X rounds."
-
+    description: Takes 2 actions to reload.
+  - name: Stun (X)
+    description: On a hit, target must roll Toughness (DC 6 + X) or be Stunned for X rounds.
   - name: Two-Handed
-    description: "Requires both hands to use."
+    description: Requires both hands to use.
+  - name: Automatic
+    description: >-
+      When attacking with this weapon, you may choose to spend 3 or 6 ammo
+      instead of 1. For every 3 ammo spent, gain +1 bonus die and deal +1 damage
+      on a hit. An attack this way cannot be a Called Shot or deal critical hit
+      damage (though other critical hit effects may apply).
 
-  - name: Bullet Spray
-    description: >
-      Requires at least half ammo available. Targets multiple enemies in a cone; depletes remaining ammo; deals reduced damage; does friendly fire.
-      Make a single attack roll and compare it against the DC of each target in the spray zone (including cover bonuses). Each hit deals -1 damage.
 
-  - name: Shredding X
-    description: "If damage exceeds armour’s protection value, reduce armour’s durability by X."
-
+      Additionally, Automatic weapons may spend up to 3 ammo on the Suppressing
+      Fire combat action.
+  - name: Shredding (X)
+    description: If damage exceeds armour’s protection value, reduce armour’s
+      durability by X. If damage does not exceed armour’s protection value,
+      still reduce armour’s durability by 1.
   - name: Area (X)
-    description: "Deals damage to all targets at X distance or closer."
-
+    description: Deals damage to all targets at X distance or closer, centred on the
+      location hit. Targets behind cover from this damage reduce damage taken
+      and any additional effects applied by 1 (partial cover) or 3 (full cover).
+      On a missed Area (X) attack, the GM determines another reasonable location
+      of impact from which the attack applies its damage and effects to.
   - name: Thrown
-    description: "Weapon may be thrown without suffering a penalty die."
-
+    description: Weapon may be thrown without suffering a penalty die.
   - name: Grenade
-    description: >
-      Requires (and uses up) a grenade item, applying the effects and any damage the grenade deals upon a hit.
-      Additionally, deals this weapon’s damage to the target from the impact.
-      A failure to hit by 3 or less still grants the effect of the grenade used, but does not deal this weapon’s damage.
-
+    description: Requires (and uses up) a grenade item, applying the effects and any
+      damage the grenade deals upon a hit. Additionally, deals this weapon’s
+      damage as Blunt damage to the target from the impact. A failure to hit by
+      3 or less still grants the effect of the grenade used, but does not deal
+      this weapon’s damage to the target.
   - name: Toxin (X)
-    description: "Apply 1 level of X toxin upon successful attack."
+    description: Apply 1 level of X toxin upon successful attack.
+  - name: Req. (X)
+    description: Using this weapon requires at least the specified rank of the
+      specified attribute or skill. For example, Req. (PHYS 1) means you must
+      have at least 1 rank in your Physique attribute to use the weapon.
+      Attempting to use a weapon with a requirement you do not meet imposes +2
+      penalty dice on attack rolls.
+  - name: Crit (Effect)
+    description: "This weapon applies a specific effect in addition to normal
+      critical effects. For example, a weapon with Crit: Prone knocks the target
+      prone on a crit, while a weapon with Crit (Piercing (2)) adds Piercing (2)
+      to the attack (which stacks with all other Piercing from the weapon or
+      ammunition used). Crit effects stack cumulatively with regular weapon
+      effects."
+  - name: Type (Type)
+    description: This weapon’s damage is of the listed damage type. For example,
+      Type (Energy) would mean that this weapon deals Energy damage, whereas
+      Type (Explosive) would deal Explosive damage
+  - name: Nonlethal
+    description: This weapon cannot cause moderate or heavy wounds. Any damage it
+      may deal that would cause a moderate or heavy wound is ignored.

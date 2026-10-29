@@ -1391,7 +1391,7 @@ sections:
       - text: Highly illegal; when installed, is given a mandate such as “don’t go
           to the police”. If the host violates this mandate, the Skull Popper explodes,
           killing the host. The more specific the mandate, the better the implant
-          functions. A Skull Popper boosts automatically when installation is completed
+          functions. A Skull Popper boots automatically when installation is completed
           and cannot be voluntarily shut down. If it is forced to shut down or reduced
           to 0 durability, roll 1d12. On a result of 1-9, it detonates.
         spans: []
@@ -1538,8 +1538,12 @@ sections:
           While extended, gain: PHYS unarmed attacks deal damage equal to your PHYS
           + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half
           your REF (rounded up) + 1, and have Piercing (2). Additionally, gain +1
-          bonus die to climbing related checks. While shut down, the claws do not
-          gain any attack bonuses, however the climbing bonus remains in effect.
+          bonus die to climbing related checks.
+
+
+          While shut down, the claws cannot be extended or retracted. If already extended,
+          attacks with them use your normal unarmed damage. They do not gain any special
+          traits. The climbing bonus remains while the claws are extended.
 
 
           Attacks made with Mantis Claws always deal Blade type damage.'
@@ -1721,7 +1725,7 @@ sections:
         text: If at any time (and as long as) a character’s total cyberware value
           exceeds his Cybernetics skill rank or a character has a glitchy implant
           booted up, he is considered to be in a state of Cyberware Overload. When
-          a character enters this state (and at the beginning of every turn afterward),
+          a character enters this state (and at the beginning of every round afterward),
           he must roll a Cybernetics (DC4 + total cyberware value) check.
         spans:
         - style: bold
@@ -1845,10 +1849,10 @@ sections:
       - type: paragraph
         text: After any cyberware work (installing, repairing, removing) whether done
           by a ripper doc or not, the character must succeed at a Cybernetics check
-          (DC 4 + installed cyberware’s Tier) or suffer +2 stress.
+          (DC 4 + Tier of cyberware affected) or suffer +2 stress.
         spans:
         - style: bold
-          text: Cybernetics check (DC 4 + installed cyberware’s Tier)
+          text: Cybernetics check (DC 4 + Tier of cyberware affected)
       sections:
       - title: External Factors
         slug: external-factors

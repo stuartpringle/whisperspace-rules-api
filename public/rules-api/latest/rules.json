@@ -2939,7 +2939,7 @@
                       "spans": []
                     },
                     {
-                      "text": "Can safely run one level of cybernetic implant per level of this skill. So with 3 points in Cybernetics, you could boot up one Level 2 cybernetic implant plus one Level 1 implant, three Level 1 implants, or one Level 3 implant.",
+                      "text": "Can safely run one level of cybernetic implant per rank of this skill. So with 3 points in Cybernetics, you could boot up one Tier 2 cybernetic implant plus one Tier 1 implant, three Tier 1 implants, or one Tier 3 implant.",
                       "spans": []
                     }
                   ],
@@ -4331,7 +4331,7 @@
     "content": [
       {
         "type": "paragraph",
-        "text": "Combat is tracked through rounds. Before the first round, the GM will call for a Reflex check from each player (and will roll for NPCs). This determines the initiative order for each round of combat (highest result to lowest).",
+        "text": "Combat is tracked through rounds. Each round represents 6 seconds in-game time passing. Thus, 10 rounds in turn-based play equates to one minute passing. Before the first round, the GM will call for a Reflex check from each player (and will roll for NPCs). This determines the initiative order for each round of combat (highest result to lowest).",
         "spans": []
       }
     ],
@@ -11849,7 +11849,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Highly illegal; when installed, is given a mandate such as “don’t go to the police”. If the host violates this mandate, the Skull Popper explodes, killing the host. The more specific the mandate, the better the implant functions. A Skull Popper boosts automatically when installation is completed and cannot be voluntarily shut down. If it is forced to shut down or reduced to 0 durability, roll 1d12. On a result of 1-9, it detonates.",
+                  "text": "Highly illegal; when installed, is given a mandate such as “don’t go to the police”. If the host violates this mandate, the Skull Popper explodes, killing the host. The more specific the mandate, the better the implant functions. A Skull Popper boots automatically when installation is completed and cannot be voluntarily shut down. If it is forced to shut down or reduced to 0 durability, roll 1d12. On a result of 1-9, it detonates.",
                   "spans": []
                 },
                 {
@@ -12119,7 +12119,7 @@
                   "spans": []
                 },
                 {
-                  "text": "Activating the claws extends them from your arms. They then remain extended until they are activated again, which retracts them.\n\nWhile extended, gain: PHYS unarmed attacks deal damage equal to your PHYS + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half your REF (rounded up) + 1, and have Piercing (2). Additionally, gain +1 bonus die to climbing related checks. While shut down, the claws do not gain any attack bonuses, however the climbing bonus remains in effect.\n\nAttacks made with Mantis Claws always deal Blade type damage.",
+                  "text": "Activating the claws extends them from your arms. They then remain extended until they are activated again, which retracts them.\n\nWhile extended, gain: PHYS unarmed attacks deal damage equal to your PHYS + 2 and have Shredding (2). REF unarmed attacks deal damage equal to half your REF (rounded up) + 1, and have Piercing (2). Additionally, gain +1 bonus die to climbing related checks.\n\nWhile shut down, the claws cannot be extended or retracted. If already extended, attacks with them use your normal unarmed damage. They do not gain any special traits. The climbing bonus remains while the claws are extended.\n\nAttacks made with Mantis Claws always deal Blade type damage.",
                   "spans": []
                 },
                 {
@@ -12411,7 +12411,7 @@
                 "content": [
                   {
                     "type": "paragraph",
-                    "text": "If at any time (and as long as) a character’s total cyberware value exceeds his Cybernetics skill rank or a character has a glitchy implant booted up, he is considered to be in a state of Cyberware Overload. When a character enters this state (and at the beginning of every turn afterward), he must roll a Cybernetics (DC4 + total cyberware value) check.",
+                    "text": "If at any time (and as long as) a character’s total cyberware value exceeds his Cybernetics skill rank or a character has a glitchy implant booted up, he is considered to be in a state of Cyberware Overload. When a character enters this state (and at the beginning of every round afterward), he must roll a Cybernetics (DC4 + total cyberware value) check.",
                     "spans": [
                       {
                         "style": "bold",
@@ -12606,11 +12606,11 @@
                   },
                   {
                     "type": "paragraph",
-                    "text": "After any cyberware work (installing, repairing, removing) whether done by a ripper doc or not, the character must succeed at a Cybernetics check (DC 4 + installed cyberware’s Tier) or suffer +2 stress.",
+                    "text": "After any cyberware work (installing, repairing, removing) whether done by a ripper doc or not, the character must succeed at a Cybernetics check (DC 4 + Tier of cyberware affected) or suffer +2 stress.",
                     "spans": [
                       {
                         "style": "bold",
-                        "text": "Cybernetics check (DC 4 + installed cyberware’s Tier)"
+                        "text": "Cybernetics check (DC 4 + Tier of cyberware affected)"
                       }
                     ]
                   }
@@ -16957,7 +16957,7 @@
               {
                 "style": "link_underline",
                 "text": "Whisperspace Prebuilt Ships",
-                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1789106741971859&usg=AOvVaw0JiqWy5jeExX87QYyf6Cer"
+                "href": "https://www.google.com/url?q=https://docs.google.com/document/d/1XiRWRsOdGWYK-RYJuTo70ptH0Rf6Jq-AZNij4rZ43_o/edit?tab%3Dt.0%23heading%3Dh.athg476geqtz&sa=D&source=editors&ust=1790384410054620&usg=AOvVaw0reR7bZAMs0fzfP3YolkL7"
               }
             ]
           }
