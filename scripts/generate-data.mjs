@@ -365,6 +365,7 @@ function writeRulesApiBundle() {
     }
   }
 
+  meta.generatedAt = stableGeneratedAt(meta, path.join(rulesApiDirs[0], "meta.json"));
   writeChapterFiles(rulesApiDirs, meta);
 
   const metaJson = JSON.stringify(meta, null, 2) + "\n";
@@ -373,6 +374,24 @@ function writeRulesApiBundle() {
     fs.writeFileSync(metaPath, metaJson, "utf8");
     console.log(`[generate-data] Wrote ${path.relative(ROOT, metaPath)}`);
   }
+}
+
+// The hourly publish regenerates everything, so a fresh timestamp every run would make
+// meta.json (and anything keyed off it) look changed when nothing was. Keep the previous
+// generatedAt unless the version or any published file's hash actually changed.
+function stableGeneratedAt(meta, previousMetaPath) {
+  try {
+    const previous = JSON.parse(fs.readFileSync(previousMetaPath, "utf8"));
+    const sameFiles = JSON.stringify(sortedEntries(previous.files)) === JSON.stringify(sortedEntries(meta.files));
+    if (previous.version === meta.version && sameFiles && typeof previous.generatedAt === "string") {
+      return previous.generatedAt;
+    }
+  } catch {}
+  return meta.generatedAt;
+}
+
+function sortedEntries(object) {
+  return Object.entries(object || {}).sort(([a], [b]) => a.localeCompare(b));
 }
 
 // Last commit date of a rules YAML file, used to seed a chapter's updatedAt the first time

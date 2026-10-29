@@ -147,7 +147,7 @@ Key files:
 - `assets/images/*` (images referenced in rules content)
 - `skills.json`, `weapons.json`, `armour.json`, `items.json`, `cyberware.json`, `narcotics.json`, `hacking_gear.json`
 - `weapon_keywords.json`, `skill_tooltips.json`
-- `meta.json` (semver + hashes)
+- `meta.json` (semver + hashes; `generatedAt` only changes when the version or a published file's hash changes, so hourly publish runs with no rule edits leave it untouched)
 - `chapters/index.json` + `chapters/<slug>.json` (each chapter of `rules.json` as its own minified file, sized for AI tools/agents that can't take the full 760KB tree in one fetch; written by `generate:data`, not listed in `meta.json`). Each index entry has a content `sha256` and an `updatedAt` that only changes when that chapter's content changes (seeded from git history on first appearance); the docs sitemap uses it for `<lastmod>`.
 
 ### Skill Tooltips

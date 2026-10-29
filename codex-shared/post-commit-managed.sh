@@ -21,6 +21,12 @@ fi
 
 run_user_hook
 
+# Codex post-commit audits are disabled by default for now (2026-10-28): the local Codex
+# model config is failing. Set WS_ENABLE_POST_COMMIT_CODEX_AUDIT=1 to queue audits again.
+if [[ "${WS_ENABLE_POST_COMMIT_CODEX_AUDIT:-0}" != "1" ]]; then
+  exit 0
+fi
+
 if [[ "${WS_SKIP_POST_COMMIT_CODEX_AUDIT:-0}" == "1" ]]; then
   echo "[post-commit] skipped (WS_SKIP_POST_COMMIT_CODEX_AUDIT=1)"
   exit 0
