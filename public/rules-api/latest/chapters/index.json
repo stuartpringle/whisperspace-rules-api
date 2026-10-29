@@ -1,0 +1,246 @@
+{
+  "description": "Whisperspace TTRPG rules, one file per chapter. Each chapter file holds that chapter's nested sections (title, content blocks, sections) exactly as in rules.json.",
+  "version": "0.2.0",
+  "generatedAt": "2026-10-29T01:51:55.213Z",
+  "fullRulebook": "https://rules-api.whisperspace.com/rules-api/latest/rules.json",
+  "chapters": [
+    {
+      "title": "Archetypes and Feats",
+      "slug": "archetypes-and-feats",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/archetypes-and-feats.json",
+      "docsUrl": "https://docs.whisperspace.com/archetypes-and-feats/",
+      "bytes": 41904
+    },
+    {
+      "title": "Attributes and Skills",
+      "slug": "attributes-and-skills",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/attributes-and-skills.json",
+      "docsUrl": "https://docs.whisperspace.com/attributes-and-skills/",
+      "bytes": 16274
+    },
+    {
+      "title": "Character Creation",
+      "slug": "character-creation",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/character-creation.json",
+      "docsUrl": "https://docs.whisperspace.com/character-creation/",
+      "bytes": 12809
+    },
+    {
+      "title": "Character Progression",
+      "slug": "character-progression",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/character-progression.json",
+      "docsUrl": "https://docs.whisperspace.com/character-progression/",
+      "bytes": 834
+    },
+    {
+      "title": "Combat",
+      "slug": "combat",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/combat.json",
+      "docsUrl": "https://docs.whisperspace.com/combat/",
+      "bytes": 44778
+    },
+    {
+      "title": "Conditions",
+      "slug": "conditions",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/conditions.json",
+      "docsUrl": "https://docs.whisperspace.com/conditions/",
+      "bytes": 9759
+    },
+    {
+      "title": "Core Game Principles",
+      "slug": "core-game-principles",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/core-game-principles.json",
+      "docsUrl": "https://docs.whisperspace.com/core-game-principles/",
+      "bytes": 4071
+    },
+    {
+      "title": "Core Mechanics",
+      "slug": "core-mechanics",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/core-mechanics.json",
+      "docsUrl": "https://docs.whisperspace.com/core-mechanics/",
+      "bytes": 6426
+    },
+    {
+      "title": "Core Philosophies",
+      "slug": "core-philosophies",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/core-philosophies.json",
+      "docsUrl": "https://docs.whisperspace.com/core-philosophies/",
+      "bytes": 2285
+    },
+    {
+      "title": "Downtime",
+      "slug": "downtime",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/downtime.json",
+      "docsUrl": "https://docs.whisperspace.com/downtime/",
+      "bytes": 99
+    },
+    {
+      "title": "Empaths",
+      "slug": "empaths",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/empaths.json",
+      "docsUrl": "https://docs.whisperspace.com/empaths/",
+      "bytes": 13527
+    },
+    {
+      "title": "Environments",
+      "slug": "environments",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/environments.json",
+      "docsUrl": "https://docs.whisperspace.com/environments/",
+      "bytes": 992
+    },
+    {
+      "title": "Equipment & Gear",
+      "slug": "equipment-gear",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/equipment-gear.json",
+      "docsUrl": "https://docs.whisperspace.com/equipment-gear/",
+      "bytes": 57341
+    },
+    {
+      "title": "Exploration",
+      "slug": "exploration",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/exploration.json",
+      "docsUrl": "https://docs.whisperspace.com/exploration/",
+      "bytes": 108
+    },
+    {
+      "title": "Hacking",
+      "slug": "hacking",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/hacking.json",
+      "docsUrl": "https://docs.whisperspace.com/hacking/",
+      "bytes": 7667
+    },
+    {
+      "title": "Health & Wounds",
+      "slug": "health-wounds",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/health-wounds.json",
+      "docsUrl": "https://docs.whisperspace.com/health-wounds/",
+      "bytes": 4615
+    },
+    {
+      "title": "Movement",
+      "slug": "movement",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/movement.json",
+      "docsUrl": "https://docs.whisperspace.com/movement/",
+      "bytes": 13340
+    },
+    {
+      "title": "Nanomancy",
+      "slug": "nanomancy",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/nanomancy.json",
+      "docsUrl": "https://docs.whisperspace.com/nanomancy/",
+      "bytes": 19377
+    },
+    {
+      "title": "Resting",
+      "slug": "resting",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/resting.json",
+      "docsUrl": "https://docs.whisperspace.com/resting/",
+      "bytes": 241
+    },
+    {
+      "title": "Robots",
+      "slug": "robots",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/robots.json",
+      "docsUrl": "https://docs.whisperspace.com/robots/",
+      "bytes": 93
+    },
+    {
+      "title": "Running the Game",
+      "slug": "running-the-game",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/running-the-game.json",
+      "docsUrl": "https://docs.whisperspace.com/running-the-game/",
+      "bytes": 1206
+    },
+    {
+      "title": "Skippable Intro",
+      "slug": "skippable-intro",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/skippable-intro.json",
+      "docsUrl": "https://docs.whisperspace.com/skippable-intro/",
+      "bytes": 1238
+    },
+    {
+      "title": "Starships",
+      "slug": "starships",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/starships.json",
+      "docsUrl": "https://docs.whisperspace.com/starships/",
+      "bytes": 28914
+    },
+    {
+      "title": "Stealth",
+      "slug": "stealth",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/stealth.json",
+      "docsUrl": "https://docs.whisperspace.com/stealth/",
+      "bytes": 285
+    },
+    {
+      "title": "STEP 2 — Choose Role",
+      "slug": "step-2-choose-role",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-2-choose-role.json",
+      "docsUrl": "https://docs.whisperspace.com/step-2-choose-role/",
+      "bytes": 1166
+    },
+    {
+      "title": "STEP 3 — Assign Attributes",
+      "slug": "step-3-assign-attributes",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-3-assign-attributes.json",
+      "docsUrl": "https://docs.whisperspace.com/step-3-assign-attributes/",
+      "bytes": 1372
+    },
+    {
+      "title": "STEP 4 — Assign Skills",
+      "slug": "step-4-assign-skills",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-4-assign-skills.json",
+      "docsUrl": "https://docs.whisperspace.com/step-4-assign-skills/",
+      "bytes": 1441
+    },
+    {
+      "title": "STEP 5 — Add Combat Profile",
+      "slug": "step-5-add-combat-profile",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-5-add-combat-profile.json",
+      "docsUrl": "https://docs.whisperspace.com/step-5-add-combat-profile/",
+      "bytes": 1658
+    },
+    {
+      "title": "STEP 6 — Add 1–3 Specials",
+      "slug": "step-6-add-1-3-specials",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-6-add-1-3-specials.json",
+      "docsUrl": "https://docs.whisperspace.com/step-6-add-1-3-specials/",
+      "bytes": 983
+    },
+    {
+      "title": "STEP 7 — Write Tactics (Mandatory)",
+      "slug": "step-7-write-tactics-mandatory",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-7-write-tactics-mandatory.json",
+      "docsUrl": "https://docs.whisperspace.com/step-7-write-tactics-mandatory/",
+      "bytes": 3311
+    },
+    {
+      "title": "Stress",
+      "slug": "stress",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/stress.json",
+      "docsUrl": "https://docs.whisperspace.com/stress/",
+      "bytes": 13029
+    },
+    {
+      "title": "Table of Contents",
+      "slug": "table-of-contents",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/table-of-contents.json",
+      "docsUrl": "https://docs.whisperspace.com/table-of-contents/",
+      "bytes": 17959
+    },
+    {
+      "title": "TEP 1 — Choose Tier",
+      "slug": "tep-1-choose-tier",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/tep-1-choose-tier.json",
+      "docsUrl": "https://docs.whisperspace.com/tep-1-choose-tier/",
+      "bytes": 1441
+    },
+    {
+      "title": "The World",
+      "slug": "the-world",
+      "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/the-world.json",
+      "docsUrl": "https://docs.whisperspace.com/the-world/",
+      "bytes": 19077
+    }
+  ]
+}

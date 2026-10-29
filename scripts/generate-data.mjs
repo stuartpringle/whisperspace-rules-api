@@ -13,6 +13,11 @@ const SRC = path.join(ROOT, "src", "data");
 const OUT = path.join(SRC, "generated");
 const RULES_API_DIR = path.join(ROOT, "public", "rules-api", "latest");
 const RULES_API_PUBLISH_DIR = path.join(ROOT, "public", "rules-api", "latest");
+const RULES_API_PUBLIC_URL = (
+  process.env.RULES_API_PUBLIC_URL || "https://rules-api.whisperspace.com/rules-api/latest"
+).replace(/\/+$/, "");
+const DOCS_PUBLIC_URL = (process.env.DOCS_PUBLIC_URL || "https://docs.whisperspace.com").replace(/\/+$/, "");
+const SAFE_CHAPTER_SLUG_RE = /^[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
 
 //enable/disable the TAR behaviour here
 const ENABLE_ARCHIVE = false;
@@ -359,11 +364,63 @@ function writeRulesApiBundle() {
     }
   }
 
+  writeChapterFiles(rulesApiDirs, meta);
+
   const metaJson = JSON.stringify(meta, null, 2) + "\n";
   for (const dir of rulesApiDirs) {
     const metaPath = path.join(dir, "meta.json");
     fs.writeFileSync(metaPath, metaJson, "utf8");
     console.log(`[generate-data] Wrote ${path.relative(ROOT, metaPath)}`);
+  }
+}
+
+// rules.json is too large for AI tools and browsers-as-readers to take in one fetch, so each
+// chapter is also published on its own as chapters/<slug>.json (exactly one entry of
+// rules.json, minified), plus chapters/index.json listing them. These are extra files only:
+// rules.json and meta.json are unchanged, and the chapter files are not listed in meta.json.
+function writeChapterFiles(rulesApiDirs, meta) {
+  const rulesPath = path.join(OUT, "rules.json");
+  if (!fs.existsSync(rulesPath)) return;
+  const chapters = JSON.parse(fs.readFileSync(rulesPath, "utf8"));
+
+  const files = [];
+  const index = {
+    description:
+      "Whisperspace TTRPG rules, one file per chapter. Each chapter file holds that chapter's " +
+      "nested sections (title, content blocks, sections) exactly as in rules.json.",
+    version: meta.version,
+    generatedAt: meta.generatedAt,
+    fullRulebook: `${RULES_API_PUBLIC_URL}/rules.json`,
+    chapters: [],
+  };
+
+  for (const chapter of chapters) {
+    const slug = typeof chapter?.slug === "string" ? chapter.slug : "";
+    if (!SAFE_CHAPTER_SLUG_RE.test(slug)) {
+      console.warn(`[generate-data] Skipping chapter file for unsafe slug ${JSON.stringify(slug)}`);
+      continue;
+    }
+    const data = JSON.stringify(chapter) + "\n";
+    files.push({ name: `${slug}.json`, data });
+    index.chapters.push({
+      title: chapter.title,
+      slug,
+      url: `${RULES_API_PUBLIC_URL}/chapters/${slug}.json`,
+      docsUrl: `${DOCS_PUBLIC_URL}/${slug}/`,
+      bytes: Buffer.byteLength(data),
+    });
+  }
+  files.push({ name: "index.json", data: JSON.stringify(index, null, 2) + "\n" });
+
+  for (const dir of rulesApiDirs) {
+    // Rebuilt from scratch each run so chapters removed from the rulebook don't linger.
+    const chaptersDir = path.join(dir, "chapters");
+    fs.rmSync(chaptersDir, { recursive: true, force: true });
+    fs.mkdirSync(chaptersDir, { recursive: true });
+    for (const file of files) {
+      fs.writeFileSync(path.join(chaptersDir, file.name), file.data, "utf8");
+    }
+    console.log(`[generate-data] Wrote ${index.chapters.length} chapter files to ${path.relative(ROOT, chaptersDir)}`);
   }
 }
 

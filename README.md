@@ -148,6 +148,7 @@ Key files:
 - `skills.json`, `weapons.json`, `armour.json`, `items.json`, `cyberware.json`, `narcotics.json`, `hacking_gear.json`
 - `weapon_keywords.json`, `skill_tooltips.json`
 - `meta.json` (semver + hashes)
+- `chapters/index.json` + `chapters/<slug>.json` (each chapter of `rules.json` as its own minified file, sized for AI tools/agents that can't take the full 760KB tree in one fetch; written by `generate:data`, not listed in `meta.json`)
 
 ### Skill Tooltips
 
