@@ -1,7 +1,7 @@
 {
   "description": "Whisperspace TTRPG rules, one file per chapter. Each chapter file holds that chapter's nested sections (title, content blocks, sections) exactly as in rules.json.",
   "version": "0.2.0",
-  "generatedAt": "2026-10-29T01:51:55.213Z",
+  "updatedAt": "2026-10-29T01:57:24.000Z",
   "fullRulebook": "https://rules-api.whisperspace.com/rules-api/latest/rules.json",
   "chapters": [
     {
@@ -9,238 +9,306 @@
       "slug": "archetypes-and-feats",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/archetypes-and-feats.json",
       "docsUrl": "https://docs.whisperspace.com/archetypes-and-feats/",
-      "bytes": 41904
+      "bytes": 41904,
+      "sha256": "840ca64ddf524c9bd8fee3f47ebf9d68d56db72a76189448b6a180c6d2910ff9",
+      "updatedAt": "2026-09-11T03:26:08.000Z"
     },
     {
       "title": "Attributes and Skills",
       "slug": "attributes-and-skills",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/attributes-and-skills.json",
       "docsUrl": "https://docs.whisperspace.com/attributes-and-skills/",
-      "bytes": 16274
+      "bytes": 16274,
+      "sha256": "6a6b17917b8524b1f93057b187a66a747b0a979400e76740e8d4e56b9bcc1247",
+      "updatedAt": "2026-10-29T01:57:24.000Z"
     },
     {
       "title": "Character Creation",
       "slug": "character-creation",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/character-creation.json",
       "docsUrl": "https://docs.whisperspace.com/character-creation/",
-      "bytes": 12809
+      "bytes": 12809,
+      "sha256": "86f55cc1f4c049a0cfdae8aad31f7a929520f5d233c815d5b36d9148be3fafb5",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Character Progression",
       "slug": "character-progression",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/character-progression.json",
       "docsUrl": "https://docs.whisperspace.com/character-progression/",
-      "bytes": 834
+      "bytes": 834,
+      "sha256": "f3a5b623a0f0d95c87621c6bded1ff8ee287ddcf44fabd2a1e2b5d8c31475c41",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Combat",
       "slug": "combat",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/combat.json",
       "docsUrl": "https://docs.whisperspace.com/combat/",
-      "bytes": 44778
+      "bytes": 44778,
+      "sha256": "0b48b40128f37d04e4fbc2d22e633caa33f7f104656637e7cfb89f5d0d8abfa6",
+      "updatedAt": "2026-10-29T01:57:24.000Z"
     },
     {
       "title": "Conditions",
       "slug": "conditions",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/conditions.json",
       "docsUrl": "https://docs.whisperspace.com/conditions/",
-      "bytes": 9759
+      "bytes": 9759,
+      "sha256": "19f69bfd64df97b6d4dbb5f64d1035d3074a36708ee453ba80e82673bf1ca506",
+      "updatedAt": "2026-09-11T03:26:08.000Z"
     },
     {
       "title": "Core Game Principles",
       "slug": "core-game-principles",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/core-game-principles.json",
       "docsUrl": "https://docs.whisperspace.com/core-game-principles/",
-      "bytes": 4071
+      "bytes": 4071,
+      "sha256": "ee051f89102d79e187326bcb1f820ff418c8c9d8b403ba1324f0e0fe1c1ce31b",
+      "updatedAt": "2026-09-04T04:45:50.000Z"
     },
     {
       "title": "Core Mechanics",
       "slug": "core-mechanics",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/core-mechanics.json",
       "docsUrl": "https://docs.whisperspace.com/core-mechanics/",
-      "bytes": 6426
+      "bytes": 6426,
+      "sha256": "9268c7c41c97b62f7fa5531dc6f8ccab1a0e2e56198655bbf45a5d378099a6ef",
+      "updatedAt": "2026-09-11T03:26:08.000Z"
     },
     {
       "title": "Core Philosophies",
       "slug": "core-philosophies",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/core-philosophies.json",
       "docsUrl": "https://docs.whisperspace.com/core-philosophies/",
-      "bytes": 2285
+      "bytes": 2285,
+      "sha256": "13483197d565f28ccfcdcadb4d59675b3a7ebc32410a50b55ef9c81f68b90f39",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Downtime",
       "slug": "downtime",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/downtime.json",
       "docsUrl": "https://docs.whisperspace.com/downtime/",
-      "bytes": 99
+      "bytes": 99,
+      "sha256": "ddb80f4e3dd8f6730bfd9fc69e41c4c7a3232c9c4c7eb2b90544e45efcb1c8b5",
+      "updatedAt": "2026-02-08T21:47:30.000Z"
     },
     {
       "title": "Empaths",
       "slug": "empaths",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/empaths.json",
       "docsUrl": "https://docs.whisperspace.com/empaths/",
-      "bytes": 13527
+      "bytes": 13527,
+      "sha256": "a70a4cd8eb06410f8cdfb57a7c33dcad05b51a886ed5c1074776dc06f408401b",
+      "updatedAt": "2026-08-26T00:42:34.000Z"
     },
     {
       "title": "Environments",
       "slug": "environments",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/environments.json",
       "docsUrl": "https://docs.whisperspace.com/environments/",
-      "bytes": 992
+      "bytes": 992,
+      "sha256": "332680339309204f9a308930c220ae5ed4dadbf2b7ef37c27adc3082bdbf1186",
+      "updatedAt": "2026-02-08T21:47:30.000Z"
     },
     {
       "title": "Equipment & Gear",
       "slug": "equipment-gear",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/equipment-gear.json",
       "docsUrl": "https://docs.whisperspace.com/equipment-gear/",
-      "bytes": 57341
+      "bytes": 57341,
+      "sha256": "a8c4873c18283137f99a907a778835418bac43ba67d3c72c2426d4e754f51e9e",
+      "updatedAt": "2026-10-29T01:57:24.000Z"
     },
     {
       "title": "Exploration",
       "slug": "exploration",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/exploration.json",
       "docsUrl": "https://docs.whisperspace.com/exploration/",
-      "bytes": 108
+      "bytes": 108,
+      "sha256": "46dacd0bd33ece85176b43cdc585079a671697dc3512d553b3174d8bed3f81dc",
+      "updatedAt": "2026-02-08T21:47:30.000Z"
     },
     {
       "title": "Hacking",
       "slug": "hacking",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/hacking.json",
       "docsUrl": "https://docs.whisperspace.com/hacking/",
-      "bytes": 7667
+      "bytes": 7667,
+      "sha256": "ce4a6cecb06597c7fdafb623ad976850813f36847e85c4e4477772d8f281dc9f",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Health & Wounds",
       "slug": "health-wounds",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/health-wounds.json",
       "docsUrl": "https://docs.whisperspace.com/health-wounds/",
-      "bytes": 4615
+      "bytes": 4615,
+      "sha256": "44f9c2bb57491c768212238201eb0bd4cd773652e49448a488e7403e4b1d5080",
+      "updatedAt": "2026-09-06T05:49:50.000Z"
     },
     {
       "title": "Movement",
       "slug": "movement",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/movement.json",
       "docsUrl": "https://docs.whisperspace.com/movement/",
-      "bytes": 13340
+      "bytes": 13340,
+      "sha256": "c3e6ecb1156cfd2a9b65587773ab4bec2946a1b420c9e8c5629503671911111c",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Nanomancy",
       "slug": "nanomancy",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/nanomancy.json",
       "docsUrl": "https://docs.whisperspace.com/nanomancy/",
-      "bytes": 19377
+      "bytes": 19377,
+      "sha256": "dff447534e0ab946a8f0e9c5fe80e99fb935282369e6f7adc644ece9ada9c19f",
+      "updatedAt": "2026-08-26T00:42:34.000Z"
     },
     {
       "title": "Resting",
       "slug": "resting",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/resting.json",
       "docsUrl": "https://docs.whisperspace.com/resting/",
-      "bytes": 241
+      "bytes": 241,
+      "sha256": "a731a0edad5308003bfa0cda2fc7d3f9d6aeafb4617205e891b406499f1421d2",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Robots",
       "slug": "robots",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/robots.json",
       "docsUrl": "https://docs.whisperspace.com/robots/",
-      "bytes": 93
+      "bytes": 93,
+      "sha256": "78ab23d425fdf21304cca50366ac786398808d59093e01b273837d2e1cd04509",
+      "updatedAt": "2026-02-08T21:47:30.000Z"
     },
     {
       "title": "Running the Game",
       "slug": "running-the-game",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/running-the-game.json",
       "docsUrl": "https://docs.whisperspace.com/running-the-game/",
-      "bytes": 1206
+      "bytes": 1206,
+      "sha256": "35eda5da42a5f6bf4a278485ac215016b310c1b8f28d94f0c901e50d94c821ed",
+      "updatedAt": "2026-03-03T00:37:48.000Z"
     },
     {
       "title": "Skippable Intro",
       "slug": "skippable-intro",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/skippable-intro.json",
       "docsUrl": "https://docs.whisperspace.com/skippable-intro/",
-      "bytes": 1238
+      "bytes": 1238,
+      "sha256": "6a97200900969700090d74fecdc391b50e3f2502557db4f422c1730f7fb09a74",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Starships",
       "slug": "starships",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/starships.json",
       "docsUrl": "https://docs.whisperspace.com/starships/",
-      "bytes": 28914
+      "bytes": 28914,
+      "sha256": "6f6ddbdd244f449cd0a66ff2079f9447c37fac628328a8ecc59f0d0200a893ca",
+      "updatedAt": "2026-10-29T01:57:24.000Z"
     },
     {
       "title": "Stealth",
       "slug": "stealth",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/stealth.json",
       "docsUrl": "https://docs.whisperspace.com/stealth/",
-      "bytes": 285
+      "bytes": 285,
+      "sha256": "e4dc2f9ff33dbd7336b32bf8a5520ee646086a6ea8faf2cb9bf920f8296b7bfa",
+      "updatedAt": "2026-09-04T05:47:27.000Z"
     },
     {
       "title": "STEP 2 — Choose Role",
       "slug": "step-2-choose-role",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-2-choose-role.json",
       "docsUrl": "https://docs.whisperspace.com/step-2-choose-role/",
-      "bytes": 1166
+      "bytes": 1166,
+      "sha256": "5210bacac7f529751a88e250294ef5b90679ffe4c0615036242ddd9fe7fffa60",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "STEP 3 — Assign Attributes",
       "slug": "step-3-assign-attributes",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-3-assign-attributes.json",
       "docsUrl": "https://docs.whisperspace.com/step-3-assign-attributes/",
-      "bytes": 1372
+      "bytes": 1372,
+      "sha256": "2f05dc11cb46ff548a69b1f911ae5650a94d8dfec9a6ee5a1519742b16996588",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "STEP 4 — Assign Skills",
       "slug": "step-4-assign-skills",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-4-assign-skills.json",
       "docsUrl": "https://docs.whisperspace.com/step-4-assign-skills/",
-      "bytes": 1441
+      "bytes": 1441,
+      "sha256": "86921487698666587d27318e1d87078d4f012f7ba8e86306b32e39a5395d59ce",
+      "updatedAt": "2026-03-03T00:37:48.000Z"
     },
     {
       "title": "STEP 5 — Add Combat Profile",
       "slug": "step-5-add-combat-profile",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-5-add-combat-profile.json",
       "docsUrl": "https://docs.whisperspace.com/step-5-add-combat-profile/",
-      "bytes": 1658
+      "bytes": 1658,
+      "sha256": "915dca066df10a514cccfa956594164f57c5c97c318123c7885ff3e1418522c9",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "STEP 6 — Add 1–3 Specials",
       "slug": "step-6-add-1-3-specials",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-6-add-1-3-specials.json",
       "docsUrl": "https://docs.whisperspace.com/step-6-add-1-3-specials/",
-      "bytes": 983
+      "bytes": 983,
+      "sha256": "cf386f0a64d6ad9bad7c429cad85af32956e9c161c43a8f8f47f74cdafd57f9d",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "STEP 7 — Write Tactics (Mandatory)",
       "slug": "step-7-write-tactics-mandatory",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/step-7-write-tactics-mandatory.json",
       "docsUrl": "https://docs.whisperspace.com/step-7-write-tactics-mandatory/",
-      "bytes": 3311
+      "bytes": 3311,
+      "sha256": "68c3973a639b645ae0eaccfe9b9eaa8273e877059f927f27471801b0c60f2bdb",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Stress",
       "slug": "stress",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/stress.json",
       "docsUrl": "https://docs.whisperspace.com/stress/",
-      "bytes": 13029
+      "bytes": 13029,
+      "sha256": "2851fff09ff315d2c65d9a32ec54542658e89f4ce96749caebe2b84a4387daf2",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "Table of Contents",
       "slug": "table-of-contents",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/table-of-contents.json",
       "docsUrl": "https://docs.whisperspace.com/table-of-contents/",
-      "bytes": 17959
+      "bytes": 17959,
+      "sha256": "22787978bb6a2f00b833b5afdda266b1f93e9cbf9bae2bcebcdb2efc9aba3012",
+      "updatedAt": "2026-09-04T04:45:50.000Z"
     },
     {
       "title": "TEP 1 — Choose Tier",
       "slug": "tep-1-choose-tier",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/tep-1-choose-tier.json",
       "docsUrl": "https://docs.whisperspace.com/tep-1-choose-tier/",
-      "bytes": 1441
+      "bytes": 1441,
+      "sha256": "9ca1175d53a8d214d91bd18b9035dacd777c3ac4b45d4606b66f811e5684cf09",
+      "updatedAt": "2026-08-16T01:15:55.000Z"
     },
     {
       "title": "The World",
       "slug": "the-world",
       "url": "https://rules-api.whisperspace.com/rules-api/latest/chapters/the-world.json",
       "docsUrl": "https://docs.whisperspace.com/the-world/",
-      "bytes": 19077
+      "bytes": 19077,
+      "sha256": "28571f888e04410fdc937794c393db6d913ff68ea53715302d6574c9519714f0",
+      "updatedAt": "2026-02-08T21:47:30.000Z"
     }
   ]
 }

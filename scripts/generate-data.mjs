@@ -6,6 +6,7 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import crypto from "node:crypto";
+import { execFileSync } from "node:child_process";
 import YAML from "yaml";
 
 const ROOT = process.cwd();
@@ -374,14 +375,43 @@ function writeRulesApiBundle() {
   }
 }
 
+// Last commit date of a rules YAML file, used to seed a chapter's updatedAt the first time
+// it appears in the index (so existing chapters don't all claim to have changed today).
+function gitLastCommitDate(relativePath) {
+  try {
+    const out = execFileSync("git", ["log", "-1", "--format=%cI", "--", relativePath], {
+      cwd: ROOT,
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    return out ? new Date(out).toISOString() : "";
+  } catch {
+    return "";
+  }
+}
+
+function readPreviousChapterIndex(dir) {
+  try {
+    const previous = JSON.parse(fs.readFileSync(path.join(dir, "chapters", "index.json"), "utf8"));
+    return new Map((previous.chapters || []).map((entry) => [entry.slug, entry]));
+  } catch {
+    return new Map();
+  }
+}
+
 // rules.json is too large for AI tools and browsers-as-readers to take in one fetch, so each
 // chapter is also published on its own as chapters/<slug>.json (exactly one entry of
 // rules.json, minified), plus chapters/index.json listing them. These are extra files only:
 // rules.json and meta.json are unchanged, and the chapter files are not listed in meta.json.
+//
+// Each index entry carries a content hash and an updatedAt that only moves when that
+// chapter's content changes (the docs sitemap uses it for <lastmod>). The index has no
+// per-run timestamp, so the hourly publish leaves it untouched unless the rules changed.
 function writeChapterFiles(rulesApiDirs, meta) {
   const rulesPath = path.join(OUT, "rules.json");
   if (!fs.existsSync(rulesPath)) return;
   const chapters = JSON.parse(fs.readFileSync(rulesPath, "utf8"));
+  const previousBySlug = readPreviousChapterIndex(rulesApiDirs[0]);
 
   const files = [];
   const index = {
@@ -389,7 +419,7 @@ function writeChapterFiles(rulesApiDirs, meta) {
       "Whisperspace TTRPG rules, one file per chapter. Each chapter file holds that chapter's " +
       "nested sections (title, content blocks, sections) exactly as in rules.json.",
     version: meta.version,
-    generatedAt: meta.generatedAt,
+    updatedAt: "",
     fullRulebook: `${RULES_API_PUBLIC_URL}/rules.json`,
     chapters: [],
   };
@@ -401,6 +431,14 @@ function writeChapterFiles(rulesApiDirs, meta) {
       continue;
     }
     const data = JSON.stringify(chapter) + "\n";
+    const sha256 = crypto.createHash("sha256").update(data).digest("hex");
+    const previous = previousBySlug.get(slug);
+    let updatedAt = meta.generatedAt;
+    if (previous?.sha256 === sha256 && previous.updatedAt) {
+      updatedAt = previous.updatedAt;
+    } else if (!previous?.sha256) {
+      updatedAt = gitLastCommitDate(path.join("src", "data", "rules", chapter.file || "")) || updatedAt;
+    }
     files.push({ name: `${slug}.json`, data });
     index.chapters.push({
       title: chapter.title,
@@ -408,8 +446,14 @@ function writeChapterFiles(rulesApiDirs, meta) {
       url: `${RULES_API_PUBLIC_URL}/chapters/${slug}.json`,
       docsUrl: `${DOCS_PUBLIC_URL}/${slug}/`,
       bytes: Buffer.byteLength(data),
+      sha256,
+      updatedAt,
     });
   }
+  index.updatedAt = index.chapters.reduce(
+    (latest, entry) => (entry.updatedAt > latest ? entry.updatedAt : latest),
+    ""
+  );
   files.push({ name: "index.json", data: JSON.stringify(index, null, 2) + "\n" });
 
   for (const dir of rulesApiDirs) {
