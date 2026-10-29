@@ -62,6 +62,9 @@ declare -Ag WS_REPO_SLUGS=(
   ["rules-api"]="whisperspace-rules-api"
   ["rules-parser"]="whisperspace-rules-parser"
   ["sdk"]="whisperspace-sdk"
+  # Generated content only (Markdown export of the rules for AI tools); deliberately not in
+  # WS_REPO_KEYS, so code guardrails/hook sweeps skip it.
+  ["rules-markdown"]="whisperspace-rules"
 )
 
 declare -Ag WS_REPO_PATHS_NEW=(
@@ -75,6 +78,7 @@ declare -Ag WS_REPO_PATHS_NEW=(
   ["rules-api"]="${WS_ECOSYSTEM_ROOT}/rules-api"
   ["rules-parser"]="${WS_ECOSYSTEM_ROOT}/rules-parser"
   ["sdk"]="${WS_ECOSYSTEM_ROOT}/sdk"
+  ["rules-markdown"]="${WS_ECOSYSTEM_ROOT}/rules-markdown"
 )
 
 declare -Ag WS_REPO_PATHS_LEGACY=(
